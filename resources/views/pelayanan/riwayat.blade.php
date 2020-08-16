@@ -435,37 +435,6 @@
                                       </div>
                               </div>
                             </div>
-                            <div class="card card-default">
-                                <div class="card-header">
-                                  Catatan Fisik
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Tinggi:</label>
-                                        <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="tinggi" placeholder="cm">
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Berat:</label>
-                                        <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="berat" placeholder="kg">
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                          <label class="col-sm-4 col-form-label">Suhu Badan:</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="suhubadan" placeholder="C">
-                                          </div>
-                                        </div>
-                                      <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Diagnosa:</label>
-                                        <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="diagnosa" rows="2">
-                                        </div>
-                                      </div>
-                                </div>
-                              </div>
                           </div>
         </div>
 
@@ -499,12 +468,12 @@
                                     </div>
                                 </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">Ruangan:</label>
+                                                <label class="col-sm-4 col-form-label">Kamar:</label>
                                                 <div class="col-sm-8">
-                                                  <input type="text" class="form-control" name="ruangan" >
+                                                  <input type="text" class="form-control" name="kamar" >
                                                 </div>
                                               </div>
-                        Pasien diatas telah diizinkan pulang?
+                        Apakah Atas Nama Pasien diatas telah diizinkan pulang?
                            
                         </div>
                         <div class="modal-footer row">
@@ -516,11 +485,11 @@
                         </div>
                         </div>
 
-                        <div class="modal fade" id="modalHasilpemeriksaan" role="dialog">
+                        <div class="modal fade" id="modalPemeriksaan" role="dialog">
                                 <div class="modal-dialog modal-ld" role="document">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                      <h4 class="modal-title">Hasil Pemeriksaan</h4>
+                                      <h4 class="modal-title">Pemeriksan</h4>
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <form class="form-horizontal fromPasien" action="" method="post">
@@ -529,24 +498,24 @@
                                             <div class="form-group">
                                                     <label class="form-label">Tgl Pemeriksaan</label>
                                                     <div>
-                                                      <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
+                                                      <input id="tanggal" type="text" class="form-control" value="" name="tgl_pemeriksaan" readonly>
                                                     </div>
                                             <div class="form-group">
                                                             <label class="form-label">Jam Pemeriksaan</label>
                                                             <div>
-                                                              <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
+                                                              <input id="tanggal" type="text" class="form-control" value="" name="jam_pemeriksaan" readonly>
                                                             </div>
                     
                                             <div class="form-group row">
                                               <label class="col-sm-4 col-form-label">Jenis Pemeriksaan:</label>
                                               <div class="col-sm-8">
-                                                    <input type="text" class="form-control" name="nama_pasien" >
+                                                    <input type="text" class="form-control" name="jenis_pemeriksaan" >
                                                 </div>
                                             </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-4 col-form-label">Hasil Pemeriksaan:</label>
                                                             <div class="col-sm-8">
-                                                              <input type="text" class="form-control" name="ruangan" >
+                                                              <input type="text" class="form-control" name="hasil_pemeriksaan" >
                                                             </div>
                                                           </div>
                                        

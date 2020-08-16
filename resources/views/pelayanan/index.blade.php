@@ -309,9 +309,7 @@
                           </div>
                         </div>
                     </div>
-                  </div>
-
-                  <div class="col-md-6">
+                  
                   
                     <div class="card card-default">
                       <div class="card-header">
@@ -345,6 +343,9 @@
                             </div>
                           </div>
                         </div>
+                      </div>
+
+                      <div class="col-md-6">
                       
                     <div class="card card-default">
                         <div class="card-header">
@@ -470,6 +471,37 @@
                                   </select>
                                 </div>
                               </div>
+                      </div>
+                    </div>
+                    <div class="card card-default">
+                      <div class="card-header">
+                        Catatan Fisik
+                      </div>
+                      <div class="card-body">
+                          <div class="form-group row">
+                              <label class="col-sm-4 col-form-label">Tinggi:</label>
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" name="tinggi" placeholder="cm">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-sm-4 col-form-label">Berat:</label>
+                              <div class="col-sm-8">
+                                <input type="text" class="form-control" name="berat" placeholder="kg">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Suhu Badan:</label>
+                                <div class="col-sm-8">
+                                  <input type="text" class="form-control" name="suhubadan" placeholder="C">
+                                </div>
+                              </div>
+                            <div class="form-group row">
+                              <label class="col-sm-4 col-form-label">Diagnosa:</label>
+                              <div class="col-sm-8">
+                                <textarea name="hasil" class="form-control" rows="3"></textarea>
+                              </div>
+                            </div>
                       </div>
                     </div>
                   </div>
