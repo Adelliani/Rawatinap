@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\RawatInap;
 use App\Kamar;
 use App\Pasien;
+use App\Diagnosa;
 
 class PelayananController extends Controller
 {
@@ -55,4 +56,12 @@ class PelayananController extends Controller
     function konfirmasi() {
         return redirect()->route("index");
     }
+
+    function tampilpemeriksaan() {
+        return view('pelayanan/pemeriksaan/index',[
+        ]);
+    }
 }
+
+
+

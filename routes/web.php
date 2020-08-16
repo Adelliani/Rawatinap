@@ -15,6 +15,7 @@ Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 Route::get('/pelayanan/riwayat', "PelayananController@lihat")->name("lihatriwayat");
 // Route::get('/pelayanan', "PelayananController@konfirmasi")->name("konfirmasi");
 Route::post('/pelayanan/riwayat', "PelayananController@simpan")->name("simpanpendaftaran");
+Route::get('/pelayanan/pemeriksaan', "PelayananController@tampilpemeriksaan")->name("tampilpemeriksaan");
 
 Route::get('/dokter', "DokterController@tampil")->name("tampildokter");
 Route::get('/dokter/detail', "DokterController@lihat")->name("lihatdetail");
@@ -23,6 +24,7 @@ Route::get('/dokter/detail', "DokterController@lihat")->name("lihatdetail");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpanreturobat");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpanpermintaanpelayanan");
 // Route::get('/dokter/detail', "DokterController@konfirmasidokter")->name("konfirmasidokter");
+
 
 Route::get('/superadmin', function () {
     return view('superadmin.index');
