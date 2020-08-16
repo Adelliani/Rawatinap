@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\RawatInap;
 use App\Kamar;
+use App\Pasien;
 
 class PelayananController extends Controller
 {
@@ -22,7 +23,32 @@ class PelayananController extends Controller
         ]);
     }
 
-    function simpan() {
+
+    function simpan(Request $request) {
+        $tgl_lhr = date("Y-m-d");
+        $tgl_lhr  =$request->tgllahir;
+
+        $pasien=new Pasien;
+        $pasien->noidentitas=$request->noidentitas;
+        $pasien->namapasien=$request->namapasien;
+        $pasien->tempatlahir=$request->tempatlahir;
+        $pasien->tgllahir=$tgl_lhr;
+        $pasien->jeniskelamin=$request->jeniskelamin;
+        $pasien->agama=$request->agama;
+        $pasien->statusperkawinan=$request->statusperkawinan;
+        $pasien->goldarah=$request->goldarah;
+        $pasien->pendidikan=$request->pendidikan;
+        $pasien->pekerjaan=$request->pekerjaan;
+        $pasien->alergi=$request->alergi;
+        $pasien->alamat=$request->alamat;
+        $pasien->nohp=$request->nohp;
+        $pasien->nokk=$request->nokk;
+        $pasien->namakeluarga=$request->namakeluarga;
+        $pasien->hubungan=$request->hubungan;
+        $pasien->id_desa=$request->desa;   
+        
+
+        $pasien->save();
         return redirect()->route("index");
     }
 

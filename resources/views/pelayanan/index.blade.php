@@ -136,25 +136,25 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">No.Identitas<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <select name="noreg" id="noreg"></select>
+                            <input type="text" class="form-control" name="no_identitas" id="no_identitas">
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-sm-4 col-form-label">Nama Pasien<sup class="bintang">*</sup>::</label>
+                          <label class="col-sm-4 col-form-label">Nama Pasien<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" name="namapasien" id="namapasien" disabled>
+                            <input type="text" class="form-control" name="nama_pasien" id="nama_pasien">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Tempat Lahir<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" name="tempatlahir" id="tempatlahir">
+                            <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Tanggal Lahir<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input id="datemask" type="text" class="form-control" name="tgllahir" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                            <input id="datemask" type="text" class="form-control" name="tgl_lahir" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                           </div>
                         </div>
                         <div class="form-group row">
@@ -171,11 +171,11 @@
                           <div class="col-sm-8">
                             <div class="radio">
                               <label class="col-sm-5">
-                                <input type="radio" name="jeniskelamin" value="L" id="jeniskelamin_L">
+                                <input type="radio" name="jenis_kelamin" value="L" id="jeniskelamin_L">
                                 Laki - Laki
                               </label>
                               <label class="col-sm-5">
-                                <input type="radio" name="jeniskelamin" value="P" id="jeniskelamin_P">
+                                <input type="radio" name="jenis_kelamin" value="P" id="jeniskelamin_P">
                                 Perempuan
                               </label>
                             </div>
@@ -198,7 +198,7 @@
                         <div class="form-group row">
                             <label class="col-sm-4 control-label">Status Perkawinan:</label>
                             <div class="col-sm-8">
-                                <select name="statusperkawinan" class="form-control">
+                                <select name="status_perkawinan" class="form-control">
                                     <option selected="true" disabled></option>
                                     <option value="belummenikah">Belum Menikah</option>
                                     <option value="menikah">Menikah</option>
@@ -208,7 +208,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 control-label">Gol Darah:</label>
                           <div class="col-sm-8">
-                            <select name="goldarah" class="form-control">
+                            <select name="gol_darah" class="form-control">
                               <option selected="true" disabled></option>
                               <option value="A">A</option>
                               <option value="B">B</option>
@@ -309,6 +309,10 @@
                           </div>
                         </div>
                     </div>
+                  </div>
+
+                  <div class="col-md-6">
+                  
                     <div class="card card-default">
                       <div class="card-header">
                         Keluarga Pasien
@@ -321,9 +325,9 @@
                               </div>
                             </div>
                             <div class="form-group row">
-                              <label class="col-sm-3 control-label">Nama:</label>
+                              <label class="col-sm-3 control-label">Nama Keluarga:</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" name="namakeluarga">
+                                <input type="text" class="form-control" name="nama_keluarga">
                               </div>
                             </div>
                             <div class="form-group row">
@@ -341,9 +345,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
                       
-                    <div class="col-md-6">
                     <div class="card card-default">
                         <div class="card-header">
                           Rawat Inap
@@ -362,24 +364,6 @@
                                 </div>
                               </div>
                               <div class="form-group row">
-                                  <label class="col-sm-4 col-form-label">Detail Ruang<sup class="bintang">*</sup>:</label>
-                                  <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="detailruang">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">Kelas:<sup class="bintang">*</sup></label>
-                                    <div class="col-sm-5">
-                                      <select name="kelas" class="form-control">
-                                        <option value=""></option>
-                                        <option value="a">VIP</option>
-                                        <option value="b">I</option>
-                                        <option value="ab">II</option>
-                                        <option value="O">III</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                              <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">kamar<sup class="bintang">*</sup>:</label>
                                 <div class="col-sm-8">
                                   <input type="text" class="form-control" name="kamar">
@@ -394,15 +378,16 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Dokter PJ:</label>
                                     <div class="col-sm-8">
-                                      <input type="text" class="form-control" name="dokterpj">
+                                      <select name=dokter_pj class="form-control">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                      </select>
                                     </div>
                                   </div>
                         </div>
                       </div>
                       
-                  
-                  
-                  
                     <div class="card card-default">
                       <div class="card-body">
                         <div class="form-group row">
@@ -487,37 +472,6 @@
                               </div>
                       </div>
                     </div>
-                    <div class="card card-default">
-                        <div class="card-header">
-                          Catatan Fisik
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Tinggi:</label>
-                                <div class="col-sm-8">
-                                  <input type="text" class="form-control" name="tinggi" placeholder="cm">
-                                </div>
-                              </div>
-                              <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Berat:</label>
-                                <div class="col-sm-8">
-                                  <input type="text" class="form-control" name="berat" placeholder="kg">
-                                </div>
-                              </div>
-                              <div class="form-group row">
-                                  <label class="col-sm-4 col-form-label">Suhu Badan:</label>
-                                  <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="suhubadan" placeholder="C">
-                                  </div>
-                                </div>
-                              <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Diagnosa:</label>
-                                <div class="col-sm-8">
-                                  <input type="text" class="form-control" name="diagnosa" rows="2">
-                                </div>
-                              </div>
-                        </div>
-                      </div>
                   </div>
                 </div>
               </div>
