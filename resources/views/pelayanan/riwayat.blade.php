@@ -91,19 +91,19 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Nama Pasien<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" name="nama_pasien" id="nama_pasien" disabled>
+                            <type="text" class="form-control" name="nama_pasien" id="nama_pasien" disabled>
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Tempat Lahir<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir">
+                            <type="text" class="form-control" name="tempat_lahir" id="tempat_lahir">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Tanggal Lahir<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input id="datemask" type="text" class="form-control" name="tgl_lahir" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                            <id="datemask" type="text" class="form-control" name="tgl_lahir" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                           </div>
                         </div>
                         <div class="form-group row">
@@ -120,11 +120,11 @@
                           <div class="col-sm-8">
                             <div class="radio">
                               <label class="col-sm-5">
-                                <input type="radio" name="jenis_kelamin" value="L" id="jeniskelamin_L">
+                                <type="radio" name="jenis_kelamin" value="L" id="jeniskelamin_L">
                                 Laki - Laki
                               </label>
                               <label class="col-sm-5">
-                                <input type="radio" name="jenis_kelamin" value="P" id="jeniskelamin_P">
+                                <type="radio" name="jenis_kelamin" value="P" id="jeniskelamin_P">
                                 Perempuan
                               </label>
                             </div>
@@ -202,7 +202,7 @@
                         <div class="form-group row">
                             <label class="col-sm-4 control-label">Alergi:</label>
                             <div class="col-sm-8">
-                              <input type="text" class="form-control" name="alergi" value="">
+                              <type="text" class="form-control" name="alergi" value="">
                             </div>
                         </div>
                       </div>
@@ -253,7 +253,7 @@
                           <div class="form-group row">
                               <label class="col-sm-4 control-label">No.HP:</label>
                             <div class="col-sm-8">
-                              <input type="text" class="form-control" name="nohp">
+                              <type="text" class="form-control" name="nohp">
                             </div>
                           </div>
                         </div>
@@ -268,13 +268,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 control-label">No. KK:</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="no_kk">
+                                  <type="text" class="form-control" name="no_kk">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label class="col-sm-3 control-label">Nama Keluarga:</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="nama_keluarga">
+                                  <type="text" class="form-control" name="nama_keluarga">
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -308,13 +308,13 @@
                                     <div class="form-group row">
                                       <label class="col-sm-4 col-form-label">No BPJS:</label>
                                       <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="no_bpjs">
+                                        <type="text" class="form-control" name="no_bpjs">
                                       </div>
                                     </div>
                                     <div class="form-group row">
                                       <label class="col-sm-4 col-form-label">Nama Peserta BPJS:</label>
                                       <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="nama_pesertabjs">
+                                        <type="text" class="form-control" name="nama_pesertabjs">
                                       </div>
                                     </div>
                               </div>
@@ -348,19 +348,19 @@
                                     <div class="form-group row">
                                       <label class="col-sm-4 col-form-label">Perujuk:</label>
                                       <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="perujuk">
+                                        <type="text" class="form-control" name="perujuk">
                                       </div>
                                     </div>
                                     <div class="form-group row">
                                       <label class="col-sm-4 col-form-label">Dokter RS:</label>
                                       <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="dokterrs">
+                                        <type="text" class="form-control" name="dokterrs">
                                       </div>
                                     </div>
                                     <div class="form-group row">
                                       <label class="col-sm-4 col-form-label">Asal Rujukan:</label>
                                       <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="asalrujukan">
+                                        <type="text" class="form-control" name="asalrujukan">
                                       </div>
                                     </div>
                                     <div class="form-group row">
@@ -385,93 +385,6 @@
                 </div>
               </div>
 
-                  <div class="modal fade" id="modalSiappulang" role="dialog">
-                    <div class="modal-dialog modal-ld" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title">Konfirmasi Pasien Siap Pulang</h4>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <form class="form-horizontal fromPasien" action="" method="post">
-                        @csrf
-                        <div class="modal-body">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label">No Rawat Inap:</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="no_rawatinap" >
-                                </div>
-                                </div>
-        
-        
-                                <div class="form-group row">
-                                  <label class="col-sm-4 col-form-label">Nama Pasien:</label>
-                                  <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="nama_pasien" >
-                                    </div>
-                                </div>
-                                            <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">Kamar:</label>
-                                                <div class="col-sm-8">
-                                                  <input type="text" class="form-control" name="kamar" >
-                                                </div>
-                                              </div>
-                        Apakah Atas Nama Pasien diatas telah diizinkan pulang?
-                           
-                        </div>
-                        <div class="modal-footer row">
-                          <button class="btn bg-green col-2">Ya</button>
-                          <button class="btn bg-red col-2">Tidak</button>
-                        </div>
-                        </div>
-                          
-                        </div>
-                        </div>
-
-                        <div class="modal fade" id="modalPemeriksaan" role="dialog">
-                                <div class="modal-dialog modal-ld" role="document">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 class="modal-title">Pemeriksan</h4>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    </div>
-                                    <form class="form-horizontal fromPasien" action="" method="post">
-                                    @csrf
-                                    <div class="modal-body">
-                                            <div class="form-group">
-                                                    <label class="form-label">Tgl Pemeriksaan</label>
-                                                    <div>
-                                                      <input id="tanggal" type="text" class="form-control" value="" name="tgl_pemeriksaan" readonly>
-                                                    </div>
-                                            <div class="form-group">
-                                                            <label class="form-label">Jam Pemeriksaan</label>
-                                                            <div>
-                                                              <input id="tanggal" type="text" class="form-control" value="" name="jam_pemeriksaan" readonly>
-                                                            </div>
-                    
-                                            <div class="form-group row">
-                                              <label class="col-sm-4 col-form-label">Jenis Pemeriksaan:</label>
-                                              <div class="col-sm-8">
-                                                    <input type="text" class="form-control" name="jenis_pemeriksaan" >
-                                                </div>
-                                            </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-4 col-form-label">Hasil Pemeriksaan:</label>
-                                                            <div class="col-sm-8">
-                                                              <input type="text" class="form-control" name="hasil_pemeriksaan" >
-                                                            </div>
-                                                          </div>
-                                       
-                                    </div>
-                                    <div class="modal-footer row">
-                                      <button class="btn bg-green col-2">Simpan</button>
-                                      <button class="btn bg-red col-2">Batal</button>
-                                    </div>
-                                    </div>
-                                      
-                                    </div>
-                                    </div>
-                                </div>
-                        </div>
         
               @endsection
       

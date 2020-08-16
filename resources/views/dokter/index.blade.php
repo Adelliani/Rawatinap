@@ -31,7 +31,7 @@
                           <th>Nama Pasien</th>
                           <th>Tanggal Lahir</th>
                           <th>Jenis Kelamin</th>
-                          <th>Ruangan</th>
+                          <th>Kamar</th>
                         </tr>
                         </thead>
                         <tbody>

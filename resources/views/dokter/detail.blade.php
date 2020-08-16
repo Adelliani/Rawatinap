@@ -11,7 +11,7 @@
     <section class="content-header">
     <div class="row justify-content-between align-items-center">
         <h1>
-          Detail Pemeriksaan
+          Detail Pelayanan
         </h1>
         </div>
       </section>
@@ -20,37 +20,37 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                            <a href="/Admin/datapasien" class="btn btn-app btn-block" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-users" style="font-size: 40px"></i>
-                                Tindakan
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class="fa fa-stethoscope" style="font-size: 40px"></i>
+                                Pemeriksaan
                             </a>
                     </div>
                     <div class="col-2">
-                            <a href="/Admin/dataruangan#" class="btn btn-app btn-block" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-bed" style="font-size: 40px"></i>
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class="fa fa-plus-square" style="font-size: 40px"></i>
                                 Resep Obat
                             </a>        
                     </div>
                     <div class="col-2">
-                            <a href="/Admin/dataruangan#" class="btn btn-app btn-block" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-bed" style="font-size: 40px"></i>
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class=" fa fa-minus-square" style="font-size: 40px"></i>
                                 Retur Obat
                             </a>        
                     </div>
                     <div class="col-2">
-                            <a href="/Admin/pindahruang" class="btn btn-app btn-block" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-sign-in" style="font-size: 40px"></i>
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class=" fa fa fa-medkit" style="font-size: 40px"></i>
                                 Diagnosa
                             </a>        
                     </div>
                     <div class="col-2">
-                            <a href="/Admin/dataobat" class="btn btn-app btn-block" style="height: 100px;font-size:14px">
-                                <i class=" fa  fa-plus-square" style="font-size: 40px"></i>
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class=" fa  fa-heartbeat" style="font-size: 40px"></i>
                                 Permintaan Pelayanan
                             </a>        
                     </div>
                     <div class="col-2">
-                            <a href="/Admin/dataobat" class="btn btn-app btn-block" style="height: 100px;font-size:14px">
+                            <a href="/Admin/dataobat" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
                                 <i class=" fa  fa-plus-square" style="font-size: 40px"></i>
                                 Status Pasien
                             </a>        
