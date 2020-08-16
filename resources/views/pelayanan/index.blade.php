@@ -321,7 +321,7 @@
                           <div class="form-group row">
                               <label class="col-sm-3 control-label">No. KK:</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" name="nokk">
+                                <input type="text" class="form-control" name="no_kk">
                               </div>
                             </div>
                             <div class="form-group row">
@@ -372,7 +372,7 @@
                               <div class="form-group row">
                                   <label class="col-sm-4 col-form-label">No. Tempat Tidur<sup class="bintang">*</sup>:</label>
                                   <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="notempattidur">
+                                    <input type="text" class="form-control" name="no_tempattidur">
                                   </div>
                                 </div>
                                 <div class="form-group row">
@@ -393,7 +393,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Jenis Pasien:</label>
                           <div class="col-sm-8">
-                            <select name="jenispasien" class="form-control">
+                            <select name="jenis_pasien" class="form-control">
                               <option value=""></option>
                               <option value="bpjs">BPJS</option>
                               <option value="nonbpjs">Non BPJS</option>
@@ -403,13 +403,13 @@
                             <div class="form-group row">
                               <label class="col-sm-4 col-form-label">No BPJS:</label>
                               <div class="col-sm-8">
-                                <input type="text" class="form-control" name="nobpjs">
+                                <input type="text" class="form-control" name="no_bpjs">
                               </div>
                             </div>
                             <div class="form-group row">
                               <label class="col-sm-4 col-form-label">Nama Peserta BPJS:</label>
                               <div class="col-sm-8">
-                                <input type="text" class="form-control" name="namapesertabjs">
+                                <input type="text" class="form-control" name="nama_pesertabjs">
                               </div>
                             </div>
                       </div>
@@ -422,7 +422,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Prosedur Masuk:</label>
                           <div class="col-sm-8">
-                            <select name="jenispasien" class="form-control">
+                            <select name="prosedur" class="form-control">
                               <option value=""></option>
                               <option value="langsung">Langsung</option>
                               <option value="rujukanigd">Rujukan IGD</option>
@@ -432,7 +432,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Cara Masuk:</label>
                           <div class="col-sm-8">
-                            <select name="carabayar" class="form-control">
+                            <select name="cara_masuk" class="form-control">
                               <option value=""></option>
                               <option value="datangsendiri">Datang Sendiri</option>
                               <option value="kontrol">Kontrol</option>
@@ -449,19 +449,19 @@
                             <div class="form-group row">
                               <label class="col-sm-4 col-form-label">Dokter RS:</label>
                               <div class="col-sm-8">
-                                <input type="text" class="form-control" name="dokterrs">
+                                <input type="text" class="form-control" name="dokter_rs">
                               </div>
                             </div>
                             <div class="form-group row">
                               <label class="col-sm-4 col-form-label">Asal Rujukan:</label>
                               <div class="col-sm-8">
-                                <input type="text" class="form-control" name="asalrujukan">
+                                <input type="text" class="form-control" name="asal_rujukan">
                               </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Alasan Dirujuk:</label>
                                 <div class="col-sm-8">
-                                  <select name="alasandirujuk" class="form-control">
+                                  <select name="alasan_dirujuk" class="form-control">
                                     <option value=""></option>
                                     <option value="kepentinganmedis">Kepentingan Medis</option>
                                     <option value="fasilitaskurang">Fasilitas Kurang</option>
@@ -509,12 +509,12 @@
                             </div>
                         </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Ruangan:</label>
+                                        <label class="col-sm-4 col-form-label">Kamar:</label>
                                         <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="ruangan" >
+                                          <input type="text" class="form-control" name="kamar" >
                                         </div>
                                       </div>
-                  Apakah Yakin Akan checkout?
+                  Atas Nama Pasien Diatas, Apakah Yakin Akan checkout?
                    
                 </div>
                 <div class="modal-footer row">
