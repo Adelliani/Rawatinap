@@ -16,6 +16,9 @@ Route::get('/pelayanan/riwayat', "PelayananController@lihat")->name("lihatriwaya
 // Route::get('/pelayanan', "PelayananController@konfirmasi")->name("konfirmasi");
 Route::post('/pelayanan/riwayat', "PelayananController@simpan")->name("simpanpendaftaran");
 Route::get('/pelayanan/pemeriksaan', "PelayananController@tampilpemeriksaan")->name("tampilpemeriksaan");
+Route::get('/pelayanan/resepobat', "PelayananController@tampilresepobat")->name("tampilresepobat");
+Route::get('/pelayanan/diagnosa', "PelayananController@tampildiagnosa")->name("tampildiagnosa");
+Route::get('/pelayanan/fasilitas', "PelayananController@tampilfasilitas")->name("tampilfasilitas");
 
 Route::get('/dokter', "DokterController@tampil")->name("tampildokter");
 Route::get('/dokter/detail', "DokterController@lihat")->name("lihatdetail");

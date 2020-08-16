@@ -61,6 +61,18 @@ class PelayananController extends Controller
         return view('pelayanan/pemeriksaan/index',[
         ]);
     }
+    function tampilresepobat() {
+        return view('pelayanan/resepobat/index',[
+        ]);
+    }
+    function tampildiagnosa() {
+        return view('pelayanan/diagnosa/index',[
+        ]);
+    }
+    function tampilfasilitas() {
+        return view('pelayanan/fasilitas/index',[
+        ]);
+    }
 }
 
 

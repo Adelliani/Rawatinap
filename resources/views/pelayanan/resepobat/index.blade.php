@@ -11,7 +11,7 @@
     <section class="content-header">
     <div class="row justify-content-between align-items-center">
         <h1>
-        Hasil Pemeriksaan
+        Resep Obat
         </h1>
         </div>
       </section>
@@ -27,10 +27,11 @@
                       <thead>
                       <tr>
                         <th>No</th>
-                        <th>Tanggal Pemeriksaan</th>
-                        <th>Jam Pemeriksaan</th>
-                        <th>Jenis Pemeriksaan</th>
-                        <th>Hasil Pemeriksaan</th>
+                        <th>Tanggal Resep Obat</th>
+                        <th>Jam Resep Obat</th>
+                        <th>Nama Obat</th>
+                        <th>Tujuan Obat</th>
+                        <th>Jumlah</th>
                       </tr>
                       </thead>
                       <tbody>
