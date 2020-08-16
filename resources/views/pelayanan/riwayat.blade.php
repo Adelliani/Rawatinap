@@ -20,27 +20,27 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-3">
-                            <a href="/Admin/datapasien" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-users" style="font-size: 40px"></i>
-                                Tindakan
+                            <a href="/pelayanan/pemeriksaan" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class="fa fa-stethoscope" style="font-size: 40px"></i>
+                                Pemeriksaan
                             </a>
                     </div>
                     <div class="col-3">
-                            <a href="/Admin/dataruangan#" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-bed" style="font-size: 40px"></i>
+                            <a href="/pelayanan/resepobat" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class="fa fa-plus-square" style="font-size: 40px"></i>
                                 Resep Obat
                             </a>        
                     </div>
                     <div class="col-3">
-                            <a href="/Admin/dataruangan#" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-bed" style="font-size: 40px"></i>
+                            <a href="/pelayanan/diagnosa" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class=" fa fa-medkit" style="font-size: 40px"></i>
                                 Diagnosa
                             </a>        
                     </div>
                     <div class="col-3">
-                            <a href="/Admin/pindahruang" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-sign-in" style="font-size: 40px"></i>
-                                Pelayanan
+                            <a href="/pelayanan/fasilitas" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class=" fa fa-heartbeat" style="font-size: 40px"></i>
+                                Fasilitas
                             </a>        
                     </div>
                 </div>
@@ -85,25 +85,25 @@
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">No.Identitas<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <select name="noreg" id="noreg"></select>
+                            <select name="no_identitas" id="no_identitas"></select>
                           </div>
                         </div>
                         <div class="form-group row">
-                          <label class="col-sm-4 col-form-label">Nama Pasien<sup class="bintang">*</sup>::</label>
+                          <label class="col-sm-4 col-form-label">Nama Pasien<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" name="namapasien" id="namapasien" disabled>
+                            <input type="text" class="form-control" name="nama_pasien" id="nama_pasien" disabled>
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Tempat Lahir<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" name="tempatlahir" id="tempatlahir">
+                            <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Tanggal Lahir<sup class="bintang">*</sup>:</label>
                           <div class="col-sm-8">
-                            <input id="datemask" type="text" class="form-control" name="tgllahir" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                            <input id="datemask" type="text" class="form-control" name="tgl_lahir" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                           </div>
                         </div>
                         <div class="form-group row">
@@ -120,11 +120,11 @@
                           <div class="col-sm-8">
                             <div class="radio">
                               <label class="col-sm-5">
-                                <input type="radio" name="jeniskelamin" value="L" id="jeniskelamin_L">
+                                <input type="radio" name="jenis_kelamin" value="L" id="jeniskelamin_L">
                                 Laki - Laki
                               </label>
                               <label class="col-sm-5">
-                                <input type="radio" name="jeniskelamin" value="P" id="jeniskelamin_P">
+                                <input type="radio" name="jenis_kelamin" value="P" id="jeniskelamin_P">
                                 Perempuan
                               </label>
                             </div>
@@ -147,7 +147,7 @@
                         <div class="form-group row">
                             <label class="col-sm-4 control-label">Status Perkawinan:</label>
                             <div class="col-sm-8">
-                                <select name="statusperkawinan" class="form-control">
+                                <select name="status_perkawinan" class="form-control">
                                     <option selected="true" disabled></option>
                                     <option value="belummenikah">Belum Menikah</option>
                                     <option value="menikah">Menikah</option>
@@ -157,7 +157,7 @@
                         <div class="form-group row">
                           <label class="col-sm-4 control-label">Gol Darah:</label>
                           <div class="col-sm-8">
-                            <select name="goldarah" class="form-control">
+                            <select name="gol_darah" class="form-control">
                               <option selected="true" disabled></option>
                               <option value="A">A</option>
                               <option value="B">B</option>
@@ -258,6 +258,8 @@
                           </div>
                         </div>
                     </div>
+                  </div>
+                  <div class="col-md-6">
                     <div class="card card-default">
                         <div class="card-header">
                           Keluarga Pasien
@@ -266,13 +268,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 control-label">No. KK:</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="nokk">
+                                  <input type="text" class="form-control" name="no_kk">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label class="col-sm-3 control-label">Nama:</label>
+                                <label class="col-sm-3 control-label">Nama Keluarga:</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="namakeluarga">
+                                  <input type="text" class="form-control" name="nama_keluarga">
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -290,73 +292,13 @@
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card card-default">
-                                <div class="card-header">
-                                  Rawat Inap
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Gedung<sup class="bintang">*</sup>:</label>
-                                        <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="gedung">
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Ruang<sup class="bintang">*</sup>:</label>
-                                        <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="ruangan">
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                          <label class="col-sm-4 col-form-label">Detail Ruang<sup class="bintang">*</sup>:</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="detailruang">
-                                          </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label">Kelas:<sup class="bintang">*</sup></label>
-                                            <div class="col-sm-5">
-                                              <select name="kelas" class="form-control">
-                                                <option value=""></option>
-                                                <option value="a">VIP</option>
-                                                <option value="b">I</option>
-                                                <option value="ab">II</option>
-                                                <option value="O">III</option>
-                                              </select>
-                                            </div>
-                                          </div>
-                                      <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">kamar<sup class="bintang">*</sup>:</label>
-                                        <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="kamar">
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                          <label class="col-sm-4 col-form-label">No. Tempat Tidur<sup class="bintang">*</sup>:</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="notempattidur">
-                                          </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label">Dokter PJ:</label>
-                                            <div class="col-sm-8">
-                                              <input type="text" class="form-control" name="dokterpj">
-                                            </div>
-                                          </div>
-                                </div>
-                              </div>
-                              
-                          
-                          
-                          
+                        
                             <div class="card card-default">
                               <div class="card-body">
                                 <div class="form-group row">
                                   <label class="col-sm-4 col-form-label">Jenis Pasien:</label>
                                   <div class="col-sm-8">
-                                    <select name="jenispasien" class="form-control">
+                                    <select name="jenis_pasien" class="form-control">
                                       <option value=""></option>
                                       <option value="bpjs">BPJS</option>
                                       <option value="nonbpjs">Non BPJS</option>
@@ -366,13 +308,13 @@
                                     <div class="form-group row">
                                       <label class="col-sm-4 col-form-label">No BPJS:</label>
                                       <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="nobpjs">
+                                        <input type="text" class="form-control" name="no_bpjs">
                                       </div>
                                     </div>
                                     <div class="form-group row">
                                       <label class="col-sm-4 col-form-label">Nama Peserta BPJS:</label>
                                       <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="namapesertabjs">
+                                        <input type="text" class="form-control" name="nama_pesertabjs">
                                       </div>
                                     </div>
                               </div>
@@ -530,153 +472,7 @@
                                     </div>
                                 </div>
                         </div>
-
-                        <div class="modal fade" id="modalResepobat" role="dialog">
-                                <div class="modal-dialog modal-ld" role="document">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 class="modal-title">Resep Obat</h4>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    </div>
-                                    <form class="form-horizontal fromPasien" action="" method="post">
-                                    @csrf
-                                    <div class="modal-body">
-                                            <div class="form-group">
-                                                    <label class="form-label">Tanggal</label>
-                                                    <div>
-                                                      <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
-                                                    </div>
-                                            <div class="form-group">
-                                                            <label class="form-label">Jam</label>
-                                                            <div>
-                                                              <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
-                                                            </div>
-                    
-                                            <div class="form-group row">
-                                              <label class="col-sm-4 col-form-label">Nama Obat:</label>
-                                              <div class="col-sm-8">
-                                                    <input type="text" class="form-control" name="nama_pasien" >
-                                                </div>
-                                            </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-4 col-form-label">Tujuan Obat:</label>
-                                                            <div class="col-sm-8">
-                                                              <input type="text" class="form-control" name="ruangan" >
-                                                            </div>
-                                                          </div>
-                                                          <div class="form-group row">
-                                                                <label class="col-sm-4 col-form-label">Jumlah Obat:</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control" name="ruangan" >
-                                                                </div>
-                                                              </div>
-                                       
-                                    </div>
-                                    <div class="modal-footer row">
-                                      <button class="btn bg-green col-2">Simpan</button>
-                                      <button class="btn bg-red col-2">Batal</button>
-                                    </div>
-                                    </div>
-                                      
-                                    </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="modal fade" id="modalReturobat" role="dialog">
-                                    <div class="modal-dialog modal-ld" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h4 class="modal-title">Retur Obat</h4>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        </div>
-                                        <form class="form-horizontal fromPasien" action="" method="post">
-                                        @csrf
-                                        <div class="modal-body">
-                                                <div class="form-group">
-                                                        <label class="form-label">Tanggal</label>
-                                                        <div>
-                                                          <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
-                                                        </div>
-                                                <div class="form-group">
-                                                                <label class="form-label">Jam</label>
-                                                                <div>
-                                                                  <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
-                                                                </div>
-                        
-                                                <div class="form-group row">
-                                                  <label class="col-sm-4 col-form-label">Alasan Retur:</label>
-                                                  <div class="col-sm-8">
-                                                        <input type="text" class="form-control" name="nama_pasien" >
-                                                    </div>
-                                                </div>
-                                                            <div class="form-group row">
-                                                                <label class="col-sm-4 col-form-label">Jumlah Terpakai:</label>
-                                                                <div class="col-sm-8">
-                                                                  <input type="text" class="form-control" name="ruangan" >
-                                                                </div>
-                                                              </div>
-                                        
-                                        </div>
-                                        <div class="modal-footer row">
-                                          <button class="btn bg-green col-2">Simpan</button>
-                                          <button class="btn bg-red col-2">Batal</button>
-                                        </div>
-                                        </div>
-                                          
-                                        </div>
-                                        </div>
-    
-                                    </div>
-                                </div>
         
-                                <div class="modal fade" id="modalPermintaanpelayanan" role="dialog">
-                                        <div class="modal-dialog modal-ld" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h4 class="modal-title">Permintaan Pelayanan</h4>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            </div>
-                                            <form class="form-horizontal fromPasien" action="" method="post">
-                                            @csrf
-                                            <div class="modal-body">
-                                                    <div class="form-group">
-                                                            <label class="form-label">Tanggal</label>
-                                                            <div>
-                                                              <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
-                                                            </div>
-                                                    <div class="form-group">
-                                                                    <label class="form-label">Jam</label>
-                                                                    <div>
-                                                                      <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
-                                                                    </div>
-                            
-                                                    <div class="form-group row">
-                                                      <label class="col-sm-4 col-form-label">Jenis Fasilitas:</label>
-                                                      <div class="col-sm-8">
-                                                            <input type="text" class="form-control" name="nama_pasien" >
-                                                        </div>
-                                                    </div>
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-4 col-form-label">Alasan:</label>
-                                                                    <div class="col-sm-8">
-                                                                      <input type="text" class="form-control" name="ruangan" >
-                                                                    </div>
-                                                                  </div>
-                                               
-                                            </div>
-                                            <div class="modal-footer row">
-                                              <button class="btn bg-green col-2">Simpan</button>
-                                              <button class="btn bg-red col-2">Batal</button>
-                                            </div>
-                                            </div>
-                                              
-                                            </div>
-                                            </div>
-        
-                                        </div>
-                                    </div>
               @endsection
       
               @section("extra-script")
