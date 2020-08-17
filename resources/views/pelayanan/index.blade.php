@@ -113,7 +113,7 @@
                             <div class="form-group">
                               <label class="form-label">Tgl Masuk</label>
                               <div>
-                                <input id="tanggal" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
+                                <input id="tanggal" type="text" class="form-control" value="" name="tgl_masuk" readonly>
                               </div>
                             </div>
                           </div>
@@ -121,7 +121,7 @@
                             <div class="form-group">
                               <label class="form-label">No.Rawat Inap</label>
                               <div >
-                                <input type="text" class="form-control" name="nori" value="" readonly>
+                                <input type="text" class="form-control" name="no_ri" value="" readonly>
                               </div>
                             </div>
                           </div>
