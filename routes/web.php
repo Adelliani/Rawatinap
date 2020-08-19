@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/test', function () {
+    return view("layouts.sidebar");
+});
+
 Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 Route::get('/pelayanan/riwayat', "PelayananController@lihat")->name("lihatriwayat");
 // Route::get('/pelayanan', "PelayananController@konfirmasi")->name("konfirmasi");
