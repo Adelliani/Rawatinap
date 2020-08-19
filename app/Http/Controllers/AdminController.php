@@ -8,8 +8,12 @@ use App\Shift;
 
 class AdminController extends Controller
 {
-    function tampil() {
+    function tampildatadokter() {
         return view('admin/datadokter/index',[
+        ]);
+    }
+    function tampildataruangan() {
+        return view('admin/dataruangan/index',[
         ]);
     }
 }

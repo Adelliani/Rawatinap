@@ -1,4 +1,4 @@
-@extends("layouts.no_sidebar")
+@extends("layouts.sidebar")
 
 @section("extra_head")
 {{-- Data Table --}}
@@ -6,72 +6,49 @@
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")}}">
 @endsection
 
-@section("main_content")
-<div class="container-fluid col-11 my-1">
-  <section class="content-header">
-    <div class="row justify-content-between align-items-center">
-      <h1>
-        Data Ruangan
-      </h1>
-      <div class="row col-4 align-items-center">
-        <div class="col-6">
-        <button type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalTambah">Tambah Rawat Inap</button>
-      </div>
-      <div class="col-6">
-        <button type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalTambah">Riwayat Rawat Inap</button>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <div class="row">
-        <div class="col-12">
-          <div class="card card-outline card-green">
-            <div class="card-header">
-                  Daftar Gedung
-              </div>
-              <div class="card-body">
-                  <table id="table-pasien" class="table table-bordered table-hover">
-                      <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Gedung</th>
-                        <th>Ruang</th>
-                        <th>Kamar</th>
-                        <th>Kasur Tersedia</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                      
-                    </table>
-              </div>
+@section("content_header")
+    <h4 class="">Data Ruangan</h4>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-warning">
+            <!-- /.box-header -->
+            <div class="box-body">
             
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card card-outline card-green">
-            <div class="card-header">
-              Daftar Pasien
-            </div>
-            <div class="card-body">
-                <table id="table-ruangan" class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                      <th>No Rawat Inap</th>
-                      <th>Nama Pasien</th>
-                      <th>Ruangan</th>
+            <div id="tabel1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-12"><table id="tabel1" class="table table-bordered table-striped table-hover dataTable no-footer" role="grid" aria-describedby="tabel1_info">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Kamar</th>
+              <th>Nama Ruang</th>
+              <th>Nama Gedung</th>
+              <th>Jumlah Kasur</th>
+              <th>Jumlah Kasur Terisi</th>
+              <th>Aksi</th>
+            </tr>
+            </thead>
+            <tbody>
+             
+                
+            
+          
 
-  
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table>
-            </div>
+            <tr role="row" class="odd">
+            <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                      <a href="" class="btn btn-warning btn-xs">Lihat</a>
+                      <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                      </td>
+                </tr>
               
-            </div>
-      </div>
-    </div>
-
-    </div>
+              
+              </tbody>
+          </table></div></div>
+          <!-- /.box -->
+        </div>
+@endsection
+    

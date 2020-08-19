@@ -41,6 +41,7 @@ Route::get('/superadmin', function () {
 Route::get('/admin', function () {
     return view('admin.index');
 });
+Route::get('/admin/dataruangan', "AdminController@tampildataruangan")->name("tampildataruangan");
 Route::get('/admin/datadokter', "AdminController@tampil")->name("tampildatadokter");
 Route::get('/login', function () {
     return view('login');
