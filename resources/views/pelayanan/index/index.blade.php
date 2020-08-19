@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/select2/css/select2.min.css")}}">
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
 
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet" href="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css")}}">
+
 @endsection
 
 @section("main_content")
@@ -117,12 +120,17 @@
 
 {{-- select2 --}}
 <script src="{{asset("admin_lte/plugins/select2/js/select2.full.min.js")}}"></script>
+<script src="{{asset("admin_lte/plugins/select2/js/i18n/id.js")}}"></script>
+
+{{-- date-range-picker --}}
+<script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 <script>
   $(function () {
 
     moment.updateLocale("id")
 
     $("#select_prov").select2({
+      language:"id",
       placeholder:"Pilih provinsi",
       theme:"bootstrap4",
       allowClear:true,
@@ -144,6 +152,7 @@
     })
 
     $("#select_kab").select2({
+      language:"id",
       placeholder:"Pilih Kabupaten",
       theme:"bootstrap4",
       allowClear:true,
@@ -172,6 +181,7 @@
 
 
     $("#select_kec").select2({
+      language:"id",
       placeholder:"Pilih Kecamatan",
       theme:"bootstrap4",
       allowClear:true,
@@ -199,6 +209,7 @@
     })
 
     $("#select_desa").select2({
+      language:"id",
       placeholder:"Pilih Desa",
       theme:"bootstrap4",
       allowClear:true,
@@ -226,6 +237,7 @@
     })
 
     $("#select_gedung").select2({
+      language:"id",
       placeholder:"Pilih Gedung",
       theme:"bootstrap4",
       allowClear:true,
@@ -253,6 +265,7 @@
     })
 
     $("#select_ruang").select2({
+      language:"id",
       placeholder:"Pilih Ruang",
       theme:"bootstrap4",
       allowClear:true,
@@ -280,6 +293,7 @@
     })
 
     $("#select_kamar").select2({
+      language:"id",
       placeholder:"Pilih Kamar",
       theme:"bootstrap4",
       allowClear:true,
@@ -304,6 +318,41 @@
           }
         }
       }
+    })
+
+    // $("#select_kamar").select2({
+    //   language:"id",
+    //   placeholder:"Pilih Dokter Penanggung Jawab",
+    //   theme:"bootstrap4",
+    //   allowClear:true,
+    //   ajax:{
+    //     url:"",
+    //     type:"GET",
+    //     delay:250,
+    //     data:function(params){
+    //       return{
+    //         term:params.term,
+    //         poli:1,
+    //       }
+    //     },
+    //     processResults:function(result){
+
+    //       var item = result.map((item)=>({
+    //         id:item.id_dokter,
+    //         text:item.nama_dokter
+    //       }))
+    //       return {
+    //         "results": item
+    //       }c
+    //     }
+    //   }
+    // })
+
+    $('#tgl-lahir-datepicker').datetimepicker({
+      format: 'L',
+      locale:"id",
+      viewMode:"years",
+      format:"YYYY-MM-DD"
     })
 
     $('#table-pasien').DataTable({

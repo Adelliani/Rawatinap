@@ -65,20 +65,25 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Tanggal Lahir<sup
-                                                class="bintang">*</sup>:</label>
-                                        <div class="col-sm-8">
-                                            <input id="datemask" type="text" class="form-control" name="tgl_lahir"
-                                                data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                        <label class="col-4">Tanggal Lahir:</label>
+                                        <div class="input-group date col-6" id="tgl-lahir-datepicker"
+                                            data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input"
+                                                data-target="#tgl-lahir-datepicker" />
+                                            <div class="input-group-append" data-target="#tgl-lahir-datepicker"
+                                                data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">Umur:</label>
                                         <div class="col-sm-4">
                                             <div class="input-group">
-                                                <input type="text" readonly class="form-control" id="umurfield"
-                                                    name="umur">
-                                                <span class="input-group-addon">tahun</span>
+                                                <input type="text" disabled class="form-control" id="text_umur">
+                                                <span class="input-group-append">
+                                                    <div class="input-group-text">Tahun</div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -312,9 +317,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter PJ:</label>
                                         <div class="col-sm-8">
-                                            <select name=dokter_pj class="form-control">
-                                                <option value=""></option>
-                                                <option value=""></option>
+                                            <select name=dokter_pj class="form-control" id="select_dokter">
                                                 <option value=""></option>
                                             </select>
                                         </div>
