@@ -11,7 +11,7 @@
     <section class="content-header">
     <div class="row justify-content-between align-items-center">
         <h1>
-        Data Dokter
+        Data Pegawai
         </h1>
         </div>
       </section>
@@ -28,10 +28,9 @@
                       <thead>
                       <tr>
                         <th>No</th>
-                        <th>Nama Dokter</th>
+                        <th>Nama Pegawai</th>
                         <th>Jenis Kelamin</th>
-                        <th>Jenis Dokter</th>
-                        <th>Spesialisasi</th>
+                        <th>Posisi</th>
                         <th>Shift</th>
                       </tr>
                       </thead>
