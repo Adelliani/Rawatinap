@@ -11,6 +11,9 @@
 |
 */
 
+use App\Http\Controllers\WilayahApiController;
+use App\Provinsi;
+
 Route::get('/test', function () {
     return view("layouts.sidebar");
 });
@@ -32,7 +35,6 @@ Route::get('/dokter/detail', "DokterController@lihat")->name("lihatdetail");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpanpermintaanpelayanan");
 // Route::get('/dokter/detail', "DokterController@konfirmasidokter")->name("konfirmasidokter");
 
-
 Route::get('/superadmin', function () {
     return view('superadmin.index');
 });
@@ -42,4 +44,11 @@ Route::get('/admin', function () {
 Route::get('/admin/datadokter', "AdminController@tampil")->name("tampildatadokter");
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::group(['prefix' => 'api',"as"=>"api."], function () {
+    Route::get('/provinsi', "WilayahApiController@getProvinsi")->name("provinsi");
+    Route::get('/kabupaten', "WilayahApiController@getKabupaten")->name("kabupaten");
+    Route::get('/kecamatan', "WilayahApiController@getKecamatan")->name("kecamatan");
+    Route::get('/desa', "WilayahApiController@getDesa")->name("desa");
 });
