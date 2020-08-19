@@ -21,11 +21,11 @@
     @yield('extra-head')
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed skin-blue">
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-lightblue navbar-dark">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -159,12 +159,7 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <ul class="sidebar-menu tree" data-widget="tree">
-                    <li class=""><a href="/Admin/gedung"><i class="fa fa-hospital-o"></i> <span>Data Gedung</span> </a></li>
-                    <li class=""><a href="/Admin/ruang"><i class="fa fa-hospital-o"></i> <span>Data Ruang</span> </a></li>
-                    <li class=""><a href="/Admin/kamar"><i class="fa fa-bed"></i> <span>Data Kamar</span> </a></li>
-                    <li><a href="/Admin/"><i class="fa fa-arrow-circle-left"></i> <span>Kembali Menu Utama</span> </a></li>
-                </ul>
+                
 
                 @yield('content-header')
             </section>
