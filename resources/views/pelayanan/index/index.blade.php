@@ -127,7 +127,7 @@
       theme:"bootstrap4",
       allowClear:true,
       ajax:{
-        url:"{{route('api.provinsi')}}",
+        url:"{{route('api.wilayah.provinsi')}}",
         type:"GET",
         delay:250,
         processResults:function(result){
@@ -148,7 +148,7 @@
       theme:"bootstrap4",
       allowClear:true,
       ajax:{
-        url:"{{route('api.kabupaten')}}",
+        url:"{{route('api.wilayah.kabupaten')}}",
         type:"GET",
         delay:250,
         data:function(params){
@@ -170,12 +170,13 @@
       }
     })
 
+
     $("#select_kec").select2({
       placeholder:"Pilih Kecamatan",
       theme:"bootstrap4",
       allowClear:true,
       ajax:{
-        url:"{{route('api.kecamatan')}}",
+        url:"{{route('api.wilayah.kecamatan')}}",
         type:"GET",
         delay:250,
         data:function(params){
@@ -197,24 +198,106 @@
       }
     })
 
-    $("#select_gedung").select2({
-      placeholder:"Pilih Kecamatan",
+    $("#select_desa").select2({
+      placeholder:"Pilih Desa",
       theme:"bootstrap4",
       allowClear:true,
       ajax:{
-        url:"{{route('api.kecamatan')}}",
+        url:"{{route('api.wilayah.desa')}}",
         type:"GET",
         delay:250,
         data:function(params){
           return{
             term:params.term,
+            kecamatan:$("#select_kec").val()
           }
         },
         processResults:function(result){
 
           var item = result.map((item)=>({
-            id:item.id_kec,
-            text:item.nama_kec
+            id:item.id_desa,
+            text:item.nama_desa
+          }))
+          return {
+            "results": item
+          }
+        }
+      }
+    })
+
+    $("#select_gedung").select2({
+      placeholder:"Pilih Gedung",
+      theme:"bootstrap4",
+      allowClear:true,
+      ajax:{
+        url:"{{route('api.gedung.gedung')}}",
+        type:"GET",
+        delay:250,
+        data:function(params){
+          return{
+            term:params.term,
+            poli:1
+          }
+        },
+        processResults:function(result){
+
+          var item = result.map((item)=>({
+            id:item.id_gedung,
+            text:item.nama_gedung
+          }))
+          return {
+            "results": item
+          }
+        }
+      }
+    })
+
+    $("#select_ruang").select2({
+      placeholder:"Pilih Ruang",
+      theme:"bootstrap4",
+      allowClear:true,
+      ajax:{
+        url:"{{route('api.gedung.ruang')}}",
+        type:"GET",
+        delay:250,
+        data:function(params){
+          return{
+            term:params.term,
+            gedung:$("#select_gedung").val()
+          }
+        },
+        processResults:function(result){
+
+          var item = result.map((item)=>({
+            id:item.id_ruang,
+            text:item.nama_ruang
+          }))
+          return {
+            "results": item
+          }
+        }
+      }
+    })
+
+    $("#select_kamar").select2({
+      placeholder:"Pilih Kamar",
+      theme:"bootstrap4",
+      allowClear:true,
+      ajax:{
+        url:"{{route('api.gedung.kamar')}}",
+        type:"GET",
+        delay:250,
+        data:function(params){
+          return{
+            term:params.term,
+            ruang:$("#select_ruang").val()
+          }
+        },
+        processResults:function(result){
+
+          var item = result.map((item)=>({
+            id:item.id_kamar,
+            text:item.nama_kamar
           }))
           return {
             "results": item

@@ -46,9 +46,19 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::group(['prefix' => 'api',"as"=>"api."], function () {
-    Route::get('/provinsi', "WilayahApiController@getProvinsi")->name("provinsi");
-    Route::get('/kabupaten', "WilayahApiController@getKabupaten")->name("kabupaten");
-    Route::get('/kecamatan', "WilayahApiController@getKecamatan")->name("kecamatan");
-    Route::get('/desa', "WilayahApiController@getDesa")->name("desa");
+Route::group(['prefix' => 'api', "as" => "api."], function () {
+
+    Route::group(["as" => "wilayah."], function () {
+        Route::get('/provinsi', "WilayahApiController@getProvinsi")->name("provinsi");
+        Route::get('/kabupaten', "WilayahApiController@getKabupaten")->name("kabupaten");
+        Route::get('/kecamatan', "WilayahApiController@getKecamatan")->name("kecamatan");
+        Route::get('/desa', "WilayahApiController@getDesa")->name("desa");
+    });
+
+    Route::group(['as' => "gedung."], function () {
+        Route::get('/poli', "GedungApiController@getPoli")->name("poli");
+        Route::get('/gedung', "GedungApiController@getGedung")->name("gedung");
+        Route::get('/ruangan', "GedungApiController@getRuangan")->name(("ruang"));
+        Route::get('/kamar', "GedungApiController@getKamar")->name("kamar");
+    });
 });

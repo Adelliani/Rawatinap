@@ -288,7 +288,7 @@
                                         <label class="col-sm-4 col-form-label">Ruang<sup
                                                 class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
-                                            <select name="ruangan" id="select_ruangan" class="form-control">
+                                            <select name="ruangan" id="select_ruang" class="form-control">
                                                 <option value=""></option>
                                             </select>
                                         </div>
