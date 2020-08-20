@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
 
 <!-- Tempusdominus Bbootstrap 4 -->
-<link rel="stylesheet" href="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css")}}">
+<link rel="stylesheet"
+  href="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css")}}">
 
 @endsection
 
@@ -352,7 +353,12 @@
       format: 'L',
       locale:"id",
       viewMode:"years",
-      format:"YYYY-MM-DD"
+      format:"YYYY-MM-DD",
+      ignoreReadonly:true,
+    })
+
+    $("#tgl-lahir-datepicker").on("change.datetimepicker",function(e){
+      $("#text_umur").val(moment.duration({to:moment(),from:e.date}).years())
     })
 
     $('#table-pasien').DataTable({
