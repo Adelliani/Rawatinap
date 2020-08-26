@@ -46,14 +46,14 @@
                                                 class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="no_identitas"
-                                                id="no_identitas">
+                                                id="no_identitas" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Nama Pasien<sup
                                                 class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="nama_pasien" id="nama_pasien">
+                                            <input type="text" class="form-control" name="nama_pasien" id="nama_pasien" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -61,11 +61,12 @@
                                                 class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="tempat_lahir"
-                                                id="tempat_lahir">
+                                                id="tempat_lahir" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-4">Tanggal Lahir:</label>
+                                        <label class="col-4">Tanggal Lahir<sup
+                                            class="bintang">*</sup>:</label required>
                                         <div class="input-group date col-6" id="tgl-lahir-datepicker"
                                             data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
@@ -90,7 +91,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Jenis Kelamin<sup
-                                                class="bintang">*</sup>:</label>
+                                                class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
                                             <div class="radio">
                                                 <label class="col-sm-5">
@@ -225,7 +226,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 control-label">Alamat:</label>
+                                        <label class="col-sm-4 control-label">Alamat<sup
+                                            class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
                                             <textarea name="alamat" class="form-control" rows="3"></textarea>
                                         </div>
@@ -283,7 +285,7 @@
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Gedung<sup
-                                                class="bintang">*</sup>:</label>
+                                                class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
                                             <select name="nama_gedung" id="select_gedung" class="form-control">
                                                 <option value=""></option>
@@ -292,7 +294,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Ruang<sup
-                                                class="bintang">*</sup>:</label>
+                                                class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
                                             <select name="nama_ruang" id="select_ruang" class="form-control">
                                                 <option value=""></option>
@@ -301,7 +303,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">kamar<sup
-                                                class="bintang">*</sup>:</label>
+                                                class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
                                             <select name="nama_kamar" id="select_kamar" class="form-control">
                                                 <option value=""></option>
@@ -310,7 +312,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">No. Tempat Tidur<sup
-                                                class="bintang">*</sup>:</label>
+                                                class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="no_tempattidur">
                                         </div>
@@ -318,9 +320,9 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter PJ:</label>
                                         <div class="col-sm-8">
-                                            <select name=dokter_pj class="form-control" id="select_dokter">
+                                            <select name=id_dokter class="form-control" id="select_dokter">
                                                 <option value=""></option>
-                                                <option value="adel">Adel</option>
+                                                <option value=""></option>
                                             </select>
                                         </div>
                                     </div>
@@ -388,9 +390,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter RS:</label>
                                         <div class="col-sm-8">
-                                            <select name="nama_dokter" class="form-control">
-                                                <option value=""></option>
-                                            </select>
+                                            <input type="text" class="form-control" name="nama_dokter">
                                         </div>
                                     </div>
                                     <div class="form-group row">
