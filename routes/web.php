@@ -74,4 +74,6 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
         Route::get('/ruangan', "GedungApiController@getRuangan")->name(("ruang"));
         Route::get('/kamar', "GedungApiController@getKamar")->name("kamar");
     });
+
+    Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");
 });
