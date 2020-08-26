@@ -28,14 +28,11 @@ class PelayananController extends Controller
 
     function simpan(Request $request)
     {
-        $tgl_lhr = date("Y-m-d");
-        $tgl_lhr  = $request->tgllahir;
-
         $pasien = new Pasien;
         $pasien->noidentitas = $request->noidentitas;
         $pasien->namapasien = $request->namapasien;
         $pasien->tempatlahir = $request->tempatlahir;
-        $pasien->tgllahir = $tgl_lhr;
+        $pasien->tgllahir = $request->tgllahir;
         $pasien->jeniskelamin = $request->jeniskelamin;
         $pasien->agama = $request->agama;
         $pasien->statusperkawinan = $request->statusperkawinan;
@@ -49,7 +46,6 @@ class PelayananController extends Controller
         $pasien->namakeluarga = $request->namakeluarga;
         $pasien->hubungan = $request->hubungan;
         $pasien->id_desa = $request->desa;
-
 
         $pasien->save();
         return redirect()->route("index");

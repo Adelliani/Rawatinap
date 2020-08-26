@@ -15,6 +15,7 @@ class CreateFasilitasTable extends Migration
     {
         Schema::create('fasilitas', function (Blueprint $table) {
             $table->bigIncrements('id_fasilitas');
+            $table->string('jenis_fasilitas',100);
             $table->string('nama_fasilitas',100);
             $table->integer('harga_fasilitas');
             $table->bigInteger('id_poli')->unsigned();

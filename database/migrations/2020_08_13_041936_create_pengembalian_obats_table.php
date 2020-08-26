@@ -16,8 +16,9 @@ class CreatePengembalianObatsTable extends Migration
         Schema::create('pengembalian_obats', function (Blueprint $table) {
             $table->bigIncrements('id_pengembalian');
             $table->date('tgl_pengembalian');
+            $table->date('jam_pengembalian');
             $table->integer('jumlah_terpakai');
-            $table->string('alasan',100);
+            $table->string('alasan_pengembalian',100);
             $table->bigInteger('id_order')->unsigned();
             $table->foreign('id_order')->references('id_order')->on('order_obats');
         });

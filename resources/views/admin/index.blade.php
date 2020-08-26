@@ -21,37 +21,37 @@
             <div class="row">
                     <div class="col-2">
                 <a href="/Admin/dataruangan#"class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                    <i class=" fa fa-bed"style="font-size: 40px"></i>
+                    <i class=" fa fa-hospital"style="font-size: 40px"></i>
                     Data Ruangan
                 </a>
             </div>
                 <div class="col-2">
                     <a href="/Admin/dataruangan#" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                        <i class=" fa fa-bed" style="font-size: 40px"></i>
+                        <i class=" fa fa-user-md" style="font-size: 40px"></i>
                         Data Dokter
                     </a>        
             </div>
             <div class="col-2">
                     <a href="/Admin/dataruangan#" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                        <i class=" fa fa-bed" style="font-size: 40px"></i>
+                        <i class=" fa fa-user-nurse" style="font-size: 40px"></i>
                         Data Perawat
                     </a>        
             </div>
             <div class="col-2">
                     <a href="/Admin/dataruangan#" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                        <i class=" fa fa-bed" style="font-size: 40px"></i>
+                        <i class=" fa fa-user-tie" style="font-size: 40px"></i>
                         Data Pegawai
                     </a>        
             </div>
             <div class="col-2">
                     <a href="/Admin/dataruangan#" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                        <i class=" fa fa-bed" style="font-size: 40px"></i>
+                        <i class=" fa fa-medkit" style="font-size: 40px"></i>
                         Data Fasilitas
                     </a>        
             </div>
             <div class="col-2">
                     <a href="/Admin/dataruangan#" class="btn btn-app btn-block m-0" style="height: 100px;font-size:12px">
-                        <i class=" fa fa-bed" style="font-size: 40px"></i>
+                        <i class=" fa fa-database" style="font-size: 40px"></i>
                         Laporan
                     </a>        
             </div>
@@ -61,7 +61,7 @@
     <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="fa fa-flag-o"></i></span>
+                <span class="info-box-icon bg-blue"><i class="fa fa-hospital-user"></i></span>
       
                 <div class="info-box-content">
                   <span class="info-box-text">Jumlah Ruangan</span>
@@ -74,7 +74,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-flag"></i></span>
+                <span class="info-box-icon bg-red"><i class="fa fa-bed"></i></span>
       
                 <div class="info-box-content">
                   <span class="info-box-text">Ruangan Terisi</span>
@@ -104,7 +104,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-yellow"><i class="fa fa-clock-o"></i></span>
+                <span class="info-box-icon bg-yellow"><i class="fa fa-clock"></i></span>
       
                 <div class="info-box-content">
                   <span class="info-box-text" id="tanggal"></span>

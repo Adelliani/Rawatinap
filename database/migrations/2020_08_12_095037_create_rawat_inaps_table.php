@@ -15,9 +15,16 @@ class CreateRawatInapsTable extends Migration
     {
         Schema::create('rawat_inaps', function (Blueprint $table) {
             $table->bigIncrements('id_rawatinap');
-            $table->integer('beratbadan');
-            $table->integer('suhubadan');
-            $table->integer('tensi');
+            $table->date('tgl_masuk')->nullable();
+            $table->date('tgl_keluar')->nullable();
+            $table->enum('jenis_pasien',['BPJS','NonBPJS']);
+            $table->string('no_bpjs');
+            $table->string('nama_pesertabpjs');
+            $table->enum('prosedur_masuk',['langsung','rujukanIGD']);
+            $table->enum('cara_masuk',['datangsendiri','kontrol','dokterRS']);
+            $table->string('perujuk');
+            $table->string('asal_rujukan');
+            $table->enum('alasan_dirujuk',['kepentinganmedis','fasilitaskurang','permintaansendiri','tempattidurpenuh']);
             
             
         });

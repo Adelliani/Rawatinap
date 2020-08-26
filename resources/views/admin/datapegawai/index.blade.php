@@ -32,6 +32,7 @@
                         <th>Jenis Kelamin</th>
                         <th>Posisi</th>
                         <th>Shift</th>
+                        <th>Aksi</th>
                       </tr>
                       </thead>
                       <tbody>

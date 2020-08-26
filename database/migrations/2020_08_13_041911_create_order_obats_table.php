@@ -15,7 +15,8 @@ class CreateOrderObatsTable extends Migration
     {
         Schema::create('order_obats', function (Blueprint $table) {
             $table->bigIncrements('id_order');
-            $table->date('tglorder');
+            $table->date('tgl_order')->nullable();
+            $table->date('jam_order')->nullable();
             $table->integer('jumlah_order');
             $table->string('efek',100);
             $table->string('tujuan',100);
