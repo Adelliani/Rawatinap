@@ -15,8 +15,7 @@ class RawatInap extends Model
     {
         return $this->belongsTo('App\Pasien','id_pasien','id_pasien');
     }
-    public function detailpk()
-    {
-        return $this->hasMany('App\DetailPK','id_pk','id_pk');
-    }
+    public function kamars(){
+        return $this->belongsToMany("App\Kamar","detail_p_k_s","id_rawatinap","id_kamar","id_rawatinap","id_kamar");
+    }   
 }

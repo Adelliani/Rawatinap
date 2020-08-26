@@ -16,6 +16,7 @@ class PelayananController extends Controller
     {
         $kamars = Kamar::all();
         $rawat_inaps = RawatInap::all();
+        error_log("Kamar ".$rawat_inaps[0]->kamars);
         return view('pelayanan.index.index', [
             'kamars' => $kamars,
             'rawat_inaps' => $rawat_inaps
@@ -53,7 +54,7 @@ class PelayananController extends Controller
         $data_diagnosa["jam_diagnosa"] = $jam_sekarang;
         $diagnosa = Diagnosa::create($data_diagnosa);
 
-        $data_detail_pk = $request->only(['no_tempattidur']);
+        $data_detail_pk = $request->only(['no_tempattidur',"id_kamar"]);
         $data_detail_pk = array_merge($data_detail_pk, ["id_rawatinap" => $rawat_inap->id_rawatinap, "tgl_masuk" => $tanggal_sekarang]);
         $detail_pk = DetailPK::create($data_detail_pk);
 

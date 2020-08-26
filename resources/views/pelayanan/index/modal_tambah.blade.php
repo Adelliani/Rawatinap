@@ -305,7 +305,7 @@
                                         <label class="col-sm-4 col-form-label">kamar<sup
                                                 class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
-                                            <select name="nama_kamar" id="select_kamar" class="form-control">
+                                            <select name="id_kamar" id="select_kamar" class="form-control">
                                                 <option value=""></option>
                                             </select>
                                         </div>
