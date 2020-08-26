@@ -19,6 +19,7 @@ class CreateKamarsTable extends Migration
             $table->integer('jumlah_kasur');
             $table->integer('harga_kamar');
             $table->string('fasilitas',100);
+            $table->enum("kelas",["VIP","IV","III","II","I"]);
             $table->bigInteger('id_ruang')->unsigned();
             $table->foreign('id_ruang')->references('id_ruang')->on('ruangs');
         });
