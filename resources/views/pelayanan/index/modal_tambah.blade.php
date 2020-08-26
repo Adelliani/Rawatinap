@@ -387,7 +387,9 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter RS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="dokter_rs">
+                                            <select name="nama_dokter" class="form-control">
+                                                <option value=""></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -436,7 +438,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Diagnosa:</label>
                                         <div class="col-sm-8">
-                                            <textarea name="hasil" class="form-control" rows="3"></textarea>
+                                            <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
