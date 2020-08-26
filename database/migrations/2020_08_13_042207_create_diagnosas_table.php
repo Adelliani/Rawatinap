@@ -17,7 +17,6 @@ class CreateDiagnosasTable extends Migration
             $table->bigIncrements('id_diagnosa');
             $table->date('tgl_diagnosa');
             $table->date('jam_diagnosa');
-            $table->enum('jenis_diagnosa',['utama','sekunder']);
             $table->string('tinggi',100);
             $table->string('berat',100);
             $table->string('suhubadan',100);
