@@ -11,7 +11,7 @@
     <section class="content-header">
     <div class="row justify-content-between align-items-center">
         <h1>
-        Data Dokter
+        Data Ruang
         </h1>
         </div>
       </section>
@@ -20,7 +20,7 @@
         <div class="col-12">
           <div class="card card-outline card-green">
             <div class="card-header">
-                <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-plus"></i> Tambah</button>
+                  <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-plus"></i> Tambah</button>
                   <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"></i> Kembali</button>
               </div>
               <div class="card-body">
@@ -28,11 +28,8 @@
                       <thead>
                       <tr>
                         <th>No</th>
-                        <th>Nama Dokter</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Jenis Dokter</th>
-                        <th>Spesialisasi</th>
-                        <th>Shift</th>
+                        <th>Nama Ruang</th>
+                        <th>Nama Gedung</th>
                         <th>Aksi</th>
                       </tr>
                       </thead>

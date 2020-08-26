@@ -16,7 +16,6 @@ class CreateRuangsTable extends Migration
         Schema::create('ruangs', function (Blueprint $table) {
             $table->bigIncrements('id_ruang');
             $table->string('nama_ruang',100);
-            $table->enum('kelas',['VIP','I','II','III']);
             $table->bigInteger('id_gedung')->unsigned();
             $table->foreign('id_gedung')->references('id_gedung')->on('gedungs');
         });

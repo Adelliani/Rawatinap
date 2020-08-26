@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-3">
                             <a href="/pelayanan/diagnosa" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                                <i class=" fa fa-medkit" style="font-size: 40px"></i>
+                                <i class=" fa fa-diagnoses" style="font-size: 40px"></i>
                                 Diagnosa
                             </a>        
                     </div>

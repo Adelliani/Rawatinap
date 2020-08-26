@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDetailPKSTable extends Migration
+class CreatePemeriksaansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateDetailPKSTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_p_k_s', function (Blueprint $table) {
-            $table->bigIncrements('id_pk');
-            $table->date('tgl_masuk')->nullable();
-            $table->date('tgl_keluar')->nullable();
-            $table->integer('no_tempattidur');
-            $table->bigInteger('id_kamar')->unsigned();
-            $table->foreign('id_kamar')->references('id_kamar')->on('kamars');
+        Schema::create('pemeriksaans', function (Blueprint $table) {
+            $table->bigIncrements('id_pemeriksaan');
+            $table->date('tgl_pemeriksaan');
+            $table->date('jam_pemeriksaan');
+            $table->string('jenis_pemeriksaan',100);
+            $table->string('hasil_pemeriksaan',100);
             $table->bigInteger('id_rawatinap')->unsigned();
             $table->foreign('id_rawatinap')->references('id_rawatinap')->on('rawat_inaps');
         });
@@ -32,6 +31,6 @@ class CreateDetailPKSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_p_k_s');
+        Schema::dropIfExists('pemeriksaans');
     }
 }

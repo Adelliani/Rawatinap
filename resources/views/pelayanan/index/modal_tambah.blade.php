@@ -346,7 +346,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Nama Peserta BPJS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="nama_pesertabjs">
+                                            <input type="text" class="form-control" name="nama_pesertabpjs">
                                         </div>
                                     </div>
                                 </div>
@@ -359,10 +359,10 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Prosedur Masuk:</label>
                                         <div class="col-sm-8">
-                                            <select name="prosedur" class="form-control">
+                                            <select name="prosedur_masuk" class="form-control">
                                                 <option value=""></option>
                                                 <option value="langsung">Langsung</option>
-                                                <option value="rujukanigd">Rujukan IGD</option>
+                                                <option value="rujukanIGD">Rujukan IGD</option>
                                             </select>
                                         </div>
                                     </div>
