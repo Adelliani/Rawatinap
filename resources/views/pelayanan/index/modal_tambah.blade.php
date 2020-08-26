@@ -69,7 +69,7 @@
                                         <div class="input-group date col-6" id="tgl-lahir-datepicker"
                                             data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
-                                                data-target="#tgl-lahir-datepicker" id="text-tgl-lahir" readonly/>
+                                                data-target="#tgl-lahir-datepicker" id="text-tgl-lahir" readonly name="tgl_lahir/>
                                             <div class="input-group-append" data-target="#tgl-lahir-datepicker"
                                                 data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
