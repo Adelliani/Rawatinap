@@ -20,7 +20,7 @@
                                                 <div>
                                                     <input id="tanggal-display" type="text" class="form-control"
                                                         value="" disabled>
-                                                    <input type="hidden" name="tanggal" id="tanggal">
+                                                    <input type="hidden" name="tgl_masuk" id="tanggal">
                                                 </div>
                                             </div>
                                         </div>
@@ -285,7 +285,7 @@
                                         <label class="col-sm-4 col-form-label">Gedung<sup
                                                 class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
-                                            <select name="gedung" id="select_gedung" class="form-control">
+                                            <select name="nama_gedung" id="select_gedung" class="form-control">
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -294,7 +294,7 @@
                                         <label class="col-sm-4 col-form-label">Ruang<sup
                                                 class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
-                                            <select name="ruangan" id="select_ruang" class="form-control">
+                                            <select name="nama_ruang" id="select_ruang" class="form-control">
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -303,7 +303,7 @@
                                         <label class="col-sm-4 col-form-label">kamar<sup
                                                 class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
-                                            <select name="kamar" id="select_kamar" class="form-control">
+                                            <select name="nama_kamar" id="select_kamar" class="form-control">
                                                 <option value=""></option>
                                             </select>
                                         </div>
