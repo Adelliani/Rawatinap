@@ -321,8 +321,6 @@
                                         <label class="col-sm-4 col-form-label">Dokter PJ:</label>
                                         <div class="col-sm-8">
                                             <select name=id_dokter class="form-control" id="select_dokter">
-                                                <option value=""></option>
-                                                <option value=""></option>
                                             </select>
                                         </div>
                                     </div>
