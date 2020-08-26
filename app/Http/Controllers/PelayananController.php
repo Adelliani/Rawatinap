@@ -28,27 +28,9 @@ class PelayananController extends Controller
 
     function simpan(Request $request)
     {
-        $pasien = new Pasien;
-        $pasien->noidentitas = $request->noidentitas;
-        $pasien->namapasien = $request->namapasien;
-        $pasien->tempatlahir = $request->tempatlahir;
-        $pasien->tgllahir = $request->tgllahir;
-        $pasien->jeniskelamin = $request->jeniskelamin;
-        $pasien->agama = $request->agama;
-        $pasien->statusperkawinan = $request->statusperkawinan;
-        $pasien->goldarah = $request->goldarah;
-        $pasien->pendidikan = $request->pendidikan;
-        $pasien->pekerjaan = $request->pekerjaan;
-        $pasien->alergi = $request->alergi;
-        $pasien->alamat = $request->alamat;
-        $pasien->nohp = $request->nohp;
-        $pasien->nokk = $request->nokk;
-        $pasien->namakeluarga = $request->namakeluarga;
-        $pasien->hubungan = $request->hubungan;
-        $pasien->id_desa = $request->desa;
-
-        $pasien->save();
-        return redirect()->route("index");
+        $data_pasien = $request->only([/* nama kolom pasien */]);
+        $pasien = Pasien::create($data_pasien);
+        return redirect()->route("tampilpelayanan");
     }
 
     function konfirmasi()

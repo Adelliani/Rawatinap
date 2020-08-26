@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Desa extends Model
 {
-    public $timestamps=false;
-    protected $guarded=[];
-    
+    public $timestamps = false;
+    protected $guarded = [];
+
     public function kecamatan()
     {
-    return $this->belongsTo('App\Kecamatan','id_kecamatan');
+        return $this->belongsTo('App\Kecamatan', 'id_kecamatan');
     }
 }
