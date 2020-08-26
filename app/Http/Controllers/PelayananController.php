@@ -7,6 +7,7 @@ use App\RawatInap;
 use App\Kamar;
 use App\Pasien;
 use App\Diagnosa;
+use Carbon\Carbon;
 
 class PelayananController extends Controller
 {
@@ -29,6 +30,10 @@ class PelayananController extends Controller
     function simpan(Request $request)
     {
 
+        $waktu_sekarang = Carbon::now();
+        $tanggal_sekarang = $waktu_sekarang->toDateString();
+        $jam_sekarang = $waktu_sekarang->toTimeString();
+
         $data_pasien = $request->only(['no_identitas', 'nama_pasien', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'status_perkawinan', 'gol_darah', 'agama', 'pendidikan', 'pekerjaan', 'alergi', 'alamat', 'no_hp', 'no_kk', 'nama_keluarga', 'hubungan', 'id_desa']);
         $pasien = Pasien::firstOrCreate(["no_identitas" => $data_pasien["no_identitas"]], $data_pasien);
 
@@ -39,8 +44,6 @@ class PelayananController extends Controller
         $diagnosa = $request->only(['tinggi', 'berat', 'suhubadan', 'hasil_diagnosa']);
         $dokter = $request->only(['nama_dokter']);
         $detail_pk = $request->only(['no_tempattidur']);
-
-
 
         return redirect()->route("tampilpelayanan");
     }
