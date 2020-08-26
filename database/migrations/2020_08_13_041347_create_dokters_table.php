@@ -15,7 +15,7 @@ class CreateDoktersTable extends Migration
     {
         Schema::create('dokters', function (Blueprint $table) {
             $table->bigIncrements('id_dokter');
-            $table->string('nama_dokter',100);
+            $table->enum('nama_dokter',['adel']);
             $table->enum('jenis_kelamin',['laki-laki','perempuan']);
             $table->string('alamat',200);
             $table->string('notelp',200);

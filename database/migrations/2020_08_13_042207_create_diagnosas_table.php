@@ -21,7 +21,7 @@ class CreateDiagnosasTable extends Migration
             $table->string('tinggi',100);
             $table->string('berat',100);
             $table->string('suhubadan',100);
-            $table->string('hasil_pemeriksaan',100);
+            $table->string('hasil_diagnosa',100);
             $table->bigInteger('id_rawatinap')->unsigned();
             $table->foreign('id_rawatinap')->references('id_rawatinap')->on('rawat_inaps');
         });

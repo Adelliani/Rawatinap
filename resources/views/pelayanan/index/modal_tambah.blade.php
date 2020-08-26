@@ -94,12 +94,12 @@
                                         <div class="col-sm-8">
                                             <div class="radio">
                                                 <label class="col-sm-5">
-                                                    <input type="radio" name="jenis_kelamin" value="L"
+                                                    <input type="radio" name="jenis_kelamin" value="Laki-laki"
                                                         id="jeniskelamin_L">
                                                     Laki - Laki
                                                 </label>
                                                 <label class="col-sm-5">
-                                                    <input type="radio" name="jenis_kelamin" value="P"
+                                                    <input type="radio" name="jenis_kelamin" value="Perempuan"
                                                         id="jeniskelamin_P">
                                                     Perempuan
                                                 </label>
@@ -233,7 +233,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">No.HP:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="nohp">
+                                            <input type="text" class="form-control" name="no_hp">
                                         </div>
                                     </div>
                                 </div>
@@ -320,6 +320,7 @@
                                         <div class="col-sm-8">
                                             <select name=dokter_pj class="form-control" id="select_dokter">
                                                 <option value=""></option>
+                                                <option value="adel">Adel</option>
                                             </select>
                                         </div>
                                     </div>
@@ -387,7 +388,9 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter RS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="dokter_rs">
+                                            <select name="nama_dokter" class="form-control">
+                                                <option value=""></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -436,7 +439,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Diagnosa:</label>
                                         <div class="col-sm-8">
-                                            <textarea name="hasil" class="form-control" rows="3"></textarea>
+                                            <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
