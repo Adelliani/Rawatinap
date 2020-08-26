@@ -321,33 +321,33 @@
       }
     })
 
-    // $("#select_kamar").select2({
-    //   language:"id",
-    //   placeholder:"Pilih Dokter Penanggung Jawab",
-    //   theme:"bootstrap4",
-    //   allowClear:true,
-    //   ajax:{
-    //     url:"",
-    //     type:"GET",
-    //     delay:250,
-    //     data:function(params){
-    //       return{
-    //         term:params.term,
-    //         poli:1,
-    //       }
-    //     },
-    //     processResults:function(result){
+    $("#select_dokter").select2({
+      language:"id",
+      placeholder:"Pilih Dokter Penanggung Jawab",
+      theme:"bootstrap4",
+      allowClear:true,
+      ajax:{
+        url:"{{route('api.dokter')}}",
+        type:"GET",
+        delay:250,
+        data:function(params){
+          return{
+            term:params.term,
+            poli:1,
+          }
+        },
+        processResults:function(result){
 
-    //       var item = result.map((item)=>({
-    //         id:item.id_dokter,
-    //         text:item.nama_dokter
-    //       }))
-    //       return {
-    //         "results": item
-    //       }c
-    //     }
-    //   }
-    // })
+          var item = result.map((item)=>({
+            id:item.id_dokter,
+            text:item.nama_dokter
+          }))
+          return {
+            "results": item
+          }
+        }
+      }
+    })
 
     $('#tgl-lahir-datepicker').datetimepicker({
       format: 'L',

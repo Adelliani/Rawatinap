@@ -28,11 +28,15 @@ class PelayananController extends Controller
 
     function simpan(Request $request)
     {
-        $data_pasien = $request->only(['no_identitas','nama_pasien','jenis_kelamin','tempat_lahir','tgl_lahir','status_perkawinan','gol_darah','agama','pendidikan','pekerjaan','alergi','alamat','no_hp','no_kk','nama_keluarga','hubungan']);
-        $rawat_inap = $request->only(['tgl_masuk','jenis_pasien','no_bpjs','nama_pesertabpjs','prosedur_masuk','cara_masuk','perujuk','asal_rujukan','alasan_dirujuk']);
-        $diagnosa = $request->only(['tinggi','berat','suhubadan','hasil_diagnosa']);
-        $dokter = $request->only(['nama_dokter']);
-        $pasien = Pasien::create($data_pasien);
+        $data_pasien = $request->only(
+            ['no_identitas', 'nama_pasien', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'status_perkawinan', 'gol_darah', 'agama', 'pendidikan', 'pekerjaan', 
+            'alergi', 'alamat', 'no_hp', 'no_kk', 'nama_keluarga', 'hubungan',"id_desa"]
+        );
+        $pasien = Pasien::firstOrCreate($data_pasien);
+
+        // $rawat_inap = $request->only(['tgl_masuk','jenis_pasien','no_bpjs','nama_pesertabpjs','prosedur_masuk','cara_masuk','perujuk','asal_rujukan','alasan_dirujuk']);
+        // $diagnosa = $request->only(['tinggi','berat','suhubadan','hasil_diagnosa']);
+        // $dokter = $request->only(['nama_dokter']);
         return redirect()->route("tampilpelayanan");
     }
 
