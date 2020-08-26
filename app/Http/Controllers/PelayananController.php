@@ -29,13 +29,19 @@ class PelayananController extends Controller
     function simpan(Request $request)
     {
 
-        $rawat_inap = $request->only(['tgl_masuk', 'jenis_pasien', 'no_bpjs', 'nama_pesertabpjs', 'prosedur_masuk', 'cara_masuk', 'perujuk', 'asal_rujukan', 'alasan_dirujuk']);
+        $data_pasien = $request->only(['no_identitas', 'nama_pasien', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'status_perkawinan', 'gol_darah', 'agama', 'pendidikan', 'pekerjaan', 'alergi', 'alamat', 'no_hp', 'no_kk', 'nama_keluarga', 'hubungan', 'id_desa']);
+        $pasien = Pasien::firstOrCreate(["no_identitas" => $data_pasien["no_identitas"]], $data_pasien);
+
+        $data_rawat_inap = $request->only(['tgl_masuk', 'jenis_pasien', 'no_bpjs', 'nama_pesertabpjs', 'prosedur_masuk', 'cara_masuk', 'perujuk', 'asal_rujukan', 'alasan_dirujuk',]);
+        $data_rawat_inap = array_merge($data_rawat_inap,["id_pasien"=>$pasien->id_pasien]);
+        $rawat_inap = RawatInap::create($data_rawat_inap);
+
         $diagnosa = $request->only(['tinggi', 'berat', 'suhubadan', 'hasil_diagnosa']);
         $dokter = $request->only(['nama_dokter']);
         $detail_pk = $request->only(['no_tempattidur']);
 
-        $data_pasien = $request->only(['no_identitas', 'nama_pasien', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'status_perkawinan', 'gol_darah', 'agama', 'pendidikan', 'pekerjaan', 'alergi', 'alamat', 'no_hp', 'no_kk', 'nama_keluarga', 'hubungan', 'id_desa']);
-        $pasien = Pasien::firstOrCreate(["no_identitas" => $data_pasien["no_identitas"]], $data_pasien);
+
+
         return redirect()->route("tampilpelayanan");
     }
 
