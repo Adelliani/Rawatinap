@@ -18,8 +18,8 @@ class CreateRawatInapsTable extends Migration
             $table->date('tgl_masuk')->nullable();
             $table->date('tgl_keluar')->nullable();
             $table->enum('jenis_pasien',['BPJS','NonBPJS']);
-            $table->string('no_bpjs');
-            $table->string('nama_pesertabpjs');
+            $table->string('no_bpjs',100)->nullable();
+            $table->string('nama_pesertabpjs',100)->nullable();
             $table->enum('prosedur_masuk',['langsung','rujukanIGD']);
             $table->enum('cara_masuk',['datangsendiri','kontrol','dokterRS']);
             $table->string('perujuk');
