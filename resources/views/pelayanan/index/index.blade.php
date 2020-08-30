@@ -89,7 +89,7 @@
                 <td>{{$item->no_ri}}</td>
                 <td>{{$item->pasien->nama_pasien}}</td>
                 {{-- <td></td> --}}
-                <td>{{$item->kamars[0]->nama_kamar}}</td>
+                <td>{{count($item->kamars)>0?$item->kamars[0]->nama_kamar:""}}</td>
               </tr>
               @endforeach
             </tbody>

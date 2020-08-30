@@ -11,11 +11,15 @@ class RawatInap extends Model
     protected $primaryKey = 'id_rawatinap';
     protected $guarded=[];
     
+    public function diagnosa(){
+        return $this->hasMany("App\Diagnosa","id_rawatinap","id_rawatinap");
+    }
+
     public function pasien()
     {
         return $this->belongsTo('App\Pasien','id_pasien','id_pasien');
     }
     public function kamars(){
         return $this->belongsToMany("App\Kamar","detail_p_k_s","id_rawatinap","id_kamar","id_rawatinap","id_kamar");
-    }   
+    }
 }
