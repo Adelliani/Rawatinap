@@ -90,7 +90,6 @@
                 <td>{{$item->pasien->nama_pasien}}</td>
                 {{-- <td></td> --}}
                 <td>{{count($item->kamars)>0?$item->kamars[0]->nama_kamar:""}}</td>
-              </tr>
               @endforeach
             </tbody>
           </table>
@@ -133,7 +132,7 @@
 
     $("#select_prov").select2({
       language:"id",
-      placeholder:"Pilih provinsi",
+      placeholder:"Pilih Provinsi",
       theme:"bootstrap4",
       allowClear:true,
       ajax:{
@@ -375,5 +374,7 @@
       $("#tanggal-display").val(moment().format("dddd, DD MMMM YYYY"))
     })
   });
+
+
 </script>
 @endsection

@@ -20,9 +20,10 @@
         <div class="col-12">
           <div class="card card-outline card-green">
             <div class="card-header">
-                  <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-plus"></i> Tambah</button>
-                  <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"></i> Kembali</button>
-              </div>
+              <button class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-plus-circle" data-toggle="modal"
+                data-target="#modalTambahkamar"> Tambah </i></button>
+              <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></button>
+         </div>
               <div class="card-body">
                   <table id="table-pasien" class="table table-bordered table-hover">
                       <thead>
@@ -47,6 +48,72 @@
         </div>
       </div>
 
+      <div class="modal fade" id="modalTambahkamar" role="dialog">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Data Kamar</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                          aria-hidden="true">&times;</span></button>
+              </div>
+              <form class="form-horizontal" id="form-tambah" action="" method="post">
+            @csrf
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                          <label class="col-sm-5">Id Kamar:</label>
+                          <div class="col-sm-10">
+                              <input type="number" class="form-control" name="id_kamar" value="" readonly>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5">Nama Kamar:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="nama_kamar">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-5">Nama Ruang:</label>
+                      <div class="col-sm-10">
+                          <div id="ruang">
+                              <select class="form-control" id="selectruang" name="id_ruang" >
+                              </select>
+                            </div>
+                    </div>
+                  </div>
+                </div>
+                  <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-sm-5">Jumlah Kasur:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="jumlah_kasur">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5">Harga:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="harga_kamar">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5">Fasilitas:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="fasilitas">
+                    </div>
+                  </div>
+                  </div>
+                    </div>
+                  </div>
+              
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-power-off"></i> Batal</button>
+            </div>
+            </form>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
       @endsection
       
               @section("extra-script")

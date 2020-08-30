@@ -334,8 +334,8 @@
                                         <div class="col-sm-8">
                                             <select name="jenis_pasien" class="form-control">
                                                 <option value=""></option>
-                                                <option value="bpjs">BPJS</option>
-                                                <option value="nonbpjs">Non BPJS</option>
+                                                <option value="BPJS">BPJS</option>
+                                                <option value="NonBPJS">Non BPJS</option>
                                             </select>
                                         </div>
                                     </div>
@@ -454,3 +454,5 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+  

@@ -16,6 +16,16 @@ class AdminController extends Controller
         return view('admin/dataruangan/datagedung/index',[
         ]);
     }
+
+    function simpan(Request $request) {
+        $gedung=new Gedung;
+        $gedung->namagedung=$request->namagedung;
+        $gedung->id_data_poli=1;
+
+
+        $gedung->save();
+        return redirect()->route("tampildatagedung");
+    }
     function tampildataruang() {
         return view('admin/dataruangan/dataruang/index',[
         ]);
