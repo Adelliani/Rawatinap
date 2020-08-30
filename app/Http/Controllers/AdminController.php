@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Dokter;
 use App\Shift;
+use App\Gedung;
 
 class AdminController extends Controller
 {
@@ -12,15 +13,18 @@ class AdminController extends Controller
         return view('admin/dataruangan/index',[
         ]);
     }
+    
     function tampildatagedung() {
-        return view('admin/dataruangan/datagedung/index',[
+        $gedungs = Gedung::all();
+        return view('admin.dataruangan.datagedung.index', [
+            'gedungs' => $gedungs,
         ]);
     }
 
-    function simpan(Request $request) {
+    function simpandatagedung(Request $request) {
         $gedung=new Gedung;
-        $gedung->namagedung=$request->namagedung;
-        $gedung->id_data_poli=1;
+        $gedung->nama_gedung=$request->nama_gedung;
+        $gedung->id_poli=1;
 
 
         $gedung->save();

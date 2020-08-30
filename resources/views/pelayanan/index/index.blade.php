@@ -25,7 +25,7 @@
         <button type="button" class="btn btn-danger text-white mr-3" data-toggle="modal"
           data-target="#modalTambah">Tambah
           Rawat Inap</button>
-        <button type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalTambah">Riwayat
+        <button type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalDetail">Riwayat
           Rawat Inap</button>
       </div>
     </div>

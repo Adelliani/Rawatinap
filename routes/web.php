@@ -21,6 +21,8 @@ Route::get('/test', function () {
 Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 Route::post('/pelayanan',"PelayananController@simpan")->name("simpanpelayanan");
 
+Route::get('pelayanan/riwayat', "PelayananController@tampilriwayat")->name("tampilriwayat");
+
 Route::get('/pelayanan/riwayat', "PelayananController@lihat")->name("lihatriwayat");
 // Route::get('/pelayanan', "PelayananController@konfirmasi")->name("konfirmasi");
 Route::post('/pelayanan/riwayat', "PelayananController@simpan")->name("simpanpendaftaran");
@@ -45,6 +47,7 @@ Route::get('/admin', function () {
 });
 Route::get('/admin/dataruangan', "AdminController@tampildataruangan")->name("tampildataruangan");
 Route::get('/admin/dataruangan/datagedung', "AdminController@tampildatagedung")->name("tampildatagedung");
+Route::post('/admin/dataruangan/datagedung',"AdminController@simpandatagedung")->name("simpandatagedung");
 Route::get('/admin/dataruangan/dataruang', "AdminController@tampildataruang")->name("tampildataruang");
 Route::get('/admin/dataruangan/datakamar', "AdminController@tampildatakamar")->name("tampildatakamar");
 

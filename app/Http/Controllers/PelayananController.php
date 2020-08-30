@@ -22,6 +22,14 @@ class PelayananController extends Controller
         ]);
     }
 
+    function tampilriwayat()
+    {
+        $rawat_inaps = RawatInap::all();
+        return view('pelayanan.index.index', [
+            'rawat_inaps' => $rawat_inaps
+        ]);
+    }
+
     function lihat()
     {
         return view('pelayanan/riwayat', []);

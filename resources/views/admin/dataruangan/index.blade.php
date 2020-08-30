@@ -27,13 +27,14 @@
           </a>
         </div>
         <div class="col-4">
-          <a href="/admin/dataruangan/dataruang" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('tampildataruang')}}" class="btn btn-app btn-block m-0" 
+            style="height: 100px;font-size:14px">
             <i class="fa fa-door-open" style="font-size: 40px"></i>
             Data Ruang
           </a>
         </div>
         <div class="col-4">
-          <a href="/admin/dataruangan/datakamar" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('tampildatakamar')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-bed" style="font-size: 40px"></i>
             Data Kamar
           </a>
