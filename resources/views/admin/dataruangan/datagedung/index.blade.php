@@ -34,7 +34,13 @@
               </tr>
             </thead>
             <tbody>
+              @foreach($gedungs as $item)
 
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->gedung->nama_gedung}}</td>
+              </tr>
+              @endforeach
 
             </tbody>
 
