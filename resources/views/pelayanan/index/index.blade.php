@@ -23,10 +23,8 @@
       </h1>
       <div class="row col-3 justify-content-end">
         <button type="button" class="btn btn-danger text-white mr-3" data-toggle="modal"
-          data-target="#modalTambah">Tambah
-          Rawat Inap</button>
-        <button type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalDetail">Riwayat
-          Rawat Inap</button>
+          data-target="#modalTambah">Tambah Rawat Inap</button>
+        <a href="{{route('lihatriwayat')}}" class="btn btn-danger text-white mr-3">Riwayat Rawat Inap</a>
       </div>
     </div>
   </section>
