@@ -367,7 +367,7 @@
                 <div class="form-group row">
                   <label class="col-sm-4 col-form-label">Alasan Dirujuk:</label>
                   <div class="col-sm-8">
-                    <select name="alasandirujuk" class="form-control">
+                    <select name="alasandirujuk" class="form-control" data-enable-on-rujukan>
                       <option value=""></option>
                       <option value="kepentinganmedis">Kepentingan Medis</option>
                       <option value="fasilitaskurang">Fasilitas Kurang</option>

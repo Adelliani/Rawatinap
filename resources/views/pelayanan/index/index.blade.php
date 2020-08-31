@@ -25,8 +25,9 @@
         <button type="button" class="btn btn-danger text-white mr-3" data-toggle="modal"
           data-target="#modalTambah">Tambah
           Rawat Inap</button>
-        <button type="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#modalTambah">Riwayat
-          Rawat Inap</button>
+
+        <a class="btn btn-danger text-white">Riwayat
+          Rawat Inap</a>
       </div>
     </div>
   </section>
@@ -90,7 +91,7 @@
                 <td>{{$item->pasien->nama_pasien}}</td>
                 {{-- <td></td> --}}
                 <td>{{count($item->kamars)>0?$item->kamars[0]->nama_kamar:""}}</td>
-              @endforeach
+                @endforeach
             </tbody>
           </table>
         </div>
@@ -355,6 +356,31 @@
       viewMode:"years",
       format:"YYYY-MM-DD",
       ignoreReadonly:true,
+    })
+
+    $("#jenis_pasien").on("change",function(e){
+      if (e.target.value =="BPJS"){
+        $('[data-bpjs-pasien-only]').prop("disabled",false)
+      }else{
+        $('[data-bpjs-pasien-only]').val("")
+        $('[data-bpjs-pasien-only]').prop("disabled",true)
+      }
+    })
+
+    $("#prosedurmasuk").on("change",function (e) {
+      if (e.target.value == "langsung"){
+
+      }else{
+
+      }
+    })
+
+    $("#carabayar").on("change",function(e) {
+      if (e.target.value == "langsung"){
+
+      }else{
+        
+      }
     })
 
     $("#tgl-lahir-datepicker").on("change.datetimepicker",function(e){

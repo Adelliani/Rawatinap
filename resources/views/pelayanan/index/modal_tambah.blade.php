@@ -332,7 +332,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Jenis Pasien:</label>
                                         <div class="col-sm-8">
-                                            <select name="jenis_pasien" class="form-control">
+                                            <select name="jenis_pasien" class="form-control" id="jenis_pasien">
                                                 <option value=""></option>
                                                 <option value="BPJS">BPJS</option>
                                                 <option value="NonBPJS">Non BPJS</option>
@@ -342,13 +342,13 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">No BPJS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="no_bpjs">
+                                            <input type="text" class="form-control" name="no_bpjs" disabled data-bpjs-pasien-only>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Nama Peserta BPJS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="nama_pesertabpjs">
+                                            <input type="text" class="form-control" name="nama_pesertabpjs" disabled data-bpjs-pasien-only>
                                         </div>
                                     </div>
                                 </div>
@@ -361,7 +361,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Prosedur Masuk:</label>
                                         <div class="col-sm-8">
-                                            <select name="prosedur_masuk" class="form-control">
+                                            <select name="prosedur_masuk" class="form-control" id="prosedurmasuk">
                                                 <option value=""></option>
                                                 <option value="langsung">Langsung</option>
                                                 <option value="rujukanIGD">Rujukan IGD</option>
@@ -371,7 +371,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Cara Masuk:</label>
                                         <div class="col-sm-8">
-                                            <select name="cara_masuk" class="form-control">
+                                            <select name="cara_masuk" class="form-control" id="carabayar">
                                                 <option value=""></option>
                                                 <option value="datangsendiri">Datang Sendiri</option>
                                                 <option value="kontrol">Kontrol</option>
@@ -382,25 +382,25 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Perujuk:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="perujuk">
+                                            <input type="text" class="form-control" name="perujuk" data-enable-on-rujukan>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter RS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="nama_dokter">
+                                            <input type="text" class="form-control" name="nama_dokter" data-enable-on-rujukan data-enable-on-dokter>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Asal Rujukan:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="asal_rujukan">
+                                            <input type="text" class="form-control" name="asal_rujukan" data-enable-on-rujukan>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Alasan Dirujuk:</label>
                                         <div class="col-sm-8">
-                                            <select name="alasan_dirujuk" class="form-control">
+                                            <select name="alasan_dirujuk" class="form-control" data-enable-on-rujukan>
                                                 <option value=""></option>
                                                 <option value="kepentinganmedis">Kepentingan Medis</option>
                                                 <option value="fasilitaskurang">Fasilitas Kurang</option>
