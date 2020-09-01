@@ -4,6 +4,10 @@
 {{-- Data Table --}}
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")}}">
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")}}">
+{{-- select2 --}}
+<link rel="stylesheet" href="{{asset("admin_lte/plugins/select2/css/select2.min.css")}}">
+<link rel="stylesheet" href="{{asset("admin_lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
+
 @endsection
 
 @section("main_content")
@@ -85,7 +89,7 @@
                       <label class="col-sm-8">Nama Gedung:</label>
                       <div class="col-sm-15">
                           <div id="gedung">
-                              <select class="form-control" id="selectgedung" name="id_gedung" >
+                              <select class="form-control" id="select_gedung" name="id_gedung" >
                               </select>
                             </div>
 
