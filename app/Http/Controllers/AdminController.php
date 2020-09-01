@@ -74,9 +74,9 @@ class AdminController extends Controller
         $kamar->harga_kamar=$request->harga_kamar;
         $kamar->fasilitas=$request->fasilitas;
         $kamar->id_ruang=$request->id_ruang;
-        $ruang->kelas=$request->kelas;
+        $kamar->kelas=$request->kelas;
 
-        $ruang->save();
+        $kamar->save();
         return redirect()->route("tampildatakamar");
     }
 

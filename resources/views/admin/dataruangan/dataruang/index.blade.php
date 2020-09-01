@@ -104,21 +104,54 @@
       </div><!-- /.modal -->
       @endsection
       
-              @section("extra-script")
-              <!-- DataTables -->
-              <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
-              <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
-              <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
-              <script src="{{asset("admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
-              
-              <script>
-                      $(function () {
-                        $('#table-pasien').DataTable({
-                        });
-                        $('#table-ruangan').DataTable({
-                        });
-                      });
-              
-              
-                    </script>
-              @endsection
+      @section("extra-script")
+      <!-- DataTables -->
+      <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
+      <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
+      <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
+      <script src="{{asset("admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
+      
+      {{-- select2 --}}
+      <script src="{{asset("admin_lte/plugins/select2/js/select2.full.min.js")}}"></script>
+      <script src="{{asset("admin_lte/plugins/select2/js/i18n/id.js")}}"></script>
+      
+      <script>
+        $(function () {
+      
+          $("#select_gedung").select2({
+            language:"id",
+            placeholder:"Pilih Gedung",
+            theme:"bootstrap4",
+            allowClear:true,
+            ajax:{
+              url:"{{route('api.gedung.gedung')}}",
+              type:"GET",
+              delay:250,
+              data:function(params){
+                return{
+                  term:params.term,
+                  poli:1
+                }
+              },
+              processResults:function(result){
+      
+                var item = result.map((item)=>({
+                  id:item.id_gedung,
+                  text:item.nama_gedung
+                }))
+                return {
+                  "results": item
+                }
+              }
+            }
+          })
+      
+          $('#table-ruang').DataTable({
+          });
+
+
+        });
+      
+      
+      </script>
+      @endsection
