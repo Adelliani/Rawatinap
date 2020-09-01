@@ -92,7 +92,6 @@
                               <select class="form-control" id="select_gedung" name="id_gedung" >
                               </select>
                             </div>
-
                     </div>
                   </div>
                 </div>

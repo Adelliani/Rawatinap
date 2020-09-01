@@ -93,25 +93,37 @@
                         </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-5">Nama Ruang:</label>
+                      <label class="col-sm-5">Kelas:</label>
                       <div class="col-sm-10">
-                          <div id="ruang">
-                              <select class="form-control" id="select_ruang" name="id_ruang" >
+                        <select name="kelas" class="form-control">
+                          <option value=""></option>
+                          <option value="VIP">VIP</option>
+                          <option value="I">I</option>
+                          <option value="II">II</option>
+                          <option value="III">III</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-5">Nama Gedung:</label>
+                      <div class="col-sm-10">
+                          <div id="gedung">
+                              <select class="form-control" id="select_gedung" name="id_gedung" >
                               </select>
                             </div>
                     </div>
                   </div>
+                </div>
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label class="col-sm-5">Nama Gedung:</label>
+                    <label class="col-sm-5">Nama Ruang:</label>
                     <div class="col-sm-10">
-                        <div id="gedung">
-                            <select class="form-control" id="select_gedung" name="id_gedung" >
+                        <div id="ruang">
+                            <select class="form-control" id="select_ruang" name="id_ruang" >
                             </select>
                           </div>
                   </div>
                 </div>
-                </div>
-                  <div class="col-md-6">
                   <div class="form-group">
                     <label class="col-sm-5">Jumlah Kasur:</label>
                     <div class="col-sm-10">

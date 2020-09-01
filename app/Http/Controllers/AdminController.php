@@ -70,7 +70,6 @@ class AdminController extends Controller
         $kamar=new Kamar;
         $kamar->nama_kamar=$request->nama_kamar;
         $kamar->jumlah_kasur=$request->jumlah_kasur;
-        $kamar->terisi=0;
         $kamar->harga_kamar=$request->harga_kamar;
         $kamar->fasilitas=$request->fasilitas;
         $kamar->id_ruang=$request->id_ruang;
