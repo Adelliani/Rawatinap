@@ -42,7 +42,7 @@
                             <td>{{$item->tgl_masuk}}</td>
                             <td>{{$item->tgl_keluar}}</td>
                               <td>
-                                  <a href="{{route('lihatdetailriwayat')}}" class="btn btn-primary btn-xm">Detail</a>
+                                  <a href="{{route('lihatdetailriwayat',['id'=>$item->id_rawatinap])}}" class="btn btn-primary btn-xm">Detail</a>
                               </td>
                             </tr>
                             @endforeach
