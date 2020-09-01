@@ -48,7 +48,7 @@ class PelayananController extends Controller
         $pasien = Pasien::firstOrNew(["no_identitas" => $data_pasien["no_identitas"]], $data_pasien);
         $pasien->save();
 
-        $data_rawat_inap = $request->only(['tgl_masuk', 'jenis_pasien', 'no_bpjs', 'nama_pesertabpjs', 'prosedur_masuk', 'cara_masuk', 'perujuk', 'asal_rujukan', 'alasan_dirujuk', 'id_dokter']);
+        $data_rawat_inap = $request->only(['tgl_masuk', 'jenis_pasien', 'no_bpjs', 'nama_pesertabpjs', 'prosedur_masuk', 'cara_masuk', 'perujuk', 'asal_rujukan', 'alasan_dirujuk', 'id_dokter','dokter_rs']);
         $rawat_inap = new RawatInap($data_rawat_inap);
 
         $pasien->rawatinap()->save($rawat_inap);

@@ -22,4 +22,9 @@ class RawatInap extends Model
     public function kamars(){
         return $this->belongsToMany("App\Kamar","detail_p_k_s","id_rawatinap","id_kamar","id_rawatinap","id_kamar")->withPivot(["tgl_masuk","tgl_keluar","no_tempattidur"]);
     }
+
+    public function dokter()
+    {
+        return $this->belongsTo('App\Dokter','id_dokter','id_dokter');
+    }
 }

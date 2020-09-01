@@ -68,37 +68,67 @@
     </div>
   </div>
 
-  <div class="modal fade" id="modalTambahkamar" role="dialog">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Data Kamar</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-              aria-hidden="true">&times;</span></button>
-        </div>
-        <form class="form-horizontal" id="form-tambah" action="" method="post">
-          @csrf
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="col-sm-5">Id Kamar:</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" name="id_kamar" value="" readonly>
+      <div class="modal fade" id="modalTambahkamar" role="dialog">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Data Kamar</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                          aria-hidden="true">&times;</span></button>
+              </div>
+              <form class="form-horizontal" id="form-tambah" action="" method="post">
+            @csrf
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                          <label class="col-sm-5">Id Kamar:</label>
+                          <div class="col-sm-10">
+                              <input type="number" class="form-control" name="id_kamar" value="" readonly>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5">Nama Kamar:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="nama_kamar">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-5">Kelas:</label>
+                      <div class="col-sm-10">
+                        <select name="kelas" class="form-control">
+                          <option value=""></option>
+                          <option value="VIP">VIP</option>
+                          <option value="I">I</option>
+                          <option value="II">II</option>
+                          <option value="III">III</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-5">Nama Gedung:</label>
+                      <div class="col-sm-10">
+                          <div id="gedung">
+                              <select class="form-control" id="select_gedung" name="id_gedung" >
+                              </select>
+                            </div>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-5">Nama Kamar:</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nama_kamar">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-sm-5">Nama Ruang:</label>
+                    <div class="col-sm-10">
+                        <div id="ruang">
+                            <select class="form-control" id="select_ruang" name="id_ruang" >
+                            </select>
+                          </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-5">Nama Gedung:</label>
-                  <div class="col-sm-10">
-                    <div id="gedung">
-                      <select class="form-control" id="select_gedung" name="id_gedung">
-                      </select>
+                  <div class="form-group">
+                    <label class="col-sm-5">Jumlah Kasur:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="jumlah_kasur">
                     </div>
                   </div>
                 </div>

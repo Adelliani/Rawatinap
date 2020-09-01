@@ -388,7 +388,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter RS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="nama_dokter" data-enable-on-rujukan data-enable-on-dokter>
+                                            <input type="text" class="form-control" name="dokter_rs" data-enable-on-rujukan data-enable-on-dokter>
                                         </div>
                                     </div>
                                     <div class="form-group row">
