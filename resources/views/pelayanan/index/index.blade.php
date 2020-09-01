@@ -36,7 +36,7 @@
           Daftar Kamar
         </div>
         <div class="card-body">
-          <table id="table-pasien" class="table table-bordered table-hover">
+          <table id="table-ruangan" class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>No</th>
@@ -70,7 +70,7 @@
           Daftar Pasien
         </div>
         <div class="card-body">
-          <table id="table-ruangan" class="table table-bordered table-hover">
+          <table id="table-pasien" class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>No</th>

@@ -4,13 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dokter;
+use App\Pegawai;
 use App\Shift;
 use App\Gedung;
+use App\Ruang;
+use App\Kamar;
 
 class AdminController extends Controller
 {
+    function tampiladmin() {
+        return view('admin/index',[
+        ]);
+    }
+
     function tampildataruangan() {
-        return view('admin/dataruangan/index',[
+        $gedungs = Gedung::all();
+        $ruangs = Ruang::all();
+        $kamars = Kamar::all();
+        return view('admin.dataruangan.index',[
+            'gedungs' => $gedungs,
+            'ruangs'  => $ruangs,
+            'kamars'  => $kamars,
         ]);
     }
     
@@ -26,27 +40,88 @@ class AdminController extends Controller
         $gedung->nama_gedung=$request->nama_gedung;
         $gedung->id_poli=1;
 
-
         $gedung->save();
         return redirect()->route("tampildatagedung");
     }
     function tampildataruang() {
-        return view('admin/dataruangan/dataruang/index',[
-        ]);
-    }
-    function tampildatakamar() {
-        return view('admin/dataruangan/datakamar/index',[
+        $ruangs = Ruang::all();
+        return view('admin.dataruangan.dataruang.index',[
+            'ruangs' => $ruangs,
         ]);
     }
 
-    function tampildatadokter() {
-        return view('admin/datadokter/index',[
+    function simpandataruang(Request $request) {
+        $ruang=new Ruang;
+        $ruang->nama_ruang=$request->nama_ruang;
+        $ruang->id_gedung=$request->id_gedung;
+
+        $ruang->save();
+        return redirect()->route("tampildataruang");
+    }
+
+    function tampildatakamar() {
+        $kamars = Kamar::all();
+        return view('admin.dataruangan.datakamar.index',[
+            'kamars' => $kamars,
         ]);
     }
-    
-    function tampildatapegawai() {
-        return view('admin/datapegawai/index',[
+
+    function simpandatakamar(Request $request) {
+        $kamar=new Kamar;
+        $kamar->nama_kamar=$request->nama_kamar;
+        $kamar->jumlah_kasur=$request->jumlah_kasur;
+        $kamar->terisi=0;
+        $kamar->harga_kamar=$request->harga_kamar;
+        $kamar->fasilitas=$request->fasilitas;
+        $kamar->id_ruang=$request->id_ruang;
+        $ruang->kelas=$request->kelas;
+
+        $ruang->save();
+        return redirect()->route("tampildatakamar");
+    }
+
+    function tampildatadokter() {
+        $dokters = Dokter::all();
+        return view('admin.datadokter.index',[
+            'dokters' => $dokters,
         ]);
+    }
+
+    function simpandatadokter(Request $request) {
+        $dokter=new Dokter;
+        $dokter->nama_dokter=$request->nama_dokter;
+        $dokter->jenis_kelamin=$request->jenis_kelamin;
+        $dokter->jenis_dokter=$request->jenis_dokter;
+        $dokter->spesialisasi=$request->spesialisasi;
+        $dokter->notelp=$request->notelp;
+        $dokter->alamat=$request->alamat;
+        $dokter->id_poli=1;
+
+
+        $dokter->save();
+        return redirect()->route("tampildatadokter");
+    }
+
+    function tampildatapegawai() {
+        $pegawais = Pegawai::all();
+        return view('admin.datapegawai.index',[
+            'pegawais' => $pegawais,
+        ]);
+    }
+
+    function simpandatapegawai(Request $request) {
+        $pegawai=new Pegawai;
+        $pegawai->nama_pegawai=$request->nama_pegawai;
+        $pegawai->jenis_kelamin=$request->jenis_kelamin;
+        $pegawai->posisi=$request->posisi;
+        $pegawai->notelp=$request->notelp;
+        $pegawai->alamat=$request->alamat;
+        $pegawai->id_poli=1;
+        $pegawai->id_shift=2;
+
+
+        $pegawai->save();
+        return redirect()->route("tampildatapegawai");
     }
 
     function tampildataperawat() {

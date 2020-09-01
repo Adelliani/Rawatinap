@@ -45,6 +45,7 @@
                                   <a href="{{route('lihatdetailriwayat')}}" class="btn btn-primary btn-xm">Detail</a>
                               </td>
                             </tr>
+                            @endforeach
                       </tbody>
                      </table>
                 </div>

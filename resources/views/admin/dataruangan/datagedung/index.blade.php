@@ -22,10 +22,10 @@
         <div class="card-header">
           <button class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-plus-circle" data-toggle="modal"
               data-target="#modalTambahgedung"> Tambah </i></button>
-          <button class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left"> Kembali</i></button>
+          <a href="{{route('tampildataruangan')}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
         <div class="card-body">
-          <table id="table-pasien" class="table table-bordered table-hover">
+          <table id="table-gedung" class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>No</th>
@@ -38,7 +38,11 @@
 
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->gedung->nama_gedung}}</td>
+                <td>{{$item->nama_gedung}}</td>
+                <td>
+                    <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                    <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                </td>
               </tr>
               @endforeach
 

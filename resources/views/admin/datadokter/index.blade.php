@@ -22,10 +22,10 @@
             <div class="card-header">
               <button class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-plus-circle" data-toggle="modal"
                 data-target="#modalTambahdokter"> Tambah </i></button>
-              <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></button>
+              <a href="{{route('tampiladmin')}}" class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></a>
           </div>
               <div class="card-body">
-                  <table id="table-pasien" class="table table-bordered table-hover">
+                  <table id="table-dokter" class="table table-bordered table-hover">
                       <thead>
                       <tr>
                         <th>No</th>
@@ -38,6 +38,21 @@
                       </tr>
                       </thead>
                       <tbody>
+                          @foreach ($dokters as $item)
+              
+                          <tr>
+                            <td>{{$loop->index+1}}</td>
+                            <td>{{$item->nama_dokter}}</td>
+                            <td>{{$item->jenis_kelamin}}</td>
+                            <td>{{$item->jenis_dokter}}</td>
+                            <td>{{$item->spesialisasi}}</td>
+                            <td>{{$item->shift}}</td>
+                            <td>
+                                <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                                <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                            </td>
+                          </tr>
+                          @endforeach
                       </tbody>
                       
                     </table>

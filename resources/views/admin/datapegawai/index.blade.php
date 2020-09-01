@@ -25,7 +25,7 @@
               <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></button>
           </div>
               <div class="card-body">
-                  <table id="table-pasien" class="table table-bordered table-hover">
+                  <table id="table-pegawai" class="table table-bordered table-hover">
                       <thead>
                       <tr>
                         <th>No</th>
@@ -37,6 +37,21 @@
                       </tr>
                       </thead>
                       <tbody>
+                          @foreach ($pegawais as $item)
+                 
+                          <tr>
+                            <td>{{$loop->index+1}}</td>
+                            <td>{{$item->nama_pegawai}}</td>
+                            <td>{{$item->jenis_kelamin}}</td>
+                            <td>{{$item->posisi}}</td>
+                            <td>{{$item->shift}}</td>
+            
+                            <td>
+                                <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                                <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                                </td>
+                          </tr>
+                        @endforeach
                       </tbody>
                       
                     </table>

@@ -13,6 +13,7 @@
       <h1>
         Data Ruangan
       </h1>
+      <a href="{{route('tampiladmin')}}" class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></a>
     </div>
   </section>
 
@@ -61,16 +62,17 @@
               </tr>
             </thead>
             <tbody>
+                @foreach($kamars as $item)
 
-
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+                <tr>
+                      <td>{{$loop->index+1}}</td>
+                      <td>{{$item->nama_kamar}}</td>
+                      <td>{{$item->ruang->nama_ruang}}</td>
+                      <td>{{$item->ruang->gedung->nama_gedung}}</td>
+                      <td>{{$item->jumlah_kasur}}</td>
+                      <td>{{$item->terisi}}</td>
+                    </tr>
+                  @endforeach
 
             </tbody>
 

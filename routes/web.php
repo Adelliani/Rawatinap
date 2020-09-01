@@ -43,17 +43,22 @@ Route::get('/dokter/detail', "DokterController@lihat")->name("lihatdetail");
 Route::get('/superadmin', function () {
     return view('superadmin.index');
 });
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+Route::get('/admin', "AdminController@tampiladmin")->name("tampiladmin");
+
 Route::get('/admin/dataruangan', "AdminController@tampildataruangan")->name("tampildataruangan");
 Route::get('/admin/dataruangan/datagedung', "AdminController@tampildatagedung")->name("tampildatagedung");
 Route::post('/admin/dataruangan/datagedung',"AdminController@simpandatagedung")->name("simpandatagedung");
+
 Route::get('/admin/dataruangan/dataruang', "AdminController@tampildataruang")->name("tampildataruang");
+Route::post('/admin/dataruangan/dataruang',"AdminController@simpandataruang")->name("simpandataruang");
+
 Route::get('/admin/dataruangan/datakamar', "AdminController@tampildatakamar")->name("tampildatakamar");
+Route::post('/admin/dataruangan/datakamar',"AdminController@simpandatakamar")->name("simpandatakamar");
 
 Route::get('/admin/datadokter', "AdminController@tampildatadokter")->name("tampildatadokter");
+Route::post('/admin/datadokter', "AdminController@simpandatadokter")->name("simpandatadokter");
 Route::get('/admin/datapegawai', "AdminController@tampildatapegawai")->name("tampildatapegawai");
+Route::post('/admin/datapegawai', "AdminController@simpandatapegawai")->name("simpandatapegawai");
 Route::get('/admin/dataperawat', "AdminController@tampildataperawat")->name("tampildataperawat");
 Route::get('/admin/datafasilitas', "AdminController@tampildatafasilitas")->name("tampildatafasilitas");
 Route::get('/admin/laporan', "AdminController@tampillaporan")->name("tampillaporan");
