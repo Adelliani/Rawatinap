@@ -22,21 +22,6 @@ class PelayananController extends Controller
         ]);
     }
 
-
-    function lihatdetailriwayat(RawatInap $rawat_inap)
-    {
-        return view('pelayanan.riwayat.detail', ["rawat_inap" => $rawat_inap]);
-    }
-
-    function lihatriwayat()
-    {
-        $rawat_inaps = RawatInap::all();
-        return view('pelayanan.riwayat.index', [
-            'rawat_inaps' => $rawat_inaps
-        ]);
-    }
-
-
     function simpan(Request $request)
     {
 
@@ -48,7 +33,7 @@ class PelayananController extends Controller
         $pasien = Pasien::firstOrNew(["no_identitas" => $data_pasien["no_identitas"]], $data_pasien);
         $pasien->save();
 
-        $data_rawat_inap = $request->only(['tgl_masuk', 'jenis_pasien', 'no_bpjs', 'nama_pesertabpjs', 'prosedur_masuk', 'cara_masuk', 'perujuk', 'asal_rujukan', 'alasan_dirujuk', 'id_dokter','dokter_rs']);
+        $data_rawat_inap = $request->only(['tgl_masuk', 'jenis_pasien', 'no_bpjs', 'nama_pesertabpjs', 'prosedur_masuk', 'cara_masuk', 'perujuk', 'asal_rujukan', 'alasan_dirujuk', 'id_dokter', 'dokter_rs']);
         $rawat_inap = new RawatInap($data_rawat_inap);
 
         $pasien->rawatinap()->save($rawat_inap);
@@ -71,20 +56,33 @@ class PelayananController extends Controller
         return redirect()->route("index");
     }
 
+    function lihatriwayat()
+    {
+        $rawat_inaps = RawatInap::all();
+        return view('pelayanan.riwayat.index', [
+            'rawat_inaps' => $rawat_inaps
+        ]);
+    }
+
+    function lihatdetailriwayat(RawatInap $rawat_inap)
+    {
+        return view('pelayanan.riwayat.detail.index', ["rawat_inap" => $rawat_inap]);
+    }
+
     function tampilpemeriksaan()
     {
-        return view('pelayanan/pemeriksaan/index', []);
+        return view('pelayanan.riwayat.detail.pemeriksaan', []);
     }
     function tampilresepobat()
     {
-        return view('pelayanan/resepobat/index', []);
+        return view('pelayanan.riwayat.detail.resepobat', []);
     }
     function tampildiagnosa()
     {
-        return view('pelayanan/diagnosa/index', []);
+        return view('pelayanan.riwayat.detail.diagnosa', []);
     }
     function tampilfasilitas()
     {
-        return view('pelayanan/fasilitas/index', []);
+        return view('pelayanan.riwayat.detail.fasilitas', []);
     }
 }
