@@ -20,25 +20,25 @@
     <div class="card-body">
       <div class="row">
         <div class="col-3">
-          <a href="/pelayanan/pemeriksaan" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+        <a href="{{route("riwayatpemeriksaan",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class="fa fa-stethoscope" style="font-size: 40px"></i>
             Pemeriksaan
           </a>
         </div>
         <div class="col-3">
-          <a href="/pelayanan/resepobat" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route("riwayatresepobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class="fa fa-plus-square" style="font-size: 40px"></i>
             Resep Obat
           </a>
         </div>
         <div class="col-3">
-          <a href="/pelayanan/diagnosa" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route("riwayatdiagnosa",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-diagnoses" style="font-size: 40px"></i>
             Diagnosa
           </a>
         </div>
         <div class="col-3">
-          <a href="/pelayanan/fasilitas" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route("riwayatfasilitas",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-heartbeat" style="font-size: 40px"></i>
             Fasilitas
           </a>
@@ -61,7 +61,7 @@
                     <div class="form-group">
                       <label class="form-label">Tgl Masuk</label>
                       <div>
-                        <input id="tanggal" type="text" class="form-control" value="" name="tgl_masuk" readonly>
+                        <p class="form-control">{{$rawat_inap->tgl_masuk}}</p>
                       </div>
                     </div>
                   </div>
@@ -69,7 +69,7 @@
                     <div class="form-group">
                       <label class="form-label">No.Rawat Inap</label>
                       <div>
-                        <input type="text" class="form-control" name="no_ri" value="" readonly>
+                      <input type="text" class="form-control" name="no_ri" value="{{$rawat_inap->pasien->desa->nama_desa}}" readonly>
                       </div>
                     </div>
                   </div>

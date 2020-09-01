@@ -21,16 +21,13 @@ Route::get('/test', function () {
 Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 Route::post('/pelayanan',"PelayananController@simpan")->name("simpanpelayanan");
 
-Route::get('/pelayanan/riwayat/{rawat_inap}', "PelayananController@lihatdetailriwayat")->name("lihatdetailriwayat");
 Route::get('/pelayanan/riwayat', "PelayananController@lihatriwayat")->name("lihatriwayat");
+Route::get('/pelayanan/riwayat/{rawat_inap}', "PelayananController@lihatdetailriwayat")->name("lihatdetailriwayat");
 
-
-// Route::get('/pelayanan', "PelayananController@konfirmasi")->name("konfirmasi");
-Route::post('/pelayanan/riwayat', "PelayananController@simpan")->name("simpanpendaftaran");
-Route::get('/pelayanan/pemeriksaan', "PelayananController@tampilpemeriksaan")->name("tampilpemeriksaan");
-Route::get('/pelayanan/resepobat', "PelayananController@tampilresepobat")->name("tampilresepobat");
-Route::get('/pelayanan/diagnosa', "PelayananController@tampildiagnosa")->name("tampildiagnosa");
-Route::get('/pelayanan/fasilitas', "PelayananController@tampilfasilitas")->name("tampilfasilitas");
+Route::get('/pelayanan/riwayat/{rawat_inap}/pemeriksaan', "PelayananController@tampilpemeriksaan")->name("riwayatpemeriksaan");
+Route::get('/pelayanan/riwayat/{rawat_inap}/resepobat', "PelayananController@tampilresepobat")->name("riwayatresepobat");
+Route::get('/pelayanan/riwayat/{rawat_inap}/diagnosa', "PelayananController@tampildiagnosa")->name("riwayatdiagnosa");
+Route::get('/pelayanan/riwayat/{rawat_inap}/fasilitas', "PelayananController@tampilfasilitas")->name("riwayatfasilitas");
 
 Route::get('/dokter', "DokterController@tampil")->name("tampildokter");
 Route::get('/dokter/detail', "DokterController@lihat")->name("lihatdetail");
