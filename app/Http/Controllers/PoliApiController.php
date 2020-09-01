@@ -8,6 +8,7 @@ use App\Gedung;
 use App\Poli;
 use App\Kamar;
 use App\Ruang;
+use App\Shift;
 
 class GedungApiController extends Controller
 {
@@ -46,5 +47,9 @@ class GedungApiController extends Controller
             $kamar = Kamar::where("id_ruang", $request->input("ruang"))->get();
         }
         return response()->json($kamar);
+    }
+
+    function getShift(Request $request){
+        
     }
 }

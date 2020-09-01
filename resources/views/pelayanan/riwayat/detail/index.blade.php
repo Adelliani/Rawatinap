@@ -20,25 +20,45 @@
     <div class="card-body">
       <div class="row">
         <div class="col-3">
-        <a href="{{route("riwayatpemeriksaan",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+<<<<<<< HEAD:resources/views/pelayanan/riwayat/detail.blade.php
+          <a href="/pelayanan/pemeriksaan" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+=======
+          <a href="{{route("riwayatpemeriksaan",["rawat_inap"=>$rawat_inap->id_rawatinap])}}"
+            class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+>>>>>>> 893fc584c780765f027074ef616c6588eecf31c2:resources/views/pelayanan/riwayat/detail/index.blade.php
             <i class="fa fa-stethoscope" style="font-size: 40px"></i>
             Pemeriksaan
           </a>
         </div>
         <div class="col-3">
-          <a href="{{route("riwayatresepobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+<<<<<<< HEAD:resources/views/pelayanan/riwayat/detail.blade.php
+          <a href="/pelayanan/resepobat" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+=======
+          <a href="{{route("riwayatresepobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}"
+            class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+>>>>>>> 893fc584c780765f027074ef616c6588eecf31c2:resources/views/pelayanan/riwayat/detail/index.blade.php
             <i class="fa fa-plus-square" style="font-size: 40px"></i>
             Resep Obat
           </a>
         </div>
         <div class="col-3">
-          <a href="{{route("riwayatdiagnosa",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+<<<<<<< HEAD:resources/views/pelayanan/riwayat/detail.blade.php
+          <a href="/pelayanan/diagnosa" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+=======
+          <a href="{{route("riwayatdiagnosa",["rawat_inap"=>$rawat_inap->id_rawatinap])}}"
+            class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+>>>>>>> 893fc584c780765f027074ef616c6588eecf31c2:resources/views/pelayanan/riwayat/detail/index.blade.php
             <i class=" fa fa-diagnoses" style="font-size: 40px"></i>
             Diagnosa
           </a>
         </div>
         <div class="col-3">
-          <a href="{{route("riwayatfasilitas",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+<<<<<<< HEAD:resources/views/pelayanan/riwayat/detail.blade.php
+          <a href="/pelayanan/fasilitas" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+=======
+          <a href="{{route("riwayatfasilitas",["rawat_inap"=>$rawat_inap->id_rawatinap])}}"
+            class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+>>>>>>> 893fc584c780765f027074ef616c6588eecf31c2:resources/views/pelayanan/riwayat/detail/index.blade.php
             <i class=" fa fa-heartbeat" style="font-size: 40px"></i>
             Fasilitas
           </a>
@@ -110,8 +130,12 @@
                   <label class="col-sm-4 control-label">Umur:</label>
                   <div class="col-sm-4">
                     <div class="input-group">
-                      <p class="form-control">{{$rawat_inap->pasien->umur}}</p>
-                      <span class="input-group-addon">tahun</span>
+                      <p class="form-control" data-umur></p>
+                      <span class="input-group-append">
+                        <span class="input-group-text">
+                          Tahun
+                        </span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -119,7 +143,7 @@
                   <label class="col-sm-4 col-form-label">Jenis Kelamin<sup class="bintang">*</sup>:</label>
                   <div class="col-sm-8">
                     <div class="radio">
-                        <p class="form-control">{{$rawat_inap->jenis_kelamin=="laki-laki"?"Laki-laki":"Perempuan"}}</p>
+                      <p class="form-control">{{$rawat_inap->jenis_kelamin=="laki-laki"?"Laki-laki":"Perempuan"}}</p>
                     </div>
                   </div>
                 </div>
@@ -166,10 +190,11 @@
                 <div class="form-group row">
                   <label class="col-sm-4 control-label">Provinsi:</label>
                   <div class="col-sm-8">
-                      <div id="provinsi">
-                    <p class="form-control">{{$rawat_inap->pasien->desa->kecamatan->kabupaten->provinsi->nama_prov}}</p>
+                    <div id="provinsi">
+                      <p class="form-control">{{$rawat_inap->pasien->desa->kecamatan->kabupaten->provinsi->nama_prov}}
+                      </p>
+                    </div>
                   </div>
-                </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-4 control-label">Kabupaten:</label>
@@ -198,7 +223,7 @@
                 <div class="form-group row">
                   <label class="col-sm-4 control-label">Alamat:</label>
                   <div class="col-sm-8">
-                      <p class="form-control">{{$rawat_inap->pasien->alamat}}</p>
+                    <p class="form-control">{{$rawat_inap->pasien->alamat}}</p>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -219,7 +244,7 @@
                 <div class="form-group row">
                   <label class="col-sm-3 control-label">No. KK:</label>
                   <div class="col-sm-9">
-                      <p class="form-control">{{$rawat_inap->pasien->no_kk}}</p>
+                    <p class="form-control">{{$rawat_inap->pasien->no_kk}}</p>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -231,7 +256,7 @@
                 <div class="form-group row">
                   <label class="col-sm-3 control-label">Hubungan:</label>
                   <div class="col-sm-9">
-                      <p class="form-control">{{$rawat_inap->pasien->hubungan}}</p>
+                    <p class="form-control">{{$rawat_inap->pasien->hubungan}}</p>
                   </div>
                 </div>
               </div>
@@ -242,7 +267,7 @@
                 <div class="form-group row">
                   <label class="col-sm-4 col-form-label">Jenis Pasien:</label>
                   <div class="col-sm-8">
-                      <p class="form-control">{{$rawat_inap->jenis_pasien}}</p>
+                    <p class="form-control">{{$rawat_inap->jenis_pasien}}</p>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -285,7 +310,7 @@
                 <div class="form-group row">
                   <label class="col-sm-4 col-form-label">Dokter RS:</label>
                   <div class="col-sm-8">
-                      <p class="form-control">{{$rawat_inap->dokter_rs}}</p>
+                    <p class="form-control">{{$rawat_inap->dokter_rs}}</p>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -297,15 +322,13 @@
                 <div class="form-group row">
                   <label class="col-sm-4 col-form-label">Alasan Dirujuk:</label>
                   <div class="col-sm-8">
-                      <p class="form-control">{{$rawat_inap->alasan_dirujuk}}</p>
+                    <p class="form-control">{{$rawat_inap->alasan_dirujuk}}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
@@ -314,20 +337,18 @@
   @endsection
 
   @section("extra-script")
-  <!-- DataTables -->
-  <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
-  <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
-  <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
-  <script src="{{asset("admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
+  <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
+  <script src="{{asset("admin_lte/plugins/moment/locale/id.js")}}"></script>
 
   <script>
     $(function () {
-                        $('#table-pasien').DataTable({
-                        });
-                        $('#table-ruangan').DataTable({
-                        });
-                      });
-              
-              
+      moment.locale()
+
+
+      $("[data-umur]").text(`${
+        moment("{{$rawat_inap->tgl_masuk}}").diff(moment("{{$rawat_inap->pasien->tgl_lahir}}"),"years")
+      }`)
+    });
+        
   </script>
   @endsection
