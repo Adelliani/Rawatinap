@@ -23,9 +23,9 @@ class PelayananController extends Controller
     }
 
 
-    function lihatdetailriwayat($id)
+    function lihatdetailriwayat(RawatInap $rawat_inap)
     {
-        return view('pelayanan.riwayat.detail', []);
+        return view('pelayanan.riwayat.detail', ["rawat_inap" => $rawat_inap]);
     }
 
     function lihatriwayat()
