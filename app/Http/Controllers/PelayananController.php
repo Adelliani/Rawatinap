@@ -23,15 +23,15 @@ class PelayananController extends Controller
     }
 
 
-    function lihatdetailriwayat()
+    function lihatdetailriwayat($id)
     {
-        return view('pelayanan/index/detailriwayat', []);
+        return view('pelayanan.riwayat.detail', []);
     }
 
     function lihatriwayat()
     {
         $rawat_inaps = RawatInap::all();
-        return view('pelayanan.index.riwayat', [
+        return view('pelayanan.riwayat.index', [
             'rawat_inaps' => $rawat_inaps
         ]);
     }

@@ -21,8 +21,8 @@ Route::get('/test', function () {
 Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 Route::post('/pelayanan',"PelayananController@simpan")->name("simpanpelayanan");
 
-Route::get('/pelayanan/index/detailriwayat', "PelayananController@lihatdetailriwayat")->name("lihatdetailriwayat");
-Route::get('/pelayanan/index/riwayat', "PelayananController@lihatriwayat")->name("lihatriwayat");
+Route::get('/pelayanan/riwayat/{id}', "PelayananController@lihatdetailriwayat")->name("lihatdetailriwayat");
+Route::get('/pelayanan/riwayat', "PelayananController@lihatriwayat")->name("lihatriwayat");
 
 
 // Route::get('/pelayanan', "PelayananController@konfirmasi")->name("konfirmasi");
