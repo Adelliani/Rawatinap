@@ -101,6 +101,15 @@
                             </div>
                     </div>
                   </div>
+                  <div class="form-group">
+                    <label class="col-sm-5">Nama Gedung:</label>
+                    <div class="col-sm-10">
+                        <div id="gedung">
+                            <select class="form-control" id="select_gedung" name="id_gedung" >
+                            </select>
+                          </div>
+                  </div>
+                </div>
                 </div>
                   <div class="col-md-6">
                   <div class="form-group">
