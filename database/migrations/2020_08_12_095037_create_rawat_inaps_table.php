@@ -22,8 +22,9 @@ class CreateRawatInapsTable extends Migration
             $table->string('nama_pesertabpjs',100)->nullable();
             $table->enum('prosedur_masuk',['langsung','rujukanIGD']);
             $table->enum('cara_masuk',['datangsendiri','kontrol','dokterRS']);
-            $table->string('perujuk');
-            $table->string('asal_rujukan');
+            $table->string('perujuk',100);
+            $table->string('dokter_rs',100);
+            $table->string('asal_rujukan',100);
             $table->enum('alasan_dirujuk',['kepentinganmedis','fasilitaskurang','permintaansendiri','tempattidurpenuh']);
             
             

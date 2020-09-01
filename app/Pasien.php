@@ -15,4 +15,9 @@ class Pasien extends Model
     {
         return $this->hasMany('App\RawatInap','id_pasien','id_pasien');
     }
+
+    public function desa()
+    {
+        return $this->belongsTo('App\Desa', 'id_desa', 'id_desa');
+    }
 }
