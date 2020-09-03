@@ -379,12 +379,20 @@
         case "rujukanIGD":
           $("[data-rujuk]").attr("disabled",false);
           $("[data-langsung]").attr("disabled",true);
+          $("[data-dokter-rs]").attr("disabled",true)
           break;
       
         case "langsung":
           $("[data-rujuk]").attr("disabled",true);
           $("[data-langsung]").attr("disabled",false);
           break;
+      }
+    })
+    $("#caramasuk").on("change",function(e){
+      if (e.target.value == "dokterrs"){
+        $("[data-dokter-rs]").attr("disabled",false)
+      }else{
+        $("[data-dokter-rs]").attr("disabled",true)
       }
     })
 
