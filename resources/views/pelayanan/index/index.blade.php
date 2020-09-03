@@ -372,11 +372,19 @@
       }
     })
 
-    $("#carabayar").on("change",function(e) {
-      if (e.target.value == "langsung"){
+  
 
-      }else{
-        
+    $('#prosedurmasuk').on("change",function(e){
+      switch (e.target.value) {
+        case "rujukanIGD":
+          $("[data-rujuk]").attr("disabled",false);
+          $("[data-langsung]").attr("disabled",true);
+          break;
+      
+        case "langsung":
+          $("[data-rujuk]").attr("disabled",true);
+          $("[data-langsung]").attr("disabled",false);
+          break;
       }
     })
 

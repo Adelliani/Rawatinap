@@ -10,7 +10,7 @@ use App\Kamar;
 use App\Ruang;
 use App\Shift;
 
-class GedungApiController extends Controller
+class PoliApiController extends Controller
 {
     function getPoli(Request $request)
     {

@@ -53,7 +53,8 @@
                                         <label class="col-sm-4 col-form-label">Nama Pasien<sup
                                                 class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="nama_pasien" id="nama_pasien" required>
+                                            <input type="text" class="form-control" name="nama_pasien" id="nama_pasien"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -65,8 +66,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-4">Tanggal Lahir<sup
-                                            class="bintang">*</sup>:</label required>
+                                        <label class="col-4">Tanggal Lahir<sup class="bintang">*</sup>:</label required>
                                         <div class="input-group date col-6" id="tgl-lahir-datepicker"
                                             data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
@@ -226,8 +226,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 control-label">Alamat<sup
-                                            class="bintang">*</sup>:</label required>
+                                        <label class="col-sm-4 control-label">Alamat<sup class="bintang">*</sup>:</label
+                                            required>
                                         <div class="col-sm-8">
                                             <textarea name="alamat" class="form-control" rows="3"></textarea>
                                         </div>
@@ -293,8 +293,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Ruang<sup
-                                                class="bintang">*</sup>:</label required>
+                                        <label class="col-sm-4 col-form-label">Ruang<sup class="bintang">*</sup>:</label
+                                            required>
                                         <div class="col-sm-8">
                                             <select name="nama_ruang" id="select_ruang" class="form-control">
                                                 <option value=""></option>
@@ -302,8 +302,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">kamar<sup
-                                                class="bintang">*</sup>:</label required>
+                                        <label class="col-sm-4 col-form-label">kamar<sup class="bintang">*</sup>:</label
+                                            required>
                                         <div class="col-sm-8">
                                             <select name="id_kamar" id="select_kamar" class="form-control">
                                                 <option value=""></option>
@@ -342,13 +342,15 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">No BPJS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="no_bpjs" disabled data-bpjs-pasien-only>
+                                            <input type="text" class="form-control" name="no_bpjs" disabled
+                                                data-bpjs-pasien-only>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Nama Peserta BPJS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="nama_pesertabpjs" disabled data-bpjs-pasien-only>
+                                            <input type="text" class="form-control" name="nama_pesertabpjs" disabled
+                                                data-bpjs-pasien-only>
                                         </div>
                                     </div>
                                 </div>
@@ -362,7 +364,7 @@
                                         <label class="col-sm-4 col-form-label">Prosedur Masuk:</label>
                                         <div class="col-sm-8">
                                             <select name="prosedur_masuk" class="form-control" id="prosedurmasuk">
-                                                <option value=""></option>
+                                                <option value="" disabled selected>Pilih prosedur masuk</option>
                                                 <option value="langsung">Langsung</option>
                                                 <option value="rujukanIGD">Rujukan IGD</option>
                                             </select>
@@ -371,37 +373,41 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Cara Masuk:</label>
                                         <div class="col-sm-8">
-                                            <select name="cara_masuk" class="form-control" id="carabayar">
-                                                <option value=""></option>
+                                            <select name="cara_masuk" class="form-control" id="caramasuk" disabled data-langsung>
+                                                <option value="" disabled selected>Pilih cara masuk</option>
                                                 <option value="datangsendiri">Datang Sendiri</option>
                                                 <option value="kontrol">Kontrol</option>
                                                 <option value="dokterrs">Dokter RS</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Perujuk:</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="perujuk" data-enable-on-rujukan>
-                                        </div>
-                                    </div>
+
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter RS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="dokter_rs" data-enable-on-rujukan data-enable-on-dokter>
+                                            <input type="text" class="form-control" name="dokter_rs" disabled data-dokter-rs
+                                                >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Perujuk:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="perujuk"
+                                                disabled data-rujuk>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Asal Rujukan:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="asal_rujukan" data-enable-on-rujukan>
+                                            <input type="text" class="form-control" name="asal_rujukan"
+                                                disabled data-rujuk>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Alasan Dirujuk:</label>
                                         <div class="col-sm-8">
-                                            <select name="alasan_dirujuk" class="form-control" data-enable-on-rujukan>
-                                                <option value=""></option>
+                                            <select name="alasan_dirujuk" class="form-control" disabled data-rujuk>
+                                                <option value="" disabled selected>Pilih alasan dirujuk</option>
                                                 <option value="kepentinganmedis">Kepentingan Medis</option>
                                                 <option value="fasilitaskurang">Fasilitas Kurang</option>
                                                 <option value="permintaansendiri">Permintaan Sendiri</option>
@@ -454,5 +460,3 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-  
