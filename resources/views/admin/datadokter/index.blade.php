@@ -104,7 +104,7 @@
                 <div class="form-group">
                     <label class="col-sm-5">Jenis Dokter:</label>
                     <div class="col-sm-10">
-                      <select id="jenis_dokter" name="jenis" class="form-control">
+                      <select id="jenis_dokter" name="jenis_dokter" class="form-control">
                         <option value=""></option>
                         <option value="umum">Umum</option>
                         <option value="spesialis">Spesialis</option>

@@ -116,22 +116,6 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="col-sm-5">Nama Ruang:</label>
-                    <div class="col-sm-10">
-                        <div id="ruang">
-                            <select class="form-control" id="select_ruang" name="id_ruang" >
-                            </select>
-                          </div>
-                  </div>
-                </div>
-                  <div class="form-group">
-                    <label class="col-sm-5">Jumlah Kasur:</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="jumlah_kasur">
-                    </div>
-                  </div>
-                </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Ruang:</label>
                   <div class="col-sm-10">
@@ -141,14 +125,12 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-6">
                 <div class="form-group">
                   <label class="col-sm-5">Jumlah Kasur:</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="jumlah_kasur">
                   </div>
-                </div>
+              </div>
                 <div class="form-group">
                   <label class="col-sm-5">Harga:</label>
                   <div class="col-sm-10">
