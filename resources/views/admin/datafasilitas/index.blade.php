@@ -70,6 +70,12 @@
                   </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-8">Jenis Fasilitas:</label>
+                    <div class="col-sm-15">
+                      <input type="text" class="form-control" name="jenis_fasilitas">
+                    </div>
+                  </div>
+                <div class="form-group">
                   <label class="col-sm-8">Harga Fasilitas:</label>
                   <div class="col-sm-15">
                     <input type="text" class="form-control" name="harga_fasilitas">

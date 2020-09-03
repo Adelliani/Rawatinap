@@ -11,6 +11,7 @@ use App\Ruang;
 use App\Kamar;
 use App\RawatInap;
 use App\Pasien;
+use App\Fasilitas;
 
 class AdminController extends Controller
 {
@@ -130,9 +131,27 @@ class AdminController extends Controller
         ]);
     }
 
-    function tampildatafasilitas() {
-        return view('admin/datafasilitas/index',[
+    function tampildatashift() {
+        return view('admin/datashift/index',[
         ]);
+    }
+
+    function tampildatafasilitas() {
+        $fasilitas = Fasilitas::all();
+        return view('admin.datafasilitas.index',[
+            'fasilitas' => $fasilitas,
+        ]);
+    }
+
+    function simpandatafasilitas() {
+        $fasilitas=new Fasilitas;
+        $fasilitas->nama_fasilitas=$request->nama_fasilitas;
+        $fasilitas->jenis_fasilitas=$request->jenis_fasilitas;
+        $fasilitas->harga_fasilitas=$request->harga_fasilitas;
+        $fasilitas->id_poli=1;
+
+        $fasilitas->save();
+        return redirect()->route("tampildatafasilitas");
     }
 
     function tampillaporan() {

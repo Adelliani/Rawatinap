@@ -58,6 +58,7 @@ Route::get('/admin/datapegawai', "AdminController@tampildatapegawai")->name("tam
 Route::post('/admin/datapegawai', "AdminController@simpandatapegawai")->name("simpandatapegawai");
 Route::get('/admin/dataperawat', "AdminController@tampildataperawat")->name("tampildataperawat");
 Route::get('/admin/datafasilitas', "AdminController@tampildatafasilitas")->name("tampildatafasilitas");
+Route::post('/admin/datafasilitas', "AdminController@simpandatafasilitas")->name("simpandatafasilitas");
 Route::get('/admin/laporan', "AdminController@tampillaporan")->name("tampillaporan");
 
 

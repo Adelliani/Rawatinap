@@ -31,7 +31,7 @@
                         Data Dokter
                     </a>        
             </div>
-            <div class="col-2">
+            <div class="col-1">
                     <a href="{{route('tampildataperawat')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
                         <i class=" fa fa-user-nurse" style="font-size: 40px"></i>
                         Data Perawat
@@ -43,6 +43,12 @@
                         Data Pegawai
                     </a>        
             </div>
+            <div class="col-1">
+                <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                    <i class=" fa fa-clock" style="font-size: 40px"></i>
+                    Data Shift
+                </a>        
+          </div>
             <div class="col-2">
                     <a href="{{route('tampildatafasilitas')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
                         <i class=" fa fa-medkit" style="font-size: 40px"></i>
