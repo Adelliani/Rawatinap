@@ -22,7 +22,7 @@
             <div class="card-header">
               <button class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-plus-circle" data-toggle="modal"
                 data-target="#modalTambahpegawai"> Tambah </i></button>
-              <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></button>
+              <a href="{{route('tampiladmin')}}" class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></a>
           </div>
               <div class="card-body">
                   <table id="table-pegawai" class="table table-bordered table-hover">
@@ -44,7 +44,7 @@
                             <td>{{$item->nama_pegawai}}</td>
                             <td>{{$item->jenis_kelamin}}</td>
                             <td>{{$item->posisi}}</td>
-                            <td>{{$item->shift}}</td>
+                            <td>{{$item->shift->nama_shift}}</td>
             
                             <td>
                                 <a href="" class="btn btn-primary btn-xs">Lihat</a>
