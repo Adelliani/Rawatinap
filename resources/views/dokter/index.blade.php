@@ -46,7 +46,7 @@
                               <td>{{$item->pasien->nama_pasien}}</td>
                               <td>{{$item->pasien->tgl_lahir}}</td>
                               <td>{{$item->pasien->jenis_kelamini}}</td>
-                              <td>{{$item->kamar->nama_shift}}</td>
+                              <td>{{$item->kamar->nama_kamar}}</td>
                               <td>
                                   <td>
                                       <a href="" class="btn btn-primary btn-xm">Detail</a>

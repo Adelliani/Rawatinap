@@ -347,6 +347,34 @@
       }
     })
 
+    $("#select_dokterrs").select2({
+      language:"id",
+      placeholder:"Pilih Dokter",
+      theme:"bootstrap4",
+      allowClear:true,
+      ajax:{
+        url:"{{route('api.dokter')}}",
+        type:"GET",
+        delay:250,
+        data:function(params){
+          return{
+            term:params.term,
+            poli:1,
+          }
+        },
+        processResults:function(result){
+
+          var item = result.map((item)=>({
+            id:item.id_dokter,
+            text:item.nama_dokter
+          }))
+          return {
+            "results": item
+          }
+        }
+      }
+    })
+
     $('#tgl-lahir-datepicker').datetimepicker({
       format: 'L',
       locale:"id",

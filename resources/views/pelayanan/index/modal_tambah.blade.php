@@ -381,19 +381,17 @@
                                             </select>
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Dokter RS:</label>
+                                        <label class="col-sm-4 col-form-label">Dokter:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="dokter_rs" disabled data-rujuk
-                                                >
+                                            <select name=id_dokter class="form-control" id="select_dokterrs" disabled data-langsung="">
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Perujuk:</label>
+                                        <label class="col-sm-4 col-form-label">Dokter Perujuk:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="perujuk"
-                                                disabled data-rujuk>
+                                            <input type="text" class="form-control" name="dokter_perujuk" disabled data-rujuk>
                                         </div>
                                     </div>
                                     <div class="form-group row">

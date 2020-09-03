@@ -6,15 +6,18 @@ use Illuminate\Http\Request;
 use App\Dokter;
 use App\RawatInap;
 use App\Pasien;
+use App\Kamar;
 
 class DokterController extends Controller
 {
     function tampil() {
         $pasiens = Pasien::all();
         $rawat_inaps = RawatInap::all();
+        $kamars = Kamar::all();
         return view('dokter.index', [
             'pasiens' => $pasiens,
             'rawat_inaps' => $rawat_inaps,
+            'kamars' => $kamars,
         ]);
     }
 

@@ -65,7 +65,7 @@
                               <td>{{$item->pasien->nama_pasien}}</td>
                               <td>{{$item->pasien->jenis_kelamin}}</td>
                               <td>{{$item->pasien->alamat}}</td>
-                              <td>{{$item->kamar->nam_kamar}}</td>
+                              <td>{{$item->kamar->nama_kamar}}</td>
                               <td>{{$item->tgl_masuk}}</td>
                               <td>{{$item->tgl_keluar}}</td>
                               <td>
