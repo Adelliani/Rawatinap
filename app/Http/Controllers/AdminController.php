@@ -9,6 +9,8 @@ use App\Shift;
 use App\Gedung;
 use App\Ruang;
 use App\Kamar;
+use App\RawatInap;
+use App\Pasien;
 
 class AdminController extends Controller
 {
@@ -116,7 +118,7 @@ class AdminController extends Controller
         $pegawai->notelp=$request->notelp;
         $pegawai->alamat=$request->alamat;
         $pegawai->id_poli=1;
-        $pegawai->id_shift=2;
+        $pegawai->id_shift=1;
 
 
         $pegawai->save();
@@ -134,7 +136,13 @@ class AdminController extends Controller
     }
 
     function tampillaporan() {
-        return view('admin/laporan/index',[
+        $rawat_inaps = RawatInap::all();
+        $pasiens = Pasien::all();
+        $kamars = Kamar::all();
+        return view('admin.laporan.index',[
+            'rawat_inaps' => $rawat_inaps,
+            'pasiens'  => $pasiens,
+            'kamars'  => $kamars,
         ]);
     }
 }

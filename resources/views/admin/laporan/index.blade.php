@@ -43,7 +43,7 @@
             </div>
             <div class="card card-default">
                 <div class="card-body">
-                    <table id="table-pasien" class="table table-bordered table-hover">
+                    <table id="table-laporan" class="table table-bordered table-hover">
                       <thead>
                         <tr>
                             <th>No</th>
@@ -57,6 +57,23 @@
                         </tr>
                       </thead>
                       <tbody>
+                            @foreach($rawat_inaps as $item)
+
+                            <tr>
+                              <td>{{$loop->index+1}}</td>
+                              <td>{{$item->no_ri}}</td>
+                              <td>{{$item->pasien->nama_pasien}}</td>
+                              <td>{{$item->pasien->jenis_kelamin}}</td>
+                              <td>{{$item->pasien->alamat}}</td>
+                              <td>{{$item->kamar->nam_kamar}}</td>
+                              <td>{{$item->tgl_masuk}}</td>
+                              <td>{{$item->tgl_keluar}}</td>
+                              <td>
+                                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                              </td>
+                            </tr>
+                            @endforeach
                       </tbody>
                      </table>
                 </div>
@@ -76,9 +93,7 @@
               
               <script>
                       $(function () {
-                        $('#table-pasien').DataTable({
-                        });
-                        $('#table-ruangan').DataTable({
+                        $('#table-laporan').DataTable({
                         });
                       });
               

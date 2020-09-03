@@ -15,8 +15,11 @@ class CreateShiftsTable extends Migration
     {
         Schema::create('shifts', function (Blueprint $table) {
             $table->bigIncrements('id_shift');
-            $table->date('jam_masuk');
-            $table->date('jam_keluar');
+            $table->string('nama_shift',50);
+            $table->time('jam_masuk');
+            $table->time('jam_keluar');
+            $table->bigInteger('id_poli')->unsigned();
+            $table->foreign('id_poli')->references('id_poli')->on('polis');
         });
     }
 

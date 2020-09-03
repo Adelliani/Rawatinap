@@ -124,7 +124,7 @@
                         Daftar Pegawai
                     </div>
                     <div class="card-body">
-                        <table id="table-pasien" class="table table-bordered table-hover">
+                        <table id="table-pegawai" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                               <th>No</th>
@@ -147,7 +147,7 @@
                     Daftar Perawat
                   </div>
                   <div class="card-body">
-                      <table id="table-ruangan" class="table table-bordered table-hover">
+                      <table id="table-perawat" class="table table-bordered table-hover">
                           <thead>
                           <tr>
                               <th>No</th>
@@ -175,9 +175,9 @@
 
 <script>
   $(function () {
-    $('#table-pasien').DataTable({
+    $('#table-pegawai').DataTable({
     });
-    $('#table-ruangan').DataTable({
+    $('#table-perawat').DataTable({
     });
   });
 </script>

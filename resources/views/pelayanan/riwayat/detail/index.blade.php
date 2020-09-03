@@ -20,45 +20,25 @@
     <div class="card-body">
       <div class="row">
         <div class="col-3">
-<<<<<<< HEAD:resources/views/pelayanan/riwayat/detail.blade.php
           <a href="/pelayanan/pemeriksaan" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-=======
-          <a href="{{route("riwayatpemeriksaan",["rawat_inap"=>$rawat_inap->id_rawatinap])}}"
-            class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
->>>>>>> 893fc584c780765f027074ef616c6588eecf31c2:resources/views/pelayanan/riwayat/detail/index.blade.php
             <i class="fa fa-stethoscope" style="font-size: 40px"></i>
             Pemeriksaan
           </a>
         </div>
         <div class="col-3">
-<<<<<<< HEAD:resources/views/pelayanan/riwayat/detail.blade.php
           <a href="/pelayanan/resepobat" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-=======
-          <a href="{{route("riwayatresepobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}"
-            class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
->>>>>>> 893fc584c780765f027074ef616c6588eecf31c2:resources/views/pelayanan/riwayat/detail/index.blade.php
             <i class="fa fa-plus-square" style="font-size: 40px"></i>
             Resep Obat
           </a>
         </div>
         <div class="col-3">
-<<<<<<< HEAD:resources/views/pelayanan/riwayat/detail.blade.php
           <a href="/pelayanan/diagnosa" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-=======
-          <a href="{{route("riwayatdiagnosa",["rawat_inap"=>$rawat_inap->id_rawatinap])}}"
-            class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
->>>>>>> 893fc584c780765f027074ef616c6588eecf31c2:resources/views/pelayanan/riwayat/detail/index.blade.php
             <i class=" fa fa-diagnoses" style="font-size: 40px"></i>
             Diagnosa
           </a>
         </div>
         <div class="col-3">
-<<<<<<< HEAD:resources/views/pelayanan/riwayat/detail.blade.php
           <a href="/pelayanan/fasilitas" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-=======
-          <a href="{{route("riwayatfasilitas",["rawat_inap"=>$rawat_inap->id_rawatinap])}}"
-            class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
->>>>>>> 893fc584c780765f027074ef616c6588eecf31c2:resources/views/pelayanan/riwayat/detail/index.blade.php
             <i class=" fa fa-heartbeat" style="font-size: 40px"></i>
             Fasilitas
           </a>
