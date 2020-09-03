@@ -241,7 +241,7 @@
       theme:"bootstrap4",
       allowClear:true,
       ajax:{
-        url:"{{route('api.gedung.gedung')}}",
+        url:"{{route('api.poli.gedung')}}",
         type:"GET",
         delay:250,
         data:function(params){
@@ -269,7 +269,7 @@
       theme:"bootstrap4",
       allowClear:true,
       ajax:{
-        url:"{{route('api.gedung.ruang')}}",
+        url:"{{route('api.poli.ruang')}}",
         type:"GET",
         delay:250,
         data:function(params){
@@ -297,7 +297,7 @@
       theme:"bootstrap4",
       allowClear:true,
       ajax:{
-        url:"{{route('api.gedung.kamar')}}",
+        url:"{{route('api.poli.kamar')}}",
         type:"GET",
         delay:250,
         data:function(params){

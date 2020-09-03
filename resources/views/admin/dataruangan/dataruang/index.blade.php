@@ -127,7 +127,7 @@
             theme:"bootstrap4",
             allowClear:true,
             ajax:{
-              url:"{{route('api.gedung.gedung')}}",
+              url:"{{route('api.poli.gedung')}}",
               type:"GET",
               delay:250,
               data:function(params){

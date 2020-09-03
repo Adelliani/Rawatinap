@@ -385,7 +385,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter RS:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="dokter_rs" disabled data-dokter-rs
+                                            <input type="text" class="form-control" name="dokter_rs" disabled data-dokter-langsung
                                                 >
                                         </div>
                                     </div>

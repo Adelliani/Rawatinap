@@ -75,11 +75,12 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
         Route::get('/desa', "WilayahApiController@getDesa")->name("desa");
     });
 
-    Route::group(['as' => "gedung."], function () {
+    Route::group(['as' => "poli."], function () {
         Route::get('/poli', "PoliApiController@getPoli")->name("poli");
         Route::get('/gedung', "PoliApiController@getGedung")->name("gedung");
         Route::get('/ruangan', "PoliApiController@getRuangan")->name(("ruang"));
         Route::get('/kamar', "PoliApiController@getKamar")->name("kamar");
+        Route::get('/shift', "PoliApiController@getShift")->name("shift");
     });
 
     Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");

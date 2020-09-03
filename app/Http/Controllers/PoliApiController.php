@@ -49,7 +49,8 @@ class PoliApiController extends Controller
         return response()->json($kamar);
     }
 
-    function getShift(Request $request){
-        
+    function getShift(Request $request)
+    {
+        return response()->json(Shift::where("id_poli", $request->input("poli"))->get());
     }
 }
