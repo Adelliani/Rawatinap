@@ -8,4 +8,10 @@ class Dokter extends Model
 {
     public $timestamps=false;
     protected $guarded=[];
+
+    public function rawatinap()
+    {
+        return $this->hasMany('App\RawatInap','id_dokter','id_dokter');
+    }
 }
+

@@ -27,14 +27,32 @@
                         <thead>
                         <tr>
                           <th>No</th>
+                          <th>No.Rawat Inap</th>
                           <th>No.Identitas</th>
                           <th>Nama Pasien</th>
                           <th>Tanggal Lahir</th>
                           <th>Jenis Kelamin</th>
                           <th>Kamar</th>
+                          <th>Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
+                            @foreach ($rawat_inaps as $item)
+                 
+                            <tr>
+                              <td>{{$loop->index+1}}</td>
+                              <td>{{$item->no_ri}}</td>
+                              <td>{{$item->pasien->no_identitas}}</td>
+                              <td>{{$item->pasien->nama_pasien}}</td>
+                              <td>{{$item->pasien->tgl_lahir}}</td>
+                              <td>{{$item->pasien->jenis_kelamini}}</td>
+                              <td>{{$item->kamar->nama_shift}}</td>
+                              <td>
+                                  <td>
+                                      <a href="" class="btn btn-primary btn-xm">Detail</a>
+                                  </td>
+                            </tr>
+                          @endforeach
                         </tbody>
                         
                       </table>

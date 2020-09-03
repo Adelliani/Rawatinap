@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dokter;
+use App\RawatInap;
 use App\Pasien;
 
 class DokterController extends Controller
 {
     function tampil() {
-        return view('dokter/index',[
+        $pasiens = Pasien::all();
+        $rawat_inaps = RawatInap::all();
+        return view('dokter.index', [
+            'pasiens' => $pasiens,
+            'rawat_inaps' => $rawat_inaps,
         ]);
     }
 
-    function lihat() {
+    function lihatdetailri() {
         return view('dokter/detail',[
         ]);
     }

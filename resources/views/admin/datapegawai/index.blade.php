@@ -143,12 +143,9 @@
               
               <script>
                       $(function () {
-                        $('#table-pasien').DataTable({
-                        });
-                        $('#table-ruangan').DataTable({
+                        $('#table-pegawai').DataTable({
                         });
                       });
-              
-              
+
                     </script>
               @endsection

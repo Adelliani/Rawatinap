@@ -35,9 +35,23 @@
                 <th>Nama Perawat</th>
                 <th>Jenis Kelamin</th>
                 <th>Shift</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
+                @foreach ($perawats as $item)
+                 
+                <tr>
+                  <td>{{$loop->index+1}}</td>
+                  <td>{{$item->nama_perawat}}</td>
+                  <td>{{$item->jenis_kelamin}}</td>
+                  <td>{{$item->shift->nama_shift}}</td>
+                  <td>
+                      <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                      <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                      </td>
+                </tr>
+              @endforeach
             </tbody>
 
           </table>

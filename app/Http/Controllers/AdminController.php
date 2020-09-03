@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Dokter;
 use App\Pegawai;
+use App\Perawat;
 use App\Shift;
 use App\Gedung;
 use App\Ruang;
@@ -99,10 +100,10 @@ class AdminController extends Controller
         $dokter->alamat=$request->alamat;
         $dokter->id_poli=1;
 
-
         $dokter->save();
         return redirect()->route("tampildatadokter");
     }
+
 
     function tampildatapegawai() {
         $pegawais = Pegawai::all();
@@ -110,7 +111,6 @@ class AdminController extends Controller
             'pegawais' => $pegawais,
         ]);
     }
-
     function simpandatapegawai(Request $request) {
         $pegawai=new Pegawai;
         $pegawai->nama_pegawai=$request->nama_pegawai;
@@ -121,20 +121,47 @@ class AdminController extends Controller
         $pegawai->id_poli=1;
         $pegawai->id_shift=1;
 
-
         $pegawai->save();
         return redirect()->route("tampildatapegawai");
     }
 
     function tampildataperawat() {
-        return view('admin/dataperawat/index',[
+        $perawats = Perawat::all();
+        return view('admin.dataperawat.index',[
+            'perawats' => $perawats,
         ]);
+    }
+    function simpandataperawat(Request $request) {
+        $perawat=new Perawat;
+        $perawat->nama_perawat=$request->nama_perawat;
+        $perawat->jenis_kelamin=$request->jenis_kelamin;
+        $perawat->notelp=$request->notelp;
+        $perawat->alamat=$request->alamat;
+        $perawat->id_poli=1;
+        $perawat->id_shift=1;
+
+        $perawat->save();
+        return redirect()->route("tampildataperawat");
     }
 
+
     function tampildatashift() {
-        return view('admin/datashift/index',[
+        $shifts = Shift::all();
+        return view('admin.datashift.index',[
+            'shifts' => $shifts,
         ]);
     }
+    function simpandatashift(Request $request) {
+        $shift=new Shift;
+        $shift->nama_shift=$request->nama_shift;
+        $shift->jam_masuk=$request->jam_masuk;
+        $shift->jam_keluar=$request->jam_keluar;
+        $shift->id_poli=1;
+
+        $shift->save();
+        return redirect()->route("tampildatashift");
+    }
+
 
     function tampildatafasilitas() {
         $fasilitas = Fasilitas::all();
@@ -143,7 +170,7 @@ class AdminController extends Controller
         ]);
     }
 
-    function simpandatafasilitas() {
+    function simpandatafasilitas(Request $request) {
         $fasilitas=new Fasilitas;
         $fasilitas->nama_fasilitas=$request->nama_fasilitas;
         $fasilitas->jenis_fasilitas=$request->jenis_fasilitas;

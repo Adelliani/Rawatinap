@@ -11,7 +11,7 @@
     <section class="content-header">
     <div class="row justify-content-between align-items-center">
         <h1>
-        Data Fasilitas
+        Data Shift
         </h1>
         </div>
       </section>
@@ -21,34 +21,34 @@
           <div class="card card-outline card-green">
             <div class="card-header">
               <button class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-plus-circle" data-toggle="modal"
-                data-target="#modalTambahfasilitas"> Tambah </i></button>
+                data-target="#modalTambahpegawai"> Tambah </i></button>
               <a href="{{route('tampiladmin')}}" class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></a>
           </div>
               <div class="card-body">
-                  <table id="table-fasilitas" class="table table-bordered table-hover">
+                  <table id="table-pegawai" class="table table-bordered table-hover">
                       <thead>
                       <tr>
                         <th>No</th>
-                        <th>Nama Fasilitas</th>
-                        <th>Jenis Fasilitas</th>
-                        <th>Harga</th>
+                        <th>Nama Shift</th>
+                        <th>Jam Masuk</th>
+                        <th>Jam Keluar</th>
                         <th>Aksi</th>
                       </tr>
                       </thead>
                       <tbody>
-                          @foreach ($fasilitas as $item)
-              
+                          @foreach ($shifts as $item)
+                 
                           <tr>
                             <td>{{$loop->index+1}}</td>
-                            <td>{{$item->nama_fasilitas}}</td>
-                            <td>{{$item->jenis_fasilitas}}</td>
-                            <td>{{$item->harga_fasilitas}}</td>
+                            <td>{{$item->nama_shift}}</td>
+                            <td>{{$item->jam_masuk}}</td>
+                            <td>{{$item->jam_keluar}}</td>
                             <td>
                                 <a href="" class="btn btn-primary btn-xs">Lihat</a>
                                 <a href="" class="btn btn-warning btn-xs">Hapus</a>
-                            </td>
+                                </td>
                           </tr>
-                          @endforeach
+                        @endforeach
                       </tbody>
                       
                     </table>
@@ -58,11 +58,11 @@
         </div>
       </div>
 
-      <div class="modal fade" id="modalTambahfasilitas" role="dialog">
-        <div class="modal-dialog modal-l" role="document">
+      <div class="modal fade" id="modalTambahpegawai" role="dialog">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title">Data Fasilitas</h4>
+                  <h4 class="modal-title">Data Shift</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                           aria-hidden="true">&times;</span></button>
               </div>
@@ -70,29 +70,29 @@
             @csrf
             <div class="modal-body">
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label class="col-sm-8">Id Fasilitas</label>
-                    <div class="col-sm-15">
-                        <input type="number" class="form-control" name="id_fasilitas" value="" readonly>
+                    <label class="col-sm-5">Id Shift</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="id_shift" value="" readonly>
                     </div>
               </div>
               <div class="form-group">
-                  <label class="col-sm-8">Nama Fasilitas:</label>
-                  <div class="col-sm-15">
-                    <input type="text" class="form-control" name="nama_fasilitas">
+                  <label class="col-sm-5">Nama Shift:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="nama_shift">
                   </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-8">Jenis Fasilitas:</label>
-                    <div class="col-sm-15">
-                      <input type="text" class="form-control" name="jenis_fasilitas">
-                    </div>
+                  <label class="col-sm-5">Jam Masuk:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="jam_masuk">
                   </div>
+                </div>
                 <div class="form-group">
-                  <label class="col-sm-8">Harga Fasilitas:</label>
-                  <div class="col-sm-15">
-                    <input type="text" class="form-control" name="harga_fasilitas">
+                  <label class="col-sm-5">Jam Keluar:</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" name="jam_keluar">
                   </div>
                 </div>
               </div>
@@ -117,10 +117,8 @@
               
               <script>
                       $(function () {
-                        $('#table-fasilitas').DataTable({
+                        $('#table-shift').DataTable({
                         });
                       });
-              
-              
-                    </script>
+              </script>
               @endsection
