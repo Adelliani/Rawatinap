@@ -20,10 +20,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                                <i class="fa fa-stethoscope" style="font-size: 40px"></i>
+                            <button type="button" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                                <i class="fa fa-stethoscope" style="font-size: 40px"><data-toggle="modal"
+                                data-target="#modalPemeriksaan"></i>
                                 Pemeriksaan
-                            </a>
+                            </button>
                     </div>
                     <div class="col-2">
                             <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">

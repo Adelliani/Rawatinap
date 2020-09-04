@@ -13,6 +13,7 @@
         <h1>
         Daftar Pasien Rawat Inap
         </h1>
+        <a href="{{route('tampilpelayanan')}}" class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
       </section>
 

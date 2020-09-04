@@ -13,6 +13,7 @@
         <h1>
         Laporan
         </h1>
+        <a href="{{route('tampiladmin')}}" class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
       </section>
 
@@ -26,7 +27,7 @@
                             <div class="form-group">
                                 <label class="form-label">Bulan</label>
                                 <div>
-                                <input id="tanggal" type="text" class="form-control" value="" name="bulan" readonly>
+                                <input id="tanggal" type="text" class="form-control" value="" name="bulan">
                                 </div>
                             </div>
                         </div>
@@ -34,7 +35,7 @@
                             <div class="form-group">
                                 <label class="form-label">Tahun</label>
                                 <div >
-                                <input type="text" class="form-control" name="tahun" value="" readonly>
+                                <input type="text" class="form-control" name="tahun" value="">
                                 </div>
                             </div>
                         </div>
@@ -65,13 +66,9 @@
                               <td>{{$item->pasien->nama_pasien}}</td>
                               <td>{{$item->pasien->jenis_kelamin}}</td>
                               <td>{{$item->pasien->alamat}}</td>
-                              <td>{{$item->kamar->nama_kamar}}</td>
+                              <td>{{count($item->kamars)>0?$item->kamars[0]->nama_kamar:""}}</td>
                               <td>{{$item->tgl_masuk}}</td>
                               <td>{{$item->tgl_keluar}}</td>
-                              <td>
-                                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
-                                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
-                              </td>
                             </tr>
                             @endforeach
                       </tbody>
