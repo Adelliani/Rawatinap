@@ -30,7 +30,7 @@ Route::get('/pelayanan/riwayat/{rawat_inap}/diagnosa', "PelayananController@tamp
 Route::get('/pelayanan/riwayat/{rawat_inap}/fasilitas', "PelayananController@tampilfasilitas")->name("riwayatfasilitas");
 
 Route::get('/dokter', "DokterController@tampil")->name("tampildokter");
-Route::get('/dokter/detail', "DokterController@lihat")->name("lihatdetail");
+Route::get('/dokter/{rawat_inap}', "DokterController@lihat")->name("lihatdetailri");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpantindakan");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpanresepobat");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpanreturobat");
@@ -94,4 +94,5 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
     });
 
     Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");
+    
 });

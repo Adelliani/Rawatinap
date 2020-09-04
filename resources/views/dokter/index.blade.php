@@ -45,11 +45,10 @@
                               <td>{{$item->pasien->no_identitas}}</td>
                               <td>{{$item->pasien->nama_pasien}}</td>
                               <td>{{$item->pasien->tgl_lahir}}</td>
-                              <td>{{$item->pasien->jenis_kelamini}}</td>
-                              <td>{{$item->kamar->nama_kamar}}</td>
-                              <td>
+                              <td>{{$item->pasien->jenis_kelamin}}</td>
+                              <td>{{count($item->kamars)>0?$item->kamars[0]->nama_kamar:""}}</td>
                                   <td>
-                                      <a href="" class="btn btn-primary btn-xm">Detail</a>
+                                      <a href="{{route('lihatdetailri',['id'=>$item->id_rawatinap])}}" class="btn btn-primary btn-xm">Detail</a>
                                   </td>
                             </tr>
                           @endforeach
@@ -73,8 +72,6 @@
         <script>
                 $(function () {
                   $('#table-pasien').DataTable({
-                  });
-                  $('#table-ruangan').DataTable({
                   });
                 });
         
