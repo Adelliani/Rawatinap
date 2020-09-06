@@ -20,7 +20,7 @@
         <div class="col-12">
           <div class="card card-outline card-green">
             <div class="card-header">
-                  <button class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"></i> Kembali</button>
+              <a href="./" class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></a>
               </div>
               <div class="card-body">
                   <table id="table-pasien" class="table table-bordered table-hover">

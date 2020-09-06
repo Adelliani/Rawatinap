@@ -31,7 +31,9 @@ Route::get('/pelayanan/riwayat/{rawat_inap}/fasilitas', "PelayananController@tam
 
 Route::get('/dokter', "DokterController@tampil")->name("tampildokter");
 Route::get('/dokter/{rawat_inap}', "DokterController@lihat")->name("lihatdetailri");
-// Route::get('/dokter/detail', "DokterController@simpan")->name("simpantindakan");
+
+Route::get('/dokter/detail', "DokterController@tampilhasilpemeriksaan")->name("tampilhasilpemeriksaan");
+Route::post('/dokter/detail/{rawat_inap}', "DokterController@simpanpemeriksaan")->name("simpanpemeriksaan");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpanresepobat");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpanreturobat");
 // Route::get('/dokter/detail', "DokterController@simpan")->name("simpanpermintaanpelayanan");

@@ -20,38 +20,43 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                            <button type="button" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-                                <i class="fa fa-stethoscope" style="font-size: 40px"><data-toggle="modal"
-                                data-target="#modalPemeriksaan"></i>
+                            <button type="button" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
+                            data-target="#modalPemeriksaan">
+                                <i class="fa fa-stethoscope" style="font-size: 40px"></i>
                                 Pemeriksaan
                             </button>
                     </div>
                     <div class="col-2">
-                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
+                            data-target="#modalResepobat">
                                 <i class="fa fa-plus-square" style="font-size: 40px"></i>
                                 Resep Obat
                             </a>        
                     </div>
                     <div class="col-2">
-                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
+                            data-target="#modalReturobat">
                                 <i class=" fa fa-minus-square" style="font-size: 40px"></i>
                                 Retur Obat
                             </a>        
                     </div>
                     <div class="col-2">
-                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
+                            data-target="#modalDiagnosa">
                                 <i class=" fa fa fa-medkit" style="font-size: 40px"></i>
                                 Diagnosa
                             </a>        
                     </div>
                     <div class="col-2">
-                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
+                            data-target="#modalFasilitas">
                                 <i class=" fa  fa-heartbeat" style="font-size: 40px"></i>
                                 Permintaan Pelayanan
                             </a>        
                     </div>
                     <div class="col-2">
-                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+                            <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
+                            data-target="#modalSiappulang">
                                 <i class=" fa fa-info-circle " style="font-size: 40px"></i>
                                 Status Pasien
                             </a>        
@@ -300,7 +305,7 @@
                     <div class="col-12">
                       <div class="card card-outline card-green">
                         <div class="card-header">
-                              Daftar Pasien
+                              Daftar Pelayanan Pasien
                           </div>
                           <div class="card-body">
                               <table id="table-pasien" class="table table-bordered table-hover">
@@ -619,14 +624,19 @@
               <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
               <script src="{{asset("admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
               
+              @section("extra-script")
+              <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
+
               <script>
-                      $(function () {
-                        $('#table-pasien').DataTable({
-                        });
-                        $('#table-ruangan').DataTable({
-                        });
-                      });
-              
-              
-                    </script>
-              @endsection
+                $(function () {
+                  $("[data-umur]").text(`${
+                  moment("{{$rawat_inap->tgl_masuk}}").diff(moment("{{$rawat_inap->pasien->tgl_lahir}}"),"years")
+                  }`)
+
+                $('#table-pasien').DataTable({
+                });
+                $('#table-ruangan').DataTable({
+                });
+              });
+              </script>
+@endsection
