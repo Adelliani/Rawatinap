@@ -296,7 +296,7 @@
               </div>
             </div>
           </div>
-        </div>des
+        </div>
 
 
       </div>
@@ -381,7 +381,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
               aria-hidden="true">&times;</span></button>
         </div>
-        <form class="form-horizontal fromPasien" action="" method="post">
+        <form class="form-horizontal fromPasien" action="{{route("simpanpemeriksaan",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" method="post">
           @csrf
           <div class="modal-body">
             <div class="form-group row">
@@ -406,16 +406,18 @@
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Hasil Pemeriksaan:</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="hasil_pemeriksaan">
-              </div>
+                <textarea name="hasil_pemeriksaan" class="form-control" rows="3"></textarea>
+            </div>
             </div>
 
           </div>
           <div class="modal-footer row">
-            <button class="btn bg-green col-2">Simpan</button>
+            <button type=submit class="btn bg-green col-2">Simpan</button>
             <button class="btn bg-red col-2">Batal</button>
           </div>
+        </form>
       </div>
+    
 
     </div>
   </div>
@@ -469,6 +471,7 @@
           <button class="btn bg-green col-2">Simpan</button>
           <button class="btn bg-red col-2">Batal</button>
         </div>
+      </form>
     </div>
 
   </div>
@@ -518,6 +521,7 @@
           <button class="btn bg-green col-2">Simpan</button>
           <button class="btn bg-red col-2">Batal</button>
         </div>
+      </form>
     </div>
 
   </div>
@@ -567,6 +571,7 @@
           <button class="btn bg-green col-2">Simpan</button>
           <button class="btn bg-red col-2">Batal</button>
         </div>
+      </form>
     </div>
 
   </div>
@@ -616,6 +621,7 @@
           <button class="btn bg-green col-2">Simpan</button>
           <button class="btn bg-red col-2">Batal</button>
         </div>
+      </form>
     </div>
 
   </div>
