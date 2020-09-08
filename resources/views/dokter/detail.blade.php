@@ -368,6 +368,7 @@
             <button class="btn bg-green col-2">Ya</button>
             <button class="btn bg-red col-2">Tidak</button>
           </div>
+        </form>
       </div>
 
     </div>
@@ -637,8 +638,6 @@
 <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
-
-@section("extra-script")
 <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
 
 <script>

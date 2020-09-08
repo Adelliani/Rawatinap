@@ -22,7 +22,7 @@ class DokterController extends Controller
         return view('dokter.detail', ["rawat_inap" => $rawat_inap]);
     }
     
-    function tampilhasilpemeriksaan() {
+    function tambah_pemeriksaan() {
         $pemeriksaans = Pemeriksaan::all();
         return view('dokter.detail', [
             'pemeriksaans' => $pemeriksaans,
