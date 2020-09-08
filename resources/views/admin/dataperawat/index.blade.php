@@ -39,18 +39,18 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($perawats as $item)
-                 
-                <tr>
-                  <td>{{$loop->index+1}}</td>
-                  <td>{{$item->nama_perawat}}</td>
-                  <td>{{$item->jenis_kelamin}}</td>
-                  <td>{{$item->shift->nama_shift}}</td>
-                  <td>
-                      <a href="" class="btn btn-primary btn-xs">Lihat</a>
-                      <a href="" class="btn btn-warning btn-xs">Hapus</a>
-                      </td>
-                </tr>
+              @foreach ($perawats as $item)
+
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->nama_perawat}}</td>
+                <td>{{$item->jenis_kelamin}}</td>
+                <td>{{$item->shift->nama_shift}}</td>
+                <td>
+                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                </td>
+              </tr>
               @endforeach
             </tbody>
 
@@ -170,46 +170,44 @@
         `)
         return $view;
       }
+
       function shift_select_format (shift) {
         if (shift.jam_masuk==null){
           return shift.text;
         }else{
-        return `${shift.text} ( ${shift.jam_masuk}-${shift.jam_keluar} )`;
-      }
+          return `${shift.text} ( ${shift.jam_masuk}-${shift.jam_keluar} )`;
+        }
       }
 
       $("#select_shift").select2({
-      language:"id",
-      placeholder:"Pilih Shift",
-      theme:"bootstrap4",
-      allowClear:true,
-      minimumResultsForSearch: Infinity,
-      ajax:{
-        url:"{{route('api.poli.shift')}}",
-        type:"GET",
-        delay:250,
-        data:function(params){
-          return{
-            poli:1
+        language:"id",
+        placeholder:"Pilih Shift",
+        theme:"bootstrap4",
+        allowClear:true,
+        minimumResultsForSearch: Infinity,
+        ajax:{
+          url:"{{route('api.poli.shift')}}",
+          type:"GET",
+          delay:250,
+          data:function(params){
+            return{
+              poli:1
+            }
+          },
+          processResults:function(result){
+            var item = result.map((item)=>({
+              id:item.id_shift,
+              text:item.nama_shift,
+              jam_masuk:item.jam_masuk,
+              jam_keluar:item.jam_keluar
+            }))
+            return {
+              "results": item
+            }
           }
         },
-        processResults:function(result){
-
-          var item = result.map((item)=>({
-            id:item.id_shift,
-            text:item.nama_shift,
-            jam_masuk:item.jam_masuk,
-            jam_keluar:item.jam_keluar
-          }))
-          return {
-            "results": item
-          }
-        }
-      },
-      templateResult:shift_format,
-      templateSelection:shift_select_format
-    })
-              
-              
+        templateResult:shift_format,
+        templateSelection:shift_select_format
+    })    
   </script>
   @endsection

@@ -13,7 +13,8 @@
       <h1>
         Data Ruangan
       </h1>
-      <a href="{{route('tampiladmin')}}" class="btn btn-primary btn-sm tambahBtn" ><i class="fa fa-arrow-circle-left"> Kembali</i></a>
+      <a href="{{route('tampiladmin')}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left">
+          Kembali</i></a>
     </div>
   </section>
 
@@ -28,8 +29,7 @@
           </a>
         </div>
         <div class="col-4">
-          <a href="{{route('tampildataruang')}}" class="btn btn-app btn-block m-0" 
-            style="height: 100px;font-size:14px">
+          <a href="{{route('tampildataruang')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class="fa fa-door-open" style="font-size: 40px"></i>
             Data Ruang
           </a>
@@ -62,17 +62,17 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($kamars as $item)
+              @foreach($kamars as $item)
 
-                <tr>
-                      <td>{{$loop->index+1}}</td>
-                      <td>{{$item->nama_kamar}}</td>
-                      <td>{{$item->ruang->nama_ruang}}</td>
-                      <td>{{$item->ruang->gedung->nama_gedung}}</td>
-                      <td>{{$item->jumlah_kasur}}</td>
-                      <td>{{$item->terisi}}</td>
-                    </tr>
-                  @endforeach
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->nama_kamar}}</td>
+                <td>{{$item->ruang->nama_ruang}}</td>
+                <td>{{$item->ruang->gedung->nama_gedung}}</td>
+                <td>{{$item->jumlah_kasur}}</td>
+                <td>{{$item->terisi}}</td>
+              </tr>
+              @endforeach
 
             </tbody>
 
@@ -95,12 +95,10 @@
 
 <script>
   $(function () {
-                        $('#table-pasien').DataTable({
-                        });
-                        $('#table-ruangan').DataTable({
-                        });
-                      });
-              
-              
+    $('#table-pasien').DataTable({
+    });
+    $('#table-ruangan').DataTable({
+    });
+  });            
 </script>
 @endsection

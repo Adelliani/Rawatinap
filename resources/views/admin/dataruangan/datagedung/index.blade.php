@@ -22,7 +22,8 @@
         <div class="card-header">
           <button class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-plus-circle" data-toggle="modal"
               data-target="#modalTambahgedung"> Tambah </i></button>
-          <a href="{{route('tampildataruangan')}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left"> Kembali</i></a>
+          <a href="{{route('tampildataruangan')}}" class="btn btn-primary btn-sm tambahBtn"><i
+              class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
         <div class="card-body">
           <table id="table-gedung" class="table table-bordered table-hover">
@@ -40,8 +41,8 @@
                 <td>{{$loop->index+1}}</td>
                 <td>{{$item->nama_gedung}}</td>
                 <td>
-                    <a href="" class="btn btn-primary btn-xs">Lihat</a>
-                    <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
                 </td>
               </tr>
               @endforeach
@@ -108,11 +109,11 @@
 
 <script>
   $(function () {
-                        $('#table-pasien').DataTable({
-                        });
-                        $('#table-ruangan').DataTable({
-                        });
-                      });
+    $('#table-pasien').DataTable({
+    });
+    $('#table-ruangan').DataTable({
+    });
+  });
               
               
 </script>
