@@ -29,16 +29,11 @@ class DokterController extends Controller
         ]);
     }
     function simpanpemeriksaan(Request $request) {
-        $pemeriksaan=new Pemeriksaan;
-        $pemeriksaan->tgl_pemeriksaan=$request->tgl_pemeriksaan;
-        $pemeriksaan->jam_pemeriksaan=$request->jam_pemeriksaan;
-        $pemeriksaan->jenis_pemeriksaan=$request->jenis_pemeriksaan;
-        $pemeriksaan->hasil_pemeriksaan=$request->hasil_pemeriksaan;
-        $pemeriksaan->id_rawatinap=2;
-
-        $pemeriksaan->save();
-        return redirect()->route("tampilhasilpemeriksaan");
+        $data_pemeriksaan = $request->only(['jam_pemeriksaan','tgl_pemeriksaan','jenis_pemeriksaan', 'hasil_pemeriksaan', 'id_rawatinap']);
+        $pemeriksaan = new Pemeriksaan($data_pemeriksaan);
+        $rawat_inap->pemeriksaan()->save($pemeriksaan);
     }
+
     function simpanresepobat() {
         return redirect()->route("detail");
     }
