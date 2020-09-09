@@ -4,6 +4,10 @@
 {{-- Data Table --}}
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")}}">
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")}}">
+
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet"
+  href="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css")}}">
 @endsection
 
 @section("main_content")
@@ -382,19 +386,34 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
               aria-hidden="true">&times;</span></button>
         </div>
-        <form class="form-horizontal fromPasien" action="{{route("simpanpemeriksaan",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" method="post">
+        <form class="form-horizontal fromPasien"
+          action="{{route("simpanpemeriksaan",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" method="post">
           @csrf
           <div class="modal-body">
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Tanggal:</label>
               <div class="col-sm-8">
-                <input id="tgl_pemeriksaan" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
+                <div class="input-group" id="tanggal-pemeriksaan" data-input-tanggal data-target-input="nearest">
+                  <input type="text" class="form-control" value="" name="tgl_pemeriksaan" readonly>
+                  <div class="input-group-append" data-target="#tanggal-pemeriksaan" data-toggle="datetimepicker">
+                    <div class="input-group-text">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Jam:</label>
               <div class="col-sm-8">
-                <input id="jam_pemeriksaan" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
+                <div class="input-group" id="jam-pemeriksaan" data-input-jam data-target-input="nearest">
+                  <input type="text" class="form-control" value="" name="jam_pemeriksaan" readonly>
+                  <div class="input-group-append" data-target="#jam-pemeriksaan" data-toggle="datetimepicker">
+                    <div class="input-group-text">
+                      <i class="fa fa-clock"></i>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -408,7 +427,7 @@
               <label class="col-sm-4 col-form-label">Hasil Pemeriksaan:</label>
               <div class="col-sm-8">
                 <textarea name="hasil_pemeriksaan" class="form-control" rows="3"></textarea>
-            </div>
+              </div>
             </div>
 
           </div>
@@ -418,7 +437,7 @@
           </div>
         </form>
       </div>
-    
+
 
     </div>
   </div>
@@ -439,19 +458,33 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Tanggal:</label>
             <div class="col-sm-8">
-              <input id="tgl_order" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
+              <div class="input-group" id="tanggal-obat" data-input-tanggal data-target-input="nearest">
+                <input type="text" class="form-control" value="" name="tgl_order" readonly>
+                <div class="input-group-append" data-target="#tanggal-obat" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Jam:</label>
             <div class="col-sm-8">
-              <input id="jam_order" type="text" class="form-control" value="" name="jamsekarang" readonly>
+              <div class="input-group" id="jam-obat" data-input-jam data-target-input="nearest">
+                <input type="text" class="form-control" value="" name="order" readonly>
+                <div class="input-group-append" data-target="#jam-obat" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <i class="fa fa-clock"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Nama Obat:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nama_obat">
+              <select name="id_obat" id="select-obat"></select>
             </div>
           </div>
           <div class="form-group row">
@@ -545,13 +578,27 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Tanggal:</label>
             <div class="col-sm-8">
-              <input id="tgl_diagnosa" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
+              <div class="input-group" id="tanggal-diagnosa" data-input-tanggal data-target-input="nearest">
+                <input type="text" class="form-control" value="" name="tgl_diagnosa" readonly>
+                <div class="input-group-append" data-target="#tanggal-diagnosa" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Jam:</label>
             <div class="col-sm-8">
-              <input id="jam_diagnosa" type="text" class="form-control" value="" name="jamsekarang" readonly>
+              <div class="input-group" id="jam-diagnosa" data-input-jam data-target-input="nearest">
+                <input type="text" class="form-control" value="" name="jam_diagnosa" readonly>
+                <div class="input-group-append" data-target="#jam-diagnosa" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <i class="fa fa-clock"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
@@ -595,19 +642,33 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Tanggal:</label>
             <div class="col-sm-8">
-              <input id="tgl_pemakaian" type="text" class="form-control" value="" name="tanggalsekarang" readonly>
+              <div class="input-group" id="tanggal-pemakaian" data-input-tanggal data-target-input="nearest">
+                <input type="text" class="form-control" value="" name="tgl_pemakaian" readonly>
+                <div class="input-group-append" data-target="#tanggal-pemakaian" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Jam:</label>
             <div class="col-sm-8">
-              <input id="jam_pemakaian" type="text" class="form-control" value="" name="jamsekarang" readonly>
+              <div class="input-group" id="jam-pemakaian" data-input-jam data-target-input="nearest">
+                <input type="text" class="form-control" value="" name="jam_pemakaian" readonly>
+                <div class="input-group-append" data-target="#jam-pemakaian" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <i class="fa fa-clock"></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Jenis Fasilitas:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nama_pasien">
+              <select name="id_fasilitas" id="select-fasilitas"></select>
             </div>
           </div>
           <div class="form-group row">
@@ -639,12 +700,25 @@
 <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
-
+{{-- date-range-picker --}}
+<script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 <script>
   $(function () {
     $("[data-umur]").text(`${
     moment("{{$rawat_inap->tgl_masuk}}").diff(moment("{{$rawat_inap->pasien->tgl_lahir}}"),"years")
-    }`)
+    }`);
+
+    $('[data-input-tanggal]').datetimepicker({
+      locale:"id",
+      format:"YYYY-MM-DD",
+      ignoreReadonly:true,
+    })
+
+    $('[data-input-jam]').datetimepicker({
+      format: 'HH:mm',
+      locale:"id",
+      ignoreReadonly:true,
+    });
   
     $('#table-pasien').DataTable({
     });
