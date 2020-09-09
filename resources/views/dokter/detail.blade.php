@@ -325,6 +325,15 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($pelayanan as $item)
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->tgl}}</td>
+                <td>{{$item->jam}}</td>
+                <td>{{$item->jenis}}</td>
+                <td></td>
+              </tr>
+              @endforeach
             </tbody>
 
           </table>
