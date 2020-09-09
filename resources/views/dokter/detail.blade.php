@@ -311,6 +311,43 @@
     <div class="col-12">
       <div class="card card-outline card-green">
         <div class="card-header">
+          Data Order Obat
+        </div>
+        <div class="card-body">
+          <table id="table-obat" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Tanggal Order</th>
+                <th>Jam Order</th>
+                <th>Nama Obat</th>
+                <th>Kategori</th>
+                <th>jumlah Obat</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($pelayanan as $item)
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->tgl}}</td>
+                <td>{{$item->jam}}</td>
+                <td>{{$item->jenis}}</td>
+                <td></td>
+              </tr>
+              @endforeach
+            </tbody>
+
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-outline card-green">
+        <div class="card-header">
           Daftar Pelayanan Pasien
         </div>
         <div class="card-body">
@@ -495,6 +532,12 @@
             <label class="col-sm-4 col-form-label">Nama Obat:</label>
             <div class="col-sm-8">
               <input type="text" class="form-control" name="nama_obat">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Kategori:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="kategori">
             </div>
           </div>
           <div class="form-group row">
