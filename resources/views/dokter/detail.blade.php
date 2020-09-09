@@ -325,6 +325,15 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ($pelayanan as $item)
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->tgl}}</td>
+                <td>{{$item->jam}}</td>
+                <td>{{$item->jenis}}</td>
+                <td></td>
+              </tr>
+              @endforeach
             </tbody>
 
           </table>
@@ -452,7 +461,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
       </div>
-      <form class="form-horizontal fromPasien" action="" method="post">
+      <form class="form-horizontal fromPasien" 
+      action="{{route("simpanresepobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" method="post">
         @csrf
         <div class="modal-body">
           <div class="form-group row">
@@ -522,7 +532,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
       </div>
-      <form class="form-horizontal fromPasien" action="" method="post">
+      <form class="form-horizontal fromPasien" 
+      action="{{route("simpanreturobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" method="post">
         @csrf
         <div class="modal-body">
           <div class="form-group row">
@@ -572,7 +583,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
       </div>
-      <form class="form-horizontal fromPasien" action="" method="post">
+      <form class="form-horizontal fromPasien" 
+      action="{{route("simpandiagnosa",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" method="post">
         @csrf
         <div class="modal-body">
           <div class="form-group row">
@@ -636,7 +648,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
       </div>
-      <form class="form-horizontal fromPasien" action="" method="post">
+      <form class="form-horizontal fromPasien" 
+      action="{{route("simpanfasilitas",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" method="post">
         @csrf
         <div class="modal-body">
           <div class="form-group row">

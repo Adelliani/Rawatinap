@@ -32,7 +32,7 @@ Route::get('/pelayanan/riwayat/{rawat_inap}/fasilitas', "PelayananController@tam
 Route::get('/dokter', "DokterController@tampil")->name("tampildokter");
 Route::get('/dokter/{rawat_inap}', "DokterController@lihat")->name("lihatdetailri");
 
-Route::post("/dokter/{rawat_inap}/pemeriksaan","DokterController@tambah_pemeriksaan")->name("simpanpemeriksaan");
+Route::post("/dokter/{rawat_inap}/pemeriksaan","DokterController@simpanpemeriksaan")->name("simpanpemeriksaan");
 Route::post('/dokter/{rawat_inap}/resepobat', "DokterController@simpan")->name("simpanresepobat");
 Route::post('/dokter/{rawat_inap}/returobat', "DokterController@simpan")->name("simpanreturobat");
 Route::post('/dokter/{rawat_inap}/pelayanan', "DokterController@simpan")->name("simpanpermintaanpelayanan");
