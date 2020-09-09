@@ -494,7 +494,7 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Nama Obat:</label>
             <div class="col-sm-8">
-              <select name="id_obat" id="select-obat"></select>
+              <input type="text" class="form-control" name="nama_obat">
             </div>
           </div>
           <div class="form-group row">
@@ -533,7 +533,7 @@
             aria-hidden="true">&times;</span></button>
       </div>
       <form class="form-horizontal fromPasien" 
-      action="{{route("simpanreturobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" method="post">
+      action="" method="post">
         @csrf
         <div class="modal-body">
           <div class="form-group row">
@@ -614,21 +614,33 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Jenis Diagnosa:</label>
+            <label class="col-sm-4 col-form-label">Tinggi:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="jenis_diagnosa">
+              <input type="text" class="form-control" name="tinggi">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Deskripsi:</label>
+            <label class="col-sm-4 col-form-label">Berat:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="deskripsi">
+              <input type="text" class="form-control" name="berat">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Suhu Badan:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="suhubadan">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Hasil Diagnosa:</label>
+            <div class="col-sm-8">
+              <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea>
             </div>
           </div>
 
         </div>
         <div class="modal-footer row">
-          <button class="btn bg-green col-2">Simpan</button>
+          <button type=submit class="btn bg-green col-2">Simpan</button>
           <button class="btn bg-red col-2">Batal</button>
         </div>
       </form>
@@ -681,11 +693,17 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Jenis Fasilitas:</label>
             <div class="col-sm-8">
-              <select name="id_fasilitas" id="select-fasilitas"></select>
+              <input type="text" class="form-control" name="jenis_fasilitas">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Alasan:</label>
+            <label class="col-sm-4 col-form-label">Nama Fasilitas:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="nama_fasilitas">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Alasan Pemakaian:</label>
             <div class="col-sm-8">
               <input type="text" class="form-control" name="alasan_pemakaian">
             </div>

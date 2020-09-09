@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Dokter;
 use App\RawatInap;
 use App\Pemeriksaan;
+use App\Diagnosa;
+use App\fasilitas;
 use DB;
 
 class DokterController extends Controller
@@ -40,15 +42,40 @@ class DokterController extends Controller
 
     function simpanresepobat()
     {
-        return redirect()->route("detail");
+        $data_obat = $request->only(['nama_obat']);
+        $data_obat = new Obat($data_obat);
+        $rawat_inap->obat()->save($obat);
+
+        $data_orderobat = $request->only(['tgl_order', 'jam_order','tujuan_obat','jumlah_obat']);
+        $data_orderobat = new OrderObat($data_orderobat);
+        $rawat_inap->orderobat()->save($orderobat);
+
+        return redirect()->route("lihatdetailri", ['rawat_inap' => $rawat_inap->id_rawatinap]);
     }
     function simpanreturobat()
     {
         return redirect()->route("detail");
     }
-    function simpanpermintaanpelayanan()
+
+    function simpandiagnosa(Request $request, RawatInap $rawat_inap)
     {
-        return redirect()->route("detail");
+        $data_diagnosa = $request->only(['jam_diagnosa', 'tgl_diagnosa', 'hasil_diagnosa', 'tinggi', 'berat', 'suhubadan', 'id_rawatinap']);
+        $diagnosa = new Diagnosa($data_diagnosa);
+        $rawat_inap->diagnosa()->save($diagnosa);
+        return redirect()->route("lihatdetailri", ['rawat_inap' => $rawat_inap->id_rawatinap]);
+    }
+    
+    function simpanfasilitas(Request $request, RawatInap $rawat_inap)
+    {
+        $data_fasilitas = $request->only(['nama_fasilitas', 'jenis_fasilitas', 'id_poli']);
+        $fasilitas = new Fasilitas($data_fasilitas);
+        $rawat_inap->fasilitas()->save($fasilitas);
+
+        $data_detailpf = $request->only(['jam_pemakaian', 'tgl_pemakaian', 'alasan_pemakaian']);
+        $detail_pf = new DetailPF ($data_detailpf);
+        $rawat_inap->detail_pf()->save($detail_pf);
+
+        return redirect()->route("lihatdetailri", ['rawat_inap' => $rawat_inap->id_rawatinap]);
     }
     function konfirmasidokter()
     {
