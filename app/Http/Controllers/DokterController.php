@@ -28,7 +28,7 @@ class DokterController extends Controller
 
         $pemeriksaan = $rawat_inap->pemeriksaan()->select("tgl_pemeriksaan AS tgl", "jam_pemeriksaan AS jam", DB::raw("'Pemeriksaan' as jenis"));
         $diagnosa = $rawat_inap->diagnosa()->select("tgl_diagnosa AS tgl", "jam_diagnosa AS jam", DB::raw("'Diagnosa' as jenis"));
-        $fasilitas = $rawat_inap->fasilitas()->select("tgl_pemakaian AS tgl", "jam_pemakaian AS jam", DB::raw("'Fasilitas' as jenis"));
+        $fasilitas = $rawat_inap->fasilitas()->select("detail_p_f_s.tgl_pemakaian AS tgl", "detail_p_f_s.jam_pemakaian AS jam", DB::raw("'Fasilitas' as jenis"));
 
         $pelayanan = $pemeriksaan->union($diagnosa)->union($fasilitas)->orderBy("tgl", "DESC")->orderBy("jam", "DESC")->get();
         return view('dokter.detail', ["rawat_inap" => $rawat_inap, "pelayanan" => $pelayanan]);

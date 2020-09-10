@@ -95,7 +95,7 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
         Route::get('/shift', "PoliApiController@getShift")->name("shift");
 
         Route::get('/obat', "PoliApiController@getObat")->name("obat");
-        Route::get('/fasilitas', "PoliApiController@getFasilitas")->name("obat");
+        Route::get('/fasilitas', "PoliApiController@getFasilitas")->name("fasilitas");
     });
 
     Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");

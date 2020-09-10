@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")}}">
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")}}">
 
+<link rel="stylesheet" href="{{asset("admin_lte/plugins/select2/css/select2.min.css")}}">
+<link rel="stylesheet" href="{{asset("admin_lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
+
 <!-- Tempusdominus Bbootstrap 4 -->
 <link rel="stylesheet"
   href="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css")}}">
@@ -330,11 +333,11 @@
               @foreach ($rawat_inap->obat as $item)
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->tgl_order}}</td>
-                <td>{{$item->jam_order}}</td>
-                <td>{{$item->obat->nama_obat}}</td>
+                <td>{{$item->pivot->tgl_order}}</td>
+                <td>{{$item->pivot->jam_order}}</td>
+                <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
-                <td>{{$item->jumlah_obat}}</td>
+                <td>{{$item->pivot->jumlah_obat}}</td>
                 <td>
                   <a href="" class="btn btn-primary btn-xs">Efek</a>
                   <a href="" class="btn btn-warning btn-xs">Retur</a>
@@ -537,15 +540,10 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Nama Obat:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nama_obat">
+              <select name="id_obat" id="select-obat"></select>
             </div>
           </div>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Kategori:</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" name="kategori">
-            </div>
-          </div>
+          
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Tujuan Obat:</label>
             <div class="col-sm-8">
@@ -739,16 +737,11 @@
               </div>
             </div>
           </div>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Jenis Fasilitas:</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" name="jenis_fasilitas">
-            </div>
-          </div>
+          
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Nama Fasilitas:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nama_fasilitas">
+              <select name="id_fasilitas" id="select-fasilitas"></select>
             </div>
           </div>
           <div class="form-group row">
@@ -777,8 +770,14 @@
 <!-- DataTables -->
 <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
+
 <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
+
+{{-- select2 --}}
+<script src="{{asset("admin_lte/plugins/select2/js/select2.full.min.js")}}"></script>
+<script src="{{asset("admin_lte/plugins/select2/js/i18n/id.js")}}"></script>
+
 <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
 {{-- date-range-picker --}}
 <script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
@@ -799,6 +798,61 @@
       locale:"id",
       ignoreReadonly:true,
     });
+
+    $("#select-fasilitas").select2({
+      language:"id",
+      placeholder:"Pilih fasilitas",
+      theme:"bootstrap4",
+      allowClear:true,
+      ajax:{
+        url:"{{route('api.poli.fasilitas')}}",
+        type:"GET",
+        delay:250,
+        data:function(params){
+          return{
+            term:params.term,
+            poli:1,
+          }
+        },
+        processResults:function(result){
+
+          var item = result.map((item)=>({
+            id:item.id_fasilitas,
+            text:item.nama_fasilitas
+          }))
+          return {
+            "results": item
+          }
+        }
+      }
+    })
+    $("#select-obat").select2({
+      language:"id",
+      placeholder:"Pilih Obat",
+      theme:"bootstrap4",
+      allowClear:true,
+      ajax:{
+        url:"{{route('api.poli.obat')}}",
+        type:"GET",
+        delay:250,
+        data:function(params){
+          return{
+            term:params.term,
+            poli:1,
+          }
+        },
+        processResults:function(result){
+
+          var item = result.map((item)=>({
+            id:item.id_obat,
+            text:item.nama_obat
+          }))
+          return {
+            "results": item
+          }
+        }
+      }
+    })
   
     $('#table-pasien').DataTable({
     });
