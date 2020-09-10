@@ -322,17 +322,23 @@
                 <th>Jam Order</th>
                 <th>Nama Obat</th>
                 <th>Kategori</th>
-                <th>jumlah Obat</th>
+                <th>Jumlah Obat</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($pelayanan as $item)
+              @foreach ($rawat_inap->obat as $item)
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->tgl}}</td>
-                <td>{{$item->jam}}</td>
-                <td>{{$item->jenis}}</td>
-                <td></td>
+                <td>{{$item->tgl_order}}</td>
+                <td>{{$item->jam_order}}</td>
+                <td>{{$item->obat->nama_obat}}</td>
+                <td>{{$item->kategori}}</td>
+                <td>{{$item->jumlah_obat}}</td>
+                <td>
+                  <a href="" class="btn btn-primary btn-xs">Efek</a>
+                  <a href="" class="btn btn-warning btn-xs">Retur</a>
+                </td>
               </tr>
               @endforeach
             </tbody>
@@ -797,6 +803,8 @@
     $('#table-pasien').DataTable({
     });
     $('#table-ruangan').DataTable({
+    });
+    $('#table-obat').DataTable({
     });
   });
 </script>
