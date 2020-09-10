@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Fasilitas;
 use Illuminate\Http\Request;
 
 use App\Gedung;
 use App\Poli;
 use App\Kamar;
+use App\Obat;
 use App\Ruang;
 use App\Shift;
 
@@ -52,5 +54,25 @@ class PoliApiController extends Controller
     function getShift(Request $request)
     {
         return response()->json(Shift::where("id_poli", $request->input("poli"))->get());
+    }
+
+    function getObat(Request $request)
+    {
+        if ($request->has("term")) {
+            $obat = Obat::where("nama_obat", "like", "%" . $request->input("term") . "%")->where("id_poli", $request->input("poli"))->get();
+        } else {
+            $obat = Obat::where("id_poli", $request->input("poli"))->get();
+        }
+        return response()->json($obat);
+    }
+
+    function getFasilitas(Request $request)
+    {
+        if ($request->has("term")) {
+            $obat = Fasilitas::where("nama_fasilitas", "like", "%" . $request->input("term") . "%")->where("id_poli", $request->input("poli"))->get();
+        } else {
+            $obat = Fasilitas::where("id_poli", $request->input("poli"))->get();
+        }
+        return response()->json($obat);
     }
 }
