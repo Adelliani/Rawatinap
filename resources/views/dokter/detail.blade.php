@@ -26,25 +26,18 @@
   <div class="card card-default">
     <div class="card-body">
       <div class="row">
-        <div class="col-2">
+        <div class="col-3">
           <button type="button" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px"
             data-toggle="modal" data-target="#modalPemeriksaan">
             <i class="fa fa-stethoscope" style="font-size: 40px"></i>
             Pemeriksaan
           </button>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
             data-target="#modalResepobat">
             <i class="fa fa-plus-square" style="font-size: 40px"></i>
             Resep Obat
-          </a>
-        </div>
-        <div class="col-2">
-          <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
-            data-target="#modalReturobat">
-            <i class=" fa fa-minus-square" style="font-size: 40px"></i>
-            Retur Obat
           </a>
         </div>
         <div class="col-2">
@@ -337,10 +330,10 @@
                 <td>{{$item->pivot->jam_order}}</td>
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
-                <td>{{$item->pivot->jumlah_obat}}</td>
+                <td>{{$item->pivot->jumlah_order}}</td>
                 <td>
-                  <a href="" class="btn btn-primary btn-xs">Efek</a>
-                  <a href="" class="btn btn-warning btn-xs">Retur</a>
+                  <a href="{{route("simpanefekobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-primary btn-xs">Efek Obat</a>
+                  <a href="{{route("simpanreturobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-warning btn-xs">Retur Obat</a>
                 </td>
               </tr>
               @endforeach
@@ -528,7 +521,7 @@
             <label class="col-sm-4 col-form-label">Jam:</label>
             <div class="col-sm-8">
               <div class="input-group" id="jam-obat" data-input-jam data-target-input="nearest">
-                <input type="text" class="form-control" value="" name="order" readonly>
+                <input type="text" class="form-control" value="" name="jam_order" readonly>
                 <div class="input-group-append" data-target="#jam-obat" data-toggle="datetimepicker">
                   <div class="input-group-text">
                     <i class="fa fa-clock"></i>
@@ -559,7 +552,7 @@
 
         </div>
         <div class="modal-footer row">
-          <button class="btn bg-green col-2">Simpan</button>
+          <button type=submit class="btn bg-green col-2">Simpan</button>
           <button class="btn bg-red col-2">Batal</button>
         </div>
       </form>
@@ -598,19 +591,44 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label">Alasan Retur:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="alasan">
+              <input type="text" class="form-control" name="alasan_pengembalian">
             </div>
           </div>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Jumlah Terpakai:</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" name="jumlah_order">
-            </div>
-          </div>
-
         </div>
         <div class="modal-footer row">
-          <button class="btn bg-green col-2">Simpan</button>
+          <button type=submit  class="btn bg-green col-2">Simpan</button>
+          <button class="btn bg-red col-2">Batal</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="modal fade" id="modalefekobat" role="dialog">
+  <div class="modal-dialog modal-ld" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Efek Obat</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <form class="form-horizontal fromPasien" 
+      action="" method="post">
+        @csrf
+        <div class="modal-body">
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Efek Obat:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="alasan_pengembalian">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer row">
+          <button type=submit  class="btn bg-green col-2">Simpan</button>
           <button class="btn bg-red col-2">Batal</button>
         </div>
       </form>
