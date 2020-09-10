@@ -8,6 +8,7 @@ use App\RawatInap;
 use App\Pemeriksaan;
 use App\Diagnosa;
 use App\fasilitas;
+use App\OrderObat;
 use DB;
 
 class DokterController extends Controller
