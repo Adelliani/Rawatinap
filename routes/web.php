@@ -11,73 +11,89 @@
 |
 */
 
-use App\Http\Controllers\WilayahApiController;
-use App\Provinsi;
-
-Route::get('/test', function () {
-    return view("layouts.sidebar");
+Route::group(['prefix' => '/pelayanan'], function () {
+    Route::get("", "PelayananHomeController")->name("pelayanan.index");
+    Route::resource('', 'RawatInapController')->only(["create", "store"])->names("rawat_inap");
+    Route::resource('/riwayat', 'RiwayatController')->only(["index", "show"])->parameters([
+        "riwayat" => "rawatInap"
+    ]);
 });
 
-Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
-Route::post('/pelayanan',"PelayananController@simpan")->name("simpanpelayanan");
-
-Route::get('/pelayanan/riwayat', "PelayananController@lihatriwayat")->name("lihatriwayat");
-Route::get('/pelayanan/riwayat/{rawat_inap}', "PelayananController@lihatdetailriwayat")->name("lihatdetailriwayat");
-
-Route::get('/pelayanan/riwayat/{rawat_inap}/pemeriksaan', "PelayananController@tampilpemeriksaan")->name("riwayatpemeriksaan");
-Route::get('/pelayanan/riwayat/{rawat_inap}/resepobat', "PelayananController@tampilresepobat")->name("riwayatresepobat");
-Route::get('/pelayanan/riwayat/{rawat_inap}/diagnosa', "PelayananController@tampildiagnosa")->name("riwayatdiagnosa");
-Route::get('/pelayanan/riwayat/{rawat_inap}/fasilitas', "PelayananController@tampilfasilitas")->name("riwayatfasilitas");
-
-Route::get('/dokter', "DokterController@tampil")->name("tampildokter");
-Route::get('/dokter/{rawat_inap}', "DokterController@lihat")->name("lihatdetailri");
-
-Route::post("/dokter/{rawat_inap}/pemeriksaan","DokterController@simpanpemeriksaan")->name("simpanpemeriksaan");
-Route::post('/dokter/{rawat_inap}/resepobat', "DokterController@simpanresepobat")->name("simpanresepobat");
-Route::post('/dokter/{rawat_inap}/returobat', "DokterController@simpanreturobat")->name("simpanreturobat");
-Route::post('/dokter/{rawat_inap}/efekobat', "DokterController@simpanefekobat")->name("simpanefekobat");
-Route::post('/dokter/{rawat_inap}/diagnosa', "DokterController@simpandiagnosa")->name("simpandiagnosa");
-Route::post('/dokter/{rawat_inap}/pelayanan', "DokterController@simpanfasilitas")->name("simpanfasilitas");
-// Route::get('/dokter/detail', "DokterController@konfirmasidokter")->name("konfirmasidokter");
-
-Route::get('/superadmin', function () {
-    return view('superadmin.index');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get("", "AdminHomeController")->name("admin.index");
+    Route::group(['prefix' => 'ruangan'], function () {
+        Route::get("", "RuanganHomeController")->name("ruangan.index");
+        Route::resource('gedung', 'GedungController')->only(["index", "show", "create", "store"]);
+        Route::resource('ruang', 'RuangController')->only(["index", "show", "create", "store"]);
+        Route::resource('kamar', 'KamarController')->only(["index", "show", "create", "store"]);
+    });
+    Route::resource('dokter', 'DokterController')->only(["index", "show", "create", "store"]);
+    Route::resource('perawat', 'PerawatController')->only(["index", "show", "create", "store"]);
+    Route::resource('pegawai', 'PegawaiController')->only(["index", "show", "create", "store"]);
+    Route::resource('fasilitas', 'FasilitasController')->only(["index", "show", "create", "store"]);
+    Route::resource('shift', 'ShiftController')->only(["index", "show", "create", "store"]);
 });
 
-//User Admin
-Route::get('/admin', "AdminController@tampiladmin")->name("tampiladmin");
 
-Route::get('/admin/dataruangan', "AdminController@tampildataruangan")->name("tampildataruangan");
-Route::get('/admin/dataruangan/datagedung', "AdminController@tampildatagedung")->name("tampildatagedung");
-Route::post('/admin/dataruangan/datagedung',"AdminController@simpandatagedung")->name("simpandatagedung");
-
-Route::get('/admin/dataruangan/dataruang', "AdminController@tampildataruang")->name("tampildataruang");
-Route::post('/admin/dataruangan/dataruang',"AdminController@simpandataruang")->name("simpandataruang");
-
-Route::get('/admin/dataruangan/datakamar', "AdminController@tampildatakamar")->name("tampildatakamar");
-Route::post('/admin/dataruangan/datakamar',"AdminController@simpandatakamar")->name("simpandatakamar");
-
-Route::get('/admin/datadokter', "AdminController@tampildatadokter")->name("tampildatadokter");
-Route::post('/admin/datadokter', "AdminController@simpandatadokter")->name("simpandatadokter");
-
-Route::get('/admin/datapegawai', "AdminController@tampildatapegawai")->name("tampildatapegawai");
-Route::post('/admin/datapegawai', "AdminController@simpandatapegawai")->name("simpandatapegawai");
-
-Route::get('/admin/dataperawat', "AdminController@tampildataperawat")->name("tampildataperawat");
-Route::post('/admin/dataperawat', "AdminController@simpandataperawat")->name("simpandataperawat");
-
-Route::get('/admin/datashift', "AdminController@tampildatashift")->name("tampildatashift");
-Route::post('/admin/datashift', "AdminController@simpandatashift")->name("simpandatashift");
-
-Route::get('/admin/datafasilitas', "AdminController@tampildatafasilitas")->name("tampildatafasilitas");
-Route::post('/admin/datafasilitas', "AdminController@simpandatafasilitas")->name("simpandatafasilitas");
-
-Route::get('/admin/laporan', "AdminController@tampillaporan")->name("tampillaporan");
+Route::resource('dokter', 'DokterPasienController')->names("pasien")->parameters(["dokter" => "rawatInap"]);
 
 
-Route::get('/login', function () {
-    return view('login');
-});
+
+// Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
+// Route::get('/pelayanan/create', "PelayananController@create");
+// Route::post('/pelayanan', "PelayananController@simpan")->name("simpanpelayanan");
+
+// Route::get('/pelayanan/riwayat', "PelayananController@lihatriwayat")->name("lihatriwayat");
+// Route::get('/pelayanan/riwayat/{rawat_inap}', "PelayananController@lihatdetailriwayat")->name("lihatdetailriwayat");
+
+// Route::get('/pelayanan/riwayat/{rawat_inap}/pemeriksaan', "PelayananController@tampilpemeriksaan")->name("riwayatpemeriksaan");
+// Route::get('/pelayanan/riwayat/{rawat_inap}/resepobat', "PelayananController@tampilresepobat")->name("riwayatresepobat");
+// Route::get('/pelayanan/riwayat/{rawat_inap}/diagnosa', "PelayananController@tampildiagnosa")->name("riwayatdiagnosa");
+// Route::get('/pelayanan/riwayat/{rawat_inap}/fasilitas', "PelayananController@tampilfasilitas")->name("riwayatfasilitas");
+
+// Route::get('/dokter', "DokterController@tampil")->name("tampildokter");
+// Route::get('/dokter/{rawat_inap}', "DokterController@lihat")->name("lihatdetailri");
+
+// Route::post("/dokter/{rawat_inap}/pemeriksaan", "DokterController@simpanpemeriksaan")->name("simpanpemeriksaan");
+// Route::post('/dokter/{rawat_inap}/resepobat', "DokterController@simpanresepobat")->name("simpanresepobat");
+// Route::post('/dokter/{rawat_inap}/returobat', "DokterController@simpan")->name("simpanreturobat");
+// Route::post('/dokter/{rawat_inap}/diagnosa', "DokterController@simpandiagnosa")->name("simpandiagnosa");
+// Route::post('/dokter/{rawat_inap}/pelayanan', "DokterController@simpanfasilitas")->name("simpanfasilitas");
+// // Route::get('/dokter/detail', "DokterController@konfirmasidokter")->name("konfirmasidokter");
+
+// Route::get('/superadmin', function () {
+//     return view('superadmin.index');
+// });
+
+// //User Admin
+// Route::get('/admin', "AdminController@tampiladmin")->name("tampiladmin");
+
+// Route::get('/admin/dataruangan', "AdminController@tampildataruangan")->name("tampildataruangan");
+// Route::get('/admin/dataruangan/datagedung', "AdminController@tampildatagedung")->name("tampildatagedung");
+// Route::post('/admin/dataruangan/datagedung', "AdminController@simpandatagedung")->name("simpandatagedung");
+
+// Route::get('/admin/dataruangan/dataruang', "AdminController@tampildataruang")->name("tampildataruang");
+// Route::post('/admin/dataruangan/dataruang', "AdminController@simpandataruang")->name("simpandataruang");
+
+// Route::get('/admin/dataruangan/datakamar', "AdminController@tampildatakamar")->name("tampildatakamar");
+// Route::post('/admin/dataruangan/datakamar', "AdminController@simpandatakamar")->name("simpandatakamar");
+
+// Route::get('/admin/datadokter', "AdminController@tampildatadokter")->name("tampildatadokter");
+// Route::post('/admin/datadokter', "AdminController@simpandatadokter")->name("simpandatadokter");
+
+// Route::get('/admin/datapegawai', "AdminController@tampildatapegawai")->name("tampildatapegawai");
+// Route::post('/admin/datapegawai', "AdminController@simpandatapegawai")->name("simpandatapegawai");
+
+// Route::get('/admin/dataperawat', "AdminController@tampildataperawat")->name("tampildataperawat");
+// Route::post('/admin/dataperawat', "AdminController@simpandataperawat")->name("simpandataperawat");
+
+// Route::get('/admin/datashift', "AdminController@tampildatashift")->name("tampildatashift");
+// Route::post('/admin/datashift', "AdminController@simpandatashift")->name("simpandatashift");
+
+// Route::get('/admin/datafasilitas', "AdminController@tampildatafasilitas")->name("tampildatafasilitas");
+// Route::post('/admin/datafasilitas', "AdminController@simpandatafasilitas")->name("simpandatafasilitas");
+
+// Route::get('/admin/laporan', "AdminController@tampillaporan")->name("tampillaporan");
 
 Route::group(['prefix' => 'api', "as" => "api."], function () {
 
@@ -100,6 +116,4 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
     });
 
     Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");
-    
-    
 });
