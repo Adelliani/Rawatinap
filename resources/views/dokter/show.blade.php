@@ -26,25 +26,18 @@
   <div class="card card-default">
     <div class="card-body">
       <div class="row">
-        <div class="col-2">
+        <div class="col-3">
           <button type="button" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px"
             data-toggle="modal" data-target="#modalPemeriksaan">
             <i class="fa fa-stethoscope" style="font-size: 40px"></i>
             Pemeriksaan
           </button>
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
             data-target="#modalResepobat">
             <i class="fa fa-plus-square" style="font-size: 40px"></i>
             Resep Obat
-          </a>
-        </div>
-        <div class="col-2">
-          <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
-            data-target="#modalReturobat">
-            <i class=" fa fa-minus-square" style="font-size: 40px"></i>
-            Retur Obat
           </a>
         </div>
         <div class="col-2">
@@ -337,10 +330,10 @@
                 <td>{{$item->pivot->jam_order}}</td>
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
-                <td>{{$item->pivot->jumlah_obat}}</td>
+                <td>{{$item->pivot->jumlah_order}}</td>
                 <td>
-                  <a href="" class="btn btn-primary btn-xs">Efek</a>
-                  <a href="" class="btn btn-warning btn-xs">Retur</a>
+                  <a href="{{route("simpanefekobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-primary btn-xs">Efek Obat</a>
+                  <a href="{{route("simpanreturobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-warning btn-xs">Retur Obat</a>
                 </td>
               </tr>
               @endforeach
