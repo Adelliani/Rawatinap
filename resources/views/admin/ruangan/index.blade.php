@@ -13,7 +13,7 @@
       <h1>
         Data Ruangan
       </h1>
-      <a href="{{route('tampiladmin')}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left">
+      <a href="{{route('admin.index')}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left">
           Kembali</i></a>
     </div>
   </section>
@@ -22,20 +22,20 @@
     <div class="card-body">
       <div class="row">
         <div class="col-4">
-          <a href="{{route('tampildatagedung')}}" class="btn btn-app btn-block m-0"
+          <a href="{{route('gedung.index')}}" class="btn btn-app btn-block m-0"
             style="height: 100px;font-size:14px">
             <i class="fa fa-building" style="font-size: 40px"></i>
             Data Gedung
           </a>
         </div>
         <div class="col-4">
-          <a href="{{route('tampildataruang')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('ruang.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class="fa fa-door-open" style="font-size: 40px"></i>
             Data Ruang
           </a>
         </div>
         <div class="col-4">
-          <a href="{{route('tampildatakamar')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('kamar.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-bed" style="font-size: 40px"></i>
             Data Kamar
           </a>

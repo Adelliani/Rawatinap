@@ -48,7 +48,7 @@
                 <td>{{$item->pasien->jenis_kelamin}}</td>
                 <td>{{count($item->kamars)>0?$item->kamars[0]->nama_kamar:""}}</td>
                 <td>
-                  <a href="{{route('lihatdetailri',['id'=>$item->id_rawatinap])}}"
+                  <a href="{{route('pasien.show',['rawat_inap'=>$item->id_rawatinap])}}"
                     class="btn btn-primary btn-xm">Detail</a>
                 </td>
               </tr>

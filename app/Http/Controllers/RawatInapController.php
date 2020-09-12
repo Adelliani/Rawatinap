@@ -27,7 +27,7 @@ class RawatInapController extends Controller
      */
     public function create()
     {
-        return view('pelayanan.index.form');
+        return view('pelayanan.main.form');
     }
 
     /**

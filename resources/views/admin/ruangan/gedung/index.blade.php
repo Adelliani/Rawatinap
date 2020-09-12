@@ -22,7 +22,7 @@
         <div class="card-header">
           <a class="btn btn-primary btn-sm" href="{{route("gedung.create")}}"><i class="fa fa-plus-circle"> Tambah
             </i></a>
-          <a href="/." class="btn btn-primary btn-sm tambahBtn"><i
+          <a href="{{route("ruangan.index")}}" class="btn btn-primary btn-sm tambahBtn"><i
               class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
         <div class="card-body">

@@ -11,19 +11,33 @@
 |
 */
 
-Route::resource('rawat_inap', 'RawatInapController')->only(["create", "store"]);
-Route::resource('riwayat', 'RiwayatController')->only(["index", "show"])->parameters([
-    "riwayat" => "rawatInap"
-]);
-Route::resource('gedung', 'GedungController');
-Route::resource('ruang', 'RuangController');
-Route::resource('kamar', 'KamarController');
-Route::resource('dokter', 'DokterController');
-Route::resource('perawat', 'PerawatController');
-Route::resource('pegawai', 'PegawaiController');
-Route::resource('fasilitas', 'FasilitasController');
-Route::resource('shift', 'ShiftController');
-Route::resource('pasien', 'DokterPasienController')->parameters(["pasien"=>"rawatInap"]);
+Route::group(['prefix' => '/pelayanan'], function () {
+    Route::get("", "PelayananHomeController")->name("pelayanan.index");
+    Route::resource('', 'RawatInapController')->only(["create", "store"])->names("rawat_inap");
+    Route::resource('/riwayat', 'RiwayatController')->only(["index", "show"])->parameters([
+        "riwayat" => "rawatInap"
+    ]);
+});
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get("", "AdminHomeController")->name("admin.index");
+    Route::group(['prefix' => 'ruangan'], function () {
+        Route::get("", "RuanganHomeController")->name("ruangan.index");
+        Route::resource('gedung', 'GedungController')->only(["index", "show", "create", "store"]);
+        Route::resource('ruang', 'RuangController')->only(["index", "show", "create", "store"]);
+        Route::resource('kamar', 'KamarController')->only(["index", "show", "create", "store"]);
+    });
+    Route::resource('dokter', 'DokterController')->only(["index", "show", "create", "store"]);
+    Route::resource('perawat', 'PerawatController')->only(["index", "show", "create", "store"]);
+    Route::resource('pegawai', 'PegawaiController')->only(["index", "show", "create", "store"]);
+    Route::resource('fasilitas', 'FasilitasController')->only(["index", "show", "create", "store"]);
+    Route::resource('shift', 'ShiftController')->only(["index", "show", "create", "store"]);
+});
+
+
+Route::resource('dokter', 'DokterPasienController')->names("pasien")->parameters(["dokter" => "rawatInap"]);
+
+
 
 // Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 // Route::get('/pelayanan/create', "PelayananController@create");

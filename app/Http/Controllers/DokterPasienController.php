@@ -16,7 +16,8 @@ class DokterPasienController extends Controller
     public function index()
     {
         $rawat_inap = RawatInap::belumSelesai()->get();
-        return view("dokter.index");
+
+        return view("dokter.index", ["rawat_inaps" => $rawat_inap]);
     }
 
     /**
