@@ -51,18 +51,18 @@ class DokterController extends Controller
 
         return redirect()->route("lihatdetailri", ['rawat_inap' => $rawat_inap->id_rawatinap]);
     }
-    function simpanreturobat(Request $request)
-    {
-        $data_obat = $request->only(["tgl_pengembalian", "jam_pengembalian", "alasan_pengembalian"]);
-        $rawat_inap->obat()->attach($request->input("id_obat"), $data_obat);
+    // function simpanreturobat(Request $request)
+    // {
+    //     $data_obat = $request->only(["tgl_pengembalian", "jam_pengembalian", "alasan_pengembalian"]);
+    //     $rawat_inap->obat()->attach($request->input("id_obat"), $data_obat);
 
-        return redirect()->route("lihatdetailri", ['rawat_inap' => $rawat_inap->id_rawatinap]);
-    }
-    function simpanefekobat(Request $request)
-    {
+    //     return redirect()->route("lihatdetailri", ['rawat_inap' => $rawat_inap->id_rawatinap]);
+    // }
+    // function simpanefekobat(Request $request)
+    // {
 
-        return redirect()->route("lihatdetailri", ['rawat_inap' => $rawat_inap->id_rawatinap]);
-    }
+    //     return redirect()->route("lihatdetailri", ['rawat_inap' => $rawat_inap->id_rawatinap]);
+    // }
 
     function simpandiagnosa(Request $request, RawatInap $rawat_inap)
     {
