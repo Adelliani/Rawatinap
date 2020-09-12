@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Dokter;
+use App\Fasilitas;
 use Illuminate\Http\Request;
 
-class DokterController extends Controller
+class FasilitasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class DokterController extends Controller
      */
     public function index()
     {
-        $dokters = Dokter::where("id_poli", 1)->orderBy("nama_dokter")->get();
-        return view("admin.dokter.index", ["dokters" => $dokters]);
+        $fasilitas = Fasilitas::where("id_poli", 1)->orderBy("nama_fasilitas")->get();
+        return view("admin.fasilitas.index", ["fasilitas" => $fasilitas]);
     }
 
     /**
@@ -25,7 +25,7 @@ class DokterController extends Controller
      */
     public function create()
     {
-        return view("admin.dokter.form");
+        return view("admin.fasilitas.form");
     }
 
     /**
@@ -36,19 +36,24 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        $data_dokter = $request->only(["nama_dokter", "jenis_kelamin", "jenis_dokter", "spesialisasi", "notelp", "alamat"]);
-        $data_dokter["id_poli"] = 1;
-        Dokter::create($data_dokter);
-        return redirect()->route("dokter.index");
+        $data_fasilitas = $request->only([
+            "nama_fasilitas",
+            "jenis_fasilitas",
+            "harga_fasilitas"
+        ]);
+        $data_fasilitas["id_poli"] = 1;
+
+        Fasilitas::create($data_fasilitas);
+        return redirect()->route("fasilitas.index");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\Fasilitas  $fasilitas
      * @return \Illuminate\Http\Response
      */
-    public function show(Dokter $dokter)
+    public function show(Fasilitas $fasilitas)
     {
         //
     }
@@ -56,10 +61,10 @@ class DokterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\Fasilitas  $fasilitas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dokter $dokter)
+    public function edit(Fasilitas $fasilitas)
     {
         //
     }
@@ -68,10 +73,10 @@ class DokterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dokter  $dokter
+     * @param  \App\Fasilitas  $fasilitas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dokter $dokter)
+    public function update(Request $request, Fasilitas $fasilitas)
     {
         //
     }
@@ -79,10 +84,10 @@ class DokterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\Fasilitas  $fasilitas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dokter $dokter)
+    public function destroy(Fasilitas $fasilitas)
     {
         //
     }

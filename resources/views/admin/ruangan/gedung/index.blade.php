@@ -11,49 +11,51 @@
   <section class="content-header">
     <div class="row justify-content-between align-items-center">
       <h1>
-        Daftar Pasien Rawat Inap
+        Data Gedung
       </h1>
-      <a href="./" class="btn btn-primary btn-sm tambahBtn"><i
-          class="fa fa-arrow-circle-left"> Kembali</i></a>
     </div>
   </section>
 
   <div class="row">
     <div class="col-12">
       <div class="card card-outline card-green">
+        <div class="card-header">
+          <a class="btn btn-primary btn-sm" href="{{route("gedung.create")}}"><i class="fa fa-plus-circle"> Tambah
+            </i></a>
+          <a href="/." class="btn btn-primary btn-sm tambahBtn"><i
+              class="fa fa-arrow-circle-left"> Kembali</i></a>
+        </div>
         <div class="card-body">
-          <table id="table-pasien" class="table table-bordered table-hover">
+          <table id="table-gedung" class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>No</th>
-                <th>No. Rawat Inap</th>
-                <th>Nama Pasien</th>
-                <th>Jenis Kelamin</th>
-                <th>Tanggal Masuk</th>
-                <th>Tanggal Keluar</th>
+                <th>Nama Gedung</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($rawat_inaps as $item)
+              @foreach($gedungs as $item)
+
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->no_ri}}</td>
-                <td>{{$item->pasien->nama_pasien}}</td>
-                <td>{{$item->pasien->jenis_kelamin}}</td>
-                <td>{{$item->tgl_masuk}}</td>
-                <td>{{$item->tgl_keluar}}</td>
+                <td>{{$item->nama_gedung}}</td>
                 <td>
-                  <a href="{{route('riwayat.show',['rawat_inap'=>$item->id_rawatinap])}}"
-                    class="btn btn-primary btn-xm">Detail</a>
+                  <a href="" class="btn btn-primary">Lihat</a>
+                  <a href="" class="btn btn-warning">Hapus</a>
                 </td>
               </tr>
               @endforeach
+
             </tbody>
+
+
           </table>
         </div>
+
       </div>
     </div>
+
   </div>
 </div>
 
@@ -68,10 +70,10 @@
 
 <script>
   $(function () {
-    $('#table-pasien').DataTable({
+    $('#table-gedung').DataTable({
     });
-    $('#table-ruangan').DataTable({
-    });
-  });           
+  });
+              
+              
 </script>
 @endsection

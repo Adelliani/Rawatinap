@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Dokter;
+use App\RawatInap;
+use Closure;
 use Illuminate\Http\Request;
 
-class DokterController extends Controller
+class RiwayatController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $dokters = Dokter::where("id_poli", 1)->orderBy("nama_dokter")->get();
-        return view("admin.dokter.index", ["dokters" => $dokters]);
+        $rawat_inaps = RawatInap::selesai()->get();
+        return view('pelayanan.riwayat.index', [
+            'rawat_inaps' => $rawat_inaps
+        ]);
     }
 
     /**
@@ -25,7 +29,7 @@ class DokterController extends Controller
      */
     public function create()
     {
-        return view("admin.dokter.form");
+        //
     }
 
     /**
@@ -36,30 +40,31 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        $data_dokter = $request->only(["nama_dokter", "jenis_kelamin", "jenis_dokter", "spesialisasi", "notelp", "alamat"]);
-        $data_dokter["id_poli"] = 1;
-        Dokter::create($data_dokter);
-        return redirect()->route("dokter.index");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\RawatInap  $rawatInap
      * @return \Illuminate\Http\Response
      */
-    public function show(Dokter $dokter)
+    public function show(Request $request, RawatInap $rawatInap)
     {
-        //
-    }
+        if ($rawatInap->tgl_keluar != null) {
 
+            // dd($rawatInap);
+            return view('pelayanan.riwayat.show', ["rawat_inap" => $rawatInap]);
+        } else {
+            return abort(404);
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\RawatInap  $rawatInap
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dokter $dokter)
+    public function edit(RawatInap $rawatInap)
     {
         //
     }
@@ -68,10 +73,10 @@ class DokterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dokter  $dokter
+     * @param  \App\RawatInap  $rawatInap
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dokter $dokter)
+    public function update(Request $request, RawatInap $rawatInap)
     {
         //
     }
@@ -79,10 +84,10 @@ class DokterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\RawatInap  $rawatInap
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dokter $dokter)
+    public function destroy(RawatInap $rawatInap)
     {
         //
     }

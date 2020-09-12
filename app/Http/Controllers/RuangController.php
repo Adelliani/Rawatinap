@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Dokter;
+use App\Ruang;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class DokterController extends Controller
+class RuangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,11 @@ class DokterController extends Controller
      */
     public function index()
     {
-        $dokters = Dokter::where("id_poli", 1)->orderBy("nama_dokter")->get();
-        return view("admin.dokter.index", ["dokters" => $dokters]);
+        $ruangs = Ruang::whereHas("gedung", function (Builder $query) {
+            $query->where("id_poli", 1);
+        })->orderBy("nama_ruang")->get();
+
+        return view("admin.ruangan.ruang.index", ["ruangs" => $ruangs]);
     }
 
     /**
@@ -25,7 +29,7 @@ class DokterController extends Controller
      */
     public function create()
     {
-        return view("admin.dokter.form");
+        return view("admin.ruangan.ruang.form");
     }
 
     /**
@@ -36,19 +40,18 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        $data_dokter = $request->only(["nama_dokter", "jenis_kelamin", "jenis_dokter", "spesialisasi", "notelp", "alamat"]);
-        $data_dokter["id_poli"] = 1;
-        Dokter::create($data_dokter);
-        return redirect()->route("dokter.index");
+        $data_ruang = $request->only(["nama_ruang","id_gedung"]);
+        Ruang::create($data_ruang);
+        return redirect()->route("ruang.index");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\Ruang  $ruang
      * @return \Illuminate\Http\Response
      */
-    public function show(Dokter $dokter)
+    public function show(Ruang $ruang)
     {
         //
     }
@@ -56,10 +59,10 @@ class DokterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\Ruang  $ruang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dokter $dokter)
+    public function edit(Ruang $ruang)
     {
         //
     }
@@ -68,10 +71,10 @@ class DokterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dokter  $dokter
+     * @param  \App\Ruang  $ruang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dokter $dokter)
+    public function update(Request $request, Ruang $ruang)
     {
         //
     }
@@ -79,10 +82,10 @@ class DokterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Dokter  $dokter
+     * @param  \App\Ruang  $ruang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dokter $dokter)
+    public function destroy(Ruang $ruang)
     {
         //
     }
