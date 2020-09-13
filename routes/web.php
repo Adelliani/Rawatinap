@@ -23,15 +23,15 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get("", "AdminHomeController")->name("admin.index");
     Route::group(['prefix' => 'ruangan'], function () {
         Route::get("", "RuanganHomeController")->name("ruangan.index");
-        Route::resource('gedung', 'GedungController')->only(["index", "show", "create", "store"]);
-        Route::resource('ruang', 'RuangController')->only(["index", "show", "create", "store"]);
-        Route::resource('kamar', 'KamarController')->only(["index", "show", "create", "store"]);
+        Route::resource('gedung', 'GedungController')->only(["index", "show", "create", "store","edit","update"]);
+        Route::resource('ruang', 'RuangController')->only(["index", "show", "create", "store","edit","update"]);
+        Route::resource('kamar', 'KamarController')->only(["index", "show", "create", "store","edit","update"]);
     });
-    Route::resource('dokter', 'DokterController')->only(["index", "show", "create", "store"]);
-    Route::resource('perawat', 'PerawatController')->only(["index", "show", "create", "store"]);
-    Route::resource('pegawai', 'PegawaiController')->only(["index", "show", "create", "store"]);
-    Route::resource('fasilitas', 'FasilitasController')->only(["index", "show", "create", "store"]);
-    Route::resource('shift', 'ShiftController')->only(["index", "show", "create", "store"]);
+    Route::resource('dokter', 'DokterController')->only(["index", "show", "create", "store","edit","update"]);
+    Route::resource('perawat', 'PerawatController')->only(["index", "show", "create", "store","edit","update"]);
+    Route::resource('pegawai', 'PegawaiController')->only(["index", "show", "create", "store","edit","update"]);
+    Route::resource('fasilitas', 'FasilitasController')->only(["index", "show", "create", "store","edit","update"]);
+    Route::resource('shift', 'ShiftController')->only(["index", "show", "create", "store","edit","update"]);
 });
 
 

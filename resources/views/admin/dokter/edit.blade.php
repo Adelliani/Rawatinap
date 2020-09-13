@@ -14,8 +14,10 @@
 
         <div class="row">
             <div class="col-12">
-                <form class="form-horizontal" id="form-tambah" action="{{route("dokter.store")}}" method="post">
+                <form class="form-horizontal" id="form-tambah" action="{{route("dokter.update",["dokter"=>$dokter])}}"
+                    method="post">
                     @csrf
+                    @method("PUT")
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -23,14 +25,15 @@
                                     <div class="form-group">
                                         <label class="col-sm-5">Id Dokter</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" name="id_dokter" value=""
-                                                readonly>
+                                            <input type="number" class="form-control" name="id_dokter"
+                                                value="{{$dokter->id_dokter}}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Nama Dokter:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="nama_dokter">
+                                            <input type="text" class="form-control" name="nama_dokter"
+                                                value="{{$dokter->nama_dokter}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -38,11 +41,13 @@
                                         <div class="col-sm-10">
                                             <div class="radio">
                                                 <label class="col-sm-5">
-                                                    <input type="radio" name="jenis_kelamin" value="Laki-laki">
+                                                    <input type="radio" name="jenis_kelamin" value="Laki-laki"
+                                                        {{$dokter->jenis_kelamin=="laki-laki"?"checked":""}}>
                                                     Laki - Laki
                                                 </label>
                                                 <label class="col-sm-5">
-                                                    <input type="radio" name="jenis_kelamin" value="Perempuan">
+                                                    <input type="radio" name="jenis_kelamin" value="Perempuan"
+                                                        {{$dokter->jenis_kelamin=="perempuan"?"checked":""}}>
                                                     Perempuan
                                                 </label>
                                             </div>
@@ -53,8 +58,10 @@
                                         <div class="col-sm-10">
                                             <select id="jenis_dokter" name="jenis_dokter" class="form-control">
                                                 <option value=""></option>
-                                                <option value="umum">Umum</option>
-                                                <option value="spesialis">Spesialis</option>
+                                                <option {{$dokter->jenis_dokter=="umum"?"selected":""}} value="umum">
+                                                    Umum</option>
+                                                <option {{$dokter->jenis_dokter=="spesialis"?"selected":""}}
+                                                    value="spesialis">Spesialis</option>
                                             </select>
                                         </div>
                                     </div>
@@ -64,19 +71,21 @@
                                         <label class="col-sm-5">Spesialisasi:</label>
                                         <div class="col-sm-10">
                                             <input id="spesialisasi" type="text" class="form-control"
-                                                name="spesialisasi">
+                                                name="spesialisasi" value="{{$dokter->spesialisasi}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">No. Telp:</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" name="notelp">
+                                            <input type="text" class="form-control" name="notelp" value="{{$dokter->notelp}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Alamat:</label>
                                         <div class="col-sm-10">
-                                            <textarea name="alamat" class="form-control" rows="3"></textarea>
+                                            <textarea name="alamat" class="form-control" rows="3">
+                                                {{$dokter->alamat}}
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +94,7 @@
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                             <a class="btn btn-default" href="./"><i class="fa fa-power-off"></i>
-                            Batal</a>
+                                Batal</a>
                         </div>
                     </div>
                 </form>

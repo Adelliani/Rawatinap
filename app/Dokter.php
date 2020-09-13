@@ -8,6 +8,7 @@ class Dokter extends Model
 {
     public $timestamps=false;
     protected $guarded=[];
+    protected $primaryKey = 'id_dokter';
 
     public function rawatinap()
     {

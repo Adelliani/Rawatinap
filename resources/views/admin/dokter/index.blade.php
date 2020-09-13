@@ -49,6 +49,7 @@
                 <td>{{$item->shift}}</td>
                 <td>
                   <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                  <a href="{{route("dokter.edit",["dokter"=>$item->id_dokter])}}" class="btn btn-primary btn-xs">Edit</a>
                   <a href="" class="btn btn-warning btn-xs">Hapus</a>
                 </td>
               </tr>

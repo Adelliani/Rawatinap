@@ -61,7 +61,7 @@ class DokterController extends Controller
      */
     public function edit(Dokter $dokter)
     {
-        //
+        return view("admin.dokter.edit", ["dokter" => $dokter]);
     }
 
     /**
@@ -73,7 +73,12 @@ class DokterController extends Controller
      */
     public function update(Request $request, Dokter $dokter)
     {
-        //
+        $dokter->nama_dokter = $request->input("nama_dokter");
+
+        //disini ditambahin lagi attribut dokternya, kecuali id
+        
+        $dokter->save();
+        return redirect()->route("dokter.index");
     }
 
     /**
