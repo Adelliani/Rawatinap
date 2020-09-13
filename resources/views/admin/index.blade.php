@@ -145,6 +145,15 @@
               </tr>
             </thead>
             <tbody>
+                @foreach($pegawais as $item)
+
+                <tr>
+                  <td>{{$loop->index+1}}</td>
+                  <td>{{$item->nama_pegawai}}</td>
+                  <td>{{$item->jenis_kelamin}}</td>
+                  <td>{{$item->posisi}}</td>
+                </tr>
+                @endforeach
             </tbody>
 
           </table>
@@ -167,6 +176,15 @@
               </tr>
             </thead>
             <tbody>
+                @foreach($perawats as $item)
+
+                <tr>
+                  <td>{{$loop->index+1}}</td>
+                  <td>{{$item->nama_perawat}}</td>
+                  <td>{{$item->jenis_kelamin}}</td>
+                </tr>
+                @endforeach
+  
             </tbody>
           </table>
         </div>
