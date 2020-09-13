@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\RawatInap;
 use Illuminate\Http\Request;
 
 class DokterDiagnosaController extends Controller
@@ -21,9 +22,9 @@ class DokterDiagnosaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, RawatInap $rawatInap)
     {
-        //
+        return view("dokter.diagnosa", ["rawat_inap" => $rawatInap]);
     }
 
     /**
@@ -32,9 +33,12 @@ class DokterDiagnosaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, RawatInap $rawatInap)
     {
-        //
+        $data_diagnosa = $request->only(['jam_diagnosa', 'tgl_diagnosa', 'hasil_diagnosa', 'tinggi', 'berat', 'suhubadan']);
+
+        $rawatInap->diagnosa()->create($data_diagnosa);
+        return redirect()->route("dokter.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
     }
 
     /**

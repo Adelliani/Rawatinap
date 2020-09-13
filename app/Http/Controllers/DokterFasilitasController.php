@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\RawatInap;
 use Illuminate\Http\Request;
 
 class DokterFasilitasController extends Controller
@@ -21,9 +22,9 @@ class DokterFasilitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, RawatInap $rawatInap)
     {
-        //
+        return view("dokter.fasilitas", ["rawat_inap" => $rawatInap]);
     }
 
     /**
@@ -32,9 +33,12 @@ class DokterFasilitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, RawatInap $rawatInap)
     {
-        //
+        $data_detailpf = $request->only(['jam_pemakaian', 'tgl_pemakaian', 'alasan_pemakaian']);
+        $rawatInap->fasilitas()->attach($request->input("id_fasilitas"), $data_detailpf);
+
+        return redirect()->route("dokter.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
     }
 
     /**

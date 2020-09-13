@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Pemeriksaan;
+use App\RawatInap;
 use Illuminate\Http\Request;
 
 class DokterPemeriksaanController extends Controller
@@ -21,24 +23,24 @@ class DokterPemeriksaanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, RawatInap $rawatInap)
     {
-            return view("dokter.pemeriksaan");
+        return view("dokter.pemeriksaan", ["rawat_inap" => $rawatInap]);
     }
 
-     /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
-    public function store(Request $request)
+
+    public function store(Request $request, RawatInap $rawatInap)
     {
         $data_pemeriksaan = $request->only(['jam_pemeriksaan', 'tgl_pemeriksaan', 'jenis_pemeriksaan', 'hasil_pemeriksaan', 'id_rawatinap']);
-        $data_pemeriksaan["id_rawatinap"] = 1;
-        Pemeriksaan::create($data_pemeriksaan);
-        return redirect()->route("dokter.pemeriksaan");
+        $pemeriksaan = new Pemeriksaan($data_pemeriksaan);
+        $rawatInap->pemeriksaan()->save($pemeriksaan);
+        return redirect()->route("dokter.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
     }
 
     /**

@@ -27,29 +27,29 @@
     <div class="card-body">
       <div class="row">
         <div class="col-3">
-          <button type="button" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px"
-            data-toggle="modal" data-target="#modalPemeriksaan">
+          <a class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px"
+            href="{{route("pemeriksaan.create",["rawatInap"=>$rawat_inap->id_rawatinap])}}">
             <i class="fa fa-stethoscope" style="font-size: 40px"></i>
             Pemeriksaan
-          </button>
+          </a>
         </div>
         <div class="col-3">
-          <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
-            data-target="#modalResepobat">
+          <a class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px"
+            href="{{route("resepobat.create",["rawatInap"=>$rawat_inap->id_rawatinap])}}">
             <i class="fa fa-plus-square" style="font-size: 40px"></i>
             Resep Obat
           </a>
         </div>
         <div class="col-2">
-          <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
-            data-target="#modalDiagnosa">
+          <a class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px"
+            href="{{route("diagnosa.create",["rawatInap"=>$rawat_inap->id_rawatinap])}}">
             <i class=" fa fa fa-medkit" style="font-size: 40px"></i>
             Diagnosa
           </a>
         </div>
         <div class="col-2">
-          <a href="" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px" data-toggle="modal"
-            data-target="#modalFasilitas">
+          <a class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px"
+            href="{{route("fasilitas.create",["rawatInap"=>$rawat_inap->id_rawatinap])}}">
             <i class=" fa  fa-heartbeat" style="font-size: 40px"></i>
             Permintaan Pelayanan
           </a>
@@ -426,7 +426,7 @@
     </div>
   </div>
 
-  
+
 
 
 </div>
@@ -452,73 +452,6 @@
     $("[data-umur]").text(`${
     moment("{{$rawat_inap->tgl_masuk}}").diff(moment("{{$rawat_inap->pasien->tgl_lahir}}"),"years")
     }`);
-
-    $('[data-input-tanggal]').datetimepicker({
-      locale:"id",
-      format:"YYYY-MM-DD",
-      ignoreReadonly:true,
-    })
-
-    $('[data-input-jam]').datetimepicker({
-      format: 'HH:mm',
-      locale:"id",
-      ignoreReadonly:true,
-    });
-
-    $("#select-fasilitas").select2({
-      language:"id",
-      placeholder:"Pilih fasilitas",
-      theme:"bootstrap4",
-      allowClear:true,
-      ajax:{
-        url:"{{route('api.poli.fasilitas')}}",
-        type:"GET",
-        delay:250,
-        data:function(params){
-          return{
-            term:params.term,
-            poli:1,
-          }
-        },
-        processResults:function(result){
-
-          var item = result.map((item)=>({
-            id:item.id_fasilitas,
-            text:item.nama_fasilitas
-          }))
-          return {
-            "results": item
-          }
-        }
-      }
-    })
-    $("#select-obat").select2({
-      language:"id",
-      placeholder:"Pilih Obat",
-      theme:"bootstrap4",
-      allowClear:true,
-      ajax:{
-        url:"{{route('api.poli.obat')}}",
-        type:"GET",
-        delay:250,
-        data:function(params){
-          return{
-            term:params.term,
-            poli:1,
-          }
-        },
-        processResults:function(result){
-
-          var item = result.map((item)=>({
-            id:item.id_obat,
-            text:item.nama_obat
-          }))
-          return {
-            "results": item
-          }
-        }
-      }
-    })
   
     $('#table-pasien').DataTable({
     });
