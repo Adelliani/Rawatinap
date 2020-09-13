@@ -332,8 +332,8 @@
                 <td>{{$item->kategori}}</td>
                 <td>{{$item->pivot->jumlah_order}}</td>
                 <td>
-                  <a href="{{route("simpanefekobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-primary btn-xs">Efek Obat</a>
-                  <a href="{{route("simpanreturobat",["rawat_inap"=>$rawat_inap->id_rawatinap])}}" class="btn btn-warning btn-xs">Retur Obat</a>
+                  <a href="" class="btn btn-primary btn-xs">Efek Obat</a>
+                  <a href="" class="btn btn-warning btn-xs">Retur Obat</a>
                 </td>
               </tr>
               @endforeach

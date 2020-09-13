@@ -38,7 +38,6 @@ Route::group(['prefix' => 'admin'], function () {
 Route::resource('dokter', 'DokterPasienController')->names("pasien")->parameters(["dokter" => "rawatInap"]);
 
 
-
 // Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 // Route::get('/pelayanan/create', "PelayananController@create");
 // Route::post('/pelayanan', "PelayananController@simpan")->name("simpanpelayanan");

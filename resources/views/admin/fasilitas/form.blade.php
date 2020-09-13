@@ -2,7 +2,7 @@
 
 
 @section("main_content")
-<div class="container-fluid col-11 my-1">
+<div class="container-fluid col-5 my-1">
   <section class="content-header">
     <div class="row justify-content-between align-items-center">
       <h1>
