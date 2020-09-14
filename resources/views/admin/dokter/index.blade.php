@@ -51,7 +51,12 @@
                 <td>{{$item->alamat}}</td>
                 <td>
                   <a href="{{route("dokter.edit",["dokter"=>$item->id_dokter])}}" class="btn btn-primary btn-xs">Edit</a>
-                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                  <form action="{{route("dokter.destroy",["dokter"=>$item->id_dokter])}}" method="post">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                  </form>
+                  
                 </td>
               </tr>
               @endforeach
