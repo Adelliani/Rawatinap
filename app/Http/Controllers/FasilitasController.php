@@ -66,7 +66,7 @@ class FasilitasController extends Controller
      */
     public function edit(Fasilitas $fasilitas)
     {
-        //
+        return view("admin.fasilitas.edit", ["fasilitas" => $fasilitas]);
     }
 
     /**
@@ -78,7 +78,12 @@ class FasilitasController extends Controller
      */
     public function update(Request $request, Fasilitas $fasilitas)
     {
-        //
+        $fasilitas->nama_fasilitas = $request->input("nama_fasilitas");
+        $fasilitas->jenis_fasilitas = $request->input("jenis_fasilitas");
+        $fasilitas->harga_fasilitas = $request->input("harga_fasilitas");
+        
+        $fasilitas->save();
+        return redirect()->route("fasilitas.index");
     }
 
     /**

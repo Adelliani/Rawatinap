@@ -25,7 +25,7 @@
           <a href="./" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
         <div class="card-body">
-          <table id="table-pegawai" class="table table-bordered table-hover">
+          <table id="table-shift" class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>No</th>
@@ -44,7 +44,7 @@
                 <td>{{$item->jam_masuk}}</td>
                 <td>{{$item->jam_keluar}}</td>
                 <td>
-                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                  <a href="{{route("shift.edit",["shift"=>$item->id_shift])}}" class="btn btn-primary btn-xs">Edit</a>
                   <a href="" class="btn btn-warning btn-xs">Hapus</a>
                 </td>
               </tr>
@@ -58,7 +58,11 @@
     </div>
   </div>
 
-</div> @endsection @section("extra-script")
+</div> 
+
+@endsection 
+
+@section("extra-script")
 <!-- DataTables -->
 <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>

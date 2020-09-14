@@ -33,7 +33,8 @@
                 <th>Jenis Kelamin</th>
                 <th>Jenis Dokter</th>
                 <th>Spesialisasi</th>
-                <th>Shift</th>
+                <th>No. HP</th>
+                <th>Alamat</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -46,9 +47,9 @@
                 <td>{{$item->jenis_kelamin}}</td>
                 <td>{{$item->jenis_dokter}}</td>
                 <td>{{$item->spesialisasi}}</td>
-                <td>{{$item->shift}}</td>
+                <td>{{$item->notelp}}</td>
+                <td>{{$item->alamat}}</td>
                 <td>
-                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
                   <a href="{{route("dokter.edit",["dokter"=>$item->id_dokter])}}" class="btn btn-primary btn-xs">Edit</a>
                   <a href="" class="btn btn-warning btn-xs">Hapus</a>
                 </td>

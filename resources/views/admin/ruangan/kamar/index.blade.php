@@ -52,8 +52,8 @@
                 <td>{{$item->harga_kamar}}</td>
                 <td>{{$item->fasilitas}}</td>
                 <td>
-                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
-                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                  <a href="{{route("kamar.edit",["kamar"=>$item->id_kamar])}}" class="btn btn-primary">Edit</a>
+                  <a href="" class="btn btn-warning">Hapus</a>
                 </td>
               </tr>
               @endforeach

@@ -8,6 +8,7 @@ class Pegawai extends Model
 {
     public $timestamps=false;
     protected $guarded=[];
+    protected $primaryKey = 'id_pegawai';
 
     public function shift()
     {

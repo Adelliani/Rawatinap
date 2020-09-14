@@ -33,6 +33,8 @@
                 <th>Jenis Kelamin</th>
                 <th>Posisi</th>
                 <th>Shift</th>
+                <th>No. HP</th>
+                <th>Alamat</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -45,9 +47,11 @@
                 <td>{{$item->jenis_kelamin}}</td>
                 <td>{{$item->posisi}}</td>
                 <td>{{$item->shift->nama_shift}}</td>
+                <td>{{$item->notelp}}</td>
+                <td>{{$item->alamat}}</td>
 
                 <td>
-                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                  <a href="{{route("pegawai.edit",["pegawai"=>$item->id_pegawai])}}" class="btn btn-primary btn-xs">Edit</a>
                   <a href="" class="btn btn-warning btn-xs">Hapus</a>
                 </td>
               </tr>

@@ -71,7 +71,7 @@ class PegawaiController extends Controller
      */
     public function edit(Pegawai $pegawai)
     {
-        //
+        return view("admin.pegawai.edit", ["pegawai" => $pegawai]);
     }
 
     /**
@@ -83,7 +83,15 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, Pegawai $pegawai)
     {
-        //
+        $pegawai->nama_pegawai = $request->input("nama_pegawai");
+        $pegawai->jenis_kelamin = $request->input("jenis_kelamin");
+        $pegawai->posisi = $request->input("posisi");
+        $pegawai->notelp = $request->input("notelp");
+        $pegawai->alamat = $request->input("alamat");
+        $pegawai->id_shift = $request->input("id_shift");
+        
+        $pegawai->save();
+        return redirect()->route("pegawai.index");
     }
 
     /**

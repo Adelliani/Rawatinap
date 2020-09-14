@@ -25,13 +25,13 @@
                             <div class="form-group">
                                 <label class="col-sm-5">Id Kamar:</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="id_kamar" value="" readonly>
+                                    <input type="number" class="form-control" name="id_kamar" value="{{$kamar->id_kamar}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Nama Kamar:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama_kamar">
+                                    <input type="text" class="form-control" name="nama_kamar" value="{{$kamar->nama_kamar}}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -69,19 +69,19 @@
                             <div class="form-group">
                                 <label class="col-sm-5">Jumlah Kasur:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jumlah_kasur">
+                                    <input type="text" class="form-control" name="jumlah_kasur" value="{{$kamar->jumlah_kasur}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Harga:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="harga_kamar">
+                                    <input type="text" class="form-control" name="harga_kamar" value="{{$kamar->harga_kamar}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Fasilitas:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="fasilitas">
+                                    <input type="text" class="form-control" name="fasilitas" value="{{$kamar->fasilitas}}">
                                 </div>
                             </div>
                         </div>

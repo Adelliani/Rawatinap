@@ -25,13 +25,13 @@
                             <div class="form-group">
                                 <label class="col-sm-5">Id Ruang:</label>
                                 <div class="col-sm-12">
-                                    <input type="number" class="form-control" name="id_kamar" value="" readonly>
+                                    <input type="number" class="form-control" name="id_kamar" value="{{$ruang->id_ruang}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Nama Ruang:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="nama_ruang">
+                                    <input type="text" class="form-control" name="nama_ruang" value="{{$ruang->nama_ruang}}">
                                 </div>
                             </div>
 

@@ -11,7 +11,7 @@
   <section class="content-header">
     <div class="row justify-content-between align-items-center">
       <h1>
-        Data Pegawai
+        Data Perawat
       </h1>
     </div>
   </section>
@@ -19,62 +19,56 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <form class="form-horizontal" id="form-tambah" action="{{route("pegawai.store")}}" method="post">
+        <form class="form-horizontal" id="form-tambah" action="{{route("perawat.store")}}" method="post">
           @csrf
           <div class="modal-body">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  <label class="col-sm-5">ID Pegawai</label>
-                  <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_pegawai" value="" readonly>
-                  </div>
+                  <label class="col-sm-5">ID Perawat</label>
+                    <div class="col-sm-12">
+                      <input type="number" class="form-control" name="id_perawat" value="{{$perawat->id_perawat}}" readonly>
+                    </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-5">Nama Pegawai:</label>
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_pegawai">
-                  </div>
+                  <label class="col-sm-5">Nama Perawat:</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" name="nama_perawat" value="{{$perawat->nama_perawat}}">
+                    </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jenis Kelamin:</label>
-                  <div class="col-sm-12">
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="jenis_kelamin" value="Laki-laki">
-                        Laki - Laki
-                      </label>
-                      <label>
-                        <input type="radio" name="jenis_kelamin" value="Perempuan">
-                        Perempuan
-                      </label>
-                    </div>
+                  <div class="col-sm-10">
+                      <div class="radio">
+                          <label class="col-sm-5">
+                              <input type="radio" name="jenis_kelamin" value="Laki-laki"
+                                  {{$perawat->jenis_kelamin=="laki-laki"?"checked":""}}>
+                              Laki - Laki
+                          </label>
+                          <label class="col-sm-5">
+                              <input type="radio" name="jenis_kelamin" value="Perempuan"
+                                  {{$perawat->jenis_kelamin=="perempuan"?"checked":""}}>
+                              Perempuan
+                          </label>
+                      </div>
                   </div>
-                </div>
-
-
+              </div>
                 <div class="form-group">
-                  <label class="col-sm-5">Posisi:</label>
+                  <label class="col-sm-5">Shift:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="posisi">
+                    <select id="select_shift" name="id_shift" style="width: 100%" value="{{$perawat->id_shift}}"></select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">No. Telp:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="notelp">
+                    <input type="number" class="form-control" name="notelp" value="{{$perawat->notelp}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Alamat:</label>
                   <div class="col-sm-12">
-                    <textarea name="alamat" class="form-control" rows="3"></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-5">Shift:</label>
-                  <div class="col-sm-12">
-                    <select id="select_shift" style="width: 100%" name="id_shift"></select>
+                    <textarea name="alamat" class="form-control" rows="3">{{$perawat->alamat}}</textarea>
                   </div>
                 </div>
               </div>

@@ -21,25 +21,25 @@
                 <div class="form-group">
                   <label class="col-sm-5">Id Shift</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_shift" value="" readonly>
+                    <input type="number" class="form-control" name="id_shift" value="{{$shift->id_shift}}" readonly>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Shift:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_shift">
+                    <input type="text" class="form-control" name="nama_shift" value="{{$shift->nama_shift}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jam Masuk:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="jam_masuk">
+                    <input type="text" class="form-control" name="jam_masuk" value="{{$shift->jam_masuk}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jam Keluar:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="jam_keluar">
+                    <input type="text" class="form-control" name="jam_keluar" value="{{$shift->jam_keluar}}">
                   </div>
                 </div>
               </div>

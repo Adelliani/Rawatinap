@@ -8,6 +8,7 @@ class Ruang extends Model
 {
     public $timestamps=false;
     protected $guarded=[];
+    protected $primaryKey = 'id_ruang';
 
     public function kamar()
     {

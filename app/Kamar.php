@@ -8,7 +8,6 @@ class Kamar extends Model
 {
     public $timestamps = false;
     protected $guarded = [];
-
     protected $primaryKey = 'id_kamar';
 
     public function ruang()

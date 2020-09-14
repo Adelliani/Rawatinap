@@ -34,6 +34,8 @@
                 <th>Nama Perawat</th>
                 <th>Jenis Kelamin</th>
                 <th>Shift</th>
+                <th>No. HP</th>
+                <th>Alamat</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -45,8 +47,10 @@
                 <td>{{$item->nama_perawat}}</td>
                 <td>{{$item->jenis_kelamin}}</td>
                 <td>{{$item->shift->nama_shift}}</td>
+                <td>{{$item->notelp}}</td>
+                <td>{{$item->alamat}}</td>
                 <td>
-                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
+                  <a href="{{route("perawat.edit",["perawat"=>$item->id_perawat])}}" class="btn btn-primary btn-xs">Edit</a>
                   <a href="" class="btn btn-warning btn-xs">Hapus</a>
                 </td>
               </tr>

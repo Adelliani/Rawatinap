@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Shift;
 use Illuminate\Http\Request;
 
-class ShiftController extends Controller
+class LaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        $shifts = Shift::where("id_poli",1)->get();
-        return view("admin.shift.index",["shifts"=>$shifts]);
+        //
     }
 
     /**
@@ -25,7 +23,7 @@ class ShiftController extends Controller
      */
     public function create()
     {
-        return view("admin.shift.form");
+        //
     }
 
     /**
@@ -36,19 +34,16 @@ class ShiftController extends Controller
      */
     public function store(Request $request)
     {
-        $data_shift = $request->only(["nama_shift", "jam_masuk", "jam_keluar"]);
-        $data_shift["id_poli"] = 1;
-        Shift::create($data_shift);
-        return redirect()->route("shift.index");
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Shift  $shift
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Shift $shift)
+    public function show($id)
     {
         //
     }
@@ -56,38 +51,33 @@ class ShiftController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Shift  $shift
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Shift $shift)
+    public function edit($id)
     {
-        return view("admin.shift.edit", ["shift" => $shift]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Shift  $shift
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shift $shift)
+    public function update(Request $request, $id)
     {
-        $shift->nama_shift = $request->input("nama_shift");
-        $shift->jam_masuk = $request->input("jam_masuk");
-        $shift->jam_keluar = $request->input("jam_keluar");
-        
-        $shift->save();
-        return redirect()->route("shift.index");
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Shift  $shift
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shift $shift)
+    public function destroy($id)
     {
         //
     }

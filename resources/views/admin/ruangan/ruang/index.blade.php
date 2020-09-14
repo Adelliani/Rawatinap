@@ -46,8 +46,8 @@
                 <td>{{$item->nama_ruang}}</td>
                 <td>{{$item->gedung->nama_gedung}}</td>
                 <td>
-                  <a href="" class="btn btn-primary btn-xs">Lihat</a>
-                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                  <a href="{{route("ruang.edit",["ruang"=>$item->id_ruang])}}" class="btn btn-primary">Edit</a>
+                  <a href="" class="btn btn-warning">Hapus</a>
                 </td>
               </tr>
               @endforeach

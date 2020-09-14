@@ -27,48 +27,48 @@
                 <div class="form-group">
                   <label class="col-sm-5">ID Pegawai</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_pegawai" value="" readonly>
+                    <input type="number" class="form-control" name="id_pegawai" value="{{$pegawai->id_pegawai}}" readonly>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Pegawai:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_pegawai">
+                    <input type="text" class="form-control" name="nama_pegawai" value="{{$pegawai->nama_pegawai}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jenis Kelamin:</label>
-                  <div class="col-sm-12">
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="jenis_kelamin" value="Laki-laki">
-                        Laki - Laki
-                      </label>
-                      <label>
-                        <input type="radio" name="jenis_kelamin" value="Perempuan">
-                        Perempuan
-                      </label>
-                    </div>
+                  <div class="col-sm-10">
+                      <div class="radio">
+                          <label class="col-sm-5">
+                              <input type="radio" name="jenis_kelamin" value="Laki-laki"
+                                  {{$pegawai->jenis_kelamin=="laki-laki"?"checked":""}}>
+                              Laki - Laki
+                          </label>
+                          <label class="col-sm-5">
+                              <input type="radio" name="jenis_kelamin" value="Perempuan"
+                                  {{$pegawai->jenis_kelamin=="perempuan"?"checked":""}}>
+                              Perempuan
+                          </label>
+                      </div>
                   </div>
                 </div>
-
-
                 <div class="form-group">
                   <label class="col-sm-5">Posisi:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="posisi">
+                    <input type="text" class="form-control" name="posisi" value="{{$pegawai->posisi}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">No. Telp:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="notelp">
+                    <input type="number" class="form-control" name="notelp" value="{{$pegawai->notelp}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Alamat:</label>
                   <div class="col-sm-12">
-                    <textarea name="alamat" class="form-control" rows="3"></textarea>
+                    <textarea name="alamat" class="form-control" rows="3">{{$pegawai->alamat}}</textarea>
                   </div>
                 </div>
                 <div class="form-group">

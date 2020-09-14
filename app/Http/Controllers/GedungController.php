@@ -63,7 +63,7 @@ class GedungController extends Controller
      */
     public function edit(Gedung $gedung)
     {
-        //
+        return view("admin.ruangan.gedung.edit", ["gedung" => $gedung]);
     }
 
     /**
@@ -75,7 +75,10 @@ class GedungController extends Controller
      */
     public function update(Request $request, Gedung $gedung)
     {
-        //
+        $gedung->nama_gedung = $request->input("nama_gedung");
+        
+        $gedung->save();
+        return redirect()->route("gedung.index");
     }
 
     /**

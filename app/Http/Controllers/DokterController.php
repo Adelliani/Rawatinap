@@ -74,8 +74,11 @@ class DokterController extends Controller
     public function update(Request $request, Dokter $dokter)
     {
         $dokter->nama_dokter = $request->input("nama_dokter");
-
-        //disini ditambahin lagi attribut dokternya, kecuali id
+        $dokter->jenis_kelamin = $request->input("jenis_kelamin");
+        $dokter->jenis_dokter = $request->input("jenis_dokter");
+        $dokter->spesialisasi = $request->input("spesialisasi");
+        $dokter->notelp = $request->input("notelp");
+        $dokter->alamat = $request->input("alamat");
         
         $dokter->save();
         return redirect()->route("dokter.index");

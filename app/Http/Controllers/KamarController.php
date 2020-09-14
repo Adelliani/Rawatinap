@@ -65,7 +65,7 @@ class KamarController extends Controller
      */
     public function edit(Kamar $kamar)
     {
-        //
+        return view("admin.ruangan.kamar.edit", ["kamar" => $kamar]);
     }
 
     /**
@@ -77,7 +77,15 @@ class KamarController extends Controller
      */
     public function update(Request $request, Kamar $kamar)
     {
-        //
+        $kamar->nama_kamar = $request->input("nama_kamar");
+        $kamar->id_ruang = $request->input("id_ruang");
+        $kamar->kelas = $request->input("kelas");
+        $kamar->fasilitas = $request->input("fasilitas");
+        $kamar->harga_kamar = $request->input("harga_kamar");
+        $kamar->jumlah_kasur = $request->input("jumlah_kasur");
+        
+        $kamar->save();
+        return redirect()->route("kamar.index");
     }
 
     /**

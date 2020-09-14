@@ -71,7 +71,7 @@ class PerawatController extends Controller
      */
     public function edit(Perawat $perawat)
     {
-        //
+        return view("admin.perawat.edit", ["perawat" => $perawat]);
     }
 
     /**
@@ -83,7 +83,14 @@ class PerawatController extends Controller
      */
     public function update(Request $request, Perawat $perawat)
     {
-        //
+        $perawat->nama_perawat = $request->input("nama_perawat");
+        $perawat->jenis_kelamin = $request->input("jenis_kelamin");
+        $perawat->notelp = $request->input("notelp");
+        $perawat->alamat = $request->input("alamat");
+        $perawat->id_shift = $request->input("id_shift");
+        
+        $perawat->save();
+        return redirect()->route("perawat.index");
     }
 
     /**

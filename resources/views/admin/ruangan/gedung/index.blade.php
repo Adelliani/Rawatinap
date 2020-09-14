@@ -41,7 +41,7 @@
                 <td>{{$loop->index+1}}</td>
                 <td>{{$item->nama_gedung}}</td>
                 <td>
-                  <a href="" class="btn btn-primary">Lihat</a>
+                  <a href="{{route("gedung.edit",["gedung"=>$item->id_gedung])}}" class="btn btn-primary">Edit</a>
                   <a href="" class="btn btn-warning">Hapus</a>
                 </td>
               </tr>

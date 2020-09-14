@@ -64,7 +64,7 @@ class RuangController extends Controller
      */
     public function edit(Ruang $ruang)
     {
-        //
+        return view("admin.ruangan.ruang.edit", ["ruang" => $ruang]);
     }
 
     /**
@@ -76,7 +76,11 @@ class RuangController extends Controller
      */
     public function update(Request $request, Ruang $ruang)
     {
-        //
+        $ruang->nama_ruang = $request->input("nama_ruang");
+        $ruang->id_gedung = $request->input("id_gedung");
+        
+        $ruang->save();
+        return redirect()->route("ruang.index");
     }
 
     /**
