@@ -101,7 +101,6 @@
 
 <script>
     $(function () {
-      $('#table-ruangan').DataTable({});
       $("#jenis_dokter").change(e=>{
         $("#spesialisasi").attr("readonly",$("#jenis_dokter").val()!="spesialis")
       });

@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 Route::resource('dokter', 'DokterPasienController')->names("pasien")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.fasilitas', 'DokterFasilitasController')->only(["create","store"])->names("fasilitas")->parameters(["dokter" => "rawatInap"]);
+Route::resource('dokter.fasilitas', 'DokterFasilitasController')->only(["create","store"])->names("pasienfasilitas")->parameters(["dokter" => "rawatInap"]);
 Route::resource('dokter.obat', 'DokterResepObatController')->only(["create","store"])->names("resepobat")->parameters(["dokter" => "rawatInap"]);
 Route::resource('dokter.pemeriksaan', 'DokterPemeriksaanController')->only(["create","store"])->names("pemeriksaan")->parameters(["dokter" => "rawatInap"]);
 Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create","store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);

@@ -49,7 +49,7 @@
         </div>
         <div class="col-2">
           <a class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px"
-            href="{{route("fasilitas.create",["rawatInap"=>$rawat_inap->id_rawatinap])}}">
+            href="{{route("pasienfasilitas.create",["rawatInap"=>$rawat_inap->id_rawatinap])}}">
             <i class=" fa  fa-heartbeat" style="font-size: 40px"></i>
             Permintaan Pelayanan
           </a>
