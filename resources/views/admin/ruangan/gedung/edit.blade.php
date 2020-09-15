@@ -37,7 +37,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                    <a href="./" class="btn btn-default"><i class=" fa fa-power-off"></i>
+                    <a href="{{route("gedung.index")}}" class="btn btn-default"><i class=" fa fa-power-off"></i>
                         Batal</a>
                 </div>
             </form>

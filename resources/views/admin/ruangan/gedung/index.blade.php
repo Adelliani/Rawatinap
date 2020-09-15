@@ -42,7 +42,7 @@
                 <td>{{$item->nama_gedung}}</td>
                 <td>
                   <a href="{{route("gedung.edit",["gedung"=>$item->id_gedung])}}" class="btn btn-primary">Edit</a>
-                  <a href="" class="btn btn-warning">Hapus</a>
+                  <a href="{{route("ruangan.index")}}" class="btn btn-warning">Hapus</a>
                 </td>
               </tr>
               @endforeach

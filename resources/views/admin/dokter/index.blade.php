@@ -22,7 +22,7 @@
         <div class="card-header">
           <a class="btn btn-primary btn-sm tambahBtn" href="{{route("dokter.create")}}"><i class=" fa fa-plus-circle">
               Tambah </i></a>
-          <a href="./" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left"> Kembali</i></a>
+          <a href="{{route("admin.index")}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
         <div class="card-body">
           <table id="table-dokter" class="table table-bordered table-hover">
