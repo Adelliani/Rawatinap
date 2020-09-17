@@ -13,6 +13,9 @@
         <h1>
           Halaman Utama
         </h1>
+        <div class="row col-3 justify-content-end">
+          <a href="{{route('poli.create')}}" class="btn btn-danger text-white mr-3">Tambah Pelayanan Kesehatan</a>
+        </div>
         </div>
       </section>
 
@@ -34,6 +37,23 @@
                         </tr>
                         </thead>
                         <tbody>
+                          @foreach ($polis as $item)
+
+                          <tr>
+                              <td>{{$loop->index+1}}</td>
+                              <td>{{$item->nama_poli}}</td>
+                              <td>{{$item->alamat}}</td>
+                              <td>{{$item->akreditasi}}</td>
+                              <td>
+                                  <a href="{{route("poli.edit",["poli"=>$item->id_poli])}}" class="btn btn-primary btn-xs">Edit</a>
+                                  <form action="{{route("poli.destroy",["poli"=>$item->id_poli])}}" method="post">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                                  </form>
+                              </td>
+                          </tr>
+                          @endforeach
                         </tbody>
                         
                       </table>
