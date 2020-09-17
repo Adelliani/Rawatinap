@@ -41,7 +41,10 @@ Route::resource('dokter.obat', 'DokterResepObatController')->only(["create","sto
 Route::resource('dokter.pemeriksaan', 'DokterPemeriksaanController')->only(["create","store"])->names("pemeriksaan")->parameters(["dokter" => "rawatInap"]);
 Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create","store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);
 
-
+Route::group(['prefix' => '/superadmin'], function () {
+    Route::get("", "SuperadminHomeController")->name("superadmin.index");
+    Route::resource('', 'PoliController')->only(["create", "store"])->names("poli");
+});
 // Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 // Route::get('/pelayanan/create', "PelayananController@create");
 // Route::post('/pelayanan', "PelayananController@simpan")->name("simpanpelayanan");
@@ -64,9 +67,9 @@ Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create","
 // Route::post('/dokter/{rawat_inap}/pelayanan', "DokterController@simpanfasilitas")->name("simpanfasilitas");
 // // Route::get('/dokter/detail', "DokterController@konfirmasidokter")->name("konfirmasidokter");
 
-// Route::get('/superadmin', function () {
-//     return view('superadmin.index');
-// });
+//Route::get('/superadmin', function () {
+   // return view('superadmin.index');
+//});
 
 // //User Admin
 // Route::get('/admin', "AdminController@tampiladmin")->name("tampiladmin");

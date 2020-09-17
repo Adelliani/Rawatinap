@@ -13,6 +13,9 @@
         <h1>
           Halaman Utama
         </h1>
+        <div class="row col-3 justify-content-end">
+          <a href="{{route('poli.create')}}" class="btn btn-danger text-white mr-3">Tambah Pelayanan Kesehatan</a>
+        </div>
         </div>
       </section>
 
