@@ -11,6 +11,14 @@ class RawatInap extends Model
     protected $primaryKey = 'id_rawatinap';
     protected $guarded = [];
 
+    protected static function booted()
+    {
+        static::updated(function ($rawat_inap) {
+            \Log::info("Hello World");
+            dd($rawat_inap);
+        });
+    }
+
     public static function selesai()
     {
         return self::whereNotNull("tgl_keluar");
@@ -50,7 +58,10 @@ class RawatInap extends Model
     }
     public function kamars()
     {
-        return $this->belongsToMany("App\Kamar", "detail_p_k_s", "id_rawatinap", "id_kamar", "id_rawatinap", "id_kamar")->withPivot(["tgl_masuk", "tgl_keluar", "no_tempattidur"]);
+        return $this
+            ->belongsToMany("App\Kamar", "detail_p_k_s", "id_rawatinap", "id_kamar", "id_rawatinap", "id_kamar")
+            ->using("App\DetailPK")
+            ->withPivot(["tgl_masuk", "tgl_keluar", "no_tempattidur"]);
     }
 
     public function obat()
