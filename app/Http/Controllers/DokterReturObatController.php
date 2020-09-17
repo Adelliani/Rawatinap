@@ -36,7 +36,7 @@ class DokterReturObatController extends Controller
      */
     public function store(Request $request, OrderObat $obat)
     {
-
+        $data_returobat = $request->only([]);
     }
 
     /**

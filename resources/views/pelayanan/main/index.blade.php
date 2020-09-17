@@ -46,6 +46,7 @@
               </tr>
             </thead>
             <tbody>
+              
               @foreach($kamars as $item)
 
               <tr>

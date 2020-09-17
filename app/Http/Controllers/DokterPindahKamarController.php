@@ -23,7 +23,7 @@ class DokterPindahKamarController extends Controller
      */
     public function create()
     {
-        //
+        return view("dokter.pindahkamar");
     }
 
     /**
