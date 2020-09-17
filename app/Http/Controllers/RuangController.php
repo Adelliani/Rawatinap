@@ -91,6 +91,7 @@ class RuangController extends Controller
      */
     public function destroy(Ruang $ruang)
     {
-        //
+        $ruang->delete();
+        return redirect()->route("ruang.index");
     }
 }

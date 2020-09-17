@@ -94,6 +94,7 @@ class FasilitasController extends Controller
      */
     public function destroy(Fasilitas $fasilitas)
     {
-        //
+        $fasilitas->delete();
+        return redirect()->route("fasilitas.index");
     }
 }

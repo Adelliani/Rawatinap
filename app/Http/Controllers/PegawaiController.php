@@ -102,6 +102,7 @@ class PegawaiController extends Controller
      */
     public function destroy(Pegawai $pegawai)
     {
-        //
+        $pegawai->delete();
+        return redirect()->route("pegawai.index");
     }
 }

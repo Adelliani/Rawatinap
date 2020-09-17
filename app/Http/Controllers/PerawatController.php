@@ -101,6 +101,7 @@ class PerawatController extends Controller
      */
     public function destroy(Perawat $perawat)
     {
-        //
+        $perawat->delete();
+        return redirect()->route("perawat.index");
     }
 }

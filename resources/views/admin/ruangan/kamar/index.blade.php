@@ -53,7 +53,11 @@
                 <td>{{$item->fasilitas}}</td>
                 <td>
                   <a href="{{route("kamar.edit",["kamar"=>$item->id_kamar])}}" class="btn btn-primary">Edit</a>
-                  <a href="" class="btn btn-warning">Hapus</a>
+                  <form action="{{route("kamar.destroy",["kamar"=>$item->id_kamar])}}" method="post">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                  </form>
                 </td>
               </tr>
               @endforeach

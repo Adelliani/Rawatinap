@@ -51,7 +51,11 @@
                 <td>{{$item->alamat}}</td>
                 <td>
                   <a href="{{route("perawat.edit",["perawat"=>$item->id_perawat])}}" class="btn btn-primary btn-xs">Edit</a>
-                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                  <form action="{{route("perawat.destroy",["perawat"=>$item->id_perawat])}}" method="post">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                  </form>
                 </td>
               </tr>
               @endforeach

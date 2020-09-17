@@ -96,6 +96,7 @@ class KamarController extends Controller
      */
     public function destroy(Kamar $kamar)
     {
-        //
+        $kamar->delete();
+        return redirect()->route("kamar.index");
     }
 }

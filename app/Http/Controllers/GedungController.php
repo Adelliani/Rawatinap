@@ -89,6 +89,7 @@ class GedungController extends Controller
      */
     public function destroy(Gedung $gedung)
     {
-        //
+        $gedung->delete();
+        return redirect()->route("gedung.index");
     }
 }

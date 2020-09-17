@@ -45,7 +45,11 @@
                 <td>{{$item->jam_keluar}}</td>
                 <td>
                   <a href="{{route("shift.edit",["shift"=>$item->id_shift])}}" class="btn btn-primary btn-xs">Edit</a>
-                  <a href="" class="btn btn-warning btn-xs">Hapus</a>
+                  <form action="{{route("shift.destroy",["shift"=>$item->id_shift])}}" method="post">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                  </form>
                 </td>
               </tr>
               @endforeach
