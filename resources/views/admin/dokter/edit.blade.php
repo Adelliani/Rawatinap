@@ -77,7 +77,8 @@
                                     <div class="form-group">
                                         <label class="col-sm-5">No. Telp:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="notelp" value="{{$dokter->notelp}}">
+                                            <input type="text" class="form-control" name="notelp"
+                                                value="{{$dokter->notelp}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -110,6 +111,9 @@
 
 <script>
     $(function () {
+
+
+
       $('#table-ruangan').DataTable({});
       $("#jenis_dokter").change(e=>{
         $("#spesialisasi").attr("readonly",$("#jenis_dokter").val()!="spesialis")

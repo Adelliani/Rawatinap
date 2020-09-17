@@ -15,11 +15,12 @@ class CreateKamarsTable extends Migration
     {
         Schema::create('kamars', function (Blueprint $table) {
             $table->bigIncrements('id_kamar');
-            $table->string('nama_kamar',100);
+            $table->string('nama_kamar', 100);
             $table->integer('jumlah_kasur');
             $table->integer('harga_kamar');
-            $table->string('fasilitas',100);
-            $table->enum("kelas",["VIP","IV","III","II","I"]);
+            $table->integer('kasur_terisi')->default(0);
+            $table->string('fasilitas', 100);
+            $table->enum("kelas", ["VIP", "IV", "III", "II", "I"]);
             $table->bigInteger('id_ruang')->unsigned();
             $table->foreign('id_ruang')->references('id_ruang')->on('ruangs');
         });

@@ -23,23 +23,24 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get("", "AdminHomeController")->name("admin.index");
     Route::group(['prefix' => 'ruangan'], function () {
         Route::get("", "RuanganHomeController")->name("ruangan.index");
-        Route::resource('gedung', 'GedungController')->only(["index", "destroy", "create", "store","edit","update"]);
-        Route::resource('ruang', 'RuangController')->only(["index", "destroy", "create", "store","edit","update"]);
-        Route::resource('kamar', 'KamarController')->only(["index", "destroy", "create", "store","edit","update"]);
+        Route::resource('gedung', 'GedungController')->only(["index", "destroy", "create", "store", "edit", "update"]);
+        Route::resource('ruang', 'RuangController')->only(["index", "destroy", "create", "store", "edit", "update"]);
+        Route::resource('kamar', 'KamarController')->only(["index", "destroy", "create", "store", "edit", "update"]);
     });
-    Route::resource('dokter', 'DokterController')->only(["index", "destroy", "create", "store","edit","update"]);
-    Route::resource('perawat', 'PerawatController')->only(["index", "destroy", "create", "store","edit","update"]);
-    Route::resource('pegawai', 'PegawaiController')->only(["index", "destroy", "create", "store","edit","update"]);
-    Route::resource('fasilitas', 'FasilitasController')->only(["index", "destroy", "create", "store","edit","update"]);
-    Route::resource('shift', 'ShiftController')->only(["index", "destroy", "create", "store","edit","update"]);
+    Route::resource('dokter', 'DokterController')->only(["index", "destroy", "create", "store", "edit", "update"]);
+    Route::resource('perawat', 'PerawatController')->only(["index", "destroy", "create", "store", "edit", "update"]);
+    Route::resource('pegawai', 'PegawaiController')->only(["index", "destroy", "create", "store", "edit", "update"]);
+    Route::resource('fasilitas', 'FasilitasController')->only(["index", "destroy", "create", "store", "edit", "update"]);
+    Route::resource('shift', 'ShiftController')->only(["index", "destroy", "create", "store", "edit", "update"]);
+    Route::get("laporan", "AdminLaporanController")->name("admin.laporan");
 });
 
 
 Route::resource('dokter', 'DokterPasienController')->names("pasien")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.fasilitas', 'DokterFasilitasController')->only(["create","store"])->names("pasienfasilitas")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.obat', 'DokterResepObatController')->only(["create","store"])->names("resepobat")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.pemeriksaan', 'DokterPemeriksaanController')->only(["create","store"])->names("pemeriksaan")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create","store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);
+Route::resource('dokter.fasilitas', 'DokterFasilitasController')->only(["create", "store"])->names("pasienfasilitas")->parameters(["dokter" => "rawatInap"]);
+Route::resource('dokter.obat', 'DokterResepObatController')->only(["create", "store"])->names("resepobat")->parameters(["dokter" => "rawatInap"]);
+Route::resource('dokter.pemeriksaan', 'DokterPemeriksaanController')->only(["create", "store"])->names("pemeriksaan")->parameters(["dokter" => "rawatInap"]);
+Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create", "store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);
 
 
 // Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
