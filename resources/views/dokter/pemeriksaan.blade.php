@@ -107,59 +107,5 @@
       ignoreReadonly:true,
     });
 
-    $("#select-fasilitas").select2({
-      language:"id",
-      placeholder:"Pilih fasilitas",
-      theme:"bootstrap4",
-      allowClear:true,
-      ajax:{
-        url:"{{route('api.poli.fasilitas')}}",
-        type:"GET",
-        delay:250,
-        data:function(params){
-          return{
-            term:params.term,
-            poli:1,
-          }
-        },
-        processResults:function(result){
-
-          var item = result.map((item)=>({
-            id:item.id_fasilitas,
-            text:item.nama_fasilitas
-          }))
-          return {
-            "results": item
-          }
-        }
-      }
-    })
-    $("#select-obat").select2({
-      language:"id",
-      placeholder:"Pilih Obat",
-      theme:"bootstrap4",
-      allowClear:true,
-      ajax:{
-        url:"{{route('api.poli.obat')}}",
-        type:"GET",
-        delay:250,
-        data:function(params){
-          return{
-            term:params.term,
-            poli:1,
-          }
-        },
-        processResults:function(result){
-
-          var item = result.map((item)=>({
-            id:item.id_obat,
-            text:item.nama_obat
-          }))
-          return {
-            "results": item
-          }
-        }
-      }
-    })
 </script>
 @endsection
