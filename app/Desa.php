@@ -8,6 +8,7 @@ class Desa extends Model
 {
     public $timestamps = false;
     protected $guarded = [];
+    protected $primaryKey = 'id_desa';
 
     public function kecamatan()
     {
