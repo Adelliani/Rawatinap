@@ -16,7 +16,7 @@
     <section class="content-header">
         <div class="row justify-content-between align-items-center">
             <h1>
-                Resep Obat
+                Retur Obat
             </h1>
         </div>
     </section>
@@ -26,18 +26,19 @@
         <div class="row">
             <div class="col-12">
                 <form class="form-horizontal" id="form-tambah"
-                    action="{{route("resepobat.store",["rawatInap"=>$rawat_inap->id_rawatinap])}}" method="post">
+                    action="{{route("returobat.store",["rawatInap"=>$rawat_inap->id_rawatinap])}}" method="post">
                     @csrf
-
                     <div class="card">
                         <div class="card-body">
+
                             <div class="form-group">
                                 <label class="col-sm-4">Tanggal:</label>
                                 <div class="col-sm-12">
-                                    <div class="input-group" id="tanggal-obat" data-input-tanggal
+                                    <div class="input-group" id="tanggal-pengembalian" data-input-tanggal
                                         data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="tgl_order" readonly>
-                                        <div class="input-group-append" data-target="#tanggal-obat"
+                                        <input type="text" class="form-control" value="" name="tgl_pengembalian"
+                                            readonly>
+                                        <div class="input-group-append" data-target="#tanggal-pengembalian"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
                                                 <i class="fa fa-calendar"></i>
@@ -49,9 +50,11 @@
                             <div class="form-group">
                                 <label class="col-sm-4">Jam:</label>
                                 <div class="col-sm-12">
-                                    <div class="input-group" id="jam-obat" data-input-jam data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="order" readonly>
-                                        <div class="input-group-append" data-target="#jam-obat"
+                                    <div class="input-group" id="jam-pengembalian" data-input-jam
+                                        data-target-input="nearest">
+                                        <input type="text" class="form-control" value="" name="jam_pengembalian"
+                                            readonly>
+                                        <div class="input-group-append" data-target="#jam-pengembalian"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
                                                 <i class="fa fa-clock"></i>
@@ -63,29 +66,28 @@
                             <div class="form-group">
                                 <label class="col-sm-4">Nama Obat:</label>
                                 <div class="col-sm-12">
-                                    <select name="id_obat" id="select-obat" style="width:100%"></select>
+                                    <input type="text" class="form-control" name="nama_obat" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4">Tujuan Obat:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="tujuan">
-                                </div>
+                                    <label class="col-sm-4">Jumlah Terpakai:</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" name="jumlah_terpakai">
+                                    </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4">Jumlah Obat:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="jumlah_order">
+                                    <label class="col-sm-4">Alasan Pengembalian:</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" name="alasan_pengembalian">
+                                    </div>
                                 </div>
-                            </div>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                             <a class="btn btn-default" href="./"><i class="fa fa-power-off"></i>
-                                Batal</a>
+                            Batal</a>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -97,9 +99,7 @@
 <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/select2/js/select2.full.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/select2/js/i18n/id.js")}}"></script>
-
 <script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
-
 <script>
     $('[data-input-tanggal]').datetimepicker({
       locale:"id",
@@ -113,32 +113,5 @@
       ignoreReadonly:true,
     });
 
-    $("#select-obat").select2({
-      language:"id",
-      placeholder:"Pilih Obat",
-      theme:"bootstrap4",
-      allowClear:true,
-      ajax:{
-        url:"{{route('api.poli.obat')}}",
-        type:"GET",
-        delay:250,
-        data:function(params){
-          return{
-            term:params.term,
-            poli:1,
-          }
-        },
-        processResults:function(result){
-
-          var item = result.map((item)=>({
-            id:item.id_obat,
-            text:item.nama_obat
-          }))
-          return {
-            "results": item
-          }
-        }
-      }
-    })
 </script>
 @endsection

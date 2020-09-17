@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                             <a class="btn btn-default" href="./"><i class="fa fa-power-off"></i>
                                 Batal</a>
@@ -125,33 +125,6 @@
           var item = result.map((item)=>({
             id:item.id_fasilitas,
             text:item.nama_fasilitas
-          }))
-          return {
-            "results": item
-          }
-        }
-      }
-    })
-    $("#select-obat").select2({
-      language:"id",
-      placeholder:"Pilih Obat",
-      theme:"bootstrap4",
-      allowClear:true,
-      ajax:{
-        url:"{{route('api.poli.obat')}}",
-        type:"GET",
-        delay:250,
-        data:function(params){
-          return{
-            term:params.term,
-            poli:1,
-          }
-        },
-        processResults:function(result){
-
-          var item = result.map((item)=>({
-            id:item.id_obat,
-            text:item.nama_obat
           }))
           return {
             "results": item

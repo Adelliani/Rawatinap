@@ -86,7 +86,7 @@
                             </div>
                         </div>
 
-                        <div class="card-footer">
+                        <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                             <a class="btn btn-default" href="./"><i class="fa fa-power-off"></i>
                                 Batal</a>
