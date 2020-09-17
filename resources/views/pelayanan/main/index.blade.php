@@ -53,7 +53,7 @@
                 <td>{{$item->ruang->gedung->nama_gedung}}</td>
                 <td>{{$item->ruang->nama_ruang}}</td>
                 <td>{{$item->nama_kamar}}</td>
-                <td>{{$item->jumlahkasur}}</td>
+                <td>{{$item->jumlah_kasur-$item->kasur_terisi}}</td>
               </tr>
               @endforeach
             </tbody>

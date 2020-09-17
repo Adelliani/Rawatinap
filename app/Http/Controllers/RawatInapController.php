@@ -56,7 +56,7 @@ class RawatInapController extends Controller
 
         RawatInap::createFull($data_pasien,$data_rawatinap,$data_diagnosa,$data_kamar);
 
-        return redirect()->route("tampilpelayanan");
+        return redirect()->route("pelayanan.index");
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Poli;
+use Composer\DependencyResolver\Pool;
 
 class PoliController extends Controller
 {
@@ -14,7 +15,6 @@ class PoliController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -53,7 +53,7 @@ class PoliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, Poli $poli)
     {
         //
     }
@@ -64,9 +64,9 @@ class PoliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, Poli $poli)
     {
-        return view("superadmin.edit", ["superadmin" => $superadmin]);
+        return view("superadmin.edit", ["poli" => $poli]);
     }
 
     /**
@@ -76,7 +76,7 @@ class PoliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Poli $poli)
     {
         $poli->nama_poli = $request->input("nama_poli");
         $poli->alamat = $request->input("alamat");
@@ -92,7 +92,7 @@ class PoliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Poli $poli)
     {
         $poli->delete();
         return redirect()->route("superadmin.index");

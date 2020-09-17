@@ -10,7 +10,7 @@ class PelayananHomeController extends Controller
 {
     public function __invoke()
     {
-        $kamars = Kamar::all();
+        $kamars = Kamar::wherePoli(1)->get();
         $rawat_inaps = RawatInap::all();
         return view('pelayanan.main.index', [
             'kamars' => $kamars,

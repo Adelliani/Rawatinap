@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => '/pelayanan'], function () {
+Route::group(['prefix' => 'pelayanan'], function () {
     Route::get("", "PelayananHomeController")->name("pelayanan.index");
     Route::resource('', 'RawatInapController')->only(["create", "store"])->names("rawat_inap");
     Route::resource('/riwayat', 'RiwayatController')->only(["index", "show"])->parameters([
@@ -42,9 +42,9 @@ Route::resource('dokter.obat', 'DokterResepObatController')->only(["create", "st
 Route::resource('dokter.pemeriksaan', 'DokterPemeriksaanController')->only(["create", "store"])->names("pemeriksaan")->parameters(["dokter" => "rawatInap"]);
 Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create", "store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);
 
-Route::group(['prefix' => '/superadmin'], function () {
+Route::group(['prefix' => 'superadmin'], function () {
     Route::get("", "SuperadminHomeController")->name("superadmin.index");
-    Route::resource('', 'PoliController')->only(["create", "store"])->names("poli");
+    Route::resource("", 'PoliController')->only(["create", "store","edit","destroy","update"])->names("poli")->parameter("","poli");
 });
 // Route::get('/pelayanan', "PelayananController@tampil")->name("tampilpelayanan");
 // Route::get('/pelayanan/create', "PelayananController@create");
