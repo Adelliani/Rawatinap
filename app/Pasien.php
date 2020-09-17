@@ -8,7 +8,6 @@ class Pasien extends Model
 {
     public $timestamps=false;
     protected $guarded=[];
-
     protected $primaryKey = 'id_pasien';
     
     public function rawatinap()
