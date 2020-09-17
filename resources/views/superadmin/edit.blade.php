@@ -22,25 +22,25 @@
                             <div class="form-group">
                                 <label class="col-sm-5">ID Pelayanan Kesehatan:</label>
                                 <div class="col-sm-12">
-                                    <input type="number" class="form-control" name="id_poli" value="" readonly>
+                                    <input type="number" class="form-control" name="id_poli" value="{{$poli->id_poli}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-7">Nama Pelayanan Kesehatan:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="nama_poli">
+                                    <input type="text" class="form-control" name="nama_poli" value="{{$poli->nama_poli}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Alamat:</label>
                                 <div class="col-sm-12">
-                                  <textarea name="alamat" class="form-control" rows="3"></textarea>
+                                  <textarea name="alamat" class="form-control" rows="3">{{$poli->alamat}}</textarea>
                                 </div>
                               </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Akreditasi:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="akreditasi">
+                                    <input type="text" class="form-control" name="akreditasi" value="{{$poli->akreditasi}}">
                                 </div>
                             </div>
                         </div>

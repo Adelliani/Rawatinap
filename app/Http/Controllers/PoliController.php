@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Poli;
 
 class PoliController extends Controller
 {
@@ -65,7 +66,7 @@ class PoliController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view("superadmin.edit", ["superadmin" => $superadmin]);
     }
 
     /**
@@ -77,7 +78,12 @@ class PoliController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $poli->nama_poli = $request->input("nama_poli");
+        $poli->alamat = $request->input("alamat");
+        $poli->akreditasi = $request->input("akreditasi");
+
+        $poli->save();
+        return redirect()->route("superadmin.index");
     }
 
     /**
@@ -88,6 +94,7 @@ class PoliController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $poli->delete();
+        return redirect()->route("superadmin.index");
     }
 }
