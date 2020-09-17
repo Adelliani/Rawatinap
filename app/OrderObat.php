@@ -8,4 +8,6 @@ class OrderObat extends Model
 {
     public $timestamps=false;
     protected $guarded=[];
+
+    
 }
