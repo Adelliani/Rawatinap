@@ -25,7 +25,7 @@ class DokterEfekObatController extends Controller
      */
     public function create()
     {
-        //
+        return view("dokter.obat.efekobat");
     }
 
     /**
