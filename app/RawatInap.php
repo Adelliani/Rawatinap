@@ -48,6 +48,7 @@ class RawatInap extends Model
     {
         return $this->belongsTo('App\Pasien', 'id_pasien', 'id_pasien');
     }
+
     public function kamars()
     {
         return $this
@@ -56,14 +57,15 @@ class RawatInap extends Model
             ->withPivot(["tgl_masuk", "tgl_keluar", "no_tempattidur"]);
     }
 
+
     public function obat()
     {
-        return $this->belongsToMany("App\Obat", "order_obats", "id_rawatinap", "id_obat", "id_rawatinap", "id_obat")->withPivot(["tgl_order", "jam_order", "jumlah_order", "tujuan", "efek"]);
+        return $this->belongsToMany("App\Obat", "order_obats", "id_rawatinap", "id_obat", "id_rawatinap", "id_obat")->using("App\OrderObat")->withPivot(["id_order","waktu_order", "jumlah_order", "tujuan", "efek"]);
     }
 
     public function fasilitas()
     {
-        return $this->belongsToMany("App\Fasilitas", "detail_p_f_s", "id_rawatinap", "id_fasilitas", "id_rawatinap", "id_fasilitas")->withPivot(["tgl_pemakaian", "jam_jemakaian", "alasan_pemakaian"]);
+        return $this->belongsToMany("App\Fasilitas", "detail_p_f_s", "id_rawatinap", "id_fasilitas", "id_rawatinap", "id_fasilitas")->withPivot("App\DetaiilPF")->withPivot(["waktu_pemakaian", "alasan_pemakaian"]);
     }
 
     public function dokter()

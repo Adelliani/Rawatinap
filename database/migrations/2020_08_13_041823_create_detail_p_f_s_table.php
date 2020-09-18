@@ -15,8 +15,7 @@ class CreateDetailPFSTable extends Migration
     {
         Schema::create('detail_p_f_s', function (Blueprint $table) {
             $table->bigIncrements('id_pf');
-            $table->date('tgl_pemakaian')->nullable();
-            $table->time('jam_pemakaian')->nullable();
+            $table->dateTime('tgl_pemakaian')->nullable();
             $table->string('alasan_pemakaian',100);
             $table->bigInteger('id_rawatinap')->unsigned();
             $table->foreign('id_rawatinap')->references('id_rawatinap')->on('rawat_inaps');

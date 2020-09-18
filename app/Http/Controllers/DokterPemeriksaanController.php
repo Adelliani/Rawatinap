@@ -37,7 +37,7 @@ class DokterPemeriksaanController extends Controller
 
     public function store(Request $request, RawatInap $rawatInap)
     {
-        $data_pemeriksaan = $request->only(['jam_pemeriksaan', 'tgl_pemeriksaan', 'jenis_pemeriksaan', 'hasil_pemeriksaan', 'id_rawatinap']);
+        $data_pemeriksaan = $request->only(['waktu_pemeriksaan', 'jenis_pemeriksaan', 'hasil_pemeriksaan', 'id_rawatinap']);
         $pemeriksaan = new Pemeriksaan($data_pemeriksaan);
         $rawatInap->pemeriksaan()->save($pemeriksaan);
         return redirect()->route("pasien.show", ['rawat_inap' => $rawatInap->id_rawatinap]);

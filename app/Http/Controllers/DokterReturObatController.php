@@ -23,9 +23,9 @@ class DokterReturObatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, RawatInap $rawatInap, OrderObat $obat)
     {
-        return view("dokter.obat.returobat");
+        return view("dokter.obat.returobat", ["rawat_inap" => $rawatInap, "order_obat" => $obat]);
     }
 
     /**
@@ -34,9 +34,11 @@ class DokterReturObatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, OrderObat $obat)
+    public function store(Request $request, RawatInap $rawatInap, OrderObat $obat)
     {
-        $data_returobat = $request->only([]);
+        $data_returobat = $request->only(["waktu_pengembalian","jumlah_terpakai","alasan_pengembalian"]);
+        $obat->returobat()->create($data_returobat);
+        return redirect()->route("pasien.show",["rawatInap"=>$rawatInap->id_rawatinap]);
     }
 
     /**

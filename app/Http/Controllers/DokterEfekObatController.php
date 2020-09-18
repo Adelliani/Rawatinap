@@ -23,9 +23,9 @@ class DokterEfekObatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, RawatInap $rawatInap, OrderObat $obat)
     {
-        return view("dokter.obat.efekobat");
+        return view("dokter.obat.efekobat", ["rawat_inap" => $rawatInap, "order_obat" => $obat]);
     }
 
     /**
@@ -34,9 +34,11 @@ class DokterEfekObatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,RawatInap $rawatInap, OrderObat $obat)
+    public function store(Request $request, RawatInap $rawatInap, OrderObat $obat)
     {
-        //
+        $data_obat = $request->only(["efek"]);
+        $obat->update($data_obat);
+        return redirect()->route("pasien.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
     }
 
     /**

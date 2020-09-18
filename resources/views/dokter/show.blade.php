@@ -326,14 +326,16 @@
               @foreach ($rawat_inap->obat as $item)
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->pivot->tgl_order}}</td>
-                <td>{{$item->pivot->jam_order}}</td>
+                <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('d-F-Y')}}</td>
+                <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('H:i a')}}</td>
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
                 <td>{{$item->pivot->jumlah_order}}</td>
                 <td>
-                  <a href="{{route('efekobat.create',['rawatInap'=>$item->id_rawatinap,'obat'=>$item->id_order])}}" class="btn btn-primary btn-xs">Efek Obat</a>
-                  <a href="{{route('returobat.create',['rawatInap'=>$item->id_rawatinap,'obat'=>$item->id_order])}}" class="btn btn-warning btn-xs">Retur Obat</a>
+                  <a href="{{route('efekobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
+                    class="btn btn-primary btn-xs">Efek Obat</a>
+                  <a href="{{route('returobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
+                    class="btn btn-warning btn-xs">Retur Obat</a>
                 </td>
               </tr>
               @endforeach
@@ -367,8 +369,8 @@
               @foreach ($pelayanan as $item)
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->tgl}}</td>
-                <td>{{$item->jam}}</td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu)->format('d-F-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu)->format('h:i a ')}}</td>
                 <td>{{$item->jenis}}</td>
                 <td></td>
               </tr>

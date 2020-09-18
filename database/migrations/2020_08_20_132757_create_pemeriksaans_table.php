@@ -15,8 +15,7 @@ class CreatePemeriksaansTable extends Migration
     {
         Schema::create('pemeriksaans', function (Blueprint $table) {
             $table->bigIncrements('id_pemeriksaan');
-            $table->date('tgl_pemeriksaan');
-            $table->time('jam_pemeriksaan');
+            $table->dateTime('waktu_pemeriksaan');
             $table->string('jenis_pemeriksaan',100);
             $table->string('hasil_pemeriksaan',100);
             $table->bigInteger('id_rawatinap')->unsigned();

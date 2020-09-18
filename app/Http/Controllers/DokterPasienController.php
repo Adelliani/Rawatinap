@@ -49,15 +49,16 @@ class DokterPasienController extends Controller
      */
     public function show(RawatInap $rawatInap)
     {
-        if ($rawatInap->tgl_keluar) {
+
+        if ($rawatInap->waktu_keluar) {
             return abort(404);
         } else {
 
-            $pemeriksaan = $rawatInap->pemeriksaan()->select("tgl_pemeriksaan AS tgl", "jam_pemeriksaan AS jam", DB::raw("'Pemeriksaan' as jenis"));
-            $diagnosa = $rawatInap->diagnosa()->select("tgl_diagnosa AS tgl", "jam_diagnosa AS jam", DB::raw("'Diagnosa' as jenis"));
-            $fasilitas = $rawatInap->fasilitas()->select("detail_p_f_s.tgl_pemakaian AS tgl", "detail_p_f_s.jam_pemakaian AS jam", DB::raw("'Fasilitas' as jenis"));
+            $pemeriksaan = $rawatInap->pemeriksaan()->select("waktu_pemeriksaan AS waktu", DB::raw("'Pemeriksaan' as jenis"));
+            $diagnosa = $rawatInap->diagnosa()->select("waktu_diagnosa AS waktu", DB::raw("'Diagnosa' as jenis"));
+            $fasilitas = $rawatInap->fasilitas()->select("detail_p_f_s.tgl_pemakaian AS waktu",  DB::raw("'Fasilitas' as jenis"));
 
-            $pelayanan = $pemeriksaan->union($diagnosa)->union($fasilitas)->orderBy("tgl", "DESC")->orderBy("jam", "DESC")->get();
+            $pelayanan = $pemeriksaan->union($diagnosa)->union($fasilitas)->orderBy("waktu", "DESC")->get();
             return view("dokter.show", ["rawat_inap" => $rawatInap, "pelayanan" => $pelayanan]);
         }
     }

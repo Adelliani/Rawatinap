@@ -39,8 +39,6 @@ class RawatInapController extends Controller
     public function store(Request $request)
     {
         $waktu_sekarang = Carbon::now();
-        $tanggal_sekarang = $waktu_sekarang->toDateString();
-        $jam_sekarang = $waktu_sekarang->toTimeString();
 
         $data_pasien = $request->only(['no_identitas', 'nama_pasien', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'status_perkawinan', 'gol_darah', 'agama', 'pendidikan', 'pekerjaan', 'alergi', 'alamat', 'no_hp', 'no_kk', 'nama_keluarga', 'hubungan', 'id_desa']);
 
@@ -48,13 +46,12 @@ class RawatInapController extends Controller
         $data_rawatinap = $request->only(['tgl_masuk', 'jenis_pasien', 'no_bpjs', 'nama_pesertabpjs', 'prosedur_masuk', 'cara_masuk', 'perujuk', 'asal_rujukan', 'alasan_dirujuk', 'id_dokter', 'dokter_perujuk']);
 
         $data_diagnosa = $request->only(['tinggi', 'berat', 'suhubadan', 'hasil_diagnosa']);
-        $data_diagnosa["tgl_diagnosa"] = $tanggal_sekarang;
-        $data_diagnosa["jam_diagnosa"] = $jam_sekarang;
+        $data_diagnosa["waktu_diagnosa"] = $waktu_sekarang;
 
         $data_kamar = $request->only(['no_tempattidur', 'id_kamar']);
-        $data_kamar["tgl_masuk"] = $tanggal_sekarang;
+        $data_kamar["tgl_masuk"] = $waktu_sekarang;
 
-        RawatInap::createFull($data_pasien,$data_rawatinap,$data_diagnosa,$data_kamar);
+        RawatInap::createFull($data_pasien, $data_rawatinap, $data_diagnosa, $data_kamar);
 
         return redirect()->route("pelayanan.index");
     }

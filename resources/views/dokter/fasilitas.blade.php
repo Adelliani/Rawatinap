@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-12">
                 <form class="form-horizontal" id="form-tambah"
-                    action="{{route("fasilitas.store",["rawatInap"=>$rawat_inap->id_rawatinap])}}" method="post">
+                    action="{{route("pasienfasilitas.store",["rawatInap"=>$rawat_inap->id_rawatinap])}}" method="post">
                     @csrf
 
                     <div class="card">
@@ -46,21 +46,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-4">Jam:</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group" id="jam-pemakaian" data-input-jam
-                                        data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="jam_pemakaian" readonly>
-                                        <div class="input-group-append" data-target="#jam-pemakaian"
-                                            data-toggle="datetimepicker">
-                                            <div class="input-group-text">
-                                                <i class="fa fa-clock"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label class="col-sm-4">Nama Fasilitas:</label>
                                 <div class="col-sm-12">
@@ -95,15 +81,9 @@
 <script>
     $('[data-input-tanggal]').datetimepicker({
       locale:"id",
-      format:"YYYY-MM-DD",
+      format:"YYYY-MM-DD HH:mm",
       ignoreReadonly:true,
     })
-
-    $('[data-input-jam]').datetimepicker({
-      format: 'HH:mm',
-      locale:"id",
-      ignoreReadonly:true,
-    });
 
     $("#select-fasilitas").select2({
       language:"id",
