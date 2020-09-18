@@ -11,14 +11,6 @@ class RawatInap extends Model
     protected $primaryKey = 'id_rawatinap';
     protected $guarded = [];
 
-    protected static function booted()
-    {
-        static::updated(function ($rawat_inap) {
-            \Log::info("Hello World");
-            dd($rawat_inap);
-        });
-    }
-
     public static function selesai()
     {
         return self::whereNotNull("tgl_keluar");

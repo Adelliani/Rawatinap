@@ -46,7 +46,7 @@
               </tr>
             </thead>
             <tbody>
-              
+
               @foreach($kamars as $item)
 
               <tr>
@@ -87,14 +87,14 @@
                 <td>{{$loop->index+1}}</td>
                 <td>{{$item->no_ri}}</td>
                 <td>{{$item->pasien->nama_pasien}}</td>
-                {{-- <td></td> --}}
-                <td>{{count($item->kamars)>0?$item->kamars[0]->nama_kamar:""}}</td>
+
+                <td>{{$item->kamars[0]->nama_kamar??""}}</td>
                 <td>
-                  <a href="{{route('pindahkamar.create')}}"
+                  <a href="{{route('pindahkamar.create',["rawat_inap"=>$item->id_rawatinap])}}"
                     class="btn btn-primary btn-xs">Pindah Kamar</a>
                 </td>
-              <tr>
-              @endforeach
+              </tr>
+                @endforeach
             </tbody>
           </table>
         </div>
@@ -123,12 +123,10 @@
 
     // moment.updateLocale("id")
 
-    $('#table-pasien').DataTable({
-    });
+    $('#table-pasien').DataTable();
 
 
-    $('#table-ruangan').DataTable({
-    });
+    $('#table-ruangan').DataTable();
 
 
   });

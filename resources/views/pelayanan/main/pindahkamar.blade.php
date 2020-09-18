@@ -25,7 +25,7 @@
 
     <div class="row">
       <div class="col-12">
-        <form class="form-horizontal" id="form-tambah" action="{{route("pindahkamar.store",["rawatInap"=>1])}}"
+        <form class="form-horizontal" id="form-tambah" action="{{route("pindahkamar.store",["rawatInap"=>$rawat_inap->id_rawatinap])}}"
           method="post">
           @csrf
           <div class="card">
@@ -34,7 +34,7 @@
                 <label class="col-sm-4">Tanggal:</label>
                 <div class="col-sm-12">
                   <div class="input-group" id="tanggal-diagnosa" data-input-tanggal data-target-input="nearest">
-                    <input type="text" class="form-control" value="" name="tgl_diagnosa" readonly>
+                    <input type="text" class="form-control" value="" name="tgl_masuk" readonly>
                     <div class="input-group-append" data-target="#tanggal-diagnosa" data-toggle="datetimepicker">
                       <div class="input-group-text">
                         <i class="fa fa-calendar"></i>
@@ -43,22 +43,14 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-4">Nama Kamar:</label>
-                <div class="col-sm-12">
-                  <div id="kamar">
-                    <select class="form-control" id="select_kamar" name="id_kamar">
-                    </select>
-                  </div>
-                </div>
-              </div>
+
               <div class="form-group">
                 <label class="col-sm-4">No. Tempat Tidur:</label>
                 <div class="col-sm-12">
                   <input type="text" class="form-control" name="no_tempattidur">
                 </div>
               </div>
-              
+
               <div class="form-group">
                 <label class="col-sm-5">Nama Gedung:</label>
                 <div class="col-sm-12">
@@ -74,6 +66,15 @@
                 <div class="col-sm-12">
                   <div id="ruang">
                     <select class="form-control" id="select_ruang" name="id_ruang">
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4">Nama Kamar:</label>
+                <div class="col-sm-12">
+                  <div id="kamar">
+                    <select class="form-control" id="select_kamar" name="id_kamar">
                     </select>
                   </div>
                 </div>
@@ -98,6 +99,7 @@
 <script src="{{asset("admin_lte/plugins/select2/js/i18n/id.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 <script>
+  $(function(){
   $('[data-input-tanggal]').datetimepicker({
       locale:"id",
       format:"YYYY-MM-DD",

@@ -12,7 +12,9 @@ class PelayananHomeController extends Controller
     {
         $kamars = Kamar::wherePoli(1)->whereColumn("kasur_terisi","<","jumlah_kasur")->get();
         
-        $rawat_inaps = RawatInap::all();
+        $rawat_inaps = RawatInap::with(["kamars"=>function($query){
+            $query->whereNull("tgl_keluar");
+        }])->get();
         return view('pelayanan.main.index', [
             'kamars' => $kamars,
             'rawat_inaps' => $rawat_inaps
