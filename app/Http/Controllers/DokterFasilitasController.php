@@ -38,7 +38,7 @@ class DokterFasilitasController extends Controller
         $data_detailpf = $request->only(['jam_pemakaian', 'tgl_pemakaian', 'alasan_pemakaian']);
         $rawatInap->fasilitas()->attach($request->input("id_fasilitas"), $data_detailpf);
 
-        return redirect()->route("dokter.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
+        return redirect()->route("pasien.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
     }
 
     /**

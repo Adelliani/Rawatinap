@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\PindahKamar;
 
-class DokterPindahKamarController extends Controller
+class PindahKamarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +24,7 @@ class DokterPindahKamarController extends Controller
      */
     public function create()
     {
-        return view("dokter.pindahkamar");
+        return view("pelayanan.main.pindahkamar");
     }
 
     /**

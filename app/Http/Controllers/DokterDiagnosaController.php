@@ -38,7 +38,7 @@ class DokterDiagnosaController extends Controller
         $data_diagnosa = $request->only(['jam_diagnosa', 'tgl_diagnosa', 'hasil_diagnosa', 'tinggi', 'berat', 'suhubadan']);
 
         $rawatInap->diagnosa()->create($data_diagnosa);
-        return redirect()->route("dokter.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
+        return redirect()->route("pasien.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
     }
 
     /**

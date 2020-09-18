@@ -46,7 +46,10 @@
               <div class="form-group">
                 <label class="col-sm-4">Nama Kamar:</label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" name="nama_kamar">
+                  <div id="kamar">
+                    <select class="form-control" id="select_kamar" name="id_kamar">
+                    </select>
+                  </div>
                 </div>
               </div>
               <div class="form-group">
@@ -55,18 +58,7 @@
                   <input type="text" class="form-control" name="no_tempattidur">
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-5">Kelas:</label>
-                <div class="col-sm-12">
-                  <select name="kelas" class="form-control">
-                    <option value=""></option>
-                    <option value="VIP">VIP</option>
-                    <option value="I">I</option>
-                    <option value="II">II</option>
-                    <option value="III">III</option>
-                  </select>
-                </div>
-              </div>
+              
               <div class="form-group">
                 <label class="col-sm-5">Nama Gedung:</label>
                 <div class="col-sm-12">
@@ -76,7 +68,6 @@
                   </div>
                 </div>
               </div>
-
 
               <div class="form-group">
                 <label class="col-sm-10">Nama Ruang:</label>
@@ -159,6 +150,33 @@
           var item = result.map((item)=>({
             id:item.id_ruang,
             text:item.nama_ruang
+          }))
+          return {
+            "results": item
+          };
+        }
+      }
+    })
+
+    $("#select_kamar").select2({
+    language:"id",
+    placeholder:"Pilih Kamar",
+    theme:"bootstrap4",
+    allowClear:true,
+    ajax:{
+      url:"{{route('api.poli.kamar')}}",
+      type:"GET",
+      delay:250,
+      data:function(params){
+        return{
+          term:params.term,
+            ruang:$("#select_ruang").val()
+          };
+        },
+        processResults:function(result){
+          var item = result.map((item)=>({
+            id:item.id_kamar,
+            text:item.nama_kamar
           }))
           return {
             "results": item

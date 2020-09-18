@@ -77,6 +77,7 @@
                 <th>No Rawat Inap</th>
                 <th>Nama Pasien</th>
                 <th>Kamar</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -88,7 +89,12 @@
                 <td>{{$item->pasien->nama_pasien}}</td>
                 {{-- <td></td> --}}
                 <td>{{count($item->kamars)>0?$item->kamars[0]->nama_kamar:""}}</td>
-                @endforeach
+                <td>
+                  <a href="{{route('pindahkamar.create')}}"
+                    class="btn btn-primary btn-xs">Pindah Kamar</a>
+                </td>
+              <tr>
+              @endforeach
             </tbody>
           </table>
         </div>

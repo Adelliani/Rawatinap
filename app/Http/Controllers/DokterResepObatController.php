@@ -39,7 +39,7 @@ class DokterResepObatController extends Controller
         $data_obat["efek"] = "";
         $rawatInap->obat()->attach($request->input("id_obat"), $data_obat);
 
-        return redirect()->route("dokter.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
+        return redirect()->route("pasien.show", ['rawat_inap' => $rawatInap->id_rawatinap]);
     }
 
     /**
