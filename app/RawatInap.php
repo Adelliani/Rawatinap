@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class RawatInap extends Model
@@ -60,6 +61,10 @@ class RawatInap extends Model
     public function getKamarSekarangAttribute()
     {
         return $this->kamars()->wherePivot("tgl_keluar", "=")->first();
+    }
+
+    public function getUmurAttribute(){
+        return Carbon::now()->diffInYears(Carbon::parse($this->pasien->tgl_lahir));
     }
 
     public function obat()

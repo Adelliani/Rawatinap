@@ -129,7 +129,7 @@
                     <label class="col-sm-4 control-label">Umur:</label>
                     <div class="col-sm-4">
                       <div class="input-group">
-                        <p class="form-control" data-umur></p>
+                        <p class="form-control">{{$rawat_inap->umur}}</p>
                         <span class="input-group-append">
                           <span class="input-group-text">
                             Tahun
@@ -358,10 +358,10 @@
           <table id="table-pasien" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>No</th>
-                <th>Tanggal Pelayanan</th>
-                <th>Jam Pelayanan</th>
-                <th>Jenis Pelayanan</th>
+                <th style="width:5em">No</th>
+                <th style="width:15em">Tanggal Pelayanan</th>
+                <th style="width:10em">Jam Pelayanan</th>
+                <th style="width:10em">Jenis Pelayanan</th>
                 <th>Deskripsi</th>
               </tr>
             </thead>
@@ -421,7 +421,8 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
               aria-hidden="true">&times;</span></button>
         </div>
-      <form class="form-horizontal fromPasien" action="{{route("pasien.destroy",["pasien"=>$rawat_inap->id_rawatinap])}}" method="post">
+        <form class="form-horizontal fromPasien"
+          action="{{route("pasien.destroy",["pasien"=>$rawat_inap->id_rawatinap])}}" method="post">
           @csrf
           @method("DELETE")
           <div class="modal-body">
@@ -481,11 +482,18 @@
 <script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 <script>
   $(function () {
-    $("[data-umur]").text(`${
-    moment("{{$rawat_inap->tgl_masuk}}").diff(moment("{{$rawat_inap->pasien->tgl_lahir}}"),"years")
-    }`);
   
     var t =$('#table-pasien').DataTable({
+      "columnDefs": [ {
+            "searchable": false,
+            "orderable": false,
+            "targets": 0
+        },{ 
+          "targets": 4,
+            "searchable": false,
+            "orderable": false,
+        } ],
+      order:[[1,"desc"],[2,"desc"]]
     });
     t.on( 'order.dt search.dt', function () {
         t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
