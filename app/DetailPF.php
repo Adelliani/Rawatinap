@@ -11,5 +11,7 @@ class DetailPF extends Pivot
     protected $guarded=[];
     protected $primaryKey = 'id_pf';
     public $incrementing = true;
+    protected $table = "detail_p_f_s";
+
 
 }

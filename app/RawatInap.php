@@ -57,15 +57,22 @@ class RawatInap extends Model
             ->withPivot(["tgl_masuk", "tgl_keluar", "no_tempattidur"]);
     }
 
+    public function getKamarSekarangAttribute()
+    {
+        return $this->kamars()->wherePivot("tgl_keluar", "=")->first();
+    }
 
     public function obat()
     {
-        return $this->belongsToMany("App\Obat", "order_obats", "id_rawatinap", "id_obat", "id_rawatinap", "id_obat")->using("App\OrderObat")->withPivot(["id_order","waktu_order", "jumlah_order", "tujuan", "efek"]);
+        return $this->belongsToMany("App\Obat", "order_obats", "id_rawatinap", "id_obat", "id_rawatinap", "id_obat")->using("App\OrderObat")->withPivot(["id_order", "waktu_order", "jumlah_order", "tujuan", "efek"]);
     }
 
     public function fasilitas()
     {
-        return $this->belongsToMany("App\Fasilitas", "detail_p_f_s", "id_rawatinap", "id_fasilitas", "id_rawatinap", "id_fasilitas")->withPivot("App\DetaiilPF")->withPivot(["waktu_pemakaian", "alasan_pemakaian"]);
+        return $this
+            ->belongsToMany("App\Fasilitas", "detail_p_f_s", "id_rawatinap", "id_fasilitas", "id_rawatinap", "id_fasilitas")
+            ->using("App\DetailPF")
+            ->withPivot(["tgl_pemakaian", "alasan_pemakaian"]);
     }
 
     public function dokter()

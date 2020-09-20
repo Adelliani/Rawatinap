@@ -52,12 +52,12 @@
 
                 <td>
                   <a href="{{route("pegawai.edit",["pegawai"=>$item->id_pegawai])}}" class="btn btn-primary btn-xs">Edit</a>
-                  <form action="{{route("pegawai.destroy",["pegawai"=>$item->id_pegawai])}}" method="post">
-                    @csrf
-                    @method("DELETE")
-                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
-                  </form>
+                  <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
                 </td>
+                <form class="d-none" action="{{route("pegawai.destroy",["pegawai"=>$item->id_pegawai])}}" method="post" id="delete_form">
+                  @csrf
+                  @method("DELETE")
+                </form>
               </tr>
               @endforeach
             </tbody>

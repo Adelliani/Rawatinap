@@ -24,7 +24,8 @@
     <div class="col-12">
       <div class="card card-outline card-green">
         <div class="card-header">
-          <a class="btn btn-primary btn-sm text-white" href="{{route("ruang.create")}}"><i class="fa fa-plus-circle"> Tambah </i></a>
+          <a class="btn btn-primary btn-sm text-white" href="{{route("ruang.create")}}"><i class="fa fa-plus-circle">
+              Tambah </i></a>
           <a href="{{route('ruangan.index')}}" class="btn btn-primary btn-sm tambahBtn"><i
               class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
@@ -47,12 +48,13 @@
                 <td>{{$item->gedung->nama_gedung}}</td>
                 <td>
                   <a href="{{route("ruang.edit",["ruang"=>$item->id_ruang])}}" class="btn btn-primary">Edit</a>
-                  <form action="{{route("ruang.destroy",["ruang"=>$item->id_ruang])}}" method="post">
-                    @csrf
-                    @method("DELETE")
-                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
-                  </form>
+                  <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
                 </td>
+                <form class="d-none" action="{{route("ruang.destroy",["ruang"=>$item->id_ruang])}}"
+                  method="post" id="delete_form">
+                  @csrf
+                  @method("DELETE")
+                </form>
               </tr>
               @endforeach
             </tbody>

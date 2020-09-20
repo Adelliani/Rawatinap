@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\RawatInap;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 
@@ -53,13 +54,7 @@ class DokterPasienController extends Controller
         if ($rawatInap->waktu_keluar) {
             return abort(404);
         } else {
-
-            $pemeriksaan = $rawatInap->pemeriksaan()->select("waktu_pemeriksaan AS waktu", DB::raw("'Pemeriksaan' as jenis"));
-            $diagnosa = $rawatInap->diagnosa()->select("waktu_diagnosa AS waktu", DB::raw("'Diagnosa' as jenis"));
-            $fasilitas = $rawatInap->fasilitas()->select("detail_p_f_s.tgl_pemakaian AS waktu",  DB::raw("'Fasilitas' as jenis"));
-
-            $pelayanan = $pemeriksaan->union($diagnosa)->union($fasilitas)->orderBy("waktu", "DESC")->get();
-            return view("dokter.show", ["rawat_inap" => $rawatInap, "pelayanan" => $pelayanan]);
+            return view("dokter.show", ["rawat_inap" => $rawatInap]);
         }
     }
 
@@ -83,7 +78,6 @@ class DokterPasienController extends Controller
      */
     public function update(Request $request, RawatInap $rawatInap)
     {
-        //
     }
 
     /**
@@ -94,6 +88,8 @@ class DokterPasienController extends Controller
      */
     public function destroy(RawatInap $rawatInap)
     {
-        //
+        $rawatInap->tgl_keluar = Carbon::now();
+        $rawatInap->save();
+        return redirect()->route("pasien.index");
     }
 }

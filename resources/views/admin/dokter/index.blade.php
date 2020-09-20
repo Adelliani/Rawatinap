@@ -51,19 +51,19 @@
                 <td>{{$item->alamat}}</td>
                 <td>
                   <a href="{{route("dokter.edit",["dokter"=>$item->id_dokter])}}" class="btn btn-primary btn-xs">Edit</a>
-                  <form action="{{route("dokter.destroy",["dokter"=>$item->id_dokter])}}" method="post">
-                    @csrf
-                    @method("DELETE")
-                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
-                  </form>
-                  
+                  <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
                 </td>
+                <form class="d-none" action="{{route("dokter.destroy",["dokter"=>$item->id_dokter])}}" method="post" id="delete_form">
+                  @csrf
+                  @method("DELETE")
+                </form>
               </tr>
               @endforeach
             </tbody>
 
           </table>
         </div>
+        
 
       </div>
     </div>
