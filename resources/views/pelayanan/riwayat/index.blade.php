@@ -70,8 +70,6 @@
   $(function () {
     $('#table-pasien').DataTable({
     });
-    $('#table-ruangan').DataTable({
-    });
   });           
 </script>
 @endsection
