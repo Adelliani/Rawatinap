@@ -23,6 +23,8 @@ class CreateDoktersTable extends Migration
             $table->string('spesialisasi',200)->nullable();
             $table->bigInteger('id_poli')->unsigned();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
+            $table->bigInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id_user')->on('users');
         });
     }
 
