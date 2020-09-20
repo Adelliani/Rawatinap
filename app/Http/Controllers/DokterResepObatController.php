@@ -35,7 +35,7 @@ class DokterResepObatController extends Controller
      */
     public function store(Request $request, RawatInap $rawatInap)
     {
-        $data_obat = $request->only(["tgl_order", "jam_order", "jumlah_order", "tujuan"]);
+        $data_obat = $request->only(["waktu_order", "jumlah_order", "tujuan"]);
         $data_obat["efek"] = "";
         $rawatInap->obat()->attach($request->input("id_obat"), $data_obat);
 

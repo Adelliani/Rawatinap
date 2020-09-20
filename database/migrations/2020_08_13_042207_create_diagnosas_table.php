@@ -15,8 +15,7 @@ class CreateDiagnosasTable extends Migration
     {
         Schema::create('diagnosas', function (Blueprint $table) {
             $table->bigIncrements('id_diagnosa');
-            $table->date('tgl_diagnosa');
-            $table->time('jam_diagnosa');
+            $table->dateTime('waktu_diagnosa');
             $table->string('tinggi',100);
             $table->string('berat',100);
             $table->string('suhubadan',100);

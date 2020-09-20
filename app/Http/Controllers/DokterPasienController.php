@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\RawatInap;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 
@@ -49,16 +50,11 @@ class DokterPasienController extends Controller
      */
     public function show(RawatInap $rawatInap)
     {
-        if ($rawatInap->tgl_keluar) {
+
+        if ($rawatInap->waktu_keluar) {
             return abort(404);
         } else {
-
-            $pemeriksaan = $rawatInap->pemeriksaan()->select("tgl_pemeriksaan AS tgl", "jam_pemeriksaan AS jam", DB::raw("'Pemeriksaan' as jenis"));
-            $diagnosa = $rawatInap->diagnosa()->select("tgl_diagnosa AS tgl", "jam_diagnosa AS jam", DB::raw("'Diagnosa' as jenis"));
-            $fasilitas = $rawatInap->fasilitas()->select("detail_p_f_s.tgl_pemakaian AS tgl", "detail_p_f_s.jam_pemakaian AS jam", DB::raw("'Fasilitas' as jenis"));
-
-            $pelayanan = $pemeriksaan->union($diagnosa)->union($fasilitas)->orderBy("tgl", "DESC")->orderBy("jam", "DESC")->get();
-            return view("dokter.show", ["rawat_inap" => $rawatInap, "pelayanan" => $pelayanan]);
+            return view("dokter.show", ["rawat_inap" => $rawatInap]);
         }
     }
 
@@ -82,7 +78,6 @@ class DokterPasienController extends Controller
      */
     public function update(Request $request, RawatInap $rawatInap)
     {
-        //
     }
 
     /**
@@ -93,6 +88,8 @@ class DokterPasienController extends Controller
      */
     public function destroy(RawatInap $rawatInap)
     {
-        //
+        $rawatInap->tgl_keluar = Carbon::now();
+        $rawatInap->save();
+        return redirect()->route("pasien.index");
     }
 }

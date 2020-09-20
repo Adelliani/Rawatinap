@@ -36,7 +36,7 @@
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-pemeriksaan" data-input-tanggal
                                         data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="tgl_pemeriksaan"
+                                        <input type="text" class="form-control" value="" name="waktu_pemeriksaan"
                                             readonly>
                                         <div class="input-group-append" data-target="#tanggal-pemeriksaan"
                                             data-toggle="datetimepicker">
@@ -47,22 +47,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-4">Jam:</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group" id="jam-pemeriksaan" data-input-jam
-                                        data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="jam_pemeriksaan"
-                                            readonly>
-                                        <div class="input-group-append" data-target="#jam-pemeriksaan"
-                                            data-toggle="datetimepicker">
-                                            <div class="input-group-text">
-                                                <i class="fa fa-clock"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="form-group">
                                 <label class="col-sm-4">Jenis Pemeriksaan:</label>
                                 <div class="col-sm-12">
@@ -97,15 +82,9 @@
 <script>
     $('[data-input-tanggal]').datetimepicker({
       locale:"id",
-      format:"YYYY-MM-DD",
+      format:"YYYY-MM-DD HH:mm",
       ignoreReadonly:true,
     })
-
-    $('[data-input-jam]').datetimepicker({
-      format: 'HH:mm',
-      locale:"id",
-      ignoreReadonly:true,
-    });
 
 </script>
 @endsection

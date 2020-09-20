@@ -35,7 +35,7 @@
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-diagnosa" data-input-tanggal
                                         data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="tgl_diagnosa" readonly>
+                                        <input type="text" class="form-control" value="" name="waktu_diagnosa" readonly>
                                         <div class="input-group-append" data-target="#tanggal-diagnosa"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
@@ -45,21 +45,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-4">Jam:</label>
-                                <div class="col-sm-12">
-                                    <div class="input-group" id="jam-diagnosa" data-input-jam
-                                        data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="jam_diagnosa" readonly>
-                                        <div class="input-group-append" data-target="#jam-diagnosa"
-                                            data-toggle="datetimepicker">
-                                            <div class="input-group-text">
-                                                <i class="fa fa-clock"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label class="col-sm-4">Tinggi:</label>
                                 <div class="col-sm-12">
@@ -106,15 +92,9 @@
 <script>
     $('[data-input-tanggal]').datetimepicker({
       locale:"id",
-      format:"YYYY-MM-DD",
+      format:"YYYY-MM-DD HH:mm",
       ignoreReadonly:true,
     })
-
-    $('[data-input-jam]').datetimepicker({
-      format: 'HH:mm',
-      locale:"id",
-      ignoreReadonly:true,
-    });
 
     $("#select-fasilitas").select2({
       language:"id",

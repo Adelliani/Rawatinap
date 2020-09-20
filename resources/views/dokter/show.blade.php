@@ -326,14 +326,16 @@
               @foreach ($rawat_inap->obat as $item)
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->pivot->tgl_order}}</td>
-                <td>{{$item->pivot->jam_order}}</td>
+                <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('d-F-Y')}}</td>
+                <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('H:i a')}}</td>
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
                 <td>{{$item->pivot->jumlah_order}}</td>
                 <td>
-                  <a href="{{route('efekobat.create',['rawatInap'=>$item->id_rawatinap,'obat'=>$item->id_order])}}" class="btn btn-primary btn-xs">Efek Obat</a>
-                  <a href="{{route('returobat.create',['rawatInap'=>$item->id_rawatinap,'obat'=>$item->id_order])}}" class="btn btn-warning btn-xs">Retur Obat</a>
+                  <a href="{{route('efekobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
+                    class="btn btn-primary btn-xs">Efek Obat</a>
+                  <a href="{{route('returobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
+                    class="btn btn-warning btn-xs">Retur Obat</a>
                 </td>
               </tr>
               @endforeach
@@ -364,13 +366,42 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($pelayanan as $item)
+              @foreach ($rawat_inap->pemeriksaan as $item)
               <tr>
-                <td>{{$loop->index+1}}</td>
-                <td>{{$item->tgl}}</td>
-                <td>{{$item->jam}}</td>
-                <td>{{$item->jenis}}</td>
                 <td></td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu_pemeriksaan)->format('d-F-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu_pemeriksaan)->format('h:i a ')}}</td>
+                <td>Pemeriksaan</td>
+                <td>
+                  Jenis :{{$item->jenis_pemeriksaan}}<br>
+                  Hasil :<br>{{$item->hasil_pemeriksaan}}</td>
+              </tr>
+              @endforeach
+              @foreach ($rawat_inap->diagnosa as $item)
+              <tr>
+                <td></td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu_pemeriksaan)->format('d-F-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu_pemeriksaan)->format('h:i a ')}}</td>
+                <td>Diagnosa</td>
+                <td>
+                  Suhu :{{$item->suhubadan}}<br>
+                  Berat :{{$item->berat}}<br>
+                  Tinggi :{{$item->tinggi}}<br>
+                  Hasil :<br>
+                  {{$item->hasil_diagnosa}}
+                </td>
+              </tr>
+              @endforeach
+              @foreach ($rawat_inap->fasilitas as $item)
+              <tr>
+                <td></td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu_pemeriksaan)->format('d-F-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($item->waktu_pemeriksaan)->format('h:i a ')}}</td>
+                <td>Pemakaian Fasilitas</td>
+                <td>
+                  Nama : {{$item->nama_fasilitas}}<br>
+                  Alasan : <br> {{$item->pivot->alasan_pemakaian}}
+                </td>
               </tr>
               @endforeach
             </tbody>
@@ -390,13 +421,14 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
               aria-hidden="true">&times;</span></button>
         </div>
-        <form class="form-horizontal fromPasien" action="" method="post">
+      <form class="form-horizontal fromPasien" action="{{route("pasien.destroy",["pasien"=>$rawat_inap->id_rawatinap])}}" method="post">
           @csrf
+          @method("DELETE")
           <div class="modal-body">
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">No Rawat Inap:</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="no_rawatinap">
+                <span class="form-control">{{$rawat_inap->no_rawatinap}}</span>
               </div>
             </div>
 
@@ -404,21 +436,21 @@
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Nama Pasien:</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="nama_pasien">
+                <span class="form-control">{{$rawat_inap->pasien->nama_pasien}}</span>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-4 col-form-label">Kamar:</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" name="kamar">
+                <span class="form-control">{{$rawat_inap->kamar_sekarang->nama_kamar}}</span>
               </div>
             </div>
             Atas nama pasien diatas telah diizinkan pulang?
 
           </div>
           <div class="modal-footer row">
-            <button class="btn bg-green col-2">Ya</button>
-            <button class="btn bg-red col-2">Tidak</button>
+            <button class="btn bg-green col-2" type="submit">Ya</button>
+            <button class="btn bg-red col-2" data-dismiss="modal" type="button">Tidak</button>
           </div>
         </form>
       </div>
@@ -453,10 +485,14 @@
     moment("{{$rawat_inap->tgl_masuk}}").diff(moment("{{$rawat_inap->pasien->tgl_lahir}}"),"years")
     }`);
   
-    $('#table-pasien').DataTable({
+    var t =$('#table-pasien').DataTable({
     });
-    $('#table-ruangan').DataTable({
-    });
+    t.on( 'order.dt search.dt', function () {
+        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+    } ).draw();
+
     $('#table-obat').DataTable({
     });
   });
