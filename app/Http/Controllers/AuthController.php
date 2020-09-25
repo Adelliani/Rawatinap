@@ -21,20 +21,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($request->only(["username", "password"]))) {
-
-            if (Auth::user()->jenis_user == 1){
-                return redirect()->route("superadmin.index");
-            }elseif(Auth::user()->jenis_user==2){
-                return redirect()->route("admin.index");
-            }elseif (Auth::user()->jenis_user==3){
-                return redirect()->route("pasien.index");
-            }elseif(Auth::user()->jenis_user==4){
-                return redirect()->route("pelayanan.index");
-            }
-
-        } else {
-
-            return back();
         }
+        return back();
     }
 }

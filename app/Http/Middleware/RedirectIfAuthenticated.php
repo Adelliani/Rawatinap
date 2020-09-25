@@ -18,7 +18,15 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            if (Auth::user()->jenis_user == 1) {
+                return redirect()->route("superadmin.index");
+            } elseif (Auth::user()->jenis_user == 2) {
+                return redirect()->route("admin.index");
+            } elseif (Auth::user()->jenis_user == 3) {
+                return redirect()->route("pasien.index");
+            } elseif (Auth::user()->jenis_user == 4) {
+                return redirect()->route("pelayanan.index");
+            }
         }
 
         return $next($request);

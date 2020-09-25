@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::group(['prefix' => 'pelayanan'], function () {
     Route::get("", "PelayananHomeController")->name("pelayanan.index");
     Route::resource('', 'RawatInapController')->only(["create", "store"])->names("rawat_inap");
@@ -56,6 +55,10 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('login', "AuthController@login_proses");
 });
 
+Route::get("test",function(){
+    dd(Auth::user());
+});
+
 Route::group(['prefix' => 'api', "as" => "api."], function () {
 
     Route::group(["as" => "wilayah."], function () {
@@ -78,3 +81,4 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
 
     Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");
 });
+
