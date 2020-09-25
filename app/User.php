@@ -15,8 +15,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $primaryKey = "id_user";
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'password',
     ];
 
     /**
@@ -28,12 +30,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function poli()
+    {
+        return $this->hasOne("App\Poli", "id_user", "id_user");
+    }
+
+    public function dokter()
+    {
+        return $this->hasOne("App\Dokter", "id_user", "id_user");
+    }
+
+    public function pegawai()
+    {
+        return $this->hasOne("App\Pegawai", "id_user", "id_user");
+    }
 }

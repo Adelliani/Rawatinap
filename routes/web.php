@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::group(['prefix' => 'pelayanan'], function () {
     Route::get("", "PelayananHomeController")->name("pelayanan.index");
     Route::resource('', 'RawatInapController')->only(["create", "store"])->names("rawat_inap");
@@ -47,6 +48,12 @@ Route::resource('dokter.obat.efekobat', 'DokterEfekObatController')->only(["crea
 Route::group(['prefix' => 'superadmin'], function () {
     Route::get("", "SuperadminHomeController")->name("superadmin.index");
     Route::resource("", 'PoliController')->only(["create", "store","edit","destroy","update"])->names("poli")->parameter("","poli");
+});
+
+
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('login', "AuthController@login_page");
+    Route::post('login', "AuthController@login_proses");
 });
 
 Route::group(['prefix' => 'api', "as" => "api."], function () {
