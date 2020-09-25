@@ -18,7 +18,7 @@ class CreateObatsTable extends Migration
             $table->string('nama_obat',100);
             $table->enum('kategori',['sirup','kapsul','tablet']);
             $table->integer('harga_obat');
-            $table->bigInteger('id_poli')->unsigned();
+            $table->bigInteger('id_poli')->unsigned()->nullable();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
         });
     }

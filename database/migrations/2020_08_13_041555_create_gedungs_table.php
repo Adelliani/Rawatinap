@@ -16,7 +16,7 @@ class CreateGedungsTable extends Migration
         Schema::create('gedungs', function (Blueprint $table) {
             $table->bigIncrements('id_gedung');
             $table->string('nama_gedung',100);
-            $table->bigInteger('id_poli')->unsigned();
+            $table->bigInteger('id_poli')->unsigned()->nullable();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
         });
     }
