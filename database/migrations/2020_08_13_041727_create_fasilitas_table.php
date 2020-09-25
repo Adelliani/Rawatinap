@@ -18,7 +18,7 @@ class CreateFasilitasTable extends Migration
             $table->string('jenis_fasilitas',100);
             $table->string('nama_fasilitas',100);
             $table->integer('harga_fasilitas');
-            $table->bigInteger('id_poli')->unsigned();
+            $table->bigInteger('id_poli')->unsigned()->nullable();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
         });
     }

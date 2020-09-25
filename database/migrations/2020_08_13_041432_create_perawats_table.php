@@ -21,7 +21,7 @@ class CreatePerawatsTable extends Migration
             $table->string('notelp',200);
             $table->bigInteger('id_poli')->unsigned();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
-            $table->bigInteger('id_shift')->unsigned();
+            $table->bigInteger('id_shift')->unsigned()->nullable();
             $table->foreign('id_shift')->references('id_shift')->on('shifts');
         });
     }

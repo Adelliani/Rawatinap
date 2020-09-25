@@ -20,7 +20,7 @@ class CreatePegawaisTable extends Migration
             $table->string('posisi',200);
             $table->string('notelp',200);
             $table->string('alamat',200);
-            $table->bigInteger('id_poli')->unsigned();
+            $table->bigInteger('id_poli')->unsigned()->nullable();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
             $table->bigInteger('id_shift')->unsigned();
             $table->foreign('id_shift')->references('id_shift')->on('shifts');
