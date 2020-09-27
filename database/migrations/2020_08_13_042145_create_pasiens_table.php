@@ -22,7 +22,7 @@ class CreatePasiensTable extends Migration
             $table->date('tgl_lahir');
             $table->enum('status_perkawinan',['belummenikah','menikah']);
             $table->enum('gol_darah',['A','B','O','AB']);
-            $table->string('agama',10);
+            $table->enum('agama',['islam','kristen','katolik','hindu','buddha','konghucu']);
             $table->enum('pendidikan',['tdktamatsd','sd','smp','sma','s1','s2','s3']);
             $table->enum('pekerjaan',['tidakbekerja','pns','karyawanswasta','pensiunan','tni','pedagang','nelayan','petani','buruh','iburumahtangga']);
             $table->string('alergi',200);

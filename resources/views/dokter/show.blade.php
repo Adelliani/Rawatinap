@@ -327,7 +327,7 @@
               <tr>
                 <td>{{$loop->index+1}}</td>
                 <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('d-F-Y')}}</td>
-                <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('H:i a')}}</td>
+                <td>{{\Carbon\Carbon::parse($item->pivot->jam_order)->format('H:i a')}}</td>
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
                 <td>{{$item->pivot->jumlah_order}}</td>
