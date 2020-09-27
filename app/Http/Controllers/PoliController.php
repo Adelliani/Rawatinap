@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Poli;
+use App\User;
 use Composer\DependencyResolver\Pool;
+use Hash;
 
 class PoliController extends Controller
 {
@@ -20,7 +22,7 @@ class PoliController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responuse
      */
     public function create()
     {
@@ -40,9 +42,20 @@ class PoliController extends Controller
             "alamat",
             "akreditasi",
         ]);
+        
+        $poli = Poli::create($data_poli);
 
+        $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_poli")))));
+        $password = Hash::make("0123456789");
 
-        Poli::create($data_poli);
+        $data_user = [
+            "username" => $username,
+            "password" => $password,
+            "jenis_user" => 2
+        ];
+        $akun = User::create($data_user);
+
+        $akun->poli()->save($poli);
 
         return redirect()->route("superadmin.index");
     }
@@ -94,7 +107,12 @@ class PoliController extends Controller
      */
     public function destroy(Request $request, Poli $poli)
     {
+
         $poli->delete();
+        if ($poli->akun()) {
+            $poli->akun()->first()->delete();
+        }
+
         return redirect()->route("superadmin.index");
     }
 }

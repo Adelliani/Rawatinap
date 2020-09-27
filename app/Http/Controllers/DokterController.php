@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Dokter;
+use App\User;
+use Hash;
 use Illuminate\Http\Request;
 
 class DokterController extends Controller
@@ -38,7 +40,19 @@ class DokterController extends Controller
     {
         $data_dokter = $request->only(["nama_dokter", "jenis_kelamin", "jenis_dokter", "spesialisasi", "notelp", "alamat"]);
         $data_dokter["id_poli"] = 1;
-        Dokter::create($data_dokter);
+        $dokter = Dokter::create($data_dokter);
+
+        $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_poli")))));
+        $password = Hash::make("0123456789");
+
+        $data_user = [
+            "username" => $username,
+            "password" => $password,
+            "jenis_user" => 2
+        ];
+        $akun = User::create($data_user);
+
+        $akun->dokter()->save($dokter);
         return redirect()->route("dokter.index");
     }
 

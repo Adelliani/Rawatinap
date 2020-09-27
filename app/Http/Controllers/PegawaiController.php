@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Pegawai;
+use App\User;
+use Hash;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
@@ -47,7 +49,19 @@ class PegawaiController extends Controller
         ]);
         $data_pegawai["id_poli"] = 1;
 
-        Pegawai::create($data_pegawai);
+        $pegawai = Pegawai::create($data_pegawai);
+
+        $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_poli")))));
+        $password = Hash::make("0123456789");
+
+        $data_user = [
+            "username" => $username,
+            "password" => $password,
+            "jenis_user" => 2
+        ];
+        $akun = User::create($data_user);
+
+        $akun->pegawai()->save($pegawai);
 
         return redirect()->route("pegawai.index");
     }

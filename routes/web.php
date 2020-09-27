@@ -49,6 +49,16 @@ Route::group(['prefix' => 'superadmin'], function () {
     Route::resource("", 'PoliController')->only(["create", "store","edit","destroy","update"])->names("poli")->parameter("","poli");
 });
 
+
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('login', "AuthController@login_page");
+    Route::post('login', "AuthController@login_proses");
+});
+
+Route::get("test",function(){
+    dd(Auth::user());
+});
+
 Route::group(['prefix' => 'api', "as" => "api."], function () {
 
     Route::group(["as" => "wilayah."], function () {
@@ -71,3 +81,4 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
 
     Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");
 });
+
