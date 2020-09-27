@@ -79,25 +79,25 @@
                 <div class="card-body">
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">No.Identitas<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->no_identitas}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Nama Pasien<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->nama_pasien}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Tempat Lahir<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->tempat_lahir}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Tanggal Lahir<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->tgl_lahir}}</p>
                     </div>
                   </div>
@@ -116,7 +116,7 @@
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Jenis Kelamin<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <div class="radio">
                         <p class="form-control">{{$rawat_inap->jenis_kelamin=="laki-laki"?"Laki-laki":"Perempuan"}}</p>
                       </div>
@@ -366,6 +366,24 @@
                 <th>Jam</th>
                 <th>Jenis Fasilitas</th>
                 <th>Alasan</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+
+          </table>
+        </div>
+        <div class="tab-pane fade" id="detail-riwayat-pemakaiankamar" role="tabpanel"
+          aria-labelledby="detail-riwayat-pemakaiankamar-tab">
+          <table class="table table-bordered table-hover" data-datatable>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Tanggal Masuk</th>
+                <th>Tanggal Keluar</th>
+                <th>Kamar</th>
+                <th>Gedung</th>
+                <th>Ruang</th>
               </tr>
             </thead>
             <tbody>
