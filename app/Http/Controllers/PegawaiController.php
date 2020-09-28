@@ -55,7 +55,7 @@ class PegawaiController extends Controller
         ]);
         $data_pegawai["id_poli"] = $id_poli;
 
-        $pegawai = Pegawai::create($data_pegawai);
+
 
         $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_poli")))));
         $password = Hash::make("0123456789");
@@ -67,7 +67,7 @@ class PegawaiController extends Controller
         ];
         $akun = User::create($data_user);
 
-        $akun->pegawai()->save($pegawai);
+        $akun->pegawai()->create($data_pegawai);
 
         return redirect()->route("pegawai.index");
     }
