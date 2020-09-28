@@ -129,7 +129,7 @@
                                             <select name="agama" class="form-control">
                                                 <option selected="true" disabled></option>
                                                 <option value="islam">Islam</option>
-                                                <option value="krisen">Kristen Protestan</option>
+                                                <option value="kristen">Kristen Protestan</option>
                                                 <option value="katolik">Katolik</option>
                                                 <option value="hindu">Hindu</option>
                                                 <option value="buddha">Buddha</option>

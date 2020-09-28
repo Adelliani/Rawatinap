@@ -79,25 +79,25 @@
                 <div class="card-body">
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">No.Identitas<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->no_identitas}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Nama Pasien<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->nama_pasien}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Tempat Lahir<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->tempat_lahir}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Tanggal Lahir<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->tgl_lahir}}</p>
                     </div>
                   </div>
@@ -116,7 +116,7 @@
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Jenis Kelamin<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <div class="radio">
                         <p class="form-control">{{$rawat_inap->jenis_kelamin=="laki-laki"?"Laki-laki":"Perempuan"}}</p>
                       </div>
@@ -311,15 +311,21 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Tanggal Pemeriksaan</th>
-                <th>Jam Pemeriksaan</th>
+                <th>Waktu Pemeriksaan</th>
                 <th>Jenis Pemeriksaan</th>
                 <th>Hasil Pemeriksaan</th>
               </tr>
             </thead>
             <tbody>
+                @foreach($rawat_inap->pemeriksaan as $item)
+                <tr>
+                  <td>{{$loop->index+1}}</td>
+                  <td>{{$item->waktu_pemeriksaan}}</td>
+                  <td>{{$item->jenis_pemeriksaan}}</td>
+                  <td>{{$item->hasil_pemeriksaan}}</td>
+                </tr>
+                @endforeach
             </tbody>
-
           </table>
         </div>
         <div class="tab-pane fade" id="detail-riwayat-diagnosa" role="tabpanel"
@@ -328,13 +334,24 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Tanggal </th>
-                <th>Jam</th>
-                <th>Jenis Diagnosa</th>
-                <th>Deskripsi</th>
+                <th>Waktu Diagnosa </th>
+                <th>Tinggi</th>
+                <th>Berat</th>
+                <th>Suhu Badan</th>
+                <th>Hasil Diagnosa</th>
               </tr>
             </thead>
             <tbody>
+                @foreach($rawat_inap->diagnosa as $item)
+                <tr>
+                  <td>{{$loop->index+1}}</td>
+                  <td>{{$item->waktu_diagnosa}}</td>
+                  <td>{{$item->tinggi}}</td>
+                  <td>{{$item->berat}}</td>
+                  <td>{{$item->suhubadan}}</td>
+                  <td>{{$item->hasil_diagnosa}}</td>
+                </tr>
+                @endforeach
             </tbody>
 
           </table>
@@ -344,14 +361,24 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Tanggal Resep Obat</th>
-                <th>Jam Resep Obat</th>
+                <th>Waktu Resep Obat</th>
                 <th>Nama Obat</th>
+                <th>Kategori</th>
                 <th>Tujuan Obat</th>
                 <th>Jumlah</th>
               </tr>
             </thead>
             <tbody>
+                @foreach($rawat_inap->obat as $item)
+                <tr>
+                  <td>{{$loop->index+1}}</td>
+                  <td>{{$item->pivot->waktu_order}}</td>
+                  <td>{{$item->nama_obat}}</td>
+                  <td>{{$item->kategori}}</td>
+                  <td>{{$item->pivot->tujuan}}</td>
+                  <td>{{$item->pivot->jumlah_order}}</td>
+                </tr>
+                @endforeach 
             </tbody>
 
           </table>
@@ -362,13 +389,52 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Tanggal </th>
-                <th>Jam</th>
+                <th>Waktu Pemakaian </th>
+                <th>Nama Fasilitas</th>
                 <th>Jenis Fasilitas</th>
                 <th>Alasan</th>
               </tr>
             </thead>
             <tbody>
+                @foreach($rawat_inap->fasilitas as $item)
+                <tr>
+                  <td>{{$loop->index+1}}</td>
+                  <td>{{$item->waktu_pemakaian}}</td>
+                  <td>{{$item->nama_fasilitas}}</td>
+                  <td>{{$item->jenis_fasilitas}}</td>
+                  <td>{{$item->alasan}}</td>
+                </tr>
+                @endforeach 
+            </tbody>
+
+          </table>
+        </div>
+        <div class="tab-pane fade" id="detail-riwayat-pemakaiankamar" role="tabpanel"
+          aria-labelledby="detail-riwayat-pemakaiankamar-tab">
+          <table class="table table-bordered table-hover" data-datatable>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Tanggal Masuk</th>
+                <th>Tanggal Keluar</th>
+                <th>No. Tempat Tidur</th>
+                <th>Kamar</th>
+                <th>Gedung</th>
+                <th>Ruang</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach($rawat_inap->kamars as $item)
+                <tr>
+                  <td>{{$loop->index+1}}</td>
+                  <td>{{$item->pivot->tgl_masuk}}</td>
+                  <td>{{$item->pivot->tgl_keluar}}</td>
+                  <td>{{$item->pivot->no_tempattidur}}</td>
+                  <td>{{$item->nama_kamar}}</td>
+                  <td>{{$item->gedung->nama_gedung}}</td>
+                  <td>{{$item->ruang->nama_ruang}}</td>
+                </tr>
+                @endforeach 
             </tbody>
 
           </table>

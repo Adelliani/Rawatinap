@@ -103,25 +103,25 @@
                 <div class="card-body">
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">No.Identitas<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->no_identitas}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Nama Pasien<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->nama_pasien}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Tempat Lahir<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->tempat_lahir}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Tanggal Lahir<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->pasien->tgl_lahir}}</p>
                     </div>
                   </div>
@@ -140,7 +140,7 @@
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Jenis Kelamin<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <div class="radio">
                         <p class="form-control">{{$rawat_inap->jenis_kelamin=="laki-laki"?"Laki-laki":"Perempuan"}}</p>
                       </div>
@@ -270,25 +270,25 @@
                 <div class="card-body">
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Gedung<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->kamars[0]->ruang->gedung->nama_gedung}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Ruang<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->kamars[0]->ruang->nama_ruang}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">kamar<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->kamars[0]->nama_kamar}}</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-4 col-form-label">No. Tempat Tidur<sup class="bintang">*</sup>:</label>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" required>
                       <p class="form-control">{{$rawat_inap->kamars[0]->pivot->no_tempattidur}}</p>
                     </div>
                   </div>
@@ -327,7 +327,7 @@
               <tr>
                 <td>{{$loop->index+1}}</td>
                 <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('d-F-Y')}}</td>
-                <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('H:i a')}}</td>
+                <td>{{\Carbon\Carbon::parse($item->pivot->jam_order)->format('H:i a')}}</td>
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
                 <td>{{$item->pivot->jumlah_order}}</td>
