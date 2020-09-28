@@ -86,8 +86,16 @@
 <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 <script>
-    $('[data-input-jam]').datetimepicker({
+    $('#jam_masuk').datetimepicker({
       locale:"id",
+      format:"HH:mm",
+      defaultDate:moment("{{$shift->jam_masuk}}"),
+      ignoreReadonly:true,
+    })
+
+    $('#jam_keluar').datetimepicker({
+      locale:"id",
+      defaultDate:moment("{{$shift->jam_keluar}}"),
       format:"HH:mm",
       ignoreReadonly:true,
     })
