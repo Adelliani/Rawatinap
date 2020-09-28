@@ -88,7 +88,7 @@
 <script>
     $('[data-input-jam]').datetimepicker({
       locale:"id",
-      format:"LT",
+      format:"HH:mm",
       ignoreReadonly:true,
     })
 
