@@ -45,7 +45,7 @@
                                 <div class="input-group-append" data-target="#jam-masuk"
                                   data-toggle="datetimepicker">
                                       <div class="input-group-text">
-                                          <i class="fa fa-calendar"></i>
+                                          <i class="fa fa-clock"></i>
                                       </div>
                                 </div>
                         </div>
@@ -60,7 +60,7 @@
                                 <div class="input-group-append" data-target="#jam-keluar"
                                   data-toggle="datetimepicker">
                                       <div class="input-group-text">
-                                          <i class="fa fa-calendar"></i>
+                                          <i class="fa fa-clock"></i>
                                       </div>
                                 </div>
                         </div>
