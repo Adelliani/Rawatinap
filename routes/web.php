@@ -49,7 +49,7 @@ Route::group(['middleware' => ['dokter']], function () {
 
 Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function () {
     Route::get("", "SuperadminHomeController")->name("superadmin.index");
-    Route::resource("", 'PoliController')->only(["create", "store", "edit", "destroy", "update"])->names("poli")->parameter("", "poli");
+    Route::resource("", 'PoliController')->only(["create","show", "store", "edit", "destroy", "update"])->names("poli")->parameter("", "poli");
 });
 
 
