@@ -79,7 +79,6 @@ class PoliController extends Controller
      */
     public function edit(Request $request, Poli $poli)
     {
-        return view("superadmin.edit", ["poli" => $poli]);
     }
 
     /**
@@ -91,12 +90,7 @@ class PoliController extends Controller
      */
     public function update(Request $request, Poli $poli)
     {
-        $poli->nama_poli = $request->input("nama_poli");
-        $poli->alamat = $request->input("alamat");
-        $poli->akreditasi = $request->input("akreditasi");
-
-        $poli->save();
-        return redirect()->route("superadmin.index");
+        
     }
 
     /**

@@ -45,12 +45,13 @@
                               <td>{{$item->alamat}}</td>
                               <td>{{$item->akreditasi}}</td>
                               <td>
-                                  <a href="{{route("poli.edit",["poli"=>$item->id_poli])}}" class="btn btn-primary btn-xs">Edit</a>
+                                  <a href="" class="btn btn-primary btn-xs">Detail</a>
                                   <form action="{{route("poli.destroy",["poli"=>$item->id_poli])}}" method="post">
                                     @csrf
                                     @method("DELETE")
                                     <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
                                   </form>
+                                  
                               </td>
                           </tr>
                           @endforeach
