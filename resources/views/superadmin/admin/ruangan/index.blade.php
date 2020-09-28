@@ -22,20 +22,20 @@
     <div class="card-body">
       <div class="row">
         <div class="col-4">
-          <a href="{{route('gedung.index')}}" class="btn btn-app btn-block m-0"
+          <a href="{{route('superadmin.ruangan.gedung',["poli"=>$poli->id_poli])}}" class="btn btn-app btn-block m-0"
             style="height: 100px;font-size:14px">
             <i class="fa fa-building" style="font-size: 40px"></i>
             Data Gedung
           </a>
         </div>
         <div class="col-4">
-          <a href="{{route('ruang.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('superadmin.ruangan.ruang',["poli"=>$poli->id_poli])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class="fa fa-door-open" style="font-size: 40px"></i>
             Data Ruang
           </a>
         </div>
         <div class="col-4">
-          <a href="{{route('kamar.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('superadmin.ruangan.kamar',["poli"=>$poli->id_poli])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-bed" style="font-size: 40px"></i>
             Data Kamar
           </a>

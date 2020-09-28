@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Kamar;
 use Illuminate\Http\Request;
 use App\Poli;
+use App\Ruang;
 use App\User;
 use Hash;
+use Illuminate\Database\Eloquent\Builder;
 
 class PoliController extends Controller
 {
@@ -140,10 +142,25 @@ class PoliController extends Controller
     }
     public function ruangan(Request $request, Poli $poli)
     {
-        return view("superadmin.admin.ruangan.index", ["ruangan" => $poli->ruangan]);
+        return view("superadmin.admin.ruangan.index", ["poli" => $poli, "kamars" => Kamar::wherePoli($poli->id_poli)->get()]);
     }
     public function shift(Request $request, Poli $poli)
     {
         return view("superadmin.admin.shift.index", ["shifts" => $poli->shift]);
+    }
+    public function kamar(Request $request, Poli $poli)
+    {
+        return view("superadmin.admin.ruangan.kamar.index", ["kamars" => Kamar::wherePoli($poli->id_poli)->get()]);
+    }
+    public function ruang(Request $request, Poli $poli)
+    {
+        $ruangs = Ruang::whereHas("gedung", function (Builder $query) use ($poli) {
+            $query->where("id_poli", $poli->id_poli);
+        })->orderBy("nama_ruang")->get();
+        return view("superadmin.admin.ruangan.ruang.index", ["ruangs" => $ruangs]);
+    }
+    public function gedung(Request $request, Poli $poli)
+    {
+        return view("superadmin.admin.ruangan.gedung.index", ["gedungs" => $poli->gedung]);
     }
 }

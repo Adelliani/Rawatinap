@@ -55,6 +55,9 @@ Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function 
     Route::get('{poli}/pegawai', "PoliController@pegawai")->name("superadmin.pegawai");
     Route::get('{poli}/perawat', "PoliController@perawat")->name("superadmin.perawat");
     Route::get('{poli}/ruangan', "PoliController@ruangan")->name("superadmin.ruangan");
+    Route::get('{poli}/gedung', "PoliController@gedung")->name("superadmin.ruangan.gedung");
+    Route::get('{poli}/ruang', "PoliController@ruang")->name("superadmin.ruangan.ruang");
+    Route::get('{poli}/kamar', "PoliController@kamar")->name("superadmin.ruangan.kamar");
     Route::get('{poli}/shift', "PoliController@shift")->name("superadmin.shift");
 });
 
