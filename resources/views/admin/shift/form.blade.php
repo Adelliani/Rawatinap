@@ -1,5 +1,11 @@
 @extends("layouts.no_sidebar")
 
+@section("extra_head")
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet"
+  href="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css")}}">
+@endsection
+
 @section("main_content")
 <div class="container-fluid col-5 my-1">
   <section class="content-header">
@@ -32,15 +38,33 @@
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jam Masuk:</label>
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" name="jam_masuk">
-                  </div>
+                    <div class="col-sm-12">
+                        <div class="input-group" id="jam-masuk" data-input-jam
+                            data-target-input="nearest">
+                            <input type="text" class="form-control" value="" name="jam_masuk" >
+                                <div class="input-group-append" data-target="#jam-masuk"
+                                  data-toggle="datetimepicker">
+                                      <div class="input-group-text">
+                                          <i class="fa fa-calendar"></i>
+                                      </div>
+                                </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jam Keluar:</label>
-                  <div class="col-sm-12">
-                    <input type="number" class="form-control" name="jam_keluar">
-                  </div>
+                    <div class="col-sm-12">
+                        <div class="input-group" id="jam-keluar" data-input-jam
+                            data-target-input="nearest">
+                            <input type="text" class="form-control" value="" name="jam_keluar" >
+                                <div class="input-group-append" data-target="#jam-keluar"
+                                  data-toggle="datetimepicker">
+                                      <div class="input-group-text">
+                                          <i class="fa fa-calendar"></i>
+                                      </div>
+                                </div>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -56,5 +80,18 @@
   </div>
 
 </div>
+@endsection
+
+@section('extra-script')
+<script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
+<script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
+<script>
+    $('[data-input-jam]').datetimepicker({
+      locale:"id",
+      format:"LT",
+      ignoreReadonly:true,
+    })
+
+</script>
 @endsection
 
