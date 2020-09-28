@@ -20,7 +20,7 @@ class DokterOnly
             if (Auth::user()->jenis_user == "3") {
                 return $next($request);
             };
-            return abort(403);
         }
+        return abort(403);
     }
 }

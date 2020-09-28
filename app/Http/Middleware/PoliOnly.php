@@ -20,7 +20,8 @@ class PoliOnly
             if (Auth::user()->jenis_user == "2") {
                 return $next($request);
             };
-            return abort(403,"Hanya Admin Poli Yang berhak mengakses halaman ini");
+            
         }
+        return abort(403,"Hanya Admin Poli Yang berhak mengakses halaman ini");
     }
 }
