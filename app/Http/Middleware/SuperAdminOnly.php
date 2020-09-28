@@ -20,7 +20,8 @@ class SuperAdminOnly
             if (Auth::user()->jenis_user == "1") {
                 return $next($request);
             };
+            return abort(403, "Hanya Super Amdin yang berhak mengakses halaman ini");
         }
-        return abort(403,"Hanya Super Amdin yang berhak mengakses halaman ini");
+        return redirect()->route("login");
     }
 }

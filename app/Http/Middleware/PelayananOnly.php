@@ -20,7 +20,8 @@ class PelayananOnly
             if (Auth::user()->jenis_user == "4") {
                 return $next($request);
             };
+            return abort(403);
         }
-        return abort(403);
+        return redirect()->route("login");
     }
 }
