@@ -14,5 +14,10 @@ class Dokter extends Model
     {
         return $this->hasMany('App\RawatInap','id_dokter','id_dokter');
     }
+
+    public function akun()
+    {
+        return $this->belongsTo("App\User", "id_user", "id_user");
+    }
 }
 

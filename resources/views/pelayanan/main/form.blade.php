@@ -615,7 +615,7 @@
         data:function(params){
           return{
             term:params.term,
-            poli:1
+            poli:{{$id_poli}}
           }
         },
         processResults:function(result){
@@ -759,16 +759,7 @@
         $('[data-bpjs-pasien-only]').prop("disabled",true)
       }
     })
-
-    $("#prosedurmasuk").on("change",function (e) {
-      if (e.target.value == "langsung"){
-
-      }else{
-
-      }
-    })
-
-  
+ 
 
     $('#prosedurmasuk').on("change",function(e){
       switch (e.target.value) {

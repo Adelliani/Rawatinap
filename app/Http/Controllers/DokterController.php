@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Dokter;
 use App\User;
+use Auth;
 use Hash;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class DokterController extends Controller
      */
     public function index()
     {
-        $dokters = Dokter::where("id_poli", 1)->orderBy("nama_dokter")->get();
+        $id_poli = Auth::user()->poli->id_poli;
+
+        $dokters = Dokter::where("id_poli", $id_poli)->orderBy("nama_dokter")->get();
         return view("admin.dokter.index", ["dokters" => $dokters]);
     }
 
@@ -38,17 +41,19 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
+        $id_poli = Auth::user()->poli->id_poli;
+
         $data_dokter = $request->only(["nama_dokter", "jenis_kelamin", "jenis_dokter", "spesialisasi", "notelp", "alamat"]);
-        $data_dokter["id_poli"] = 1;
+        $data_dokter["id_poli"] = $id_poli;
         $dokter = Dokter::create($data_dokter);
 
-        $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_poli")))));
+        $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_dokter")))));
         $password = Hash::make("0123456789");
 
         $data_user = [
             "username" => $username,
             "password" => $password,
-            "jenis_user" => 2
+            "jenis_user" => 3
         ];
         $akun = User::create($data_user);
 
@@ -106,7 +111,9 @@ class DokterController extends Controller
      */
     public function destroy(Dokter $dokter)
     {
-        $dokter->delete();
+        if ($dokter->akun) {
+            $dokter->akun()->delete();
+        }
         return redirect()->route("dokter.index");
     }
 }

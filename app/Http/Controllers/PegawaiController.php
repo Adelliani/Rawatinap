@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pegawai;
 use App\User;
+use Auth;
 use Hash;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,10 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $pegawais = Pegawai::where("id_poli", 1)->orderBy("nama_pegawai")->get();
+
+        $id_poli = Auth::user()->poli->id_poli;
+
+        $pegawais = Pegawai::where("id_poli", $id_poli)->orderBy("nama_pegawai")->get();
         return view("admin.pegawai.index", ["pegawais" => $pegawais]);
     }
 
@@ -38,6 +42,7 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
+        $id_poli = Auth::user()->poli->id_poli;
         $data_pegawai = $request->only([
             "nama_pegawai",
             "jenis_kelamin",
@@ -47,7 +52,7 @@ class PegawaiController extends Controller
 
             "id_shift",
         ]);
-        $data_pegawai["id_poli"] = 1;
+        $data_pegawai["id_poli"] = $id_poli;
 
         $pegawai = Pegawai::create($data_pegawai);
 
@@ -103,7 +108,7 @@ class PegawaiController extends Controller
         $pegawai->notelp = $request->input("notelp");
         $pegawai->alamat = $request->input("alamat");
         $pegawai->id_shift = $request->input("id_shift");
-        
+
         $pegawai->save();
         return redirect()->route("pegawai.index");
     }

@@ -20,7 +20,7 @@ Route::group(['prefix' => 'pelayanan'], function () {
     Route::resource('.pindahkamar', 'PindahKamarController')->only(["create", "store"])->names("pindahkamar")->parameters(["" => "rawat_inap"]);
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => "poli"], function () {
     Route::get("", "AdminHomeController")->name("admin.index");
     Route::group(['prefix' => 'ruangan'], function () {
         Route::get("", "RuanganHomeController")->name("ruangan.index");
@@ -36,26 +36,33 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get("laporan", "AdminLaporanController")->name("admin.laporan");
 });
 
-Route::resource('dokter', 'DokterPasienController')->names("pasien")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.fasilitas', 'DokterFasilitasController')->only(["create", "store"])->names("pasienfasilitas")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.obat', 'DokterResepObatController')->only(["create", "store"])->names("resepobat")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.pemeriksaan', 'DokterPemeriksaanController')->only(["create", "store"])->names("pemeriksaan")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create", "store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.obat.returobat', 'DokterReturObatController')->only(["create", "store"])->names("returobat")->parameters(["dokter" => "rawatInap"]);
-Route::resource('dokter.obat.efekobat', 'DokterEfekObatController')->only(["create", "store"])->names("efekobat")->parameters(["dokter" => "rawatInap"]);
+Route::group(['middleware' => ['dokter']], function () {
+    Route::resource('dokter', 'DokterPasienController')->names("pasien")->parameters(["dokter" => "rawatInap"]);
+    Route::resource('dokter.fasilitas', 'DokterFasilitasController')->only(["create", "store"])->names("pasienfasilitas")->parameters(["dokter" => "rawatInap"]);
+    Route::resource('dokter.obat', 'DokterResepObatController')->only(["create", "store"])->names("resepobat")->parameters(["dokter" => "rawatInap"]);
+    Route::resource('dokter.pemeriksaan', 'DokterPemeriksaanController')->only(["create", "store"])->names("pemeriksaan")->parameters(["dokter" => "rawatInap"]);
+    Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create", "store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);
+    Route::resource('dokter.obat.returobat', 'DokterReturObatController')->only(["create", "store"])->names("returobat")->parameters(["dokter" => "rawatInap"]);
+    Route::resource('dokter.obat.efekobat', 'DokterEfekObatController')->only(["create", "store"])->names("efekobat")->parameters(["dokter" => "rawatInap"]);
+});
 
-Route::group(['prefix' => 'superadmin'], function () {
+
+Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function () {
     Route::get("", "SuperadminHomeController")->name("superadmin.index");
-    Route::resource("", 'PoliController')->only(["create", "store","edit","destroy","update"])->names("poli")->parameter("","poli");
+    Route::resource("", 'PoliController')->only(["create", "store", "edit", "destroy", "update"])->names("poli")->parameter("", "poli");
 });
 
 
 Route::group(['middleware' => ['guest']], function () {
-    Route::get('login', "AuthController@login_page");
+    Route::get('login', "AuthController@login_page")->name("login");
     Route::post('login', "AuthController@login_proses");
 });
 
-Route::get("test",function(){
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('logout', "AuthController@logout_proses");
+});
+
+Route::get("test", function () {
     dd(Auth::user());
 });
 
@@ -81,4 +88,3 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
 
     Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");
 });
-

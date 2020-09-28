@@ -19,7 +19,7 @@ class CreatePolisTable extends Migration
             $table->string('alamat',300);
             $table->string('akreditasi',10);
             $table->bigInteger('id_user')->unsigned()->nullable();
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete("cascade");
         });
     }
 

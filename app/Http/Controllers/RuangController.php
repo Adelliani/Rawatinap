@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ruang;
+use Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class RuangController extends Controller
      */
     public function index()
     {
-        $ruangs = Ruang::whereHas("gedung", function (Builder $query) {
-            $query->where("id_poli", 1);
+        $id_poli = Auth::user()->poli->id_poli;
+        $ruangs = Ruang::whereHas("gedung", function (Builder $query) use ($id_poli) {
+            $query->where("id_poli", $id_poli);
         })->orderBy("nama_ruang")->get();
 
         return view("admin.ruangan.ruang.index", ["ruangs" => $ruangs]);
@@ -29,7 +31,9 @@ class RuangController extends Controller
      */
     public function create()
     {
-        return view("admin.ruangan.ruang.form");
+        $id_poli = Auth::user()->poli->id_poli;
+
+        return view("admin.ruangan.ruang.form", ["id_poli" => $id_poli]);
     }
 
     /**
@@ -40,7 +44,7 @@ class RuangController extends Controller
      */
     public function store(Request $request)
     {
-        $data_ruang = $request->only(["nama_ruang","id_gedung"]);
+        $data_ruang = $request->only(["nama_ruang", "id_gedung"]);
         Ruang::create($data_ruang);
         return redirect()->route("ruang.index");
     }
@@ -78,7 +82,7 @@ class RuangController extends Controller
     {
         $ruang->nama_ruang = $request->input("nama_ruang");
         $ruang->id_gedung = $request->input("id_gedung");
-        
+
         $ruang->save();
         return redirect()->route("ruang.index");
     }

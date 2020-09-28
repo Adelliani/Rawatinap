@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fasilitas;
+use Auth;
 use Illuminate\Http\Request;
 
 class FasilitasController extends Controller
@@ -14,7 +15,9 @@ class FasilitasController extends Controller
      */
     public function index()
     {
-        $fasilitas = Fasilitas::where("id_poli", 1)->orderBy("nama_fasilitas")->get();
+        $id_poli = Auth::user()->poli->id_poli;
+
+        $fasilitas = Fasilitas::where("id_poli", $id_poli)->orderBy("nama_fasilitas")->get();
         return view("admin.fasilitas.index", ["fasilitas" => $fasilitas]);
     }
 
@@ -36,12 +39,15 @@ class FasilitasController extends Controller
      */
     public function store(Request $request)
     {
+        $id_poli = Auth::user()->poli->id_poli;
+
+
         $data_fasilitas = $request->only([
             "nama_fasilitas",
             "jenis_fasilitas",
             "harga_fasilitas"
         ]);
-        $data_fasilitas["id_poli"] = 1;
+        $data_fasilitas["id_poli"] = $id_poli;
 
         Fasilitas::create($data_fasilitas);
         return redirect()->route("fasilitas.index");

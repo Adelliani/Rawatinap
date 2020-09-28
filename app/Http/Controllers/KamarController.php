@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Kamar;
+use Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,11 @@ class KamarController extends Controller
      */
     public function index()
     {
-        $kamar = Kamar::whereHas("ruang", function (Builder $query) {
-            $query->whereHas("gedung", function (Builder $queryRuang) {
-                $queryRuang->where("id_poli", 1);
+        $id_poli = Auth::user()->poli->id_poli;
+
+        $kamar = Kamar::whereHas("ruang", function (Builder $query) use ($id_poli) {
+            $query->whereHas("gedung", function (Builder $queryRuang) use ($id_poli) {
+                $queryRuang->where("id_poli", $id_poli);
             });
         })->orderBy("nama_kamar")->get();
         return view("admin.ruangan.kamar.index", ["kamars" => $kamar]);
@@ -30,7 +33,9 @@ class KamarController extends Controller
      */
     public function create()
     {
-        return view("admin.ruangan.kamar.form");
+        $id_poli = Auth::user()->poli->id_poli;
+
+        return view("admin.ruangan.kamar.form", ["id_poli" => $id_poli]);
     }
 
     /**
@@ -83,7 +88,7 @@ class KamarController extends Controller
         $kamar->fasilitas = $request->input("fasilitas");
         $kamar->harga_kamar = $request->input("harga_kamar");
         $kamar->jumlah_kasur = $request->input("jumlah_kasur");
-        
+
         $kamar->save();
         return redirect()->route("kamar.index");
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gedung;
+use Auth;
 use Illuminate\Http\Request;
 
 class GedungController extends Controller
@@ -14,7 +15,9 @@ class GedungController extends Controller
      */
     public function index()
     {
-        $gedungs = Gedung::where("id_poli", 1)->orderBy("nama_gedung")->get();
+        $id_poli = Auth::user()->poli->id_poli;
+
+        $gedungs = Gedung::where("id_poli", $id_poli)->orderBy("nama_gedung")->get();
         return view("admin.ruangan.gedung.index", ["gedungs" => $gedungs]);
     }
 
@@ -36,8 +39,9 @@ class GedungController extends Controller
      */
     public function store(Request $request)
     {
+        $id_poli = Auth::user()->poli->id_poli;
         $data_gedung = $request->only(["nama_gedung"]);
-        $data_gedung["id_poli"] = 1;
+        $data_gedung["id_poli"] = $id_poli;
 
         Gedung::create($data_gedung);
 

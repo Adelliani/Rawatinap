@@ -6,6 +6,7 @@ use App\Diagnosa;
 use App\Kamar;
 use App\Pasien;
 use App\RawatInap;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class RawatInapController extends Controller
      */
     public function create()
     {
-        return view('pelayanan.main.form');
+        $id_poli = Auth::user()->pegawai->id_poli;
+        return view('pelayanan.main.form', ["id_poli" => ""]);
     }
 
     /**
@@ -38,12 +40,15 @@ class RawatInapController extends Controller
      */
     public function store(Request $request)
     {
+        $id_poli = Auth::user()->pegawai->id_poli;
+
         $waktu_sekarang = Carbon::now();
 
         $data_pasien = $request->only(['no_identitas', 'nama_pasien', 'jenis_kelamin', 'tempat_lahir', 'tgl_lahir', 'status_perkawinan', 'gol_darah', 'agama', 'pendidikan', 'pekerjaan', 'alergi', 'alamat', 'no_hp', 'no_kk', 'nama_keluarga', 'hubungan', 'id_desa']);
 
 
         $data_rawatinap = $request->only(['tgl_masuk', 'jenis_pasien', 'no_bpjs', 'nama_pesertabpjs', 'prosedur_masuk', 'cara_masuk', 'perujuk', 'asal_rujukan', 'alasan_dirujuk', 'id_dokter', 'dokter_perujuk']);
+        $data_rawatinap["id_poli"] = $id_poli;
 
         $data_diagnosa = $request->only(['tinggi', 'berat', 'suhubadan', 'hasil_diagnosa']);
         $data_diagnosa["waktu_diagnosa"] = $waktu_sekarang;

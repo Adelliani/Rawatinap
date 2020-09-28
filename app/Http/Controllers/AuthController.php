@@ -23,5 +23,12 @@ class AuthController extends Controller
         if (Auth::attempt($request->only(["username", "password"]))) {
         }
         return back();
+
+    }
+
+    public function logout_proses(Request $request)
+    {
+        Auth::logout();
+        return redirect()->route("login");
     }
 }

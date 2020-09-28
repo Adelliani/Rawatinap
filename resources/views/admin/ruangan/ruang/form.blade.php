@@ -82,7 +82,7 @@ $(function () {
       data:function(params){
         return{
           term:params.term,
-          poli:1
+          poli:{{$id_poli}}
         }
       },
       processResults:function(result){

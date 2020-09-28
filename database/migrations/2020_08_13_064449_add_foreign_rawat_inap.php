@@ -18,6 +18,8 @@ class AddForeignRawatInap extends Migration
             $table->foreign('id_pasien')->references('id_pasien')->on('pasiens');
             $table->bigInteger('id_dokter')->unsigned();
             $table->foreign('id_dokter')->references('id_dokter')->on('dokters');
+            $table->bigInteger('id_poli')->unsigned();
+            $table->foreign('id_poli')->references('id_poli')->on('polis');
         });
 
     }

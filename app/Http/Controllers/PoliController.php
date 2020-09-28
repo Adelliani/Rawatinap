@@ -42,7 +42,7 @@ class PoliController extends Controller
             "alamat",
             "akreditasi",
         ]);
-        
+
         $poli = Poli::create($data_poli);
 
         $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_poli")))));
@@ -107,10 +107,8 @@ class PoliController extends Controller
      */
     public function destroy(Request $request, Poli $poli)
     {
-
-        $poli->delete();
-        if ($poli->akun()) {
-            $poli->akun()->first()->delete();
+        if ($poli->akun) {
+            $poli->akun->delete();
         }
 
         return redirect()->route("superadmin.index");

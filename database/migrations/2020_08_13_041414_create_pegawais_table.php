@@ -25,7 +25,7 @@ class CreatePegawaisTable extends Migration
             $table->bigInteger('id_shift')->unsigned();
             $table->foreign('id_shift')->references('id_shift')->on('shifts');
             $table->bigInteger('id_user')->unsigned();
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete("cascade");
         });
     }
 

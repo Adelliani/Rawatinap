@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Shift;
+use Auth;
 use Illuminate\Http\Request;
 
 class ShiftController extends Controller
@@ -14,8 +15,10 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        $shifts = Shift::where("id_poli",1)->get();
-        return view("admin.shift.index",["shifts"=>$shifts]);
+        $id_poli = Auth::user()->poli->id_poli;
+
+        $shifts = Shift::where("id_poli", $id_poli)->get();
+        return view("admin.shift.index", ["shifts" => $shifts]);
     }
 
     /**
@@ -36,8 +39,10 @@ class ShiftController extends Controller
      */
     public function store(Request $request)
     {
+        $id_poli = Auth::user()->poli->id_poli;
+
         $data_shift = $request->only(["nama_shift", "jam_masuk", "jam_keluar"]);
-        $data_shift["id_poli"] = 1;
+        $data_shift["id_poli"] = $id_poli;
         Shift::create($data_shift);
         return redirect()->route("shift.index");
     }
@@ -76,7 +81,7 @@ class ShiftController extends Controller
         $shift->nama_shift = $request->input("nama_shift");
         $shift->jam_masuk = $request->input("jam_masuk");
         $shift->jam_keluar = $request->input("jam_keluar");
-        
+
         $shift->save();
         return redirect()->route("shift.index");
     }

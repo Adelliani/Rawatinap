@@ -106,7 +106,7 @@
         data:function(params){
           return{
             term:params.term,
-            poli:1,
+            poli:{{$rawat_inap->id_poli}},
           }
         },
         processResults:function(result){
