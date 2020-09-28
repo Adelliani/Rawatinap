@@ -127,4 +127,5 @@ class PegawaiController extends Controller
         $pegawai->delete();
         return redirect()->route("pegawai.index");
     }
+
 }

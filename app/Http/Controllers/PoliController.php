@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Kamar;
 use Illuminate\Http\Request;
 use App\Poli;
 use App\User;
-use Composer\DependencyResolver\Pool;
 use Hash;
 
 class PoliController extends Controller
@@ -68,7 +68,22 @@ class PoliController extends Controller
      */
     public function show(Request $request, Poli $poli)
     {
-        //
+        $pegawais = $poli->pegawai;
+        $perawats = $poli->perawat;
+
+        $count_pasien = $poli->rawatInap()->whereNull("tgl_keluar")->count();
+
+        $count_ruangan = Kamar::wherePoli($poli->id_poli)->count();
+        $count_ruangan_tersedia = Kamar::wherePoli($poli->id_poli)->whereColumn("kasur_terisi", "<", "jumlah_kasur")->count();
+
+        return view('superadmin.admin.index', [
+            'poli' => $poli,
+            'pegawais' => $pegawais,
+            'perawats'  => $perawats,
+            'count_pasien' => $count_pasien,
+            "count_ruangan" => $count_ruangan,
+            "count_ruangan_tersedia" => $count_ruangan_tersedia
+        ]);
     }
 
     /**
@@ -90,7 +105,6 @@ class PoliController extends Controller
      */
     public function update(Request $request, Poli $poli)
     {
-        
     }
 
     /**
@@ -106,5 +120,30 @@ class PoliController extends Controller
         }
 
         return redirect()->route("superadmin.index");
+    }
+
+    public function dokter(Request $request, Poli $poli)
+    {
+        return view("superadmin.admin.dokter.index", ["dokters" => $poli->dokter]);
+    }
+    public function fasilitas(Request $request, Poli $poli)
+    {
+        return view("superadmin.admin.fasilitas.index", ["fasilitas" => $poli->fasilitas]);
+    }
+    public function pegawai(Request $request, Poli $poli)
+    {
+        return view("superadmin.admin.pegawai.index", ["pegawais" => $poli->pegawai]);
+    }
+    public function perawat(Request $request, Poli $poli)
+    {
+        return view("superadmin.admin.perawat.index", ["perawats" => $poli->perawat]);
+    }
+    public function ruangan(Request $request, Poli $poli)
+    {
+        return view("superadmin.admin.ruangan.index", ["ruangan" => $poli->ruangan]);
+    }
+    public function shift(Request $request, Poli $poli)
+    {
+        return view("superadmin.admin.shift.index", ["shifts" => $poli->shift]);
     }
 }

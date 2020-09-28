@@ -20,37 +20,37 @@
     <div class="card-body">
       <div class="row">
         <div class="col-2">
-          <a href="{{route('ruangan.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('superadmin.ruangan',['poli'=>$poli->id_poli])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-hospital" style="font-size: 40px"></i>
             Data Ruangan
           </a>
         </div>
         <div class="col-2">
-          <a href="{{route('dokter.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('superadmin.dokter',['poli'=>$poli->id_poli])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-user-md" style="font-size: 40px"></i>
             Data Dokter
           </a>
         </div>
         <div class="col-1">
-          <a href="{{route('perawat.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('superadmin.perawat',['poli'=>$poli->id_poli])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-user-nurse" style="font-size: 40px"></i>
             Data Perawat
           </a>
         </div>
         <div class="col-2">
-          <a href="{{route('pegawai.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('superadmin.pegawai',['poli'=>$poli->id_poli])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-user-tie" style="font-size: 40px"></i>
             Data Pegawai
           </a>
         </div>
         <div class="col-1">
-          <a href="{{route('shift.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('superadmin.shift',['poli'=>$poli->id_poli])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-clock" style="font-size: 40px"></i>
             Data Shift
           </a>
         </div>
         <div class="col-2">
-          <a href="{{route('fasilitas.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+          <a href="{{route('superadmin.fasilitas',['poli'=>$poli->id_poli])}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
             <i class=" fa fa-medkit" style="font-size: 40px"></i>
             Data Fasilitas
           </a>

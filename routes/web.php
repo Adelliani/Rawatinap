@@ -50,6 +50,12 @@ Route::group(['middleware' => ['dokter']], function () {
 Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function () {
     Route::get("", "SuperadminHomeController")->name("superadmin.index");
     Route::resource("", 'PoliController')->only(["create","show", "store", "edit", "destroy", "update"])->names("poli")->parameter("", "poli");
+    Route::get('{poli}/dokter', "PoliController@dokter")->name("superadmin.dokter");
+    Route::get('{poli}/fasilitas', "PoliController@fasilitas")->name("superadmin.fasilitas");
+    Route::get('{poli}/pegawai', "PoliController@pegawai")->name("superadmin.pegawai");
+    Route::get('{poli}/perawat', "PoliController@perawat")->name("superadmin.perawat");
+    Route::get('{poli}/ruangan', "PoliController@ruangan")->name("superadmin.ruangan");
+    Route::get('{poli}/shift', "PoliController@shift")->name("superadmin.shift");
 });
 
 
