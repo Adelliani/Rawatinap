@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'pelayanan'], function () {
+Route::group(['prefix' => 'pelayanan',"middleware"=>"pelayanan"], function () {
     Route::get("", "PelayananHomeController")->name("pelayanan.index");
     Route::resource('', 'RawatInapController')->only(["create", "store"])->names("rawat_inap");
     Route::resource('/riwayat', 'RiwayatController')->only(["index", "show"])->parameters([

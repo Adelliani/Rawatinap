@@ -105,7 +105,7 @@
         delay: 250,
         data: function (params) {
           return {
-            poli: 1,
+            poli: {{$id_poli}},
           };
         },
         processResults: function (result) {

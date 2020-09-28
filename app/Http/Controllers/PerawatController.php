@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Perawat;
+use Auth;
 use Illuminate\Http\Request;
 
 class PerawatController extends Controller
@@ -14,7 +15,8 @@ class PerawatController extends Controller
      */
     public function index()
     {
-        $perawats = Perawat::where("id_poli", 1)->orderBy("nama_perawat")->get();
+        $id_poli = Auth::user()->poli->id_poli;
+        $perawats = Perawat::where("id_poli", $id_poli)->orderBy("nama_perawat")->get();
         return view("admin.perawat.index", ["perawats" => $perawats]);
     }
 
@@ -25,7 +27,8 @@ class PerawatController extends Controller
      */
     public function create()
     {
-        return view("admin.perawat.form");
+        $id_poli = Auth::user()->poli->id_poli;
+        return view("admin.perawat.form", ["id_poli" => $id_poli]);
     }
 
     /**
@@ -36,6 +39,7 @@ class PerawatController extends Controller
      */
     public function store(Request $request)
     {
+        $id_poli = Auth::user()->poli->id_poli;
 
         $data_perawat = $request->only([
             "nama_perawat",
@@ -46,7 +50,7 @@ class PerawatController extends Controller
             "id_shift",
         ]);
 
-        $data_perawat["id_poli"] = 1;
+        $data_perawat["id_poli"] = $id_poli;
 
         Perawat::create($data_perawat);
         return redirect()->route("perawat.index");
@@ -71,7 +75,8 @@ class PerawatController extends Controller
      */
     public function edit(Perawat $perawat)
     {
-        return view("admin.perawat.edit", ["perawat" => $perawat]);
+        $id_poli = Auth::user()->poli->id_poli;
+        return view("admin.perawat.edit", ["perawat" => $perawat, "id_poli" => $id_poli]);
     }
 
     /**
@@ -88,7 +93,7 @@ class PerawatController extends Controller
         $perawat->notelp = $request->input("notelp");
         $perawat->alamat = $request->input("alamat");
         $perawat->id_shift = $request->input("id_shift");
-        
+
         $perawat->save();
         return redirect()->route("perawat.index");
     }

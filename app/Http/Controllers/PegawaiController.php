@@ -31,7 +31,8 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        return view("admin.pegawai.form");
+        $id_poli = Auth::user()->poli->id_poli;
+        return view("admin.pegawai.form", ["id_poli" => $id_poli]);
     }
 
     /**
@@ -90,7 +91,9 @@ class PegawaiController extends Controller
      */
     public function edit(Pegawai $pegawai)
     {
-        return view("admin.pegawai.edit", ["pegawai" => $pegawai]);
+        $id_poli = Auth::user()->poli->id_poli;
+
+        return view("admin.pegawai.edit", ["pegawai" => $pegawai, "id_poli" => $id_poli]);
     }
 
     /**
