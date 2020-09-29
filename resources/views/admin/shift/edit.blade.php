@@ -41,7 +41,7 @@
                     <div class="col-sm-12">
                         <div class="input-group" id="jam-masuk" data-input-jam
                             data-target-input="nearest">
-                            <input type="text" class="form-control" value="" name="jam_masuk" value="{{$shift->jam_masuk}}">
+                            <input type="text" class="form-control" value="" name="jam_masuk">
                                 <div class="input-group-append" data-target="#jam-masuk"
                                   data-toggle="datetimepicker">
                                       <div class="input-group-text">
@@ -89,13 +89,13 @@
     $('#jam_masuk').datetimepicker({
       locale:"id",
       format:"HH:mm",
-      defaultDate:moment("{{$shift->jam_keluar}}"),
+      defaultDate:moment("{{$shift->jam_masuk}}", "HH:mm"),
       ignoreReadonly:true,
     })
 
     $('#jam_keluar').datetimepicker({
       locale:"id",
-      defaultDate:moment("{{$shift->jam_keluar}}"),
+      defaultDate:moment("{{$shift->jam_keluar}}", "HH:mm"),
       format:"HH:mm",
       ignoreReadonly:true,
     })

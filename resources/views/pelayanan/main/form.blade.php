@@ -615,7 +615,7 @@
         data:function(params){
           return{
             term:params.term,
-            poli:{{$id_poli}}
+            poli:"{{$id_poli}}"
           }
         },
         processResults:function(result){
@@ -699,7 +699,7 @@
         data:function(params){
           return{
             term:params.term,
-            poli:1,
+            poli:"{{$id_poli}}"
           }
         },
         processResults:function(result){
@@ -727,7 +727,7 @@
         data:function(params){
           return{
             term:params.term,
-            poli:1,
+            poli:"{{$id_poli}}"
           }
         },
         processResults:function(result){

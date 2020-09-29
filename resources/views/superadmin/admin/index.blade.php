@@ -13,6 +13,8 @@
       <h1>
         Halaman Utama
       </h1>
+      <a href="{{route('superadmin.index')}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left">
+        Kembali</i></a>
     </div>
   </section>
 

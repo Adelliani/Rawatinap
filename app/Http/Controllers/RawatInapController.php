@@ -29,7 +29,7 @@ class RawatInapController extends Controller
     public function create()
     {
         $id_poli = Auth::user()->pegawai->id_poli;
-        return view('pelayanan.main.form', ["id_poli" => ""]);
+        return view('pelayanan.main.form', ["id_poli" => $id_poli]);
     }
 
     /**
