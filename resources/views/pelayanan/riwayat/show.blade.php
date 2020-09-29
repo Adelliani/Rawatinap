@@ -43,7 +43,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="pemakaiankamar-tab" data-toggle="pill" href="#detail-riwayat-pemakaiankamar" role="tab"
-            aria-controls="detail-riwayat-pemakaiankamar" aria-selected="false">Pemakaian</a>
+            aria-controls="detail-riwayat-pemakaiankamar" aria-selected="false">Pemakaian Kamar</a>
         </li>
       </ul>
     </div>

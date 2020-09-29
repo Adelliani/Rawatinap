@@ -25,7 +25,7 @@ class CreateRawatInapsTable extends Migration
             $table->string('dokter_perujuk',100)->nullable();
             $table->string('asal_rujukan',100)->nullable();
             $table->enum('alasan_dirujuk',['kepentinganmedis','fasilitaskurang','permintaansendiri','tempattidurpenuh'])->nullable();
-            
+            $table->boolean('siap_pulang')->default(false);
             
         });
     }
