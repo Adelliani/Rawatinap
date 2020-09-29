@@ -53,7 +53,7 @@
                 <td>{{$item->fasilitas}}</td>
                 <td>
                   <a href="{{route("kamar.edit",["kamar"=>$item->id_kamar])}}" class="btn btn-primary">Edit</a>
-                  <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
+                  <button type="submit" class="btn btn-warning" form="delete_form">Hapus</button>
                 </td>
                 <form class="d-none" action="{{route("kamar.destroy",["kamar"=>$item->id_kamar])}}"
                   method="post" id="delete_form">

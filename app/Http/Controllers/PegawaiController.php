@@ -57,13 +57,13 @@ class PegawaiController extends Controller
 
 
 
-        $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_poli")))));
+        $username = lcfirst(join("", explode(" ", ucwords($request->input("nama_pegawai")))));
         $password = Hash::make("0123456789");
 
         $data_user = [
             "username" => $username,
             "password" => $password,
-            "jenis_user" => 2
+            "jenis_user" => 4
         ];
         $akun = User::create($data_user);
 
