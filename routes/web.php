@@ -18,6 +18,7 @@ Route::group(['prefix' => 'pelayanan',"middleware"=>"pelayanan"], function () {
         "riwayat" => "rawatInap"
     ]);
     Route::resource('.pindahkamar', 'PindahKamarController')->only(["create", "store"])->names("pindahkamar")->parameters(["" => "rawat_inap"]);
+    Route::post("{rawatInap}/pulang")->name("pasien_pulang");
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => "poli"], function () {

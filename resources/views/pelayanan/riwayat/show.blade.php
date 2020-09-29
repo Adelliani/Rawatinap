@@ -41,6 +41,10 @@
           <a class="nav-link" id="fasilitas-tab" data-toggle="pill" href="#detail-riwayat-fasilitas" role="tab"
             aria-controls="detail-riwayat-fasilitas" aria-selected="false">Fasilitas</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pemakaiankamar-tab" data-toggle="pill" href="#detail-riwayat-pemakaiankamar" role="tab"
+            aria-controls="detail-riwayat-pemakaiankamar" aria-selected="false">Pemakaian</a>
+        </li>
       </ul>
     </div>
     <div class="card-body">
@@ -300,6 +304,7 @@
                       <p class="form-control">{{$rawat_inap->alasan_dirujuk}}</p>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -431,8 +436,8 @@
                 <td>{{$item->pivot->tgl_keluar}}</td>
                 <td>{{$item->pivot->no_tempattidur}}</td>
                 <td>{{$item->nama_kamar}}</td>
-                <td>{{$item->kamar->ruang->gedung->nama_gedung}}</td>
-                <td>{{$item->kamar->ruang->nama_ruang}}</td>
+                <td>{{$item->ruang->gedung->nama_gedung}}</td>
+                <td>{{$item->ruang->nama_ruang}}</td>
               </tr>
               @endforeach
             </tbody>

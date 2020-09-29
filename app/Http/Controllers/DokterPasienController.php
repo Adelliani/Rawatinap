@@ -88,7 +88,7 @@ class DokterPasienController extends Controller
      */
     public function destroy(RawatInap $rawatInap)
     {
-        $rawatInap->tgl_keluar = Carbon::now();
+        $rawatInap->siap_pulang = true;
         $rawatInap->save();
         return redirect()->route("pasien.index");
     }
