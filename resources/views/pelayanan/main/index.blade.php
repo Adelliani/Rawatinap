@@ -92,9 +92,13 @@
                 <td>
                   <a href="{{route('pindahkamar.create',["rawat_inap"=>$item->id_rawatinap])}}"
                     class="btn btn-primary btn-xs">Pindah Kamar</a>
+                  <form action="{{route("pasien_pulang",["rawatInap"=>$item->id_rawatinap])}}" id="pasien_pulang"
+                    method="post">
+                    <button type="submit">Pasien Pulang</button>
+                  </form>
                 </td>
               </tr>
-                @endforeach
+              @endforeach
             </tbody>
           </table>
         </div>
