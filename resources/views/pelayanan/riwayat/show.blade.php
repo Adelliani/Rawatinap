@@ -317,14 +317,14 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($rawat_inap->pemeriksaan as $item)
-                <tr>
-                  <td>{{$loop->index+1}}</td>
-                  <td>{{$item->waktu_pemeriksaan}}</td>
-                  <td>{{$item->jenis_pemeriksaan}}</td>
-                  <td>{{$item->hasil_pemeriksaan}}</td>
-                </tr>
-                @endforeach
+              @foreach($rawat_inap->pemeriksaan as $item)
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->waktu_pemeriksaan}}</td>
+                <td>{{$item->jenis_pemeriksaan}}</td>
+                <td>{{$item->hasil_pemeriksaan}}</td>
+              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -342,16 +342,16 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($rawat_inap->diagnosa as $item)
-                <tr>
-                  <td>{{$loop->index+1}}</td>
-                  <td>{{$item->waktu_diagnosa}}</td>
-                  <td>{{$item->tinggi}}</td>
-                  <td>{{$item->berat}}</td>
-                  <td>{{$item->suhubadan}}</td>
-                  <td>{{$item->hasil_diagnosa}}</td>
-                </tr>
-                @endforeach
+              @foreach($rawat_inap->diagnosa as $item)
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->waktu_diagnosa}}</td>
+                <td>{{$item->tinggi}}</td>
+                <td>{{$item->berat}}</td>
+                <td>{{$item->suhubadan}}</td>
+                <td>{{$item->hasil_diagnosa}}</td>
+              </tr>
+              @endforeach
             </tbody>
 
           </table>
@@ -369,16 +369,16 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($rawat_inap->obat as $item)
-                <tr>
-                  <td>{{$loop->index+1}}</td>
-                  <td>{{$item->pivot->waktu_order}}</td>
-                  <td>{{$item->nama_obat}}</td>
-                  <td>{{$item->kategori}}</td>
-                  <td>{{$item->pivot->tujuan}}</td>
-                  <td>{{$item->pivot->jumlah_order}}</td>
-                </tr>
-                @endforeach 
+              @foreach($rawat_inap->obat as $item)
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->pivot->waktu_order}}</td>
+                <td>{{$item->nama_obat}}</td>
+                <td>{{$item->kategori}}</td>
+                <td>{{$item->pivot->tujuan}}</td>
+                <td>{{$item->pivot->jumlah_order}}</td>
+              </tr>
+              @endforeach
             </tbody>
 
           </table>
@@ -396,15 +396,15 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($rawat_inap->fasilitas as $item)
-                <tr>
-                  <td>{{$loop->index+1}}</td>
-                  <td>{{$item->waktu_pemakaian}}</td>
-                  <td>{{$item->nama_fasilitas}}</td>
-                  <td>{{$item->jenis_fasilitas}}</td>
-                  <td>{{$item->alasan}}</td>
-                </tr>
-                @endforeach 
+              @foreach($rawat_inap->fasilitas as $item)
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->waktu_pemakaian}}</td>
+                <td>{{$item->nama_fasilitas}}</td>
+                <td>{{$item->jenis_fasilitas}}</td>
+                <td>{{$item->alasan}}</td>
+              </tr>
+              @endforeach
             </tbody>
 
           </table>
@@ -424,17 +424,17 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($rawat_inap->kamars as $item)
-                <tr>
-                  <td>{{$loop->index+1}}</td>
-                  <td>{{$item->pivot->tgl_masuk}}</td>
-                  <td>{{$item->pivot->tgl_keluar}}</td>
-                  <td>{{$item->pivot->no_tempattidur}}</td>
-                  <td>{{$item->nama_kamar}}</td>
-                  <td>{{$item->gedung->nama_gedung}}</td>
-                  <td>{{$item->ruang->nama_ruang}}</td>
-                </tr>
-                @endforeach 
+              @foreach($rawat_inap->kamars as $item)
+              <tr>
+                <td>{{$loop->index+1}}</td>
+                <td>{{$item->pivot->tgl_masuk}}</td>
+                <td>{{$item->pivot->tgl_keluar}}</td>
+                <td>{{$item->pivot->no_tempattidur}}</td>
+                <td>{{$item->nama_kamar}}</td>
+                <td>{{$item->kamar->ruang->gedung->nama_gedung}}</td>
+                <td>{{$item->kamar->ruang->nama_ruang}}</td>
+              </tr>
+              @endforeach
             </tbody>
 
           </table>

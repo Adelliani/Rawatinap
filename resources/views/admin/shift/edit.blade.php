@@ -89,7 +89,7 @@
     $('#jam_masuk').datetimepicker({
       locale:"id",
       format:"HH:mm",
-      defaultDate:moment("{{$shift->jam_masuk}}"),
+      defaultDate:moment("{{$shift->jam_keluar}}"),
       ignoreReadonly:true,
     })
 

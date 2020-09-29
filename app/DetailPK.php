@@ -19,8 +19,11 @@ class DetailPK extends Pivot
             $data->kamar->kasur_terisi++;
             $data->kamar->save();
         });
-        static::updated(function($data){
-
+        static::updating(function ($data) {
+            if (($data->getOriginal("tgl_keluar") == null) && ($data->tgl_keluar != null)) {
+                $data->kamar->kasur_terisi--;
+                $data->kamar->save();
+            }
         });
     }
 
