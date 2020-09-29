@@ -52,7 +52,7 @@ class RiwayatController extends Controller
     {
         if ($rawatInap->tgl_keluar != null) {
 
-            // dd($rawatInap);
+            ($rawatInap->obat);
             return view('pelayanan.riwayat.show', ["rawat_inap" => $rawatInap]);
         } else {
             return abort(404);

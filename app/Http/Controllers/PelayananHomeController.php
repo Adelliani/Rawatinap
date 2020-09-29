@@ -18,6 +18,7 @@ class PelayananHomeController extends Controller
             $query->whereNull("tgl_keluar");
         }])->get();
         return view('pelayanan.main.index', [
+            'id_poli' => $id_poli,
             'kamars' => $kamars,
             'rawat_inaps' => $rawat_inaps
         ]);
