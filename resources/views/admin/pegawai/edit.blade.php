@@ -19,7 +19,8 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <form class="form-horizontal" id="form-tambah" action="{{route("pegawai.update",["pegawai"=>$pegawai])}}" method="post">
+        <form class="form-horizontal" id="form-tambah"
+          action="{{route("pegawai.update",["pegawai"=>$pegawai->id_pegawai])}}" method="post">
           @csrf
           @method("PUT")
           <div class="card-body">
@@ -28,7 +29,8 @@
                 <div class="form-group">
                   <label class="col-sm-5">ID Pegawai</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_pegawai" value="{{$pegawai->id_pegawai}}" readonly>
+                    <input type="number" class="form-control" name="id_pegawai" value="{{$pegawai->id_pegawai}}"
+                      readonly>
                   </div>
                 </div>
                 <div class="form-group">
@@ -40,18 +42,18 @@
                 <div class="form-group">
                   <label class="col-sm-5">Jenis Kelamin:</label>
                   <div class="col-sm-10">
-                      <div class="radio">
-                          <label class="col-sm-5">
-                              <input type="radio" name="jenis_kelamin" value="Laki-laki"
-                                  {{$pegawai->jenis_kelamin=="laki-laki"?"checked":""}}>
-                              Laki - Laki
-                          </label>
-                          <label class="col-sm-5">
-                              <input type="radio" name="jenis_kelamin" value="Perempuan"
-                                  {{$pegawai->jenis_kelamin=="perempuan"?"checked":""}}>
-                              Perempuan
-                          </label>
-                      </div>
+                    <div class="radio">
+                      <label class="col-sm-5">
+                        <input type="radio" name="jenis_kelamin" value="Laki-laki"
+                          {{$pegawai->jenis_kelamin=="laki-laki"?"checked":""}}>
+                        Laki - Laki
+                      </label>
+                      <label class="col-sm-5">
+                        <input type="radio" name="jenis_kelamin" value="Perempuan"
+                          {{$pegawai->jenis_kelamin=="perempuan"?"checked":""}}>
+                        Perempuan
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">

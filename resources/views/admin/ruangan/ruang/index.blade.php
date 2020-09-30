@@ -48,13 +48,12 @@
                 <td>{{$item->gedung->nama_gedung}}</td>
                 <td>
                   <a href="{{route("ruang.edit",["ruang"=>$item->id_ruang])}}" class="btn btn-primary">Edit</a>
-                  <button type="submit" class="btn btn-warning" form="delete_form">Hapus</button>
+                  <form class="d-none" action="{{route("ruang.destroy",["ruang"=>$item->id_ruang])}}" method="post">
+                    <button type="submit" class="btn btn-warning">Hapus</button>
+                    @csrf
+                    @method("DELETE")
+                  </form>
                 </td>
-                <form class="d-none" action="{{route("ruang.destroy",["ruang"=>$item->id_ruang])}}"
-                  method="post" id="delete_form">
-                  @csrf
-                  @method("DELETE")
-                </form>
               </tr>
               @endforeach
             </tbody>

@@ -17,7 +17,7 @@
     </section>
     <div class="content-wrapper">
         <div class="card">
-            <form class="form-horizontal" action="{{route("kamar.update",["kamar"=>$kamar])}}" method="post">
+            <form class="form-horizontal" action="{{route("kamar.update",["kamar"=>$kamar->id_kamar])}}" method="post">
                 @csrf
                 @method("PUT")
                 <div class="card-body">
@@ -26,13 +26,15 @@
                             <div class="form-group">
                                 <label class="col-sm-5">Id Kamar:</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="id_kamar" value="{{$kamar->id_kamar}}" readonly>
+                                    <input type="number" class="form-control" name="id_kamar"
+                                        value="{{$kamar->id_kamar}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Nama Kamar:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama_kamar" value="{{$kamar->nama_kamar}}">
+                                    <input type="text" class="form-control" name="nama_kamar"
+                                        value="{{$kamar->nama_kamar}}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -70,19 +72,22 @@
                             <div class="form-group">
                                 <label class="col-sm-5">Jumlah Kasur:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jumlah_kasur" value="{{$kamar->jumlah_kasur}}">
+                                    <input type="text" class="form-control" name="jumlah_kasur"
+                                        value="{{$kamar->jumlah_kasur}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Harga:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="harga_kamar" value="{{$kamar->harga_kamar}}">
+                                    <input type="text" class="form-control" name="harga_kamar"
+                                        value="{{$kamar->harga_kamar}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Fasilitas:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="fasilitas" value="{{$kamar->fasilitas}}">
+                                    <input type="text" class="form-control" name="fasilitas"
+                                        value="{{$kamar->fasilitas}}">
                                 </div>
                             </div>
                         </div>
@@ -108,7 +113,7 @@
 <script src="{{asset("admin_lte/plugins/select2/js/i18n/id.js")}}"></script>
 
 <script>
-$(function () {
+    $(function () {
 
     $("#select_gedung").select2({
     language:"id",

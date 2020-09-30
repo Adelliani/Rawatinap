@@ -17,7 +17,7 @@
     </section>
     <div class="content-wrapper">
         <div class="card">
-            <form class="form-horizontal" action="{{route("ruang.update",["ruang"=>$ruang])}}" method="post">
+            <form class="form-horizontal" action="{{route("ruang.update",["ruang"=>$ruang->id_ruang])}}" method="post">
                 @csrf
                 @method("PUT")
                 <div class="card-body">

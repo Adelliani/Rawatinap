@@ -22,7 +22,8 @@
         <div class="card-header">
           <a href="{{route("pegawai.create")}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-plus-circle">
               Tambah </i></a>
-          <a href="{{route("admin.index")}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left"> Kembali</i></a>
+          <a href="{{route("admin.index")}}" class="btn btn-primary btn-sm tambahBtn"><i
+              class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
         <div class="card-body">
           <table id="table-pegawai" class="table table-bordered table-hover">
@@ -51,14 +52,14 @@
                 <td>{{$item->alamat}}</td>
 
                 <td>
-                  <a href="{{route("pegawai.edit",["pegawai"=>$item->id_pegawai])}}" class="btn btn-primary btn-xs">Edit</a>
-                  <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
+                  <a href="{{route("pegawai.edit",["pegawai"=>$item->id_pegawai])}}"
+                    class="btn btn-primary btn-xs">Edit</a>
+                    <form class="d-none" action="{{route("pegawai.destroy",["pegawai"=>$item->id_pegawai])}}" method="post">
+                      @csrf
+                      <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                      @method("DELETE")
+                    </form>
                 </td>
-                <form class="d-none" action="{{route("pegawai.destroy",["pegawai"=>$item->id_pegawai])}}"
-                  method="post" id="delete_form">
-                  @csrf
-                  @method("DELETE")
-                </form>
               </tr>
               @endforeach
             </tbody>
