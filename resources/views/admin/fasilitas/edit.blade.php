@@ -17,6 +17,7 @@
         <form class="form-horizontal" id="form-tambah"
           action="{{route("fasilitas.update",["fasilita"=>$fasilitas->id_fasilitas])}}" method="post">
           @csrf
+          @method("PUT")
           <div class="card-body">
             <div class="row">
               <div class="col-md-12">

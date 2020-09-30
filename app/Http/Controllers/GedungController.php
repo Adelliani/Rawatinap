@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gedung;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 
 class GedungController extends Controller

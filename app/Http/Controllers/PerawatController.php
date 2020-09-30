@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Perawat;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 
 class PerawatController extends Controller

@@ -16,6 +16,7 @@
         <div class="card">
             <form class="form-horizontal" action="{{route("gedung.update",["gedung"=>$gedung->id_gedung])}}" method="post">
                 @csrf
+                @method("PUT")
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">

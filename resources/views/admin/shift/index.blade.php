@@ -43,6 +43,7 @@
                 <td>{{$item->nama_shift}}</td>
                 <td>{{$item->jam_masuk}}</td>
                 <td>{{$item->jam_keluar}}</td>
+                
                 <td>
                   <a href="{{route("shift.edit",["shift"=>$item->id_shift])}}" class="btn btn-primary btn-xs">Edit</a>
                   <form action="{{route("shift.destroy",["shift"=>$item->id_shift])}}" method="post">
