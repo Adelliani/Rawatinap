@@ -20,6 +20,7 @@ class CreateFasilitasTable extends Migration
             $table->integer('harga_fasilitas');
             $table->bigInteger('id_poli')->unsigned()->nullable();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
+            $table->softDeletes();
         });
     }
 

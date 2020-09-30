@@ -18,6 +18,7 @@ class CreateGedungsTable extends Migration
             $table->string('nama_gedung',100);
             $table->bigInteger('id_poli')->unsigned()->nullable();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
+            $table->softDeletes();
         });
     }
 
