@@ -20,8 +20,10 @@
     <div class="col-12">
       <div class="card card-outline card-green">
         <div class="card-header">
-        <a class="btn btn-primary btn-sm tambahBtn" href="{{route("fasilitas.create")}}"><i class="fa fa-plus-circle"> Tambah </i></a>
-          <a href="{{route("admin.index")}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left"> Kembali</i></a>
+          <a class="btn btn-primary btn-sm tambahBtn" href="{{route("fasilitas.create")}}"><i class="fa fa-plus-circle">
+              Tambah </i></a>
+          <a href="{{route("admin.index")}}" class="btn btn-primary btn-sm tambahBtn"><i
+              class="fa fa-arrow-circle-left"> Kembali</i></a>
         </div>
         <div class="card-body">
           <table id="table-fasilitas" class="table table-bordered table-hover">
@@ -43,13 +45,15 @@
                 <td>{{$item->jenis_fasilitas}}</td>
                 <td>{{$item->harga_fasilitas}}</td>
                 <td>
-                  <a href="{{route("fasilitas.edit",["fasilitas"=>$item->id_fasilitas])}}" class="btn btn-primary btn-xs" >Edit</a>
-                  <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
+                  <a href="{{route("fasilitas.edit",["fasilitas"=>$item->id_fasilitas])}}"
+                    class="btn btn-primary btn-xs">Edit</a>
+                    <form class="d-none" action="{{route("fasilitas.destroy",["fasilita"=>$item->id_fasilitas])}}"
+                      method="post">
+                      <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                      @csrf
+                      @method("DELETE")
+                    </form>
                 </td>
-                <form class="d-none" action="{{route("fasilitas.destroy",["fasilitas"=>$item->id_fasilitas])}}" method="post" id="delete_form">
-                  @csrf
-                  @method("DELETE")
-                </form>
               </tr>
               @endforeach
             </tbody>

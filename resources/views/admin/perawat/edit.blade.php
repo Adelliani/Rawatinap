@@ -19,7 +19,7 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <form class="form-horizontal" id="form-tambah" action="{{route("perawat.store")}}" method="post">
+        <form class="form-horizontal" id="form-tambah" action="{{route("perawat.update",["perawat"=>$perawat->id_perawat])}}" method="post">
           @csrf
           <div class="modal-body">
             <div class="row">

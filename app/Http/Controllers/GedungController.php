@@ -28,7 +28,11 @@ class GedungController extends Controller
      */
     public function create()
     {
-        return view("admin.ruangan.gedung.form");
+        if (Auth::user()->can("create", Gedung::class)) {
+            return view("admin.ruangan.gedung.form");
+        } else {
+            return back();
+        }
     }
 
     /**
@@ -39,13 +43,17 @@ class GedungController extends Controller
      */
     public function store(Request $request)
     {
-        $id_poli = Auth::user()->poli->id_poli;
-        $data_gedung = $request->only(["nama_gedung"]);
-        $data_gedung["id_poli"] = $id_poli;
+        if (Auth::user()->can("create", Gedung::class)) {
+            $id_poli = Auth::user()->poli->id_poli;
+            $data_gedung = $request->only(["nama_gedung"]);
+            $data_gedung["id_poli"] = $id_poli;
 
-        Gedung::create($data_gedung);
+            Gedung::create($data_gedung);
 
-        return redirect()->route("gedung.index");
+            return redirect()->route("gedung.index");
+        } {
+            return redirect()->route("gedung.index");
+        }
     }
 
     /**
@@ -79,10 +87,13 @@ class GedungController extends Controller
      */
     public function update(Request $request, Gedung $gedung)
     {
-        $gedung->nama_gedung = $request->input("nama_gedung");
-        
-        $gedung->save();
-        return redirect()->route("gedung.index");
+        if (Auth::user()->can("update", $gedung)) {
+            $gedung->nama_gedung = $request->input("nama_gedung");
+            $gedung->save();
+            return redirect()->route("gedung.index");
+        } else {
+            return redirect()->route("gedung.index");
+        }
     }
 
     /**
@@ -93,7 +104,12 @@ class GedungController extends Controller
      */
     public function destroy(Gedung $gedung)
     {
-        $gedung->delete();
-        return redirect()->route("gedung.index");
+        if (Auth::user()->can("delete", $gedung)) {
+
+            $gedung->delete();
+            return redirect()->route("gedung.index");
+        } else {
+            return redirect()->route("gedung.index");
+        }
     }
 }

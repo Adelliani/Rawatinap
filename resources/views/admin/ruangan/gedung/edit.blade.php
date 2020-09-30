@@ -14,7 +14,7 @@
     </section>
     <div class="content-wrapper">
         <div class="card">
-            <form class="form-horizontal" action="{{route("gedung.store")}}" method="post">
+            <form class="form-horizontal" action="{{route("gedung.update",["gedung"=>$gedung->id_gedung])}}" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">

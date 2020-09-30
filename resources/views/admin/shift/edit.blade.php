@@ -19,7 +19,8 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-      <form class="form-horizontal" id="form-tambah" action="{{route("shift.store")}}" method="post">
+        <form class="form-horizontal" id="form-tambah" action="{{route("shift.update",["shift"=>$shift->id_shift])}}"
+          method="post">
           @csrf
           <div class="card-body">
             <div class="row">
@@ -38,33 +39,29 @@
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jam Masuk:</label>
-                    <div class="col-sm-12">
-                        <div class="input-group" id="jam-masuk" data-input-jam
-                            data-target-input="nearest">
-                            <input type="text" class="form-control" value="" name="jam_masuk">
-                                <div class="input-group-append" data-target="#jam-masuk"
-                                  data-toggle="datetimepicker">
-                                      <div class="input-group-text">
-                                          <i class="fa fa-clock"></i>
-                                      </div>
-                                </div>
+                  <div class="col-sm-12">
+                    <div class="input-group" id="jam-masuk" data-input-jam data-target-input="nearest">
+                      <input type="text" class="form-control" value="" name="jam_masuk">
+                      <div class="input-group-append" data-target="#jam-masuk" data-toggle="datetimepicker">
+                        <div class="input-group-text">
+                          <i class="fa fa-clock"></i>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jam Keluar:</label>
-                    <div class="col-sm-12">
-                        <div class="input-group" id="jam-keluar" data-input-jam
-                            data-target-input="nearest">
-                            <input type="text" class="form-control" value="" name="jam_keluar" >
-                                <div class="input-group-append" data-target="#jam-keluar"
-                                  data-toggle="datetimepicker">
-                                      <div class="input-group-text">
-                                          <i class="fa fa-clock"></i>
-                                      </div>
-                                </div>
+                  <div class="col-sm-12">
+                    <div class="input-group" id="jam-keluar" data-input-jam data-target-input="nearest">
+                      <input type="text" class="form-control" value="" name="jam_keluar">
+                      <div class="input-group-append" data-target="#jam-keluar" data-toggle="datetimepicker">
+                        <div class="input-group-text">
+                          <i class="fa fa-clock"></i>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -86,7 +83,7 @@
 <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 <script>
-    $('#jam_masuk').datetimepicker({
+  $('#jam_masuk').datetimepicker({
       locale:"id",
       format:"HH:mm",
       defaultDate:moment("{{$shift->jam_masuk}}", "HH:mm"),

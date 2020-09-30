@@ -53,13 +53,13 @@
                 <td>
                   <a href="{{route("perawat.edit",["perawat"=>$item->id_perawat])}}"
                     class="btn btn-primary btn-xs">Edit</a>
-                  <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
+                  <form class="d-none" action="{{route("perawat.destroy",["perawat"=>$item->id_perawat])}}"
+                    method="post" id="delete_form">
+                    <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
+                    @csrf
+                    @method("DELETE")
+                  </form>
                 </td>
-                <form class="d-none" action="{{route("perawat.destroy",["perawat"=>$item->id_perawat])}}"
-                  method="post" id="delete_form">
-                  @csrf
-                  @method("DELETE")
-                </form>
               </tr>
               @endforeach
             </tbody>
