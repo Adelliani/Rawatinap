@@ -47,11 +47,10 @@
                 <td>
                   <a href="{{route("fasilitas.edit",["fasilita"=>$item->id_fasilitas])}}"
                     class="btn btn-primary btn-xs">Edit</a>
-                    <form class="d-none" action="{{route("fasilitas.destroy",["fasilita"=>$item->id_fasilitas])}}"
-                      method="post">
-                      <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                    <form action="{{route("fasilitas.destroy",["fasilitas"=>$item->id_fasilitas])}}" method="post">
                       @csrf
                       @method("DELETE")
+                      <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
                     </form>
                 </td>
               </tr>
