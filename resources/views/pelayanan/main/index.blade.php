@@ -94,7 +94,8 @@
                     class="btn btn-primary btn-xs">Pindah Kamar</a>
                   <form action="{{route("pasien_pulang",["rawatInap"=>$item->id_rawatinap])}}" id="pasien_pulang"
                     method="post">
-                    <button type="submit">Pasien Pulang</button>
+                    @csrf
+                    <button type="submit" class="btn btn-primary btn-xs">Pasien Pulang</button>
                   </form>
                 </td>
               </tr>

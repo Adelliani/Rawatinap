@@ -19,9 +19,10 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <form class="form-horizontal" id="form-tambah" action="{{route("pegawai.store")}}" method="post">
+        <form class="form-horizontal" id="form-tambah" action="{{route("pegawai.update",["pegawai"=>$pegawai])}}" method="post">
           @csrf
-          <div class="modal-body">
+          @method("PUT")
+          <div class="card-body">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
@@ -111,7 +112,7 @@
         delay: 250,
         data: function (params) {
           return {
-            poli: {{$id_poli}},
+            poli: "{{$id_poli}}"
           };
         },
         processResults: function (result) {

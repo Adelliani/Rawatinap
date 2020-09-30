@@ -44,12 +44,11 @@
                 <td>{{$item->harga_fasilitas}}</td>
                 <td>
                   <a href="{{route("fasilitas.edit",["fasilitas"=>$item->id_fasilitas])}}" class="btn btn-primary btn-xs" >Edit</a>
-                  <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
-                </td>
-                <form class="d-none" action="{{route("fasilitas.destroy",["fasilitas"=>$item->id_fasilitas])}}" method="post" id="delete_form">
-                  @csrf
-                  @method("DELETE")
-                </form>
+                  <form action="{{route("fasilitas.destroy",["fasilitas"=>$item->id_fasilitas])}}" method="post">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
+                  </form>
               </tr>
               @endforeach
             </tbody>

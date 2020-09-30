@@ -17,8 +17,9 @@
     </section>
     <div class="content-wrapper">
         <div class="card">
-            <form class="form-horizontal" action="{{route("kamar.store")}}" method="post">
+            <form class="form-horizontal" action="{{route("kamar.update",["kamar"=>$kamar])}}" method="post">
                 @csrf
+                @method("PUT")
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -121,7 +122,7 @@ $(function () {
       data:function(params){
         return{
           term:params.term,
-          poli:{{$id_poli}}
+          poli:"{{$id_poli}}"
         }
       },
       processResults:function(result){

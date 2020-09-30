@@ -19,8 +19,9 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-      <form class="form-horizontal" id="form-tambah" action="{{route("shift.store")}}" method="post">
+      <form class="form-horizontal" id="form-tambah" action="{{route("shift.update",["shift"=>$shift])}}" method="post">
           @csrf
+          @method("PUT")
           <div class="card-body">
             <div class="row">
               <div class="col-md-12">
@@ -86,16 +87,8 @@
 <script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 <script>
-    $('#jam_masuk').datetimepicker({
+    $('[data-input-jam]').datetimepicker({
       locale:"id",
-      format:"HH:mm",
-      defaultDate:moment("{{$shift->jam_masuk}}", "HH:mm"),
-      ignoreReadonly:true,
-    })
-
-    $('#jam_keluar').datetimepicker({
-      locale:"id",
-      defaultDate:moment("{{$shift->jam_keluar}}", "HH:mm"),
       format:"HH:mm",
       ignoreReadonly:true,
     })

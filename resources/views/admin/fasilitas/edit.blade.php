@@ -14,8 +14,9 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-      <form class="form-horizontal" id="form-tambah" action="{{route("fasilitas.store")}}" method="post">
+      <form class="form-horizontal" id="form-tambah" action="{{route("fasilitas.update",["fasilitas"=>$fasilitas])}}" method="post">
           @csrf
+          @method("PUT")
           <div class="card-body">
             <div class="row">
               <div class="col-md-12">
