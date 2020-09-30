@@ -54,11 +54,9 @@
                 <td>
                   <a href="{{route("pegawai.edit",["pegawai"=>$item->id_pegawai])}}"
                     class="btn btn-primary btn-xs">Edit</a>
-                    <form class="d-none" action="{{route("pegawai.destroy",["pegawai"=>$item->id_pegawai])}}" method="post">
-                      @csrf
-                      <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
-                      @method("DELETE")
-                    </form>
+
+                  <button class="btn btn-warning btn-xs btn-hapus"
+                    data-action="{{route("pegawai.destroy",["pegawai"=>$item->id_pegawai])}}">Hapus</button>
                 </td>
               </tr>
               @endforeach
@@ -75,6 +73,8 @@
 @endsection
 
 @section("extra-script")
+@include('layoust.konfirmasi')
+
 <!-- DataTables -->
 <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>

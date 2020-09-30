@@ -41,7 +41,7 @@ class GedungPolicy
      */
     public function create(User $user)
     {
-        return ($user->dokter != null);
+        return ($user->poli != null);
     }
 
     /**

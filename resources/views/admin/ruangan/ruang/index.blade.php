@@ -48,11 +48,8 @@
                 <td>{{$item->gedung->nama_gedung}}</td>
                 <td>
                   <a href="{{route("ruang.edit",["ruang"=>$item->id_ruang])}}" class="btn btn-primary">Edit</a>
-                  <form class="d-none" action="{{route("ruang.destroy",["ruang"=>$item->id_ruang])}}" method="post">
-                    <button type="submit" class="btn btn-warning">Hapus</button>
-                    @csrf
-                    @method("DELETE")
-                  </form>
+                  <button data-action="{{route("ruang.destroy",["ruang"=>$item->id_ruang])}}"
+                    class="btn btn-warning btn-hapus">Hapus</button>
                 </td>
               </tr>
               @endforeach
@@ -68,6 +65,8 @@
   @endsection
 
   @section("extra-script")
+  @include('layoust.konfirmasi')
+
   <!-- DataTables -->
   <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
   <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>

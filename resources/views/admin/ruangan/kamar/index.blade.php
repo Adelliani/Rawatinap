@@ -53,11 +53,9 @@
                 <td>{{$item->fasilitas}}</td>
                 <td>
                   <a href="{{route("kamar.edit",["kamar"=>$item->id_kamar])}}" class="btn btn-primary">Edit</a>
-                  <form class="d-none" action="{{route("kamar.destroy",["kamar"=>$item->id_kamar])}}" method="post">
-                    <button type="submit" class="btn btn-warning" form="delete_form">Hapus</button>
-                    @csrf
-                    @method("DELETE")
-                  </form>
+                  <button data-action="{{route("kamar.destroy",["kamar"=>$item->id_kamar])}}"
+                    class="btn btn-warning">Hapus</button>
+
                 </td>
               </tr>
               @endforeach
@@ -73,6 +71,8 @@
   @endsection
 
   @section("extra-script")
+  @include('layoust.konfirmasi')
+
   <!-- DataTables -->
   <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
   <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
