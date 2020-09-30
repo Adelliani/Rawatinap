@@ -330,12 +330,24 @@
                 <td>{{\Carbon\Carbon::parse($item->pivot->jam_order)->format('H:i a')}}</td>
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
-                <td>{{$item->pivot->jumlah_order}}</td>
+                @if ($item->returobat)
+                  <td>{Ada Retur</td>  
+                @else
+                  <td>Tidak Ada Retur</td>
+                @endif
                 <td>
+                  @if ($item->efek_obat)
+                  <button class="btn btn-primary btn-xs" disabled>Efek Obat</button>
+                  @else
                   <a href="{{route('efekobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
                     class="btn btn-primary btn-xs">Efek Obat</a>
-                  <a href="{{route('returobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
-                    class="btn btn-warning btn-xs">Retur Obat</a>
+                  @endif
+                  @if ($item->returobat)
+                    <button class="btn btn-primary btn-xs" disabled>Retur Obat</button>
+                  @else
+                    <a href="{{route('returobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
+                      class="btn btn-warning btn-xs">Retur Obat</a>
+                  @endif
                 </td>
               </tr>
               @endforeach

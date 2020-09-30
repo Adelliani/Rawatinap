@@ -11,14 +11,13 @@
 |
 */
 
-Route::group(['prefix' => 'pelayanan',"middleware"=>"pelayanan"], function () {
+Route::group(['prefix' => 'pelayanan', "middleware" => "pelayanan"], function () {
     Route::get("", "PelayananHomeController")->name("pelayanan.index");
-    Route::resource('', 'RawatInapController')->only(["create", "store"])->names("rawat_inap");
+    Route::resource('', 'RawatInapController')->only(["create", "store", "destroy"])->names("rawat_inap");
     Route::resource('/riwayat', 'RiwayatController')->only(["index", "show"])->parameters([
         "riwayat" => "rawatInap"
     ]);
     Route::resource('.pindahkamar', 'PindahKamarController')->only(["create", "store"])->names("pindahkamar")->parameters(["" => "rawat_inap"]);
-    Route::post('{rawatInap}/pulang','PasienPulangController')->name("pasien_pulang");
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => "poli"], function () {
@@ -50,7 +49,7 @@ Route::group(['middleware' => ['dokter']], function () {
 
 Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function () {
     Route::get("", "SuperadminHomeController")->name("superadmin.index");
-    Route::resource("", 'PoliController')->only(["create","show", "store", "edit", "destroy", "update"])->names("poli")->parameter("", "poli");
+    Route::resource("", 'PoliController')->only(["create", "show", "store", "edit", "destroy", "update"])->names("poli")->parameter("", "poli");
     Route::get('{poli}/dokter', "PoliController@dokter")->name("superadmin.dokter");
     Route::get('{poli}/fasilitas', "PoliController@fasilitas")->name("superadmin.fasilitas");
     Route::get('{poli}/pegawai', "PoliController@pegawai")->name("superadmin.pegawai");
