@@ -333,7 +333,7 @@
                 @if ($item->pivot->returobat)
                 <td>{{$item->pivot->returobat->jumlah_terpakai}} ( {{$item->jumlah_order}} )</td>
                 @else
-                <td>{{$item->jumlah_order}}</td>
+                <td>{{$item->pivot->jumlah_order}}</td>
                 @endif
                 <td>
                   @if ($item->efek_obat)
@@ -342,7 +342,7 @@
                   <a href="{{route('efekobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
                     class="btn btn-primary btn-xs">Efek Obat</a>
                   @endif
-                  @if ($item->pibot->returobat)
+                  @if ($item->pivot->returobat)
                   <button class="btn btn-primary btn-xs" disabled>Retur Obat</button>
                   @else
                   <a href="{{route('returobat.create',['rawatInap'=>$rawat_inap->id_rawatinap,'obat'=>$item->pivot->id_order])}}"
