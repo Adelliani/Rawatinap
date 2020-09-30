@@ -23,6 +23,7 @@ class CreateKamarsTable extends Migration
             $table->enum("kelas", ["VIP", "IV", "III", "II", "I"]);
             $table->bigInteger('id_ruang')->unsigned();
             $table->foreign('id_ruang')->references('id_ruang')->on('ruangs');
+            $table->softDeletes();
         });
     }
 

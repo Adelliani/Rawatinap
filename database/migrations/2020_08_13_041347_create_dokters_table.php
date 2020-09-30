@@ -25,6 +25,7 @@ class CreateDoktersTable extends Migration
             $table->foreign('id_poli')->references('id_poli')->on('polis');
             $table->bigInteger('id_user')->unsigned()->nullable();
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete("cascade");
+            $table->softDeletes();
         });
     }
 

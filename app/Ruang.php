@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ruang extends Model
 {
+    use SoftDeletes;
     public $timestamps=false;
     protected $guarded=[];
     protected $primaryKey = 'id_ruang';

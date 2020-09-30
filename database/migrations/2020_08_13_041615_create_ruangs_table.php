@@ -18,6 +18,7 @@ class CreateRuangsTable extends Migration
             $table->string('nama_ruang',100);
             $table->bigInteger('id_gedung')->unsigned();
             $table->foreign('id_gedung')->references('id_gedung')->on('gedungs');
+            $table->softDeletes();
         });
     }
 

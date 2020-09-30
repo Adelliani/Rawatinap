@@ -20,6 +20,7 @@ class CreateShiftsTable extends Migration
             $table->time('jam_keluar');
             $table->bigInteger('id_poli')->unsigned();
             $table->foreign('id_poli')->references('id_poli')->on('polis');
+            $table->softDeletes();
         });
     }
 
