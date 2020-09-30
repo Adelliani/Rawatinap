@@ -70,7 +70,8 @@ class KamarController extends Controller
      */
     public function edit(Kamar $kamar)
     {
-        return view("admin.ruangan.kamar.edit", ["kamar" => $kamar]);
+        $id_poli = Auth::user()->poli->id_poli;
+        return view("admin.ruangan.kamar.edit", ["kamar" => $kamar, "id_poli" => $id_poli]);
     }
 
     /**

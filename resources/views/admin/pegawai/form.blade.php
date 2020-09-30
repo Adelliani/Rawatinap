@@ -21,7 +21,7 @@
       <div class="card">
         <form class="form-horizontal" id="form-tambah" action="{{route("pegawai.store")}}" method="post">
           @csrf
-          <div class="modal-body">
+          <div class="card-body">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">

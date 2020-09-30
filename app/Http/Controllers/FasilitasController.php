@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fasilitas;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 
 class FasilitasController extends Controller
@@ -62,34 +63,6 @@ class FasilitasController extends Controller
     public function show(Fasilitas $fasilitas)
     {
         //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Fasilitas  $fasilitas
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Fasilitas $fasilitas)
-    {
-        return view("admin.fasilitas.edit", ["fasilitas" => $fasilitas]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Fasilitas  $fasilitas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Fasilitas $fasilitas)
-    {
-        $fasilitas->nama_fasilitas = $request->input("nama_fasilitas");
-        $fasilitas->jenis_fasilitas = $request->input("jenis_fasilitas");
-        $fasilitas->harga_fasilitas = $request->input("harga_fasilitas");
-        
-        $fasilitas->save();
-        return redirect()->route("fasilitas.index");
     }
 
     /**

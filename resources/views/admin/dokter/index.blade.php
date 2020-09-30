@@ -53,7 +53,8 @@
                   <a href="{{route("dokter.edit",["dokter"=>$item->id_dokter])}}" class="btn btn-primary btn-xs">Edit</a>
                   <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
                 </td>
-                <form class="d-none" action="{{route("dokter.destroy",["dokter"=>$item->id_dokter])}}" method="post" id="delete_form">
+                <form class="d-none" action="{{route("dokter.destroy",["dokter"=>$item->id_dokter])}}"
+                  method="post" id="delete_form">
                   @csrf
                   @method("DELETE")
                 </form>

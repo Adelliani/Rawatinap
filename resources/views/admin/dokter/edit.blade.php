@@ -84,9 +84,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-5">Alamat:</label>
                                         <div class="col-sm-10">
-                                            <textarea name="alamat" class="form-control" rows="3">
-                                                {{$dokter->alamat}}
-                                            </textarea>
+                                            <textarea name="alamat" class="form-control" rows="3">{{$dokter->alamat}}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -111,10 +109,6 @@
 
 <script>
     $(function () {
-
-
-
-      $('#table-ruangan').DataTable({});
       $("#jenis_dokter").change(e=>{
         $("#spesialisasi").attr("readonly",$("#jenis_dokter").val()!="spesialis")
       });

@@ -54,7 +54,8 @@
                   <a href="{{route("pegawai.edit",["pegawai"=>$item->id_pegawai])}}" class="btn btn-primary btn-xs">Edit</a>
                   <button type="submit" class="btn btn-warning btn-xs" form="delete_form">Hapus</button>
                 </td>
-                <form class="d-none" action="{{route("pegawai.destroy",["pegawai"=>$item->id_pegawai])}}" method="post" id="delete_form">
+                <form class="d-none" action="{{route("pegawai.destroy",["pegawai"=>$item->id_pegawai])}}"
+                  method="post" id="delete_form">
                   @csrf
                   @method("DELETE")
                 </form>

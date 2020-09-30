@@ -68,7 +68,8 @@ class RuangController extends Controller
      */
     public function edit(Ruang $ruang)
     {
-        return view("admin.ruangan.ruang.edit", ["ruang" => $ruang]);
+        $id_poli = Auth::user()->poli->id_poli;
+        return view("admin.ruangan.ruang.edit", ["ruang" => $ruang, "id_poli" => $id_poli]);
     }
 
     /**
