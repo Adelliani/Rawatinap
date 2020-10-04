@@ -29,17 +29,22 @@
         <ul class="navbar-nav">
 
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link text-white">PELAYANAN KESEHATAN</a>
+            <a href="/" class="nav-link text-white">PELAYANAN KESEHATAN</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           @if (Auth::check())
           <li class="nav-item">
-            <div class="user-panel d-flex">
-              <div class="info">
-                <a href="{{route("user.show")}}" class="d-block nav-link"><i class="fa fa-user"></i> {{Auth::user()->username}}</a>
-              </div>
-            </div>
+
+            <a href="{{route("user.show")}}" class="d-block nav-link"><i class="fa fa-user"></i>
+              {{Auth::user()->username}}</a>
+
+          </li>
+          <li class="nav-item">
+
+                <a href="{{route("user.show")}}" class="d-block nav-link"><i class="fa fa-power-off"></i>
+                  Logout</a>
+              
           </li>
           @endif
         </ul>
