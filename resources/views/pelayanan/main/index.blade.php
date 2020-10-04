@@ -92,11 +92,10 @@
                 <td>
                   <a href="{{route('pindahkamar.create',["rawat_inap"=>$item->id_rawatinap])}}"
                     class="btn btn-primary btn-xs">Pindah Kamar</a>
-                  <form action="{{route("pasien_pulang",["rawatInap"=>$item->id_rawatinap])}}" id="pasien_pulang"
-                    method="post">
-                    @csrf
-                    <button type="submit" class="btn btn-primary btn-xs">Pasien Pulang</button>
-                  </form>
+
+                  <button type="button" class="btn btn-primary btn-xs btn-pulang"
+                    data-action="{{route("rawat_inap.destroy",["rawatInap"=>$item->id_rawatinap])}}">Pasien
+                    Pulang</button>
                 </td>
               </tr>
               @endforeach
@@ -110,13 +109,37 @@
 
 </div>
 
-{{-- Modularisasi Modal --}}
+<div class="modal fade" id="modal-konfirmasi" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Konfirmasi</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Anda yakin akan memulangkan pasien ini?</p>
 
-{{-- @include('pelayanan.index.modal_detail') --}}
+      </div>
+      <div class="modal-footer justify-content-end">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-success" form="form-konfirmasi">Yakin</button>
+        <form action="" method="post" id="form-konfirmasi">
+          @csrf
+          @method("DELETE")
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
 
 @endsection
 
 @section("extra-script")
+
 <!-- DataTables -->
 <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
@@ -132,6 +155,13 @@
 
 
     $('#table-ruangan').DataTable();
+
+    $(".btn-pulang").click(function(e){
+        e.preventDefault();
+        
+        $("#form-konfirmasi").attr("action",$(e.target).data("action"))
+        $("#modal-konfirmasi").modal("show");
+    })
 
 
   });

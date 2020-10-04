@@ -37,6 +37,7 @@
                         <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#modal-konfirmasi"><i class="fa fa-save"></i> Simpan</button>
+                            {{-- Buat nampilin modal konfirmasi password lamanya --}}
                             <a href="" class="btn btn-default"><i class=" fa fa-power-off"></i>
                                 Batal</a>
                         </div>
@@ -74,6 +75,7 @@
                         <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#modal-konfirmasi"><i class="fa fa-save"></i> Simpan</button>
+                            {{-- Buat nampilin modal konfirmasi password lamanya --}}
                             <a href="" class="btn btn-default"><i class=" fa fa-power-off"></i>
                                 Batal</a>
                         </div>
@@ -115,5 +117,10 @@
 @endsection
 
 @section("extra-script")
-
+<script>
+    $("#modal-konfirmasi").on("show.bs.modal",function(e){ // Buat nunggu event pas modalnya kebuka
+        var formId = $(e.relatedTarget).closest("form").attr("id") // ngambil form id dari tombol yang di pencet tadi
+        $(this).find("[data-konfirmasi]").attr("form",formId); // ngisi attribut form buat tombol sama inputnya jadi pas tombolnya di pencet data dari formnya ikut kekirim
+    })
+</script>
 @endsection
