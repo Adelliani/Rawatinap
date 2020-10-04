@@ -26,34 +26,45 @@
                                         <label class="col-sm-5">Username</label>
                                         <div class="col-sm-12">
                                             <input type="number" class="form-control" name="username"
-                                                value="">
+                                                value="{{$user->username}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-5">Password:</label>
+                                        <label class="col-sm-5">Password Lama:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" name="password"
-                                                value="">
+                                            <input type="text" class="form-control" name="password">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-sm-5">Password Baru:</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" name="password_baru">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5">Konfirmasi Password:</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" name="konfirmasi_password">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="col-sm-6">Nama Pelayanan Kesehatan:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" name="nama_poli">
+                                            <input type="text" class="form-control" name="nama_poli"
+                                                value="{{$user->nama_password}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Alamat:</label>
                                         <div class="col-sm-12">
-                                          <textarea name="alamat" class="form-control" rows="3"></textarea>
+                                          <textarea name="alamat" class="form-control" rows="3">"{{$user->alamat}}</textarea>
                                         </div>
                                       </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Akreditasi:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" name="akreditasi">
+                                            <input type="text" class="form-control" name="akreditasi"
+                                                value="{{$user->akreditasi}}">
                                         </div>
                                     </div>
                                 </div>

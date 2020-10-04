@@ -26,14 +26,25 @@
                                         <label class="col-sm-5">Username</label>
                                         <div class="col-sm-12">
                                             <input type="number" class="form-control" name="username"
-                                                value="">
+                                                value="{{$user->username}}">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-5">Password:</label>
+                                        <label class="col-sm-5">Password Lama:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" name="password"
-                                                value="">
+                                            <input type="text" class="form-control" name="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5">Password Baru:</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" name="password_baru">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5">Konfirmasi Password:</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" name="konfirmasi_password">
                                         </div>
                                     </div>
                                 </div>
