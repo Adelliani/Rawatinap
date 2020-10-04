@@ -1,7 +1,7 @@
 @extends("layouts.no_sidebar")
 
 @section("main_content")
-<div class="container-fluid col-11 my-1">
+<div class="container-fluid col-5 my-1">
     <section class="content-header">
         <div class="row justify-content-between align-items-center">
             <h1>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="col-sm-5">Nama Pelayanan Kesehatan:</label>
+                                        <label class="col-sm-6">Nama Pelayanan Kesehatan:</label>
                                         <div class="col-sm-12">
                                             <input type="text" class="form-control" name="nama_poli">
                                         </div>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                            <a href="" class="btn btn-default"><i class=" fa fa-power-off"></i>
+                            <a href="{{route("admin.index")}}" class="btn btn-default"><i class=" fa fa-power-off"></i>
                                 Batal</a>
                         </div>
                     </div>
