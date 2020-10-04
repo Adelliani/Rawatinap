@@ -42,7 +42,7 @@
           </li>
           <li class="nav-item">
 
-                <a href="{{route("user.show")}}" class="d-block nav-link"><i class="fa fa-power-off"></i>
+                <a href="{{route("logout")}}" class="d-block nav-link"><i class="fa fa-power-off"></i>
                   Logout</a>
               
           </li>

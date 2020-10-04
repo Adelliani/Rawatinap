@@ -65,6 +65,9 @@ Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function 
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get("user", "UserController@show")->name("user.show");
+    Route::patch("user", "UserController@ubah_password")->name("user.ubah_password");
+    Route::put("user", "UserController@update")->name("user.update");
+    Route::get('logout', "AuthController@logout_proses")->name("logout");
 });
 
 Route::group(['middleware' => ['guest']], function () {
@@ -72,9 +75,6 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('login', "AuthController@login_proses");
 });
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('logout', "AuthController@logout_proses");
-});
 
 Route::get("test", function () {
     dd(Auth::user());
