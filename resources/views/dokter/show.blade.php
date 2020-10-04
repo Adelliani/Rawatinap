@@ -331,7 +331,7 @@
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
                 @if ($item->pivot->returobat)
-                <td>{{$item->pivot->returobat->jumlah_terpakai}} ( {{$item->jumlah_order}} )</td>
+                <td>{{$item->pivot->returobat->jumlah_terpakai}} ( {{$item->pivot->jumlah_order}} )</td>
                 @else
                 <td>{{$item->pivot->jumlah_order}}</td>
                 @endif
