@@ -54,7 +54,7 @@
                 <td>
                   <a href="{{route("kamar.edit",["kamar"=>$item->id_kamar])}}" class="btn btn-primary">Edit</a>
                   <button data-action="{{route("kamar.destroy",["kamar"=>$item->id_kamar])}}"
-                    class="btn btn-warning">Hapus</button>
+                    class="btn btn-warning btn-hapus">Hapus</button>
 
                 </td>
               </tr>

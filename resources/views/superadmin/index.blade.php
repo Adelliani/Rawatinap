@@ -46,11 +46,8 @@
                 <td>{{$item->akreditasi}}</td>
                 <td>
                   <a href="{{route("poli.show",["poli"=>$item->id_poli])}}" class="btn btn-primary btn-xs">Detail</a>
-                  <button type="submit" class="btn btn-warning btn-xs" form="delete-form">Hapus</button>
-                  <form action="{{route("poli.destroy",["poli"=>$item->id_poli])}}" id="delete-form" method="post">
-                    @csrf
-                    @method("DELETE")
-                  </form>
+                  <button class="btn btn-warning btn-xs btn-hapus"
+                    data-action="{{route("poli.destroy",["poli"=>$item->id_poli])}}">Hapus</button>
 
                 </td>
               </tr>
@@ -66,7 +63,8 @@
   @endsection
 
   @section("extra-script")
-  <!-- DataTables -->
+  @include('layouts.konfirmasi')
+
   <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
   <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
   <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>

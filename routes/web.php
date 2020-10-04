@@ -61,6 +61,9 @@ Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function 
     Route::get('{poli}/shift', "PoliController@shift")->name("superadmin.shift");
 });
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::get("user", "UserController@show")->name("user.show");
+});
 
 Route::group(['middleware' => ['guest']], function () {
     Route::get('login', "AuthController@login_page")->name("login");

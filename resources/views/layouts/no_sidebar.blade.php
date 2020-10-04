@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,52 +14,67 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset("admin_lte/dist/css/adminlte.min.css")}}">
   @yield("extra_head")
-  
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition layout-top-nav skin-blue">
-<!-- Site wrapper -->
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-lightblue navbar-dark navbar-static-top justify-content-center">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav col-11">
-      
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link text-white">PELAYANAN KESEHATAN</a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
+  <!-- Site wrapper -->
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-lightblue navbar-dark navbar-static-top justify-content-center">
+      <!-- Left navbar links -->
+      <div class="col-11 row">
+        <ul class="navbar-nav">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Main content -->
-    <section class="content">
-      @yield("main_content")
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link text-white">PELAYANAN KESEHATAN</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          @if (Auth::check())
+          <li class="nav-item">
+            <div class="user-panel d-flex">
+              <div class="info">
+                <a href="{{route("user.show")}}" class="d-block nav-link"><i class="fa fa-user"></i> {{Auth::user()->username}}</a>
+              </div>
+            </div>
+          </li>
+          @endif
+        </ul>
+      </div>
+    </nav>
+    <!-- /.navbar -->
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.5
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+        @yield("main_content")
+      </section>
+      <!-- /.content -->
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
-  </footer>
+    <!-- /.content-wrapper -->
 
-</div>
-<!-- ./wrapper -->
+    <footer class="main-footer">
+      <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.0.5
+      </div>
+      <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+      reserved.
+    </footer>
 
-<!-- jQuery -->
-<script src="{{asset("admin_lte/plugins/jquery/jquery.min.js")}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset("admin_lte/plugins/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset("admin_lte/dist/js/adminlte.min.js")}}"></script>
-@yield("extra-script")
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="{{asset("admin_lte/plugins/jquery/jquery.min.js")}}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{{asset("admin_lte/plugins/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{asset("admin_lte/dist/js/adminlte.min.js")}}"></script>
+  @yield("extra-script")
 </body>
+
 </html>

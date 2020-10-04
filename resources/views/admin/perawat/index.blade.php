@@ -54,7 +54,7 @@
                   <a href="{{route("perawat.edit",["perawat"=>$item->id_perawat])}}"
                     class="btn btn-primary btn-xs">Edit</a>
 
-                  <button class="btn btn-warning btn-xs"
+                  <button class="btn btn-warning btn-xs btn-hapus"
                     data-action="{{route("perawat.destroy",["perawat"=>$item->id_perawat])}}">Hapus</button>
                 </td>
               </tr>

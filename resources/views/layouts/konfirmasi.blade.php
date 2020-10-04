@@ -13,7 +13,7 @@
             </div>
             <div class="modal-footer justify-content-end">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-danger" form="form-konfirmasi">Hapus</button>
+                <button type="submit" class="btn btn-danger" form="form-konfirmasi">Hapus</button>
                 <form action="" method="post" id="form-konfirmasi">
                     @csrf
                     @method("DELETE")
@@ -28,7 +28,8 @@
 <script>
     $(".btn-hapus").click(function(e){
         e.preventDefault();
-        $("#form_hapus").attr("action",e.data("action"))
+        
+        $("#form-konfirmasi").attr("action",$(e.target).data("action"))
         $("#modal-konfirmasi").modal("show");
     })
 

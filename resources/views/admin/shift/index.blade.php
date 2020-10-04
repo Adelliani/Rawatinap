@@ -46,11 +46,8 @@
                 
                 <td>
                   <a href="{{route("shift.edit",["shift"=>$item->id_shift])}}" class="btn btn-primary btn-xs">Edit</a>
-                  <form action="{{route("shift.destroy",["shift"=>$item->id_shift])}}" method="post">
-                    @csrf
-                    @method("DELETE")
-                    <button type="submit" class="btn btn-warning btn-xs">Hapus</button>
-                  </form>
+                  <button class="btn btn-warning btn-xs btn-hapus"
+                    data-action="{{route("shift.destroy",["shift"=>$item->id_shift])}}">Hapus</button>
                 </td>
               </tr>
               @endforeach
