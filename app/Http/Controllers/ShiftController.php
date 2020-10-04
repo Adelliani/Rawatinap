@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Shift;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 
 class ShiftController extends Controller

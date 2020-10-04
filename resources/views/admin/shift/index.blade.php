@@ -65,6 +65,8 @@
 @endsection 
 
 @section("extra-script")
+@include('layouts.konfirmasi') 
+
 <!-- DataTables -->
 <script src="{{asset("admin_lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
