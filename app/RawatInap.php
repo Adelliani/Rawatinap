@@ -19,7 +19,7 @@ class RawatInap extends Model
 
     public static function belumSelesai()
     {
-        return self::whereNull("tgl_keluar");
+        return self::where("siap_pulang",false);
     }
 
     public static function  createFull($data_pasien, $data_rawatinap, $data_diagnosa, $data_kamar)

@@ -18,7 +18,7 @@ class HomeController extends Controller
                     return redirect()->route("admin.index");
                     break;
                 case '3':
-                    return redirect()->route(".index");
+                    return redirect()->route("pasien.index");
                     break;
                 case '4':
                     return redirect()->route("pelayanan.index");

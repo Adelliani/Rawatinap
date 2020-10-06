@@ -70,7 +70,7 @@
                 <td>{{$item->ruang->nama_ruang}}</td>
                 <td>{{$item->ruang->gedung->nama_gedung}}</td>
                 <td>{{$item->jumlah_kasur}}</td>
-                <td>{{$item->terisi}}</td>
+                <td>{{$item->kasur_terisi}}</td>
               </tr>
               @endforeach
 
@@ -95,8 +95,6 @@
 
 <script>
   $(function () {
-    $('#table-pasien').DataTable({
-    });
     $('#table-ruangan').DataTable({
     });
   });            

@@ -470,7 +470,7 @@
                 </div>
                 <div class="card-footer d-flex align-items-stretch justify-content-end">
                     <button type="submit" class="btn btn-primary mx-2"><i class="fa fa-save"></i> Simpan</button>
-                    <a href="./" class="btn btn-danger">Batal</a>
+                    <a href="{{route("pelayanan.index")}}" class="btn btn-danger">Batal</a>
                 </div>
             </div>
         </form>
