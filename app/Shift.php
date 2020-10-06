@@ -18,6 +18,6 @@ class Shift extends Model
     }
     function perawat()
     {
-        return $this->hasMany("App\Pegawai", "id_shift", "id_shift");
+        return $this->hasMany("App\Perawat", "id_shift", "id_shift");
     }
 }

@@ -18,14 +18,20 @@ class AdminHomeController extends Controller
         $id_poli = Auth::user()->poli->id_poli;
 
         $current_time = Carbon::now()->format("H:i:s");
-        $current_shift = Auth::user()->poli->shift()->where(function ($query) use ($current_time) {
-            $query->whereRaw("jam_masuk < jam_keluar");
-            $query->whereTime("jam_masuk", "<=", $current_time);
-            $query->whereTime("jam_keluar", ">=", $current_time);
-        })->orWhere(function ($query) use ($current_time) {
-            $query->whereRaw("jam_masuk > jam_keluar");
-            $query->whereTime("jam_masuk", ">=", $current_time);
-            $query->whereTime("jam_keluar", "<=", $current_time);
+        $current_shift = Auth::user()->poli->shift()->where(function ($q3) use ($current_time) {
+            $q3->where(function ($query) use ($current_time) {
+                $query
+                    ->whereColumn("jam_masuk", "<", "jam_keluar")
+                    ->where([["jam_masuk", "<=", $current_time],["jam_keluar", ">=", $current_time]]);
+            })->orWhere(function ($query) use ($current_time) {
+                $query
+                    ->whereColumn("jam_masuk", ">", "jam_keluar")
+                    ->where(function ($q) use ($current_time) {
+                        $q
+                            ->where("jam_masuk", "<=", $current_time)
+                            ->orWhere("jam_keluar", ">=", $current_time);
+                    });
+            });
         })->first();
 
         $pegawais = $current_shift->pegawai;
