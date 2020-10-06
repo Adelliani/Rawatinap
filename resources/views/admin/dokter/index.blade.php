@@ -84,7 +84,6 @@
   $(function () {
       $('#table-dokter').DataTable({});
       
-      
     });        
 </script>
 @endsection

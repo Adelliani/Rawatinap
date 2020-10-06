@@ -34,8 +34,8 @@ class AdminHomeController extends Controller
             });
         })->first();
 
-        $pegawais = $current_shift->pegawai;
-        $perawats = $current_shift->perawat;
+        $pegawais = $current_shift->pegawai ?? [];
+        $perawats = $current_shift->perawat ?? [];
 
         $count_pasien = RawatInap::where("id_poli", $id_poli)->whereNull("tgl_keluar")->count();
 

@@ -21,7 +21,7 @@
       <h1>
         Halaman Utama
       </h1>
-      <div class="row col-3 justify-content-end">
+      <div class="row col-4 justify-content-end">
         <a href="{{route('rawat_inap.create')}}" class="btn btn-danger text-white mr-3">Tambah Rawat Inap</a>
         <a href="{{route('riwayat.index')}}" class="btn btn-danger text-white mr-3">Riwayat Rawat Inap</a>
       </div>

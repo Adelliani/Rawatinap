@@ -52,6 +52,8 @@ a{
     margin-top: 15px;
     padding: 5px;
     width: 70px;
+    float:right!important;
+    border-radius: 5px;
 }
 .header-login{
     margin: 10px auto;
