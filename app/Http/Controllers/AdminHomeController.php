@@ -7,6 +7,8 @@ use App\Pegawai;
 use App\Perawat;
 use App\RawatInap;
 use Auth;
+use Carbon\Carbon;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Illuminate\Http\Request;
 
 class AdminHomeController extends Controller
@@ -15,13 +17,25 @@ class AdminHomeController extends Controller
     {
         $id_poli = Auth::user()->poli->id_poli;
 
-        $pegawais = Pegawai::where("id_poli", $id_poli);
-        $perawats = Perawat::where("id_poli", $id_poli);
+        $current_time = Carbon::now()->format("H:i:s");
+        $current_shift = Auth::user()->poli->shift()->where(function ($query) use ($current_time) {
+            $query->whereRaw("jam_masuk < jam_keluar");
+            $query->whereTime("jam_masuk", "<=", $current_time);
+            $query->whereTime("jam_keluar", ">=", $current_time);
+        })->orWhere(function ($query) use ($current_time) {
+            $query->whereRaw("jam_masuk > jam_keluar");
+            $query->whereTime("jam_masuk", ">=", $current_time);
+            $query->whereTime("jam_keluar", "<=", $current_time);
+        })->first();
+
+        $pegawais = $current_shift->pegawai;
+        $perawats = $current_shift->perawat;
 
         $count_pasien = RawatInap::where("id_poli", $id_poli)->whereNull("tgl_keluar")->count();
 
-        $count_ruangan = Kamar::wherePoli($id_poli)->count();
-        $count_ruangan_tersedia = Kamar::wherePoli($id_poli)->whereColumn("kasur_terisi", "<", "jumlah_kasur")->count();
+        $kamar = Kamar::wherePoli($id_poli);
+        $count_ruangan = $kamar->count();
+        $count_ruangan_tersedia = $kamar->whereColumn("kasur_terisi", "<", "jumlah_kasur")->count();
 
         return view('admin.index', [
             'pegawais' => $pegawais,
