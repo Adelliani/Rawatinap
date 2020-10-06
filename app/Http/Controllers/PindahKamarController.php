@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PindahKamar;
 use App\RawatInap;
+use DB;
 
 class PindahKamarController extends Controller
 {
@@ -41,7 +42,7 @@ class PindahKamarController extends Controller
         }
 
         $data_kamar = $request->only(["tgl_masuk", "id_kamar", "no_tempattidur"]);
-        $rawatInap->kamars()->whereNull("tgl_keluar")->update(["tgl_keluar" => $data_kamar["tgl_masuk"]]);
+        $rawatInap->kamars()->whereNull("tgl_keluar")->update(["tgl_keluar" => $data_kamar["tgl_masuk"],"kasur_terisi"=>DB::raw("kasur_terisi-1")]);
         $rawatInap->kamars()->attach($data_kamar["id_kamar"], $data_kamar);
         return redirect()->route("pelayanan.index");
     }

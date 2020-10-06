@@ -11,7 +11,7 @@
 |
 */
 
-Route::get("","HomeController");
+
 
 Route::group(['prefix' => 'pelayanan', "middleware" => "pelayanan"], function () {
     Route::get("", "PelayananHomeController")->name("pelayanan.index");
@@ -64,6 +64,7 @@ Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function 
 });
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get("","HomeController");
     Route::get("user", "UserController@show")->name("user.show");
     Route::patch("user", "UserController@ubah_password")->name("user.ubah_password");
     Route::put("user", "UserController@update")->name("user.update");
