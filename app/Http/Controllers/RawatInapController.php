@@ -109,7 +109,7 @@ class RawatInapController extends Controller
             $rawatInap->tgl_keluar = Carbon::now();
             $rawatInap->kamars()->whereNull("tgl_keluar")->update(["tgl_keluar" => Carbon::now()]);
             $rawatInap->save();
-            return back();
+            return redirect("pelayanan.index");
         }
     }
 }
