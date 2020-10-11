@@ -41,14 +41,14 @@ class AdminHomeController extends Controller
 
         $kamar = Kamar::wherePoli($id_poli);
         $count_ruangan = $kamar->count();
-        $count_ruangan_tersedia = $kamar->where("kasur_terisi", ">", 0)->count();
+        $count_ruangan_terisi = $kamar->where("kasur_terisi", ">", 0)->count();
 
         return view('admin.index', [
             'pegawais' => $pegawais,
             'perawats'  => $perawats,
             'count_pasien' => $count_pasien,
             "count_ruangan" => $count_ruangan,
-            "count_ruangan_tersedia" => $count_ruangan_tersedia
+            "count_ruangan_terisi" => $count_ruangan_terisi
         ]);
     }
 }

@@ -84,7 +84,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Ruangan Terisi</span>
-          <span class="info-box-number">{{$count_ruangan}}</span>
+          <span class="info-box-number">{{$count_ruangan_terisi}}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
