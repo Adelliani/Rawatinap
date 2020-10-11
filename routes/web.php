@@ -19,7 +19,7 @@ Route::group(['prefix' => 'pelayanan', "middleware" => "pelayanan"], function ()
     Route::resource('riwayat', 'RiwayatController')->only(["index", "show"])->parameters([
         "riwayat" => "rawatInap"
     ]);
-    Route::get("riwayat/{rawatInap}/laporan", "RiwayatController@laporan")->names("rawat_inap_laporan");
+    Route::get("riwayat/{rawatInap}/laporan", "RiwayatController@laporan")->name("rawat_inap_laporan");
     Route::resource('.pindahkamar', 'PindahKamarController')->only(["create", "store"])->names("pindahkamar")->parameters(["" => "rawat_inap"]);
 });
 
