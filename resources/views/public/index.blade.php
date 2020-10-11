@@ -14,7 +14,7 @@
   <section class="content-header">
     <div class="row justify-content-between align-items-center">
       <h1>
-        Data Ruangan 
+        Data Ruangan
       </h1>
       <a href="" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left">
           Kembali</i></a>
@@ -32,7 +32,7 @@
                   <div class="form-group">
                     <label>Nama Pelayanan Kesehatan:</label>
                     <div class="col-sm-12">
-                        <select id="select_poli" style="width: 100%" name="id_poli"></select>
+                      <select id="select_poli" style="width: 100%" name="id_poli"></select>
                     </div>
                 </form>
               </div>
@@ -79,8 +79,51 @@
 <script>
   moment.locale();
     $(function () {
-      $('#table-ruangan').DataTable({
+      $("#select_poli").select2({
+        language:"id",
+        placeholder:"Pilih Provinsi",
+        theme:"bootstrap4",
+        allowClear:true,
+        ajax:{
+          url:"{{route('api.poli.poli')}}",
+          type:"GET",
+          delay:250,
+          processResults:function(result){
+
+            var item = result.map((item)=>({
+              id:item.id_poli,
+              text:item.nama_poli
+            }))
+            return {
+              "results": item
+            }
+          }
+        }
+      })
+
+      var t = $('#table-ruangan').DataTable({
+        columns:[
+          null,
+          {data:"nama_kamar"},
+          {data:"ruang.nama_ruang"},
+          {data:"ruang.gedung.nama_gedung"},
+          {data:"jumlah_kasur"},
+          {data:"kasur_terisi"},
+          {data:"fasilitas"},
+        ]
       });
+
+      t.on( 'order.dt search.dt', function () {
+        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+      }).draw();
+
+      $("#select_poli").on("change",function(e){
+        t.ajax.url(
+          `{{route('api.poli.kamar_poli')}}?poli=${e.value}`
+        ).reload()
+      })
     });          
 </script>
 @endsection

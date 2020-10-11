@@ -24,6 +24,8 @@ class HomeController extends Controller
                     return redirect()->route("pelayanan.index");
                     break;
             }
+        } else {
+            return view("public.index");
         }
     }
 }

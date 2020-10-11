@@ -23,8 +23,20 @@ class PoliApiController extends Controller
         }
         return response()->json($poli);
     }
+
+    function getKamarPoli(Request $request)
+    {
+        if ($request->input("poli")) {
+            $kamar = Kamar::wherePoli($request->input("poli"))->with("ruang", "ruang.gedung")->get();
+        } else {
+            $kamar = [];
+        }
+        return response()->json($kamar);
+    }
+
     function getGedung(Request $request)
     {
+
         if ($request->has("term")) {
             $gedung = Gedung::where("nama_gedung", "like", "%" . $request->input("term") . "%")->where("id_poli", $request->input("poli"))->get();
         } else {
