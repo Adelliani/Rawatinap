@@ -92,10 +92,12 @@
                 <td>
                   <a href="{{route('pindahkamar.create',["rawat_inap"=>$item->id_rawatinap])}}"
                     class="btn btn-primary btn-xs">Pindah Kamar</a>
-
+                  @if ($item->siap_pulang)
                   <button type="button" class="btn btn-primary btn-xs btn-pulang"
                     data-action="{{route("rawat_inap.destroy",["rawatInap"=>$item->id_rawatinap])}}">Pasien
                     Pulang</button>
+                  @endif
+
                 </td>
               </tr>
               @endforeach
