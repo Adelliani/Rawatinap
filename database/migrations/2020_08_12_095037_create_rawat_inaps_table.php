@@ -22,6 +22,7 @@ class CreateRawatInapsTable extends Migration
             $table->string('nama_pesertabpjs',100)->nullable();
             $table->enum('prosedur_masuk',['langsung','rujukanIGD']);
             $table->enum('cara_masuk',['datangsendiri','kontrol','dokterPerujuk'])->nullable();
+            $table->uuid('no_rawatinap');
             $table->string('dokter_perujuk',100)->nullable();
             $table->string('asal_rujukan',100)->nullable();
             $table->enum('alasan_dirujuk',['kepentinganmedis','fasilitaskurang','permintaansendiri','tempattidurpenuh'])->nullable();

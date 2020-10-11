@@ -51,11 +51,18 @@ class RiwayatController extends Controller
     public function show(Request $request, RawatInap $rawatInap)
     {
         if ($rawatInap->tgl_keluar != null) {
-
-            ($rawatInap->obat);
             return view('pelayanan.riwayat.show', ["rawat_inap" => $rawatInap]);
         } else {
-            return abort(404);
+            return abort(403);
+        }
+    }
+
+    public function laporan(Request $request, RawatInap $rawatInap)
+    {
+        if ($rawatInap->tgl_keluar) {
+            return view("pelayanan.riwayat.laporan", ["rawat_inap" => $rawatInap]);
+        } else {
+            return abort(403);
         }
     }
     /**

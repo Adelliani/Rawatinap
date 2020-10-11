@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Str;
 
 class RawatInap extends Model
 {
@@ -12,6 +13,15 @@ class RawatInap extends Model
     protected $primaryKey = 'id_rawatinap';
     protected $guarded = [];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($data) {
+            $data->no_rawatinap = (string) Str::uuid();
+        });
+    }
+
     public static function selesai()
     {
         return self::whereNotNull("tgl_keluar");
@@ -19,7 +29,7 @@ class RawatInap extends Model
 
     public static function belumSelesai()
     {
-        return self::where("siap_pulang",false);
+        return self::where("siap_pulang", false);
     }
 
     public static function  createFull($data_pasien, $data_rawatinap, $data_diagnosa, $data_kamar)
@@ -63,7 +73,8 @@ class RawatInap extends Model
         return $this->kamars()->wherePivot("tgl_keluar", "=")->first();
     }
 
-    public function getUmurAttribute(){
+    public function getUmurAttribute()
+    {
         return Carbon::now()->diffInYears(Carbon::parse($this->pasien->tgl_lahir));
     }
 

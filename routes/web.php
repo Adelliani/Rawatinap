@@ -16,9 +16,10 @@
 Route::group(['prefix' => 'pelayanan', "middleware" => "pelayanan"], function () {
     Route::get("", "PelayananHomeController")->name("pelayanan.index");
     Route::resource('', 'RawatInapController')->only(["create", "store", "destroy"])->names("rawat_inap");
-    Route::resource('/riwayat', 'RiwayatController')->only(["index", "show"])->parameters([
+    Route::resource('riwayat', 'RiwayatController')->only(["index", "show"])->parameters([
         "riwayat" => "rawatInap"
     ]);
+    Route::get("riwayat/{rawatInap}/laporan", "RiwayatController@laporan")->names("rawat_inap_laporan");
     Route::resource('.pindahkamar', 'PindahKamarController')->only(["create", "store"])->names("pindahkamar")->parameters(["" => "rawat_inap"]);
 });
 
@@ -64,7 +65,7 @@ Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function 
 });
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get("","HomeController");
+    Route::get("", "HomeController");
     Route::get("user", "UserController@show")->name("user.show");
     Route::patch("user", "UserController@ubah_password")->name("user.ubah_password");
     Route::put("user", "UserController@update")->name("user.update");
@@ -84,22 +85,22 @@ Route::get("test", function () {
 Route::group(['prefix' => 'api', "as" => "api."], function () {
 
     Route::group(["as" => "wilayah."], function () {
-        Route::get('/provinsi', "WilayahApiController@getProvinsi")->name("provinsi");
-        Route::get('/kabupaten', "WilayahApiController@getKabupaten")->name("kabupaten");
-        Route::get('/kecamatan', "WilayahApiController@getKecamatan")->name("kecamatan");
-        Route::get('/desa', "WilayahApiController@getDesa")->name("desa");
+        Route::get('provinsi', "WilayahApiController@getProvinsi")->name("provinsi");
+        Route::get('kabupaten', "WilayahApiController@getKabupaten")->name("kabupaten");
+        Route::get('kecamatan', "WilayahApiController@getKecamatan")->name("kecamatan");
+        Route::get('desa', "WilayahApiController@getDesa")->name("desa");
     });
 
     Route::group(['as' => "poli."], function () {
-        Route::get('/poli', "PoliApiController@getPoli")->name("poli");
-        Route::get('/gedung', "PoliApiController@getGedung")->name("gedung");
-        Route::get('/ruangan', "PoliApiController@getRuangan")->name(("ruang"));
-        Route::get('/kamar', "PoliApiController@getKamar")->name("kamar");
-        Route::get('/shift', "PoliApiController@getShift")->name("shift");
+        Route::get('poli', "PoliApiController@getPoli")->name("poli");
+        Route::get('gedung', "PoliApiController@getGedung")->name("gedung");
+        Route::get('ruangan', "PoliApiController@getRuangan")->name(("ruang"));
+        Route::get('kamar', "PoliApiController@getKamar")->name("kamar");
+        Route::get('shift', "PoliApiController@getShift")->name("shift");
 
-        Route::get('/obat', "PoliApiController@getObat")->name("obat");
-        Route::get('/fasilitas', "PoliApiController@getFasilitas")->name("fasilitas");
+        Route::get('obat', "PoliApiController@getObat")->name("obat");
+        Route::get('fasilitas', "PoliApiController@getFasilitas")->name("fasilitas");
     });
 
-    Route::get('/dokter', "PersonApiController@getDokter")->name("dokter");
+    Route::get('dokter', "PersonApiController@getDokter")->name("dokter");
 });
