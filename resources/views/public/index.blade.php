@@ -7,6 +7,8 @@
 
 <link rel="stylesheet" href="{{asset("admin_lte/plugins/daterangepicker/daterangepicker.css")}}">
 
+<link rel="stylesheet" href="{{asset("admin_lte/plugins/select2/css/select2.min.css")}}">
+<link rel="stylesheet" href="{{asset("admin_lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
 @endsection
 
 @section("main_content")
@@ -54,6 +56,8 @@
                 <th>Fasilitas</th>
               </tr>
             </thead>
+            <tbody>
+            </tbody>
           </table>
         </div>
       </div>
@@ -70,14 +74,10 @@
 <script src="{{asset("admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
 <script src="{{asset("admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
 
-<script src="{{asset("admin_lte/plugins/moment/moment.min.js")}}"></script>
-<script src="{{asset("admin_lte/plugins/moment/locale/id.js")}}"></script>
-
-<!-- date-range-picker -->
-<script src="{{asset("admin_lte/plugins/daterangepicker/daterangepicker.js")}}"></script>
+<script src="{{asset("admin_lte/plugins/select2/js/select2.full.min.js")}}"></script>
+<script src="{{asset("admin_lte/plugins/select2/js/i18n/id.js")}}"></script>
 
 <script>
-  moment.locale();
     $(function () {
       $("#select_poli").select2({
         language:"id",
@@ -102,8 +102,14 @@
       })
 
       var t = $('#table-ruangan').DataTable({
+        ajax:{
+          dataSrc:"",
+          url:"{{route('api.poli.kamar_poli')}}"
+        },
         columns:[
-          null,
+          {
+            defaultContent:"-"
+          },
           {data:"nama_kamar"},
           {data:"ruang.nama_ruang"},
           {data:"ruang.gedung.nama_gedung"},
@@ -121,8 +127,8 @@
 
       $("#select_poli").on("change",function(e){
         t.ajax.url(
-          `{{route('api.poli.kamar_poli')}}?poli=${e.value}`
-        ).reload()
+          `{{route('api.poli.kamar_poli')}}${e.target.value && `?poli=${e.target.value}`}`
+        ).load()
       })
     });          
 </script>

@@ -26,7 +26,7 @@ class PoliApiController extends Controller
 
     function getKamarPoli(Request $request)
     {
-        if ($request->input("poli")) {
+        if ($request->input("poli",null)) {
             $kamar = Kamar::wherePoli($request->input("poli"))->with("ruang", "ruang.gedung")->get();
         } else {
             $kamar = [];

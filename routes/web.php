@@ -65,7 +65,6 @@ Route::group(['prefix' => 'superadmin', "middleware" => "superadmin"], function 
 });
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get("", "HomeController");
     Route::get("user", "UserController@show")->name("user.show");
     Route::patch("user", "UserController@ubah_password")->name("user.ubah_password");
     Route::put("user", "UserController@update")->name("user.update");
@@ -77,10 +76,7 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('login', "AuthController@login_proses");
 });
 
-
-Route::get("test", function () {
-    dd(Auth::user());
-});
+Route::get("", "HomeController");
 
 Route::group(['prefix' => 'api', "as" => "api."], function () {
 
@@ -96,7 +92,7 @@ Route::group(['prefix' => 'api', "as" => "api."], function () {
         Route::get('gedung', "PoliApiController@getGedung")->name("gedung");
         Route::get('ruangan', "PoliApiController@getRuangan")->name(("ruang"));
         Route::get('kamar', "PoliApiController@getKamar")->name("kamar");
-        Route::get('kamar_poli', "PoliApiController@getKamar")->name("kamar_poli");
+        Route::get('kamar_poli', "PoliApiController@getKamarPoli")->name("kamar_poli");
         Route::get('shift', "PoliApiController@getShift")->name("shift");
 
         Route::get('obat', "PoliApiController@getObat")->name("obat");
