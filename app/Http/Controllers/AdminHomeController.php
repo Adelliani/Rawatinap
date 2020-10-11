@@ -17,12 +17,12 @@ class AdminHomeController extends Controller
     {
         $id_poli = Auth::user()->poli->id_poli;
 
-        $current_time = Carbon::now()->format("H:i:s");
+        $current_time = Carbon::now("WIB")->format("H:i:s");
         $current_shift = Auth::user()->poli->shift()->where(function ($q3) use ($current_time) {
             $q3->where(function ($query) use ($current_time) {
                 $query
                     ->whereColumn("jam_masuk", "<", "jam_keluar")
-                    ->where([["jam_masuk", "<=", $current_time],["jam_keluar", ">=", $current_time]]);
+                    ->where([["jam_masuk", "<=", $current_time], ["jam_keluar", ">=", $current_time]]);
             })->orWhere(function ($query) use ($current_time) {
                 $query
                     ->whereColumn("jam_masuk", ">", "jam_keluar")
@@ -41,7 +41,7 @@ class AdminHomeController extends Controller
 
         $kamar = Kamar::wherePoli($id_poli);
         $count_ruangan = $kamar->count();
-        $count_ruangan_tersedia = $kamar->whereColumn("kasur_terisi", "<", "jumlah_kasur")->count();
+        $count_ruangan_tersedia = $kamar->where("kasur_terisi", ">", 0)->count();
 
         return view('admin.index', [
             'pegawais' => $pegawais,
