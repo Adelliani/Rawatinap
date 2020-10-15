@@ -13,7 +13,7 @@
       <h1>
         Daftar Pasien Rawat Inap
       </h1>
-      <a href="./" class="btn btn-primary btn-sm tambahBtn"><i
+      <a href="{{route("pelayanan.index")}}" class="btn btn-primary btn-sm tambahBtn"><i
           class="fa fa-arrow-circle-left"> Kembali</i></a>
     </div>
   </section>
@@ -38,7 +38,7 @@
               @foreach($rawat_inaps as $item)
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->no_ri}}</td>
+                <td>{{$item->no_rawatinap}}</td>
                 <td>{{$item->pasien->nama_pasien}}</td>
                 <td>{{$item->pasien->jenis_kelamin}}</td>
                 <td>{{$item->tgl_masuk}}</td>

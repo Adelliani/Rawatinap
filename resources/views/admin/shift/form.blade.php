@@ -27,13 +27,13 @@
                 <div class="form-group">
                   <label class="col-sm-5">Id Shift</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_shift" value="" readonly>
+                    <input type="number" class="form-control" name="id_shift" value="" readonly required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Shift:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_shift">
+                    <input type="text" class="form-control" name="nama_shift" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -41,7 +41,7 @@
                     <div class="col-sm-12">
                         <div class="input-group" id="jam-masuk" data-input-jam
                             data-target-input="nearest">
-                            <input type="text" class="form-control" value="" name="jam_masuk" >
+                            <input type="text" class="form-control" value="" name="jam_masuk" required>
                                 <div class="input-group-append" data-target="#jam-masuk"
                                   data-toggle="datetimepicker">
                                       <div class="input-group-text">
@@ -56,7 +56,7 @@
                     <div class="col-sm-12">
                         <div class="input-group" id="jam-keluar" data-input-jam
                             data-target-input="nearest">
-                            <input type="text" class="form-control" value="" name="jam_keluar" >
+                            <input type="text" class="form-control" value="" name="jam_keluar" required>
                                 <div class="input-group-append" data-target="#jam-keluar"
                                   data-toggle="datetimepicker">
                                       <div class="input-group-text">

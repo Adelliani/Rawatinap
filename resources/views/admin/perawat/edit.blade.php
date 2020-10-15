@@ -28,13 +28,13 @@
                 <div class="form-group">
                   <label class="col-sm-5">ID Perawat</label>
                     <div class="col-sm-12">
-                      <input type="number" class="form-control" name="id_perawat" value="{{$perawat->id_perawat}}" readonly>
+                      <input type="number" class="form-control" name="id_perawat" value="{{$perawat->id_perawat}}" readonly required>
                     </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Perawat:</label>
                     <div class="col-sm-12">
-                      <input type="text" class="form-control" name="nama_perawat" value="{{$perawat->nama_perawat}}">
+                      <input type="text" class="form-control" name="nama_perawat" value="{{$perawat->nama_perawat}}" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -43,12 +43,12 @@
                       <div class="radio">
                           <label class="col-sm-5">
                               <input type="radio" name="jenis_kelamin" value="Laki-laki"
-                                  {{$perawat->jenis_kelamin=="laki-laki"?"checked":""}}>
+                                  {{$perawat->jenis_kelamin=="laki-laki"?"checked":""}} required>
                               Laki - Laki
                           </label>
                           <label class="col-sm-5">
                               <input type="radio" name="jenis_kelamin" value="Perempuan"
-                                  {{$perawat->jenis_kelamin=="perempuan"?"checked":""}}>
+                                  {{$perawat->jenis_kelamin=="perempuan"?"checked":""}} required>
                               Perempuan
                           </label>
                       </div>
@@ -57,19 +57,19 @@
                 <div class="form-group">
                   <label class="col-sm-5">Shift:</label>
                   <div class="col-sm-12">
-                    <select id="select_shift" name="id_shift" style="width: 100%" value="{{$perawat->id_shift}}"></select>
+                    <select id="select_shift" name="id_shift" style="width: 100%" value="{{$perawat->id_shift}}" required></select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">No. Telp:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="notelp" value="{{$perawat->notelp}}">
+                    <input type="number" class="form-control" name="notelp" value="{{$perawat->notelp}}" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Alamat:</label>
                   <div class="col-sm-12">
-                    <textarea name="alamat" class="form-control" rows="3">{{$perawat->alamat}}</textarea>
+                    <textarea name="alamat" class="form-control" rows="3" required>{{$perawat->alamat}}</textarea>
                   </div>
                 </div>
               </div>

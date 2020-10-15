@@ -38,7 +38,7 @@
                           <i class="far fa-calendar-alt"></i>
                         </span>
                       </div>
-                      <input name="tanggal" type="text" class="form-control float-right" id="tanggal">
+                      <input name="tanggal" type="text" class="form-control float-right" id="tanggal" required>
 
                       <div class="input-group-append">
                         {{-- <div class="input-group-text"></div> --}}

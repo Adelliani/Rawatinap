@@ -36,7 +36,7 @@
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-obat" data-input-tanggal
                                         data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="waktu_order" readonly>
+                                        <input type="text" class="form-control" value="" name="waktu_order" readonly required>
                                         <div class="input-group-append" data-target="#tanggal-obat"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
@@ -49,26 +49,26 @@
                             
                             <div class="form-group">
                                 <label class="col-sm-4">Nama Obat:</label>
-                                <div class="col-sm-12">
-                                    <select name="id_obat" id="select-obat" style="width:100%"></select>
+                                <div class="col-sm-12" >
+                                    <select name="id_obat" id="select-obat" style="width:100%"></select required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Tujuan Obat:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="tujuan">
+                                    <input type="text" class="form-control" name="tujuan" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Jumlah Obat:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="jumlah_order">
+                                    <input type="text" class="form-control" name="jumlah_order" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                            <a class="btn btn-default" href="./"><i class="fa fa-power-off"></i>
+                            <a class="btn btn-default" href="{{route("pasien.index")}}"><i class="fa fa-power-off"></i>
                                 Batal</a>
                         </div>
                     </div>

@@ -26,13 +26,13 @@
                             <div class="form-group">
                                 <label class="col-sm-5">Id Ruang:</label>
                                 <div class="col-sm-12">
-                                    <input type="number" class="form-control" name="id_kamar" value="{{$ruang->id_ruang}}" readonly>
+                                    <input type="number" class="form-control" name="id_kamar" value="{{$ruang->id_ruang}}" readonly required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Nama Ruang:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="nama_ruang" value="{{$ruang->nama_ruang}}">
+                                    <input type="text" class="form-control" name="nama_ruang" value="{{$ruang->nama_ruang}}" required>
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@
                                 <label class="col-sm-5">Nama Gedung:</label>
                                 <div class="col-sm-12">
                                     <div id="gedung">
-                                        <select class="form-control" id="select_gedung" name="id_gedung">
+                                        <select class="form-control" id="select_gedung" name="id_gedung" required>
                                         </select>
                                     </div>
                                 </div>

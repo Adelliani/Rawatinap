@@ -23,13 +23,13 @@
                             <div class="form-group">
                                 <label class="col-sm-8">ID Gedung:</label>
                                 <div class="col-sm-15">
-                                    <input type="number" class="form-control" name="id_gedung" value="{{$gedung->id_gedung}}" readonly>
+                                    <input type="number" class="form-control" name="id_gedung" value="{{$gedung->id_gedung}}" readonly required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-8">Nama Gedung:</label>
                                 <div class="col-sm-15">
-                                    <input type="text" class="form-control" name="nama_gedung" value="{{$gedung->nama_gedung}}">
+                                    <input type="text" class="form-control" name="nama_gedung" value="{{$gedung->nama_gedung}}" required>
                                 </div>
                             </div>
 

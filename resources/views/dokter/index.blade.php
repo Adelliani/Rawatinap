@@ -41,7 +41,7 @@
 
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->no_ri}}</td>
+                <td>{{$item->no_rawatinap}}</td>
                 <td>{{$item->pasien->no_identitas}}</td>
                 <td>{{$item->pasien->nama_pasien}}</td>
                 <td>{{$item->pasien->tgl_lahir}}</td>

@@ -37,7 +37,7 @@
                                     <div class="input-group" id="tanggal-pemeriksaan" data-input-tanggal
                                         data-target-input="nearest">
                                         <input type="text" class="form-control" value="" name="waktu_pemeriksaan"
-                                            readonly>
+                                            readonly required>
                                         <div class="input-group-append" data-target="#tanggal-pemeriksaan"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
@@ -51,20 +51,20 @@
                             <div class="form-group">
                                 <label class="col-sm-4">Jenis Pemeriksaan:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="jenis_pemeriksaan">
+                                    <input type="text" class="form-control" name="jenis_pemeriksaan" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 col-form-label">Hasil Pemeriksaan:</label>
                                 <div class="col-sm-12">
-                                    <textarea name="hasil_pemeriksaan" class="form-control" rows="3"></textarea>
+                                    <textarea name="hasil_pemeriksaan" class="form-control" rows="3" required></textarea>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                            <a class="btn btn-default" href="./"><i class="fa fa-power-off"></i>
-                            Batal</a>
+                            <a class="btn btn-default" href="{{route("pasien.index")}}"><i class="fa fa-power-off"></i>
+                                Batal</a>
                         </div>
                     </div>
                 </form>

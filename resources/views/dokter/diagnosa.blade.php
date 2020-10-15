@@ -35,7 +35,7 @@
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-diagnosa" data-input-tanggal
                                         data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="waktu_diagnosa" readonly>
+                                        <input type="text" class="form-control" value="" name="waktu_diagnosa" readonly required>
                                         <div class="input-group-append" data-target="#tanggal-diagnosa"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
@@ -49,32 +49,32 @@
                             <div class="form-group">
                                 <label class="col-sm-4">Tinggi:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="tinggi">
+                                    <input type="text" class="form-control" name="tinggi" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Berat:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="berat">
+                                    <input type="text" class="form-control" name="berat" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Suhu Badan:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="suhubadan">
+                                    <input type="text" class="form-control" name="suhubadan" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Hasil Diagnosa:</label>
                                 <div class="col-sm-12">
-                                    <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea>
+                                    <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                            <a class="btn btn-default" href="./"><i class="fa fa-power-off"></i>
+                            <a class="btn btn-default" href="{{route("pasien.index")}}"><i class="fa fa-power-off"></i>
                                 Batal</a>
                         </div>
                     </div>

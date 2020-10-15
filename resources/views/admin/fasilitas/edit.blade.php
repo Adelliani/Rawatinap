@@ -25,28 +25,28 @@
                   <label class="col-sm-8">ID Fasilitas</label>
                   <div class="col-sm-12">
                     <input type="number" class="form-control" name="id_fasilitas" value="{{$fasilitas->id_fasilitas}}"
-                      readonly>
+                      readonly required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-8">Nama Fasilitas:</label>
                   <div class="col-sm-12">
                     <input type="text" class="form-control" name="nama_fasilitas"
-                      value="{{$fasilitas->nama_fasilitas}}">
+                      value="{{$fasilitas->nama_fasilitas}}" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-8">Jenis Fasilitas:</label>
                   <div class="col-sm-12">
                     <input type="text" class="form-control" name="jenis_fasilitas"
-                      value="{{$fasilitas->jenis_fasilitas}}">
+                      value="{{$fasilitas->jenis_fasilitas}}" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-8">Harga Fasilitas:</label>
                   <div class="col-sm-12">
                     <input type="text" class="form-control" name="harga_fasilitas"
-                      value="{{$fasilitas->harga_fasilitas}}">
+                      value="{{$fasilitas->harga_fasilitas}}" required>
                   </div>
                 </div>
               </div>

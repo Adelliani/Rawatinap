@@ -35,7 +35,7 @@
                                                 <label class="form-label">Tgl Masuk</label>
                                                 <div>
                                                     <input id="tanggal-display" type="text" class="form-control"
-                                                        value="" disabled>
+                                                        value="" disabled required>
                                                     <input type="hidden" name="tgl_masuk" id="tanggal">
                                                 </div>
                                             </div>
@@ -45,7 +45,7 @@
                                                 <label class="form-label">No.Rawat Inap</label>
                                                 <div>
                                                     <input type="text" class="form-control" name="no_ri" value=""
-                                                        readonly>
+                                                        readonly required>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,11 +82,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-4">Tanggal Lahir<sup class="bintang">*</sup>:</label required>
+                                        <label class="col-4">Tanggal Lahir<sup class="bintang">*</sup>:</label>
                                         <div class="input-group date col-6" id="tgl-lahir-datepicker"
                                             data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
-                                                data-target="#tgl-lahir-datepicker" id="text-tgl-lahir" readonly
+                                                data-target="#tgl-lahir-datepicker" id="text-tgl-lahir" readonly required
                                                 name="tgl_lahir" />
                                             <div class="input-group-append" data-target="#tgl-lahir-datepicker"
                                                 data-toggle="datetimepicker">
@@ -98,7 +98,7 @@
                                         <label class="col-sm-4 control-label">Umur:</label>
                                         <div class="col-sm-4">
                                             <div class="input-group">
-                                                <input type="text" disabled class="form-control" id="text_umur">
+                                                <input type="text" disabled class="form-control" id="text_umur" required>
                                                 <span class="input-group-append">
                                                     <div class="input-group-text">Tahun</div>
                                                 </span>
@@ -107,12 +107,12 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Jenis Kelamin<sup
-                                                class="bintang">*</sup>:</label required>
+                                                class="bintang">*</sup>:</label>
                                         <div class="col-sm-8">
                                             <div class="radio">
                                                 <label class="col-sm-5">
                                                     <input type="radio" name="jenis_kelamin" value="Laki-laki"
-                                                        id="jeniskelamin_L">
+                                                        id="jeniskelamin_L" required>
                                                     Laki - Laki
                                                 </label>
                                                 <label class="col-sm-5">
@@ -126,7 +126,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">Agama:</label>
                                         <div class="col-sm-8">
-                                            <select name="agama" class="form-control">
+                                            <select name="agama" class="form-control" required>
                                                 <option selected="true" disabled></option>
                                                 <option value="islam">Islam</option>
                                                 <option value="kristen">Kristen Protestan</option>
@@ -140,7 +140,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">Status Perkawinan:</label>
                                         <div class="col-sm-8">
-                                            <select name="status_perkawinan" class="form-control">
+                                            <select name="status_perkawinan" class="form-control" required>
                                                 <option selected="true" disabled></option>
                                                 <option value="belummenikah">Belum Menikah</option>
                                                 <option value="menikah">Menikah</option>
@@ -150,7 +150,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">Gol Darah:</label>
                                         <div class="col-sm-8">
-                                            <select name="gol_darah" class="form-control">
+                                            <select name="gol_darah" class="form-control" required>
                                                 <option selected="true" disabled></option>
                                                 <option value="A">A</option>
                                                 <option value="B">B</option>
@@ -162,7 +162,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">Pendidikan:</label>
                                         <div class="col-sm-8">
-                                            <select name="pendidikan" class="form-control">
+                                            <select name="pendidikan" class="form-control" required>
                                                 <option selected="true" disabled></option>
                                                 <option value="tdktamatsd">Tidak Tamat SD</option>
                                                 <option value="sd">SD</option>
@@ -177,7 +177,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">Pekerjaan:</label>
                                         <div class="col-sm-8">
-                                            <select name="pekerjaan" class="form-control">
+                                            <select name="pekerjaan" class="form-control" required>
                                                 <option selected="tidaktahu" disabled></option>
                                                 <option value="tidakbekerja">Tidak Bekerja</option>
                                                 <option value="pns">PNS</option>
@@ -195,7 +195,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">Alergi:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="alergi" value="">
+                                            <input type="text" class="form-control" name="alergi" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@
                                         <label class="col-sm-4 control-label">Provinsi:</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="select_prov" name="prov"
-                                                style="width:100%">
+                                                style="width:100%" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -216,7 +216,7 @@
                                         <div class="col-sm-8">
                                             <div id="kabupaten">
                                                 <select class="form-control" id="select_kab" name="kab"
-                                                    style="width:100%">
+                                                    style="width:100%" required>
                                                 </select>
                                             </div>
                                         </div>
@@ -226,7 +226,7 @@
                                         <div class="col-sm-8">
                                             <div id="kecamatan">
                                                 <select class="form-control" id="select_kec" name="kec"
-                                                    style="width:100%">
+                                                    style="width:100%" required>
                                                 </select>
                                             </div>
                                         </div>
@@ -236,7 +236,7 @@
                                         <div class="col-sm-8">
                                             <div id="kampung">
                                                 <select class="form-control" id="select_desa" name="id_desa"
-                                                    style="width:100%">
+                                                    style="width:100%" required>
                                                 </select>
                                             </div>
                                         </div>
@@ -245,13 +245,13 @@
                                         <label class="col-sm-4 control-label">Alamat<sup class="bintang">*</sup>:</label
                                             required>
                                         <div class="col-sm-8">
-                                            <textarea name="alamat" class="form-control" rows="3"></textarea>
+                                            <textarea name="alamat" class="form-control" rows="3"></textarea required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 control-label">No.HP:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="no_hp">
+                                            <input type="text" class="form-control" name="no_hp" required>
                                         </div>
                                     </div>
                                 </div>
@@ -266,19 +266,19 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 control-label">No. KK:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="no_kk">
+                                            <input type="text" class="form-control" name="no_kk" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 control-label">Nama Keluarga:</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="nama_keluarga">
+                                            <input type="text" class="form-control" name="nama_keluarga" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 control-label">Hubungan:</label>
                                         <div class="col-sm-9">
-                                            <select name="hubungan" class="form-control">
+                                            <select name="hubungan" class="form-control" required>
                                                 <option selected="true" disabled></option>
                                                 <option value="ayah">Ayah</option>
                                                 <option value="ibu">Ibu</option>
@@ -303,7 +303,7 @@
                                         <label class="col-sm-4 col-form-label">Gedung<sup
                                                 class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
-                                            <select name="nama_gedung" id="select_gedung" class="form-control">
+                                            <select name="nama_gedung" id="select_gedung" class="form-control" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -312,7 +312,7 @@
                                         <label class="col-sm-4 col-form-label">Ruang<sup class="bintang">*</sup>:</label
                                             required>
                                         <div class="col-sm-8">
-                                            <select name="nama_ruang" id="select_ruang" class="form-control">
+                                            <select name="nama_ruang" id="select_ruang" class="form-control" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -321,7 +321,7 @@
                                         <label class="col-sm-4 col-form-label">kamar<sup class="bintang">*</sup>:</label
                                             required>
                                         <div class="col-sm-8">
-                                            <select name="id_kamar" id="select_kamar" class="form-control">
+                                            <select name="id_kamar" id="select_kamar" class="form-control" required>
                                                 <option value=""></option>
                                             </select>
                                         </div>
@@ -330,13 +330,13 @@
                                         <label class="col-sm-4 col-form-label">No. Tempat Tidur<sup
                                                 class="bintang">*</sup>:</label required>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="no_tempattidur">
+                                            <input type="text" class="form-control" name="no_tempattidur" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Dokter PJ:</label>
                                         <div class="col-sm-8">
-                                            <select name=id_dokter class="form-control" id="select_dokter">
+                                            <select name=id_dokter class="form-control" id="select_dokter" required>
                                             </select>
                                         </div>
                                     </div>
@@ -348,7 +348,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Jenis Pasien:</label>
                                         <div class="col-sm-8">
-                                            <select name="jenis_pasien" class="form-control" id="jenis_pasien">
+                                            <select name="jenis_pasien" class="form-control" id="jenis_pasien" required>
                                                 <option value=""></option>
                                                 <option value="BPJS">BPJS</option>
                                                 <option value="NonBPJS">Non BPJS</option>
@@ -359,14 +359,14 @@
                                         <label class="col-sm-4 col-form-label">No BPJS:</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="no_bpjs" disabled
-                                                data-bpjs-pasien-only>
+                                                data-bpjs-pasien-only required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Nama Peserta BPJS:</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="nama_pesertabpjs" disabled
-                                                data-bpjs-pasien-only>
+                                                data-bpjs-pasien-only required>
                                         </div>
                                     </div>
                                 </div>
@@ -379,7 +379,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Prosedur Masuk:</label>
                                         <div class="col-sm-8">
-                                            <select name="prosedur_masuk" class="form-control" id="prosedurmasuk">
+                                            <select name="prosedur_masuk" class="form-control" id="prosedurmasuk" required>
                                                 <option value="" disabled selected>Pilih prosedur masuk</option>
                                                 <option value="langsung">Langsung</option>
                                                 <option value="rujukanIGD">Rujukan IGD</option>
@@ -390,7 +390,7 @@
                                         <label class="col-sm-4 col-form-label">Cara Masuk:</label>
                                         <div class="col-sm-8">
                                             <select name="cara_masuk" class="form-control" id="caramasuk" disabled
-                                                data-langsung>
+                                                data-langsung required>
                                                 <option value="" disabled selected>Pilih cara masuk</option>
                                                 <option value="datangsendiri">Datang Sendiri</option>
                                                 <option value="kontrol">Kontrol</option>
@@ -402,7 +402,7 @@
                                         <label class="col-sm-4 col-form-label">Dokter:</label>
                                         <div class="col-sm-8">
                                             <select name=id_dokter class="form-control" id="select_dokterrs" disabled
-                                                data-langsung="">
+                                                data-langsung="" required>
                                             </select>
                                         </div>
                                     </div>
@@ -410,20 +410,20 @@
                                         <label class="col-sm-4 col-form-label">Dokter Perujuk:</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="dokter_perujuk" disabled
-                                                data-rujuk>
+                                                data-rujuk required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Asal Rujukan:</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="asal_rujukan" disabled
-                                                data-rujuk>
+                                                data-rujuk required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Alasan Dirujuk:</label>
                                         <div class="col-sm-8">
-                                            <select name="alasan_dirujuk" class="form-control" disabled data-rujuk>
+                                            <select name="alasan_dirujuk" class="form-control" disabled data-rujuk required>
                                                 <option value="" disabled selected>Pilih alasan dirujuk</option>
                                                 <option value="kepentinganmedis">Kepentingan Medis</option>
                                                 <option value="fasilitaskurang">Fasilitas Kurang</option>
@@ -442,25 +442,25 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Tinggi:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="tinggi" placeholder="cm">
+                                            <input type="text" class="form-control" name="tinggi" placeholder="cm" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Berat:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="berat" placeholder="kg">
+                                            <input type="text" class="form-control" name="berat" placeholder="kg" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Suhu Badan:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="suhubadan" placeholder="C">
+                                            <input type="text" class="form-control" name="suhubadan" placeholder="C" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Diagnosa:</label>
                                         <div class="col-sm-8">
-                                            <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea>
+                                            <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea required>
                                         </div>
                                     </div>
                                 </div>

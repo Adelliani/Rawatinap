@@ -27,13 +27,13 @@
                 <div class="form-group">
                   <label class="col-sm-5">ID Pegawai</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_pegawai" value="" readonly>
+                    <input type="number" class="form-control" name="id_pegawai" value="" readonly required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Pegawai:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_pegawai">
+                    <input type="text" class="form-control" name="nama_pegawai" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -41,7 +41,7 @@
                   <div class="col-sm-12">
                     <div class="radio">
                       <label>
-                        <input type="radio" name="jenis_kelamin" value="Laki-laki">
+                        <input type="radio" name="jenis_kelamin" value="Laki-laki" required>
                         Laki - Laki
                       </label>
                       <label>
@@ -56,25 +56,25 @@
                 <div class="form-group">
                   <label class="col-sm-5">Posisi:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="posisi">
+                    <input type="text" class="form-control" name="posisi" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">No. Telp:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="notelp">
+                    <input type="number" class="form-control" name="notelp" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Alamat:</label>
                   <div class="col-sm-12">
-                    <textarea name="alamat" class="form-control" rows="3"></textarea>
+                    <textarea name="alamat" class="form-control" rows="3" required></textarea>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Shift:</label>
                   <div class="col-sm-12">
-                    <select id="select_shift" style="width: 100%" name="id_shift"></select>
+                    <select id="select_shift" style="width: 100%" name="id_shift" required></select>
                   </div>
                 </div>
               </div>

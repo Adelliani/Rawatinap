@@ -30,13 +30,13 @@
                   <label class="col-sm-5">ID Pegawai</label>
                   <div class="col-sm-12">
                     <input type="number" class="form-control" name="id_pegawai" value="{{$pegawai->id_pegawai}}"
-                      readonly>
+                      readonly required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Pegawai:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_pegawai" value="{{$pegawai->nama_pegawai}}">
+                    <input type="text" class="form-control" name="nama_pegawai" value="{{$pegawai->nama_pegawai}}"required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -45,12 +45,12 @@
                     <div class="radio">
                       <label class="col-sm-5">
                         <input type="radio" name="jenis_kelamin" value="Laki-laki"
-                          {{$pegawai->jenis_kelamin=="laki-laki"?"checked":""}}>
+                          {{$pegawai->jenis_kelamin=="laki-laki"?"checked":""}} required>
                         Laki - Laki
                       </label>
                       <label class="col-sm-5">
                         <input type="radio" name="jenis_kelamin" value="Perempuan"
-                          {{$pegawai->jenis_kelamin=="perempuan"?"checked":""}}>
+                          {{$pegawai->jenis_kelamin=="perempuan"?"checked":""}}required>
                         Perempuan
                       </label>
                     </div>
@@ -59,25 +59,25 @@
                 <div class="form-group">
                   <label class="col-sm-5">Posisi:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="posisi" value="{{$pegawai->posisi}}">
+                    <input type="text" class="form-control" name="posisi" value="{{$pegawai->posisi}}"required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">No. Telp:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="notelp" value="{{$pegawai->notelp}}">
+                    <input type="number" class="form-control" name="notelp" value="{{$pegawai->notelp}}"required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Alamat:</label>
                   <div class="col-sm-12">
-                    <textarea name="alamat" class="form-control" rows="3">{{$pegawai->alamat}}</textarea>
+                    <textarea name="alamat" class="form-control" rows="3" required>{{$pegawai->alamat}}</textarea>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Shift:</label>
                   <div class="col-sm-12">
-                    <select id="select_shift" style="width: 100%" name="id_shift"></select>
+                    <select id="select_shift" style="width: 100%" name="id_shift" required></select>
                   </div>
                 </div>
               </div>

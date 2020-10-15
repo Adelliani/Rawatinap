@@ -26,14 +26,14 @@
                                         <label class="col-sm-5">Id Dokter</label>
                                         <div class="col-sm-10">
                                             <input type="number" class="form-control" name="id_dokter"
-                                                value="{{$dokter->id_dokter}}" readonly>
+                                                value="{{$dokter->id_dokter}}" readonly required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Nama Dokter:</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="nama_dokter"
-                                                value="{{$dokter->nama_dokter}}">
+                                                value="{{$dokter->nama_dokter}}" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -42,12 +42,12 @@
                                             <div class="radio">
                                                 <label class="col-sm-5">
                                                     <input type="radio" name="jenis_kelamin" value="Laki-laki"
-                                                        {{$dokter->jenis_kelamin=="laki-laki"?"checked":""}}>
+                                                        {{$dokter->jenis_kelamin=="laki-laki"?"checked":""}} required>
                                                     Laki - Laki
                                                 </label>
                                                 <label class="col-sm-5">
                                                     <input type="radio" name="jenis_kelamin" value="Perempuan"
-                                                        {{$dokter->jenis_kelamin=="perempuan"?"checked":""}}>
+                                                        {{$dokter->jenis_kelamin=="perempuan"?"checked":""}} required>
                                                     Perempuan
                                                 </label>
                                             </div>
@@ -56,7 +56,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-5">Jenis Dokter:</label>
                                         <div class="col-sm-10">
-                                            <select id="jenis_dokter" name="jenis_dokter" class="form-control">
+                                            <select id="jenis_dokter" name="jenis_dokter" class="form-control" required>
                                                 <option value=""></option>
                                                 <option {{$dokter->jenis_dokter=="umum"?"selected":""}} value="umum">
                                                     Umum</option>
@@ -71,20 +71,20 @@
                                         <label class="col-sm-5">Spesialisasi:</label>
                                         <div class="col-sm-10">
                                             <input id="spesialisasi" type="text" class="form-control"
-                                                name="spesialisasi" value="{{$dokter->spesialisasi}}">
+                                                name="spesialisasi" value="{{$dokter->spesialisasi}}" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">No. Telp:</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="notelp"
-                                                value="{{$dokter->notelp}}">
+                                                value="{{$dokter->notelp}}" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Alamat:</label>
                                         <div class="col-sm-10">
-                                            <textarea name="alamat" class="form-control" rows="3">{{$dokter->alamat}}</textarea>
+                                            <textarea name="alamat" class="form-control" rows="3">{{$dokter->alamat}}</textarea required>
                                         </div>
                                     </div>
                                 </div>
