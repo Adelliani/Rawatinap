@@ -40,19 +40,29 @@ class FasilitasController extends Controller
      */
     public function store(Request $request)
     {
-        if (Auth::user()->can("create", Fasilitas::class)) {
-            $data_fasilitas = $request->only([
-                "nama_fasilitas",
-                "jenis_fasilitas",
-                "harga_fasilitas"
-            ]);
-            $data_fasilitas["id_poli"] = Auth::user()->poli->id_poli;
+        $request->validate([
+            "nama_fasilitas" => "required|string", // Yang kiri itu buat nama inputnya, yang kanan buat pola validasinya. validasi lainnya liat disini https://laravel.com/docs/7.x/validation
+            "jenis_fasilitas" => "required|string",
+            "harga_fasilitas" => "required|integer"
+        ], [
+            "nama_fasilitas.required" => "Nama Fasilitas tidak boleh kosong", //ini buat pesan kalo validasinya gagal. jadi "nama_input.nama_validasi" => "pesannya"
+            "nama_fasilitas.string" => "Nama Fasilitas harus berupa string",
+            "jenis_fasilitas.required" => "Jenis Fasilitas tidak boleh kosong",
+            "jenis_fasilitas.string" => "Jenis Fasilitas harus berupa string",
+            "harga_fasilitas.required" => "Harga Fasilitas tidak boleh kosong",
+            "harga_fasilitas.string" => "Harga Fasilitas harus berupa angka",
+        ]);
 
-            Fasilitas::create($data_fasilitas);
-            return redirect()->route("fasilitas.index");
-        } else {
-            return redirect()->route("fasilitas.index");
-        }
+        $data_fasilitas = $request->only([
+            "nama_fasilitas",
+            "jenis_fasilitas",
+            "harga_fasilitas"
+        ]);
+        $data_fasilitas["id_poli"] = Auth::user()->poli->id_poli;
+
+        Fasilitas::create($data_fasilitas);
+
+        return redirect()->route("fasilitas.index");
     }
 
     /**
