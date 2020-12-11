@@ -103,13 +103,13 @@ class RawatInapController extends Controller
      */
     public function destroy(RawatInap $rawatInap)
     {
-        if (($rawatInap->tgl_keluar != null) || ($rawatInap->siap_pulang)) {
+        if (($rawatInap->tgl_keluar != null) || (!$rawatInap->siap_pulang)) {
             return abort(403,"Pasien belum boleh di pulangkan");
         } else {
             $rawatInap->tgl_keluar = Carbon::now();
             $rawatInap->kamars()->whereNull("tgl_keluar")->update(["tgl_keluar" => Carbon::now()]);
             $rawatInap->save();
-            return redirect("pelayanan.index");
+            return redirect()->route("pelayanan.index");
         }
     }
 }

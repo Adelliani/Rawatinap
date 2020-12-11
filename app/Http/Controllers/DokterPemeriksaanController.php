@@ -37,6 +37,19 @@ class DokterPemeriksaanController extends Controller
 
     public function store(Request $request, RawatInap $rawatInap)
     {
+        $request->validate([
+            "waktu_pemeriksaan" => "required|date",
+            "jenis_pemeriksaan" => "required|string",
+            "hasil_pemeriksaan" => "required|string",   
+        ], [
+            "waktu_pemeriksaan.required" => "Waktu Pemeriksaan tidak boleh kosong", 
+            "waktu_pemeriksaan.date" => "Waktu Pemeriksaan harus berupa date",
+            "jenis_pemeriksaan.required" => "Jenis Pemeriksaan tidak boleh kosong",
+            "jenis_pemeriksaan.string" => "Jenis Pemeriksaan harus berupa string",
+            "hasil_pemeriksaan.required" => "Hasil Pemeriksaan tidak boleh kosong",
+            "hasil_pemeriksaan.string" => "Hasil Pemeriksaan harus berupa string",
+        ]);
+
         $data_pemeriksaan = $request->only(['waktu_pemeriksaan', 'jenis_pemeriksaan', 'hasil_pemeriksaan', 'id_rawatinap']);
         $pemeriksaan = new Pemeriksaan($data_pemeriksaan);
         $rawatInap->pemeriksaan()->save($pemeriksaan);

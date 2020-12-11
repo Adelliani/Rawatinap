@@ -38,7 +38,7 @@
                           <i class="far fa-calendar-alt"></i>
                         </span>
                       </div>
-                      <input name="tanggal" type="text" class="form-control float-right" id="tanggal">
+                      <input name="tanggal" type="text" class="form-control float-right" id="tanggal" required>
 
                       <div class="input-group-append">
                         {{-- <div class="input-group-text"></div> --}}
@@ -75,7 +75,7 @@
 
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->no_ri}}</td>
+                <td>{{$item->no_rawatinap}}</td>
                 <td>{{$item->pasien->nama_pasien}}</td>
                 <td>{{$item->pasien->jenis_kelamin}}</td>
                 <td>{{$item->pasien->alamat}}</td>

@@ -21,6 +21,17 @@
         </div>
     </section>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
 
         <div class="row">
@@ -32,7 +43,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="col-sm-4">Tanggal:</label>
+                                <label class="col-sm-4">Waktu Resep:</label>
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-obat" data-input-tanggal
                                         data-target-input="nearest">
@@ -49,7 +60,7 @@
                             
                             <div class="form-group">
                                 <label class="col-sm-4">Nama Obat:</label>
-                                <div class="col-sm-12">
+                                <div class="col-sm-12" >
                                     <select name="id_obat" id="select-obat" style="width:100%"></select>
                                 </div>
                             </div>
@@ -66,9 +77,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer d-flex align-items-stretch justify-content-end">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                            <a class="btn btn-default" href="./"><i class="fa fa-power-off"></i>
+                            <a class="btn btn-default" href="{{route("pasien.index")}}"><i class="fa fa-power-off"></i>
                                 Batal</a>
                         </div>
                     </div>

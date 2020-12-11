@@ -12,6 +12,18 @@
             </h1>
         </div>
     </section>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
         <div class="card">
             <form class="form-horizontal" action="{{route("poli.store")}}" method="post">
@@ -22,7 +34,7 @@
                             <div class="form-group">
                                 <label class="col-sm-5">ID Pelayanan Kesehatan:</label>
                                 <div class="col-sm-12">
-                                    <input type="number" class="form-control" name="id_poli" value="" readonly>
+                                    <input type="number" class="form-control" name="id_poli" value="" readonly >
                                 </div>
                             </div>
                             <div class="form-group">

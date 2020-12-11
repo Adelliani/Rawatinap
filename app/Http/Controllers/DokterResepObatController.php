@@ -35,6 +35,22 @@ class DokterResepObatController extends Controller
      */
     public function store(Request $request, RawatInap $rawatInap)
     {
+        $request->validate([
+            "waktu_order" => "required|date",
+            "id_obat" => "required|integer",
+            "jumlah_order" => "required|string",
+            "tujuan" => "required|string",   
+        ], [
+            "waktu_order.required" => "Waktu Resep tidak boleh kosong", 
+            "waktu_order.date" => "Waktu Resep harus berupa date",
+            "id_obat.required" => "Nama Obat tidak boleh kosong",
+            "id_obat.integer" => "Nama Obat harus berupa integer",
+            "jumlah_order.required" => "Jumlah Obat tidak boleh kosong",
+            "jumlah_order.string" => "Jumlah Obat harus berupa string",
+            "tujuan.required" => "Tujuan Obat tidak boleh kosong",
+            "tujuan.string" => "Tujuan Obat Pemeriksaan harus berupa string",
+        ]);
+
         $data_obat = $request->only(["waktu_order", "jumlah_order", "tujuan"]);
         $data_obat["efek"] = "";
         $rawatInap->obat()->attach($request->input("id_obat"), $data_obat);

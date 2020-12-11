@@ -10,7 +10,16 @@
         </div>
     </section>
 
-    <div class="content-wrapper">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+    <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+        <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+         @endforeach
+        </ul>
+    </div>
+     @endif
 
         <div class="row">
             <div class="col-12">
@@ -30,7 +39,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-5">Nama Dokter:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="nama_dokter">
+                                            <input type="text" class="form-control"name="nama_dokter">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -51,7 +60,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-5">Jenis Dokter:</label>
                                         <div class="col-sm-10">
-                                            <select id="jenis_dokter" name="jenis_dokter" class="form-control">
+                                            <select id="jenis_dokter" name="jenis_dokter" class="form-control" >
                                                 <option value=""></option>
                                                 <option value="umum">Umum</option>
                                                 <option value="spesialis">Spesialis</option>
@@ -64,13 +73,13 @@
                                         <label class="col-sm-5">Spesialisasi:</label>
                                         <div class="col-sm-10">
                                             <input id="spesialisasi" type="text" class="form-control"
-                                                name="spesialisasi">
+                                                name="spesialisasi" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">No. Telp:</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" name="notelp">
+                                            <input type="number" class="form-control" name="notelp" >
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -91,7 +100,7 @@
                 </form>
 
             </div>
-        </div>
+        
     </div>
 </div>
 

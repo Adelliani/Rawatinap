@@ -20,6 +20,8 @@
       <h1>
         Detail Pelayanan
       </h1>
+      <a href="{{route("pasien.index")}}" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left">
+        Kembali</i></a>
     </div>
   </section>
 
@@ -76,7 +78,7 @@
               <div class="card card-default">
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <label class="form-label">Tgl Masuk</label>
                         <div>
@@ -84,11 +86,11 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                       <div class="form-group">
                         <label class="form-label">No.Rawat Inap</label>
                         <div>
-                          <p class="form-control">{{$rawat_inap->no_ri}}</p>
+                          <p class="form-control">{{$rawat_inap->no_rawatinap}}</p>
                         </div>
                       </div>
                     </div>
@@ -326,8 +328,8 @@
               @foreach ($rawat_inap->obat as $item)
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{\Carbon\Carbon::parse($item->pivot->tgl_order)->format('d-F-Y')}}</td>
-                <td>{{\Carbon\Carbon::parse($item->pivot->jam_order)->format('H:i a')}}</td>
+                <td>{{\Carbon\Carbon::parse($item->pivot->waktu_order)->format('d-F-Y')}}</td>
+                <td>{{\Carbon\Carbon::parse($item->pivot->waktu_order)->format('H:i a')}}</td>
                 <td>{{$item->nama_obat}}</td>
                 <td>{{$item->kategori}}</td>
                 @if ($item->pivot->returobat)

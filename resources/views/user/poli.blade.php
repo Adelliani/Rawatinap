@@ -10,6 +10,17 @@
         </div>
     </section>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
 
         <div class="row">
@@ -25,7 +36,7 @@
                                         <label class="col-sm-5">Username</label>
                                         <div class="col-sm-12">
                                             <input type="text" class="form-control" name="username"
-                                                value="{{$user->username}}">
+                                                value="{{$user->username}}" required>
                                         </div>
                                     </div>
 
@@ -33,21 +44,21 @@
                                         <label class="col-sm-6">Nama Pelayanan Kesehatan:</label>
                                         <div class="col-sm-12">
                                             <input type="text" class="form-control" name="nama_poli"
-                                                value="{{$user->poli->nama_poli}}">
+                                                value="{{$user->poli->nama_poli}}" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Alamat:</label>
                                         <div class="col-sm-12">
                                             <textarea name="alamat" class="form-control"
-                                                rows="3">{{$user->poli->alamat}}</textarea>
+                                                rows="3">{{$user->poli->alamat}}</textarea required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Akreditasi:</label>
                                         <div class="col-sm-12">
                                             <input type="text" class="form-control" name="akreditasi"
-                                                value="{{$user->poli->akreditasi}}">
+                                                value="{{$user->poli->akreditasi}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -70,13 +81,13 @@
                                 <div class="form-group">
                                     <label class="col-sm-5">Password Baru:</label>
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" name="password_baru">
+                                        <input type="text" class="form-control" name="password_baru" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-5">Konfirmasi Password:</label>
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" name="konfirmasi_password">
+                                        <input type="text" class="form-control" name="konfirmasi_password" required>
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +110,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Konfirmasi Password</h4>
+                    <h4 class="modal-title">Konfirmasi Password (Lama)</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>

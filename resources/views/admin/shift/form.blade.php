@@ -16,6 +16,17 @@
     </div>
   </section>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -41,7 +52,7 @@
                     <div class="col-sm-12">
                         <div class="input-group" id="jam-masuk" data-input-jam
                             data-target-input="nearest">
-                            <input type="text" class="form-control" value="" name="jam_masuk" >
+                            <input type="text" class="form-control" value="" name="jam_masuk">
                                 <div class="input-group-append" data-target="#jam-masuk"
                                   data-toggle="datetimepicker">
                                       <div class="input-group-text">
@@ -56,7 +67,7 @@
                     <div class="col-sm-12">
                         <div class="input-group" id="jam-keluar" data-input-jam
                             data-target-input="nearest">
-                            <input type="text" class="form-control" value="" name="jam_keluar" >
+                            <input type="text" class="form-control" value="" name="jam_keluar">
                                 <div class="input-group-append" data-target="#jam-keluar"
                                   data-toggle="datetimepicker">
                                       <div class="input-group-text">

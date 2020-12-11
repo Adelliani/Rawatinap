@@ -39,6 +39,19 @@ class PoliController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nama_poli" => "required|string", 
+            "alamat" => "required|string",
+            "akreditasi" => "required|string"
+        ], [
+            "nama_poli.required" => "Nama Pelayanan Kesehatan tidak boleh kosong", 
+            "nama_poli.string" => "Nama Pelayanan Kesehatan harus berupa string",
+            "alamat.required" => "Alamat tidak boleh kosong",
+            "alamat.string" => "Alamat harus berupa string",
+            "akreditasi.required" => "Akreditasi tidak boleh kosong",
+            "akreditasi.string" => "Akreditasi harus berupa string",
+        ]);
+
         $data_poli = $request->only([
             "nama_poli",
             "alamat",

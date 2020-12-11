@@ -40,6 +40,21 @@ class ShiftController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nama_shift" => "required|string",
+            "jam_masuk" => "required|date_format:H:i",
+            "jam_keluar" => "required|date_format:H:i",   
+        ], [
+            "nama_shift.required" => "Nama Shift tidak boleh kosong", 
+            "nama_shift.string" => "Nama Shift harus berupa string",
+            "jam_masuk.required" => "Jam Masuk tidak boleh kosong", 
+            "jam_masuk.date" => "Jam Masuk harus berupa date", 
+            "jam_keluar.required" => "Jam Keluar tidak boleh kosong", 
+            "jam_keluar.date" => "Jam Keluar harus berupa date",
+            
+        ]);
+
+
         $id_poli = Auth::user()->poli->id_poli;
 
         $data_shift = $request->only(["nama_shift", "jam_masuk", "jam_keluar"]);
@@ -79,6 +94,20 @@ class ShiftController extends Controller
      */
     public function update(Request $request, Shift $shift)
     {
+        $request->validate([
+            "nama_shift" => "required|string",
+            "jam_masuk" => "required|date_format:H:i",
+            "jam_keluar" => "required|date_format:H:i",   
+        ], [
+            "nama_shift.required" => "Nama Shift tidak boleh kosong", 
+            "nama_shift.string" => "Nama Shift harus berupa string",
+            "jam_masuk.required" => "Jam Masuk tidak boleh kosong", 
+            "jam_masuk.date" => "Jam Masuk harus berupa date", 
+            "jam_keluar.required" => "Jam Keluar tidak boleh kosong", 
+            "jam_keluar.date" => "Jam Keluar harus berupa date",
+            
+        ]);
+
         $shift->nama_shift = $request->input("nama_shift");
         $shift->jam_masuk = $request->input("jam_masuk");
         $shift->jam_keluar = $request->input("jam_keluar");

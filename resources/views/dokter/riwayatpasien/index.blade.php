@@ -13,7 +13,7 @@
       <h1>
         Daftar Pasien Rawat Inap
       </h1>
-      <a href="{{route("pelayanan.index")}}" class="btn btn-primary btn-sm tambahBtn"><i
+      <a href="{{route("dokter.index")}}" class="btn btn-primary btn-sm tambahBtn"><i
           class="fa fa-arrow-circle-left"> Kembali</i></a>
     </div>
   </section>
@@ -44,7 +44,7 @@
                 <td>{{$item->tgl_masuk}}</td>
                 <td>{{$item->tgl_keluar}}</td>
                 <td>
-                  <a href="{{route('riwayat.show',['rawat_inap'=>$item->id_rawatinap])}}"
+                  <a href="{{route('riwayatpasien.show',['rawat_inap'=>$item->id_rawatinap])}}"
                     class="btn btn-primary btn-xm">Detail</a>
                 </td>
               </tr>

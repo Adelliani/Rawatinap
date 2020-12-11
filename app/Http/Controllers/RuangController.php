@@ -44,6 +44,16 @@ class RuangController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nama_ruang" => "required|string", 
+            "id_gedung" => "required|integer",
+        ], [
+            "nama_ruang.required" => "Nama Ruang tidak boleh kosong", 
+            "nama_ruang.string" => "Nama Ruang harus berupa string",
+            "id_gedung.required" => "Nama Gedung tidak boleh kosong", 
+            "id_gedung.integer" => "Nama Gedung harus berupa string",
+        ]);
+
         $data_ruang = $request->only(["nama_ruang", "id_gedung"]);
         Ruang::create($data_ruang);
         return redirect()->route("ruang.index");
@@ -81,6 +91,16 @@ class RuangController extends Controller
      */
     public function update(Request $request, Ruang $ruang)
     {
+        $request->validate([
+            "nama_ruang" => "required|string", 
+            "id_gedung" => "required|integer",
+        ], [
+            "nama_ruang.required" => "Nama Ruang tidak boleh kosong", 
+            "nama_ruang.string" => "Nama Ruang harus berupa string",
+            "id_gedung.required" => "Nama Gedung tidak boleh kosong", 
+            "id_gedung.integer" => "Nama Gedung harus berupa integer",
+        ]);
+
         $ruang->nama_ruang = $request->input("nama_ruang");
         $ruang->id_gedung = $request->input("id_gedung");
 

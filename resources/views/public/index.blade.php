@@ -16,10 +16,8 @@
   <section class="content-header">
     <div class="row justify-content-between align-items-center">
       <h1>
-        Data Ruangan
+        Informasi Ruangan
       </h1>
-      <a href="" class="btn btn-primary btn-sm tambahBtn"><i class="fa fa-arrow-circle-left">
-          Kembali</i></a>
     </div>
   </section>
 
@@ -81,7 +79,7 @@
     $(function () {
       $("#select_poli").select2({
         language:"id",
-        placeholder:"Pilih Provinsi",
+        placeholder:"Pilih Pelayanan Kesehatan",
         theme:"bootstrap4",
         allowClear:true,
         ajax:{

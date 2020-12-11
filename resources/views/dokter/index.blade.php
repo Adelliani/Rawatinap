@@ -13,6 +13,7 @@
       <h1>
         Halaman Utama
       </h1>
+      <a href="{{route('riwayatpasien.index')}}" class="btn btn-danger text-white mr-3">Riwayat Pasien</a>
     </div>
   </section>
 
@@ -41,7 +42,7 @@
 
               <tr>
                 <td>{{$loop->index+1}}</td>
-                <td>{{$item->no_ri}}</td>
+                <td>{{$item->no_rawatinap}}</td>
                 <td>{{$item->pasien->no_identitas}}</td>
                 <td>{{$item->pasien->nama_pasien}}</td>
                 <td>{{$item->pasien->tgl_lahir}}</td>

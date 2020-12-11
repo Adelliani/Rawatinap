@@ -43,14 +43,14 @@ class FasilitasController extends Controller
         $request->validate([
             "nama_fasilitas" => "required|string", // Yang kiri itu buat nama inputnya, yang kanan buat pola validasinya. validasi lainnya liat disini https://laravel.com/docs/7.x/validation
             "jenis_fasilitas" => "required|string",
-            "harga_fasilitas" => "required|integer"
+            "harga_fasilitas" => "required|string"
         ], [
             "nama_fasilitas.required" => "Nama Fasilitas tidak boleh kosong", //ini buat pesan kalo validasinya gagal. jadi "nama_input.nama_validasi" => "pesannya"
             "nama_fasilitas.string" => "Nama Fasilitas harus berupa string",
             "jenis_fasilitas.required" => "Jenis Fasilitas tidak boleh kosong",
             "jenis_fasilitas.string" => "Jenis Fasilitas harus berupa string",
             "harga_fasilitas.required" => "Harga Fasilitas tidak boleh kosong",
-            "harga_fasilitas.string" => "Harga Fasilitas harus berupa angka",
+            "harga_fasilitas.string" => "Harga Fasilitas harus berupa string",
         ]);
 
         $data_fasilitas = $request->only([
@@ -84,6 +84,7 @@ class FasilitasController extends Controller
      */
     public function edit(Fasilitas $fasilita)
     {
+        
         if (Auth::user()->can("update", $fasilita)) {
             return view("admin.fasilitas.edit", ["fasilitas" => $fasilita]);
         } else {
@@ -100,6 +101,19 @@ class FasilitasController extends Controller
      */
     public function update(Request $request, Fasilitas $fasilita)
     {
+        $request->validate([
+            "nama_fasilitas" => "required|string", // Yang kiri itu buat nama inputnya, yang kanan buat pola validasinya. validasi lainnya liat disini https://laravel.com/docs/7.x/validation
+            "jenis_fasilitas" => "required|string",
+            "harga_fasilitas" => "required|string"
+        ], [
+            "nama_fasilitas.required" => "Nama Fasilitas tidak boleh kosong", //ini buat pesan kalo validasinya gagal. jadi "nama_input.nama_validasi" => "pesannya"
+            "nama_fasilitas.string" => "Nama Fasilitas harus berupa string",
+            "jenis_fasilitas.required" => "Jenis Fasilitas tidak boleh kosong",
+            "jenis_fasilitas.string" => "Jenis Fasilitas harus berupa string",
+            "harga_fasilitas.required" => "Harga Fasilitas tidak boleh kosong",
+            "harga_fasilitas.string" => "Harga Fasilitas harus berupa string",
+        ]);
+
         if (Auth::user()->can("update", $fasilita)) {
             $fasilita->nama_fasilitas = $request->input("nama_fasilitas");
             $fasilita->jenis_fasilitas = $request->input("jenis_fasilitas");

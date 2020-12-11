@@ -37,6 +37,25 @@ class PindahKamarController extends Controller
      */
     public function store(Request $request, RawatInap $rawatInap)
     {
+        $request->validate([
+            "tgl_masuk" => "required|date", 
+            "no_tempattidur" => "required|integer",
+            "id_gedung" => "required|integer",
+            "id_ruang" => "required|integer",
+            "id_kamar" => "required|integer",
+        ], [
+            "tgl_masuk.required" => "Tanggal Masuk tidak boleh kosong", 
+            "tgl_masuk.date" => "Tanggal Masuk harus berupa date",
+            "no_tempattidur.required" => "No Tempat Tidur tidak boleh kosong",
+            "no_tempattidur.integer" => "No Tempat Tidur harus berupa integer",
+            "id_gedung.required" => "Nama Gedung tidak boleh kosong",
+            "id_gedung.integer" => "Nama Gedung harus berupa integer",
+            "id_ruang.required" => "Nama Ruang tidak boleh kosong",
+            "id_ruang.integer" => "Nama Ruang harus berupa integer",
+            "id_kamar.required" => "Nama Kamar tidak boleh kosong",
+            "id_kamar.integer" => "Nama Kamar harus berupa integer",
+        ]);
+
         if ($rawatInap->tgl_keluar) {
             return abort(404);
         }

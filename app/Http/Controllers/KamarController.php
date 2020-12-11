@@ -46,6 +46,31 @@ class KamarController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nama_kamar" => "required|string", 
+            "kelas" => "required|in:VIP,IV,III,II,I",
+            "fasilitas" => "required|string",
+            "harga_kamar" => "required|string", 
+            "jumlah_kasur" => "required|integer",
+            "id_ruang" => "required|integer", 
+            "id_gedung" => "required|integer",
+        ], [
+            "nama_kamar.required" => "Nama Kamar tidak boleh kosong", 
+            "nama_kamar.string" => "Nama Kamar harus berupa string",
+            "kelas.required" => "Kelas tidak boleh kosong", 
+            "kelas.in" => "Kelas harus berupa enum",
+            "fasilitas.required" => "Fasilitas tidak boleh kosong", 
+            "fasilitas.string" => "Fasilitas harus berupa string",
+            "harga_kamar.required" => "Harga Kamar tidak boleh kosong", 
+            "harga_kamar.string" => "Harga Kamar harus berupa string",
+            "jumlah_kasur.required" => "Jumlah Kasur tidak boleh kosong", 
+            "jumlah_kasur.integer" => "Jumlah Kasur harus berupa integer",
+            "id_ruang.required" => "Nama Ruang tidak boleh kosong", 
+            "id_ruang.integer" => "Nama Ruang harus berupa integer",
+            "id_gedung.required" => "Nama Gedung tidak boleh kosong", 
+            "id_gedung.integer" => "Nama Gedung harus berupa integer",
+        ]);
+
         $data_kamar = $request->only(["nama_kamar", "id_ruang", "kelas", "fasilitas", "harga_kamar", "jumlah_kasur"]);
         Kamar::create($data_kamar);
         return redirect()->route("kamar.index");
@@ -83,6 +108,31 @@ class KamarController extends Controller
      */
     public function update(Request $request, Kamar $kamar)
     {
+        $request->validate([
+            "nama_kamar" => "required|string", 
+            "kelas" => "required|in:VIP,IV,III,II,I",
+            "fasilitas" => "required|string",
+            "harga_kamar" => "required|string", 
+            "jumlah_kasur" => "required|integer",
+            "id_ruang" => "required|integer", 
+            "id_gedung" => "required|integer",
+        ], [
+            "nama_kamar.required" => "Nama Kamar tidak boleh kosong", 
+            "nama_kamar.string" => "Nama Kamar harus berupa string",
+            "kelas.required" => "Kelas tidak boleh kosong", 
+            "kelas.in" => "Kelas harus berupa enum",
+            "fasilitas.required" => "Fasilitas tidak boleh kosong", 
+            "fasilitas.string" => "Fasilitas harus berupa string",
+            "harga_kamar.required" => "Harga Kamar tidak boleh kosong", 
+            "harga_kamar.string" => "Harga Kamar harus berupa string",
+            "jumlah_kasur.required" => "Jumlah Kasur tidak boleh kosong", 
+            "jumlah_kasur.integer" => "Jumlah Kasur harus berupa integer",
+            "id_ruang.required" => "Nama Ruang tidak boleh kosong", 
+            "id_ruang.integer" => "Nama Ruang harus berupa integer",
+            "id_gedung.required" => "Nama Gedung tidak boleh kosong", 
+            "id_gedung.integer" => "Nama Gedung harus berupa integer",
+        ]);
+
         $kamar->nama_kamar = $request->input("nama_kamar");
         $kamar->id_ruang = $request->input("id_ruang");
         $kamar->kelas = $request->input("kelas");

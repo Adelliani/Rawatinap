@@ -12,6 +12,18 @@
             </h1>
         </div>
     </section>
+
+    @if ($errors->any())
+  <div class="alert alert-danger">
+    <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+
     <div class="content-wrapper">
         <div class="card">
             <form class="form-horizontal" action="{{route("gedung.store")}}" method="post">
