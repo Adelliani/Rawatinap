@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\RawatInap;
+use Auth;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class DokterPasienController extends Controller
      */
     public function index()
     {
-        $rawat_inap = RawatInap::belumSelesai()->get();
+        $id_dokter = Auth::user()->dokter->id_dokter;
+        $rawat_inap = RawatInap::belumSelesai()->where("id_dokter",$id_dokter)->get();
 
         return view("dokter.index", ["rawat_inaps" => $rawat_inap]);
     }

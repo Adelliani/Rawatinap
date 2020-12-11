@@ -32,6 +32,11 @@ class RawatInap extends Model
         return self::where("siap_pulang", false);
     }
 
+    public static function sudahSelesai()
+    {
+        return self::where("siap_pulang", true);
+    }
+
     public static function  createFull($data_pasien, $data_rawatinap, $data_diagnosa, $data_kamar)
     {
         $pasien = Pasien::firstOrNew(["no_identitas" => $data_pasien["no_identitas"]], $data_pasien);

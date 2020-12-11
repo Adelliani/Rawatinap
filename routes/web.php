@@ -48,9 +48,10 @@ Route::group(['middleware' => ['dokter']], function () {
     Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create", "store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);
     Route::resource('dokter.obat.returobat', 'DokterReturObatController')->only(["create", "store"])->names("returobat")->parameters(["dokter" => "rawatInap"]);
     Route::resource('dokter.obat.efekobat', 'DokterEfekObatController')->only(["create", "store"])->names("efekobat")->parameters(["dokter" => "rawatInap"]);
-    Route::resource('dokter.riwayatpasien', 'RiwayatPasienController')->only(["index", "show"])->parameters([
+    Route::resource('dokter/riwayatpasien', 'RiwayatPasienController')->only(["index", "show"])->parameters([
         "riwayatpasien" => "rawatInap"
     ]);
+
 });
 
 

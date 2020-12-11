@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\RawatInap;
+use Auth;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class RiwayatPasienController extends Controller
 
     public function index()
     {
-        $rawat_inaps = RawatInap::selesai()->get();
+        $id_dokter = Auth::user()->dokter->id_dokter;
+
+        $rawat_inaps = RawatInap::selesai()->where("id_dokter",$id_dokter)->get();
         return view('dokter.riwayatpasien.index', [
             'rawat_inaps' => $rawat_inaps
         ]);
@@ -50,11 +53,7 @@ class RiwayatPasienController extends Controller
      */
     public function show(Request $request, RawatInap $rawatInap)
     {
-        if ($rawatInap->tgl_keluar != null) {
             return view('dokter.riwayatpasien.show', ["rawat_inap" => $rawatInap]);
-        } else {
-            return abort(403);
-        }
     }
 
     /**
