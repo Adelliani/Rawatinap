@@ -21,6 +21,17 @@
         </div>
     </section>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
 
         <div class="row">
@@ -32,11 +43,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="col-sm-4">Tanggal:</label>
+                                <label class="col-sm-4">Waktu Resep:</label>
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-obat" data-input-tanggal
                                         data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="waktu_order" readonly required>
+                                        <input type="text" class="form-control" value="" name="waktu_order" readonly>
                                         <div class="input-group-append" data-target="#tanggal-obat"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
@@ -50,19 +61,19 @@
                             <div class="form-group">
                                 <label class="col-sm-4">Nama Obat:</label>
                                 <div class="col-sm-12" >
-                                    <select name="id_obat" id="select-obat" style="width:100%"></select required>
+                                    <select name="id_obat" id="select-obat" style="width:100%"></select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Tujuan Obat:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="tujuan" required>
+                                    <input type="text" class="form-control" name="tujuan">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Jumlah Obat:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="jumlah_order" required>
+                                    <input type="text" class="form-control" name="jumlah_order">
                                 </div>
                             </div>
                         </div>

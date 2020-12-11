@@ -35,6 +35,25 @@ class DokterDiagnosaController extends Controller
      */
     public function store(Request $request, RawatInap $rawatInap)
     {
+        $request->validate([
+            "waktu_diagnosa" => "required|date",
+            "hasil_diagnosa" => "required|string",
+            "tinggi" => "required|string",   
+            "berat" => "required|string",
+            "suhubadan" => "required|string",   
+        ], [
+            "waktu_diagnosa.required" => "Waktu Diagnosa tidak boleh kosong", 
+            "waktu_diagnosa.date" => "Waktu Diagnosa harus berupa date",
+            "tinggi.required" => "Tinggi tidak boleh kosong",
+            "tinggi.string" => "Tinggi harus berupa string",
+            "berat.required" => "Berat tidak boleh kosong",
+            "berat.string" => "Berat harus berupa string",
+            "suhubadan.required" => "Suhu Badan tidak boleh kosong",
+            "suhubadan.string" => "Suhu Badan harus berupa string",
+            "hasil_diagnosa.required" => "Hasil Diagnosa tidak boleh kosong",
+            "hasil_diagnosa.string" => "Hasil Diagnosa harus berupa string",
+        ]);
+
         $data_diagnosa = $request->only(['waktu_diagnosa', 'hasil_diagnosa', 'tinggi', 'berat', 'suhubadan']);
 
         $rawatInap->diagnosa()->create($data_diagnosa);

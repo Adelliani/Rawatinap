@@ -17,7 +17,7 @@ class CreateKamarsTable extends Migration
             $table->bigIncrements('id_kamar');
             $table->string('nama_kamar', 100);
             $table->integer('jumlah_kasur');
-            $table->integer('harga_kamar');
+            $table->string('harga_kamar',100);
             $table->integer('kasur_terisi')->default(0);
             $table->string('fasilitas', 100);
             $table->enum("kelas", ["VIP", "IV", "III", "II", "I"]);

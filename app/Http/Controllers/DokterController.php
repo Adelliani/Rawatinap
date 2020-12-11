@@ -41,6 +41,28 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nama_dokter" => "required|string", 
+            "jenis_kelamin" => "required|in:Laki-laki,Perempuan",
+            "jenis_dokter" => "required|in:umum,spesialis",
+            "spesialisasi" => "nullable|string",
+            "notelp" => "required|string",
+            "alamat" => "required|string",
+        ], [
+            "nama_dokter.required" => "Nama Dokter tidak boleh kosong", 
+            "nama_dokter.string" => "Nama Dokter harus berupa string",
+            "jenis_kelamin.required" => "Jenis Kelamin tidak boleh kosong",
+            "jenis_kelamin.in" => "Jenis Kelamin harus berupa enum",
+            "jenis_dokter.required" => "Jenis Dokter tidak boleh kosong",
+            "jenis_dokter.in" => "Jenis Dokter harus berupa enum",
+            "spesialisasi.nullable" => "Spesialisasi tidak boleh kosong", 
+            "spesialisasi.string" => "Spesialisasi harus berupa string",
+            "notelp.required" => "No. Telepon tidak boleh kosong",
+            "notelp.string" => "No. Telepon harus berupa string",
+            "alamat.required" => "Alamat tidak boleh kosong",
+            "alamat.string" => "Alamat Fasilitas harus berupa string",
+        ]);
+
         $id_poli = Auth::user()->poli->id_poli;
 
         $data_dokter = $request->only(["nama_dokter", "jenis_kelamin", "jenis_dokter", "spesialisasi", "notelp", "alamat"]);
@@ -92,6 +114,28 @@ class DokterController extends Controller
      */
     public function update(Request $request, Dokter $dokter)
     {
+        $request->validate([
+            "nama_dokter" => "required|string", 
+            "jenis_kelamin" => "required|in:Laki-laki,Perempuan",
+            "jenis_dokter" => "required|in:umum,spesialis",
+            "spesialisasi" => "nullable|string",
+            "notelp" => "required|string",
+            "alamat" => "required|string",
+        ], [
+            "nama_dokter.required" => "Nama Dokter tidak boleh kosong", 
+            "nama_dokter.string" => "Nama Dokter harus berupa string",
+            "jenis_kelamin.required" => "Jenis Kelamin tidak boleh kosong",
+            "jenis_kelamin.in" => "Jenis Kelamin harus berupa enum",
+            "jenis_dokter.required" => "Jenis Dokter tidak boleh kosong",
+            "jenis_dokter.in" => "Jenis Dokter harus berupa enum",
+            "spesialisasi.nullable" => "Spesialisasi tidak boleh kosong", 
+            "spesialisasi.string" => "Spesialisasi harus berupa string",
+            "notelp.required" => "No. HP tidak boleh kosong",
+            "notelp.string" => "No. HP harus berupa string",
+            "alamat.required" => "Alamat tidak boleh kosong",
+            "alamat.string" => "Alamat Fasilitas harus berupa string",
+        ]);
+
         $dokter->nama_dokter = $request->input("nama_dokter");
         $dokter->jenis_kelamin = $request->input("jenis_kelamin");
         $dokter->jenis_dokter = $request->input("jenis_dokter");

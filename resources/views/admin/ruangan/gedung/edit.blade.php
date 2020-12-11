@@ -12,6 +12,18 @@
             </h1>
         </div>
     </section>
+
+    @if ($errors->any())
+  <div class="alert alert-danger">
+    <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+
     <div class="content-wrapper">
         <div class="card">
             <form class="form-horizontal" action="{{route("gedung.update",["gedung"=>$gedung->id_gedung])}}" method="post">
@@ -23,13 +35,13 @@
                             <div class="form-group">
                                 <label class="col-sm-8">ID Gedung:</label>
                                 <div class="col-sm-15">
-                                    <input type="number" class="form-control" name="id_gedung" value="{{$gedung->id_gedung}}" readonly required>
+                                    <input type="number" class="form-control" name="id_gedung" value="{{$gedung->id_gedung}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-8">Nama Gedung:</label>
                                 <div class="col-sm-15">
-                                    <input type="text" class="form-control" name="nama_gedung" value="{{$gedung->nama_gedung}}" required>
+                                    <input type="text" class="form-control" name="nama_gedung" value="{{$gedung->nama_gedung}}">
                                 </div>
                             </div>
 

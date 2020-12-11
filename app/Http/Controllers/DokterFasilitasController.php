@@ -35,6 +35,19 @@ class DokterFasilitasController extends Controller
      */
     public function store(Request $request, RawatInap $rawatInap)
     {
+        $request->validate([
+            "tgl_pemakaian" => "required|date",
+            "id_fasilitas" => "required|integer",
+            "alasan_pemakaian" => "required|string",   
+        ], [
+            "tgl_pemakaian.required" => "Waktu Pemakaian tidak boleh kosong", 
+            "tgl_pemakaian.date" => "Waktu Pemakaian harus berupa date",
+            "id_fasilitas.required" => "Nama Fasilitas tidak boleh kosong",
+            "id_fasilitas.integer" => "Nama Fasilitas harus berupa integer",
+            "alasan_pemakaian.required" => "Alasan Pemakaian tidak boleh kosong",
+            "alasan_pemakaian.string" => "Alasan Pemakaian harus berupa string",
+        ]);
+
         $data_detailpf = $request->only(['tgl_pemakaian', 'alasan_pemakaian']);
         $rawatInap->fasilitas()->attach($request->input("id_fasilitas"), $data_detailpf);
 

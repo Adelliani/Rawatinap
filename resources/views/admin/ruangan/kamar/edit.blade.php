@@ -15,6 +15,18 @@
             </h1>
         </div>
     </section>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
         <div class="card">
             <form class="form-horizontal" action="{{route("kamar.update",["kamar"=>$kamar->id_kamar])}}" method="post">
@@ -27,20 +39,20 @@
                                 <label class="col-sm-5">Id Kamar:</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" name="id_kamar"
-                                        value="{{$kamar->id_kamar}}" readonly required>
+                                        value="{{$kamar->id_kamar}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Nama Kamar:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="nama_kamar"
-                                        value="{{$kamar->nama_kamar}}" required>
+                                        value="{{$kamar->nama_kamar}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Kelas:</label>
                                 <div class="col-sm-10">
-                                    <select name="kelas" class="form-control" required>
+                                    <select name="kelas" class="form-control">
                                         <option value=""></option>
                                         <option value="VIP">VIP</option>
                                         <option value="I">I</option>
@@ -53,7 +65,7 @@
                                 <label class="col-sm-5">Nama Gedung:</label>
                                 <div class="col-sm-10">
                                     <div id="gedung">
-                                        <select class="form-control" id="select_gedung" name="id_gedung" required>
+                                        <select class="form-control" id="select_gedung" name="id_gedung">
                                         </select>
                                     </div>
                                 </div>
@@ -64,7 +76,7 @@
                                 <label class="col-sm-5">Nama Ruang:</label>
                                 <div class="col-sm-10">
                                     <div id="ruang">
-                                        <select class="form-control" id="select_ruang" name="id_ruang" required>
+                                        <select class="form-control" id="select_ruang" name="id_ruang">
                                         </select>
                                     </div>
                                 </div>
@@ -73,21 +85,21 @@
                                 <label class="col-sm-5">Jumlah Kasur:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="jumlah_kasur"
-                                        value="{{$kamar->jumlah_kasur}}" required>
+                                        value="{{$kamar->jumlah_kasur}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Harga:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="harga_kamar"
-                                        value="{{$kamar->harga_kamar}}" required>
+                                        value="{{$kamar->harga_kamar}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Fasilitas:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="fasilitas"
-                                        value="{{$kamar->fasilitas}}" required>
+                                        value="{{$kamar->fasilitas}}">
                                 </div>
                             </div>
                         </div>

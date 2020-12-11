@@ -21,6 +21,17 @@
         </div>
     </section>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
 
         <div class="row">
@@ -32,11 +43,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="col-sm-4">Tanggal:</label>
+                                <label class="col-sm-4">Waktu Pemakaian:</label>
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-pemakaian" data-input-tanggal
                                         data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="tgl_pemakaian" readonly required>
+                                        <input type="text" class="form-control" value="" name="tgl_pemakaian" readonly>
                                         <div class="input-group-append" data-target="#tanggal-pemakaian"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
@@ -50,13 +61,13 @@
                             <div class="form-group">
                                 <label class="col-sm-4">Nama Fasilitas:</label>
                                 <div class="col-sm-12">
-                                    <select name="id_fasilitas" id="select-fasilitas" style="width:100%"></select required>
+                                    <select name="id_fasilitas" id="select-fasilitas" style="width:100%"></select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Alasan Pemakaian:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="alasan_pemakaian" required>
+                                    <input type="text" class="form-control" name="alasan_pemakaian">
                                 </div>
                             </div>
                         </div>

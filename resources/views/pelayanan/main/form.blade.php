@@ -86,8 +86,8 @@
                                         <div class="input-group date col-6" id="tgl-lahir-datepicker"
                                             data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
-                                                data-target="#tgl-lahir-datepicker" id="text-tgl-lahir" readonly required
-                                                name="tgl_lahir" />
+                                                data-target="#tgl-lahir-datepicker" id="text-tgl-lahir" readonly
+                                                name="tgl_lahir" required/>
                                             <div class="input-group-append" data-target="#tgl-lahir-datepicker"
                                                 data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -117,7 +117,7 @@
                                                 </label>
                                                 <label class="col-sm-5">
                                                     <input type="radio" name="jenis_kelamin" value="Perempuan"
-                                                        id="jeniskelamin_P">
+                                                        id="jeniskelamin_P" required>
                                                     Perempuan
                                                 </label>
                                             </div>

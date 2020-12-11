@@ -12,6 +12,18 @@
             </h1>
         </div>
     </section>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
         <div class="card">
             <form class="form-horizontal" action="{{route("poli.store")}}" method="post">
@@ -22,25 +34,25 @@
                             <div class="form-group">
                                 <label class="col-sm-5">ID Pelayanan Kesehatan:</label>
                                 <div class="col-sm-12">
-                                    <input type="number" class="form-control" name="id_poli" value="" readonly required>
+                                    <input type="number" class="form-control" name="id_poli" value="" readonly >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-7">Nama Pelayanan Kesehatan:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="nama_poli" required>
+                                    <input type="text" class="form-control" name="nama_poli">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Alamat:</label>
                                 <div class="col-sm-12">
-                                  <textarea name="alamat" class="form-control" rows="3"></textarea required>
+                                  <textarea name="alamat" class="form-control" rows="3"></textarea>
                                 </div>
                               </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Akreditasi:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="akreditasi" required>
+                                    <input type="text" class="form-control" name="akreditasi">
                                 </div>
                             </div>
                         </div>

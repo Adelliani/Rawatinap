@@ -16,6 +16,17 @@
     </div>
   </section>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -28,13 +39,13 @@
                 <div class="form-group">
                   <label class="col-sm-5">ID Perawat</label>
                     <div class="col-sm-12">
-                      <input type="number" class="form-control" name="id_perawat" value="{{$perawat->id_perawat}}" readonly required>
+                      <input type="number" class="form-control" name="id_perawat" value="{{$perawat->id_perawat}}" readonly>
                     </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Perawat:</label>
                     <div class="col-sm-12">
-                      <input type="text" class="form-control" name="nama_perawat" value="{{$perawat->nama_perawat}}" required>
+                      <input type="text" class="form-control" name="nama_perawat" value="{{$perawat->nama_perawat}}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -43,12 +54,12 @@
                       <div class="radio">
                           <label class="col-sm-5">
                               <input type="radio" name="jenis_kelamin" value="Laki-laki"
-                                  {{$perawat->jenis_kelamin=="laki-laki"?"checked":""}} required>
+                                  {{$perawat->jenis_kelamin=="laki-laki"?"checked":""}}>
                               Laki - Laki
                           </label>
                           <label class="col-sm-5">
                               <input type="radio" name="jenis_kelamin" value="Perempuan"
-                                  {{$perawat->jenis_kelamin=="perempuan"?"checked":""}} required>
+                                  {{$perawat->jenis_kelamin=="perempuan"?"checked":""}}>
                               Perempuan
                           </label>
                       </div>
@@ -57,19 +68,19 @@
                 <div class="form-group">
                   <label class="col-sm-5">Shift:</label>
                   <div class="col-sm-12">
-                    <select id="select_shift" name="id_shift" style="width: 100%" value="{{$perawat->id_shift}}" required></select>
+                    <select id="select_shift" name="id_shift" style="width: 100%" value="{{$perawat->id_shift}}"></select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">No. Telp:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="notelp" value="{{$perawat->notelp}}" required>
+                    <input type="number" class="form-control" name="notelp" value="{{$perawat->notelp}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Alamat:</label>
                   <div class="col-sm-12">
-                    <textarea name="alamat" class="form-control" rows="3" required>{{$perawat->alamat}}</textarea>
+                    <textarea name="alamat" class="form-control" rows="3">{{$perawat->alamat}}</textarea>
                   </div>
                 </div>
               </div>

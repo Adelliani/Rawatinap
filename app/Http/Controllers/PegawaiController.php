@@ -43,6 +43,28 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nama_pegawai" => "required|string", 
+            "jenis_kelamin" => "required|in:Laki-laki,Perempuan",
+            "posisi" => "required|string",
+            "notelp" => "required|string",
+            "alamat" => "required|string",
+            "id_shift" => "required|integer",
+        ], [
+            "nama_perawat.required" => "Nama Perawat tidak boleh kosong", 
+            "nama_perawat.string" => "Nama Perawat harus berupa string",
+            "jenis_kelamin.required" => "Jenis Kelamin tidak boleh kosong",
+            "jenis_kelamin.in" => "Jenis Kelamin harus berupa enum",
+            "posisi.required" => "Posisi tidak boleh kosong",
+            "posisi.string" => "Posisi harus berupa string",
+            "notelp.required" => "No. Telepon tidak boleh kosong",
+            "notelp.string" => "No. Telepon harus berupa string",
+            "alamat.required" => "Alamat tidak boleh kosong",
+            "alamat.string" => "Alamat Fasilitas harus berupa string",
+            "id_shift.required" => "Shift tidak boleh kosong", 
+            "id_shift.integer" => "Shift harus berupa integer",
+        ]);
+
         $id_poli = Auth::user()->poli->id_poli;
         $data_pegawai = $request->only([
             "nama_pegawai",
@@ -103,6 +125,28 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, Pegawai $pegawai)
     {
+        $request->validate([
+            "nama_pegawai" => "required|string", 
+            "jenis_kelamin" => "required|in:Laki-laki,Perempuan",
+            "posisi" => "required|string",
+            "notelp" => "required|string",
+            "alamat" => "required|string",
+            "id_shift" => "required|integer",
+        ], [
+            "nama_perawat.required" => "Nama Perawat tidak boleh kosong", 
+            "nama_perawat.string" => "Nama Perawat harus berupa string",
+            "jenis_kelamin.required" => "Jenis Kelamin tidak boleh kosong",
+            "jenis_kelamin.in" => "Jenis Kelamin harus berupa enum",
+            "posisi.required" => "Posisi tidak boleh kosong",
+            "posisi.string" => "Posisi harus berupa string",
+            "notelp.required" => "No. Telepon tidak boleh kosong",
+            "notelp.string" => "No. Telepon harus berupa string",
+            "alamat.required" => "Alamat tidak boleh kosong",
+            "alamat.string" => "Alamat Fasilitas harus berupa string",
+            "id_shift.required" => "Shift tidak boleh kosong", 
+            "id_shift.integer" => "Shift harus berupa integer",
+        ]);
+
         $pegawai->nama_pegawai = $request->input("nama_pegawai");
         $pegawai->jenis_kelamin = $request->input("jenis_kelamin");
         $pegawai->posisi = $request->input("posisi");

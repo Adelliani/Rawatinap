@@ -44,6 +44,13 @@ class GedungController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nama_gedung" => "required|string", 
+        ], [
+            "nama_gedung.required" => "Nama Gedung tidak boleh kosong", 
+            "nama_gedung.string" => "Nama Gedung harus berupa string",
+        ]);
+
         if (Auth::user()->can("create", Gedung::class)) {
             $id_poli = Auth::user()->poli->id_poli;
             $data_gedung = $request->only(["nama_gedung"]);
@@ -88,6 +95,13 @@ class GedungController extends Controller
      */
     public function update(Request $request, Gedung $gedung)
     {
+        $request->validate([
+            "nama_gedung" => "required|string", 
+        ], [
+            "nama_gedung.required" => "Nama Gedung tidak boleh kosong", 
+            "nama_gedung.string" => "Nama Gedung harus berupa string",
+        ]);
+
         if (Auth::user()->can("update", $gedung)) {
             $gedung->nama_gedung = $request->input("nama_gedung");
             $gedung->save();

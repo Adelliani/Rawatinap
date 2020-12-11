@@ -16,6 +16,17 @@
     </div>
   </section>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -27,13 +38,13 @@
                 <div class="form-group">
                   <label class="col-sm-5">ID Perawat</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_perawat" value="" readonly required>
+                    <input type="number" class="form-control" name="id_perawat" value="" readonly>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Perawat:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_perawat" required>
+                    <input type="text" class="form-control" name="nama_perawat">
                   </div>
                 </div>
                 <div class="form-group">
@@ -41,11 +52,11 @@
                   <div class="col-sm-12">
                     <div class="radio">
                       <label class="col-sm-5">
-                        <input type="radio" name="jenis_kelamin" value="Laki-laki" required>
+                        <input type="radio" name="jenis_kelamin" value="Laki-laki">
                         Laki - Laki
                       </label>
                       <label class="col-sm-5">
-                        <input type="radio" name="jenis_kelamin" value="Perempuan" required>
+                        <input type="radio" name="jenis_kelamin" value="Perempuan">
                         Perempuan
                       </label>
                     </div>
@@ -54,19 +65,19 @@
                 <div class="form-group">
                   <label class="col-sm-5">Shift:</label>
                   <div class="col-sm-12">
-                    <select id="select_shift" name="id_shift" style="width: 100%" required></select>
+                    <select id="select_shift" name="id_shift" style="width: 100%"></select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">No. Telp:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="notelp" required>
+                    <input type="number" class="form-control" name="notelp">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Alamat:</label>
                   <div class="col-sm-12">
-                    <textarea name="alamat" class="form-control" rows="3" required></textarea>
+                    <textarea name="alamat" class="form-control" rows="3"></textarea>
                   </div>
                 </div>
               </div>

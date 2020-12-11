@@ -16,6 +16,17 @@
     </div>
   </section>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -27,13 +38,13 @@
                 <div class="form-group">
                   <label class="col-sm-5">ID Pegawai</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_pegawai" value="" readonly required>
+                    <input type="number" class="form-control" name="id_pegawai" value="" readonly>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Pegawai:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_pegawai" required>
+                    <input type="text" class="form-control" name="nama_pegawai">
                   </div>
                 </div>
                 <div class="form-group">
@@ -41,7 +52,7 @@
                   <div class="col-sm-12">
                     <div class="radio">
                       <label>
-                        <input type="radio" name="jenis_kelamin" value="Laki-laki" required>
+                        <input type="radio" name="jenis_kelamin" value="Laki-laki">
                         Laki - Laki
                       </label>
                       <label>
@@ -56,25 +67,25 @@
                 <div class="form-group">
                   <label class="col-sm-5">Posisi:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="posisi" required>
+                    <input type="text" class="form-control" name="posisi">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">No. Telp:</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="notelp" required>
+                    <input type="number" class="form-control" name="notelp">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Alamat:</label>
                   <div class="col-sm-12">
-                    <textarea name="alamat" class="form-control" rows="3" required></textarea>
+                    <textarea name="alamat" class="form-control" rows="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Shift:</label>
                   <div class="col-sm-12">
-                    <select id="select_shift" style="width: 100%" name="id_shift" required></select>
+                    <select id="select_shift" style="width: 100%" name="id_shift"></select>
                   </div>
                 </div>
               </div>

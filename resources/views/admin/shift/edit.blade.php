@@ -16,6 +16,17 @@
     </div>
   </section>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -29,20 +40,20 @@
                 <div class="form-group">
                   <label class="col-sm-5">Id Shift</label>
                   <div class="col-sm-12">
-                    <input type="number" class="form-control" name="id_shift" value="{{$shift->id_shift}}" readonly required>
+                    <input type="number" class="form-control" name="id_shift" value="{{$shift->id_shift}}" readonly>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Nama Shift:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" name="nama_shift" value="{{$shift->nama_shift}}" required>
+                    <input type="text" class="form-control" name="nama_shift" value="{{$shift->nama_shift}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-5">Jam Masuk:</label>
                   <div class="col-sm-12">
                     <div class="input-group" id="jam-masuk" data-input-jam data-target-input="nearest">
-                      <input type="text" class="form-control" value="" name="jam_masuk" required>
+                      <input type="text" class="form-control" value="" name="jam_masuk">
                       <div class="input-group-append" data-target="#jam-masuk" data-toggle="datetimepicker">
                         <div class="input-group-text">
                           <i class="fa fa-clock"></i>
@@ -55,7 +66,7 @@
                   <label class="col-sm-5">Jam Keluar:</label>
                   <div class="col-sm-12">
                     <div class="input-group" id="jam-keluar" data-input-jam data-target-input="nearest">
-                      <input type="text" class="form-control" value="" name="jam_keluar" required>
+                      <input type="text" class="form-control" value="" name="jam_keluar">
                       <div class="input-group-append" data-target="#jam-keluar" data-toggle="datetimepicker">
                         <div class="input-group-text">
                           <i class="fa fa-clock"></i>

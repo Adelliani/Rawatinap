@@ -32,9 +32,9 @@
           </a>
         </div>
         <div class="col-1">
-          <a href="{{route('perawat.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-            <i class=" fa fa-user-nurse" style="font-size: 40px"></i>
-            Data Perawat
+          <a href="{{route('shift.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+            <i class=" fa fa-clock" style="font-size: 40px"></i>
+            Data Shift
           </a>
         </div>
         <div class="col-2">
@@ -44,9 +44,9 @@
           </a>
         </div>
         <div class="col-1">
-          <a href="{{route('shift.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
-            <i class=" fa fa-clock" style="font-size: 40px"></i>
-            Data Shift
+          <a href="{{route('perawat.index')}}" class="btn btn-app btn-block m-0" style="height: 100px;font-size:14px">
+            <i class=" fa fa-user-nurse" style="font-size: 40px"></i>
+            Data Perawat
           </a>
         </div>
         <div class="col-2">

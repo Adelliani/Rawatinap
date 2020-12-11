@@ -10,7 +10,16 @@
         </div>
     </section>
 
-    <div class="content-wrapper">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+    <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+        <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+         @endforeach
+        </ul>
+    </div>
+     @endif
 
         <div class="row">
             <div class="col-12">
@@ -24,13 +33,13 @@
                                         <label class="col-sm-5">Id Dokter</label>
                                         <div class="col-sm-10">
                                             <input type="number" class="form-control" name="id_dokter" value=""
-                                                readonly required>
+                                                readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Nama Dokter:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="nama_dokter" required>
+                                            <input type="text" class="form-control"name="nama_dokter">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -38,11 +47,11 @@
                                         <div class="col-sm-10">
                                             <div class="radio">
                                                 <label class="col-sm-5">
-                                                    <input type="radio" name="jenis_kelamin" value="Laki-laki" required>
+                                                    <input type="radio" name="jenis_kelamin" value="Laki-laki">
                                                     Laki - Laki
                                                 </label>
                                                 <label class="col-sm-5">
-                                                    <input type="radio" name="jenis_kelamin" value="Perempuan" required>
+                                                    <input type="radio" name="jenis_kelamin" value="Perempuan">
                                                     Perempuan
                                                 </label>
                                             </div>
@@ -51,7 +60,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-5">Jenis Dokter:</label>
                                         <div class="col-sm-10">
-                                            <select id="jenis_dokter" name="jenis_dokter" class="form-control" required>
+                                            <select id="jenis_dokter" name="jenis_dokter" class="form-control" >
                                                 <option value=""></option>
                                                 <option value="umum">Umum</option>
                                                 <option value="spesialis">Spesialis</option>
@@ -64,19 +73,19 @@
                                         <label class="col-sm-5">Spesialisasi:</label>
                                         <div class="col-sm-10">
                                             <input id="spesialisasi" type="text" class="form-control"
-                                                name="spesialisasi" required>
+                                                name="spesialisasi" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">No. Telp:</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" name="notelp" required>
+                                            <input type="number" class="form-control" name="notelp" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Alamat:</label>
                                         <div class="col-sm-10">
-                                            <textarea name="alamat" class="form-control" rows="3" required></textarea>
+                                            <textarea name="alamat" class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +100,7 @@
                 </form>
 
             </div>
-        </div>
+        
     </div>
 </div>
 

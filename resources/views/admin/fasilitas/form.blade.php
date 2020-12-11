@@ -10,10 +10,10 @@
       </h1>
     </div>
   </section>
-  {{-- Dari sini --}}
+  
   @if ($errors->any())
   <div class="alert alert-danger">
-    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+    <h5><i class="icon fas fa-ban"></i> Warning!</h5>
     <ul>
       @foreach ($errors->all() as $error)
       <li>{{ $error }}</li>
@@ -21,7 +21,7 @@
     </ul>
   </div>
   @endif
-  {{-- Sampe sini buat nampilin error kalo mau di jadiin satu --}}
+  
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -39,34 +39,20 @@
                 <div class="form-group">
                   <label class="col-sm-8">Nama Fasilitas:</label>
                   <div class="col-sm-12">
-                    {{-- yang di class ini buat biar inputnya ada merah merah --}}
-                    <input type="text" class="form-control @error(" nama_fasilitas") is-invalid @enderror"
-                      name="nama_fasilitas">
-                    {{-- Yang ini buat nampilin pesannya, kalo mau per kolom --}}
-                    @error('nama_fasilitas')
-                    <span class="error invalid-feedback">{{$message}}</span>
-                    @enderror
+                    <input type="text" class="form-control" name="nama_fasilitas">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-8">Jenis Fasilitas:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control  @error(" jenis_fasilitas") is-invalid @enderror"
-                      nama_input.nama_validasi name="jenis_fasilitas">
-                    @error('jenis_fasilitas')
-                    <span class="error invalid-feedback">{{$message}}</span>
-                    @enderror
+                    <input type="text" class="form-control" name="jenis_fasilitas">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-8">Harga Fasilitas:</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control  @error(" harga_fasilitas") is-invalid @enderror"
-                      name="harga_fasilitas">
-                    @error('harga_fasilitas')
-                    <span class="error invalid-feedback">{{$message}}</span>
-                    @enderror
-                  </div>
+                    <input type="text" class="form-control" name="harga_fasilitas">
+                   </div>
                 </div>
               </div>
             </div>

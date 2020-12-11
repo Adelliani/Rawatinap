@@ -25,7 +25,7 @@
                                         <label class="col-sm-5">Username</label>
                                         <div class="col-sm-12">
                                             <input autocomplete="off" type="text" class="form-control" name="username"
-                                                value="{{$user->username}}">
+                                                value="{{$user->username}}" required>
                                         </div>
                                     </div>
 
@@ -38,7 +38,7 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#modal-konfirmasi"><i class="fa fa-save"></i> Simpan</button>
                             {{-- Buat nampilin modal konfirmasi password lamanya --}}
-                            <a href="" class="btn btn-default"><i class=" fa fa-power-off"></i>
+                            <a href="/" class="btn btn-default"><i class=" fa fa-power-off"></i>
                                 Batal</a>
                         </div>
                     </div>
@@ -57,14 +57,14 @@
                                         <label class="col-sm-5">Password Baru:</label>
                                         <div class="col-sm-12">
                                             <input autocomplete="new-password" type="password" class="form-control"
-                                                name="password_baru">
+                                                name="password_baru" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-5">Konfirmasi Password:</label>
                                         <div class="col-sm-12">
                                             <input autocomplete="new-password" type="password" class="form-control"
-                                                name="konfirm_password">
+                                                name="konfirmasi_password" required>
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#modal-konfirmasi"><i class="fa fa-save"></i> Simpan</button>
                             {{-- Buat nampilin modal konfirmasi password lamanya --}}
-                            <a href="" class="btn btn-default"><i class=" fa fa-power-off"></i>
+                            <a href="/" class="btn btn-default"><i class=" fa fa-power-off"></i>
                                 Batal</a>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Konfirmasi Password</h4>
+                                <h4 class="modal-title">Konfirmasi Password (Lama)</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
@@ -95,7 +95,7 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="">Password</label>
-                                    <input autocomplete="new-password" type="password" name="current-password"
+                                    <input autocomplete="new-password" type="password" name="password"
                                         data-konfirmasi class="form-control">
                                 </div>
 

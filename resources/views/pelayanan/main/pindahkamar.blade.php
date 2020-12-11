@@ -21,6 +21,17 @@
     </div>
   </section>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <div class="content-wrapper">
 
     <div class="row">
@@ -34,7 +45,7 @@
                 <label class="col-sm-4">Tanggal:</label>
                 <div class="col-sm-12">
                   <div class="input-group" id="tanggal-diagnosa" data-input-tanggal data-target-input="nearest">
-                    <input type="text" class="form-control" value="" name="tgl_masuk" readonly required>
+                    <input type="text" class="form-control" value="" name="tgl_masuk" readonly>
                     <div class="input-group-append" data-target="#tanggal-diagnosa" data-toggle="datetimepicker">
                       <div class="input-group-text">
                         <i class="fa fa-calendar"></i>
@@ -47,7 +58,7 @@
               <div class="form-group">
                 <label class="col-sm-4">No. Tempat Tidur:</label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" name="no_tempattidur" required>
+                  <input type="text" class="form-control" name="no_tempattidur">
                 </div>
               </div>
 
@@ -55,7 +66,7 @@
                 <label class="col-sm-5">Nama Gedung:</label>
                 <div class="col-sm-12">
                   <div id="gedung">
-                    <select class="form-control" id="select_gedung" name="id_gedung" required>
+                    <select class="form-control" id="select_gedung" name="id_gedung">
                     </select>
                   </div>
                 </div>
@@ -65,7 +76,7 @@
                 <label class="col-sm-10">Nama Ruang:</label>
                 <div class="col-sm-12">
                   <div id="ruang">
-                    <select class="form-control" id="select_ruang" name="id_ruang" required>
+                    <select class="form-control" id="select_ruang" name="id_ruang">
                     </select>
                   </div>
                 </div>
@@ -74,7 +85,7 @@
                 <label class="col-sm-4">Nama Kamar:</label>
                 <div class="col-sm-12">
                   <div id="kamar">
-                    <select class="form-control" id="select_kamar" name="id_kamar" required>
+                    <select class="form-control" id="select_kamar" name="id_kamar">
                     </select>
                   </div>
                 </div>

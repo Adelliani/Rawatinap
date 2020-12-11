@@ -21,6 +21,17 @@
         </div>
     </section>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
 
         <div class="row">
@@ -32,12 +43,12 @@
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label class="col-sm-4">Tanggal:</label>
+                                <label class="col-sm-4">Waktu Pemeriksaan:</label>
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-pemeriksaan" data-input-tanggal
                                         data-target-input="nearest">
                                         <input type="text" class="form-control" value="" name="waktu_pemeriksaan"
-                                            readonly required>
+                                            readonly>
                                         <div class="input-group-append" data-target="#tanggal-pemeriksaan"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
@@ -51,13 +62,13 @@
                             <div class="form-group">
                                 <label class="col-sm-4">Jenis Pemeriksaan:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="jenis_pemeriksaan" required>
+                                    <input type="text" class="form-control" name="jenis_pemeriksaan">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 col-form-label">Hasil Pemeriksaan:</label>
                                 <div class="col-sm-12">
-                                    <textarea name="hasil_pemeriksaan" class="form-control" rows="3" required></textarea>
+                                    <textarea name="hasil_pemeriksaan" class="form-control" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>

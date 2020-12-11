@@ -15,6 +15,18 @@
             </h1>
         </div>
     </section>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
         <div class="card">
             <form class="form-horizontal" action="{{route("ruang.update",["ruang"=>$ruang->id_ruang])}}" method="post">
@@ -26,13 +38,13 @@
                             <div class="form-group">
                                 <label class="col-sm-5">Id Ruang:</label>
                                 <div class="col-sm-12">
-                                    <input type="number" class="form-control" name="id_kamar" value="{{$ruang->id_ruang}}" readonly required>
+                                    <input type="number" class="form-control" name="id_kamar" value="{{$ruang->id_ruang}}" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5">Nama Ruang:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="nama_ruang" value="{{$ruang->nama_ruang}}" required>
+                                    <input type="text" class="form-control" name="nama_ruang" value="{{$ruang->nama_ruang}}">
                                 </div>
                             </div>
 
@@ -40,7 +52,7 @@
                                 <label class="col-sm-5">Nama Gedung:</label>
                                 <div class="col-sm-12">
                                     <div id="gedung">
-                                        <select class="form-control" id="select_gedung" name="id_gedung" required>
+                                        <select class="form-control" id="select_gedung" name="id_gedung">
                                         </select>
                                     </div>
                                 </div>

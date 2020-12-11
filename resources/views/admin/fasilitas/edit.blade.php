@@ -11,6 +11,17 @@
     </div>
   </section>
 
+  @if ($errors->any())
+  <div class="alert alert-danger">
+    <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -25,28 +36,28 @@
                   <label class="col-sm-8">ID Fasilitas</label>
                   <div class="col-sm-12">
                     <input type="number" class="form-control" name="id_fasilitas" value="{{$fasilitas->id_fasilitas}}"
-                      readonly required>
+                      readonly>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-8">Nama Fasilitas:</label>
                   <div class="col-sm-12">
                     <input type="text" class="form-control" name="nama_fasilitas"
-                      value="{{$fasilitas->nama_fasilitas}}" required>
+                      value="{{$fasilitas->nama_fasilitas}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-8">Jenis Fasilitas:</label>
                   <div class="col-sm-12">
                     <input type="text" class="form-control" name="jenis_fasilitas"
-                      value="{{$fasilitas->jenis_fasilitas}}" required>
+                      value="{{$fasilitas->jenis_fasilitas}}">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-8">Harga Fasilitas:</label>
                   <div class="col-sm-12">
                     <input type="text" class="form-control" name="harga_fasilitas"
-                      value="{{$fasilitas->harga_fasilitas}}" required>
+                      value="{{$fasilitas->harga_fasilitas}}">
                   </div>
                 </div>
               </div>

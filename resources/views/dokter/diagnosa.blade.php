@@ -21,6 +21,17 @@
         </div>
     </section>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <h5><i class="icon fas fa-ban"></i> Warning!</h5>
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
     <div class="content-wrapper">
 
         <div class="row">
@@ -31,11 +42,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="col-sm-4">Tanggal:</label>
+                                <label class="col-sm-4">Waktu Diagnosa:</label>
                                 <div class="col-sm-12">
                                     <div class="input-group" id="tanggal-diagnosa" data-input-tanggal
                                         data-target-input="nearest">
-                                        <input type="text" class="form-control" value="" name="waktu_diagnosa" readonly required>
+                                        <input type="text" class="form-control" value="" name="waktu_diagnosa" readonly>
                                         <div class="input-group-append" data-target="#tanggal-diagnosa"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text">
@@ -49,25 +60,25 @@
                             <div class="form-group">
                                 <label class="col-sm-4">Tinggi:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="tinggi" required>
+                                    <input type="text" class="form-control" name="tinggi">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Berat:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="berat" required>
+                                    <input type="text" class="form-control" name="berat">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Suhu Badan:</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="suhubadan" required>
+                                    <input type="text" class="form-control" name="suhubadan">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4">Hasil Diagnosa:</label>
                                 <div class="col-sm-12">
-                                    <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea required>
+                                    <textarea name="hasil_diagnosa" class="form-control" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
