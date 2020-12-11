@@ -14,7 +14,7 @@
 
         <div class="row">
             <div class="col-12">
-                <form class="form-horizontal" id="form-edit" action="{{route("user.update")}}" method="post">
+                <form class="form-horizontal need-konfirmasi" id="form-edit" action="{{route("user.update")}}" method="post">
                     @csrf
                     @method("PUT")
                     <div class="card">
@@ -35,8 +35,7 @@
                         </div>
 
                         <div class="card-footer d-flex align-items-stretch justify-content-end">
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#modal-konfirmasi"><i class="fa fa-save"></i> Simpan</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Simpan</button>
                             {{-- Buat nampilin modal konfirmasi password lamanya --}}
                             <a href="" class="btn btn-default"><i class=" fa fa-power-off"></i>
                                 Batal</a>
@@ -44,7 +43,7 @@
                     </div>
 
                 </form>
-                <form class="form-horizontal" id="form-ubahpassword" action="{{route("user.ubah_password")}}"
+                <form class="form-horizontal need-konfirmasi" id="form-ubahpassword" action="{{route("user.ubah_password")}}"
                     method="post">
                     @csrf
                     @method("PATCH")
@@ -73,8 +72,7 @@
                         </div>
 
                         <div class="card-footer d-flex align-items-stretch justify-content-end">
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#modal-konfirmasi"><i class="fa fa-save"></i> Simpan</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Simpan</button>
                             {{-- Buat nampilin modal konfirmasi password lamanya --}}
                             <a href="" class="btn btn-default"><i class=" fa fa-power-off"></i>
                                 Batal</a>
@@ -118,9 +116,10 @@
 
 @section("extra-script")
 <script>
-    $("#modal-konfirmasi").on("show.bs.modal",function(e){ // Buat nunggu event pas modalnya kebuka
-        var formId = $(e.relatedTarget).closest("form").attr("id") // ngambil form id dari tombol yang di pencet tadi
-        $(this).find("[data-konfirmasi]").attr("form",formId); // ngisi attribut form buat tombol sama inputnya jadi pas tombolnya di pencet data dari formnya ikut kekirim
+    $("form.need-konfirmasi").on("submit",function(e){
+        e.preventDefault()
+        $("[data-konfirmasi]")
+        $("#modal-konfirmasi")
     })
 </script>
 @endsection
