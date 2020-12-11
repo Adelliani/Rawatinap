@@ -41,6 +41,10 @@ Route::group(['prefix' => 'admin', 'middleware' => "poli"], function () {
 
 Route::group(['middleware' => ['dokter']], function () {
     
+    
+    Route::resource('dokter/riwayatpasien', 'RiwayatPasienController')->only(["index", "show"])->parameters([
+        "riwayatpasien" => "rawatInap"
+    ]);
     Route::resource('dokter', 'DokterPasienController')->names("pasien")->parameters(["dokter" => "rawatInap"]);
     Route::resource('dokter.fasilitas', 'DokterFasilitasController')->only(["create", "store"])->names("pasienfasilitas")->parameters(["dokter" => "rawatInap"]);
     Route::resource('dokter.obat', 'DokterResepObatController')->only(["create", "store"])->names("resepobat")->parameters(["dokter" => "rawatInap"]);
@@ -48,9 +52,7 @@ Route::group(['middleware' => ['dokter']], function () {
     Route::resource('dokter.diagnosa', 'DokterDiagnosaController')->only(["create", "store"])->names("diagnosa")->parameters(["dokter" => "rawatInap"]);
     Route::resource('dokter.obat.returobat', 'DokterReturObatController')->only(["create", "store"])->names("returobat")->parameters(["dokter" => "rawatInap"]);
     Route::resource('dokter.obat.efekobat', 'DokterEfekObatController')->only(["create", "store"])->names("efekobat")->parameters(["dokter" => "rawatInap"]);
-    Route::resource('dokter/riwayatpasien', 'RiwayatPasienController')->only(["index", "show"])->parameters([
-        "riwayatpasien" => "rawatInap"
-    ]);
+    
 
 });
 
